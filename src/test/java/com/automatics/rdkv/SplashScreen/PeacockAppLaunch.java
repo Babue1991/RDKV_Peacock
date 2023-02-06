@@ -61,7 +61,7 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 		// Variables declaration Ends
 
 		LOGGER.info("#######################################################################################");
-		LOGGER.info("STARTING TEST CASE: TC-RDKV-STB-1010");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1001");
 		LOGGER.info("TEST DESCRIPTION: This test is to verify user can launch peacock app successfully from Xfinity menu using remote keys");
 		LOGGER.info("TEST STEPS : ");
 		LOGGER.info("1. Press Xfinity button on the comcast remote");
