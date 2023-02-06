@@ -26,12 +26,14 @@ public class CommonMethods{
 		
 	
 	}
-	public static void execCommand1(String command) {
+	public static void execCaptureCommand(String command) {
 		try {
 
 			Thread.sleep(2000L);
-
-			Process p=Runtime.getRuntime().exec("gst-launch-1.0 v4l2src device=/dev/video1 num-buffers=1 ! jpegenc ! filesink location=/var/lib/jenkins/workspace/RDKV_Peacock/src/test/java/com/automatics/rdkv/liveimage/XfinityHomeScreen.jpg");
+			String video ="/dev/video1";
+		//	String cmd1 = "chmod 777 -R"+" "+;
+		//	Runtime.getRuntime().exec(cmd1);
+			Process p=Runtime.getRuntime().exec("gst-launch-1.0 v4l2src device=/dev/video1 num-buffers=1 ! jpegenc ! filesink location=/home/user/eclipse-workspace/RDKV_Peacock/src/test/java/com/automatics/rdkv/liveimage/XfinityHomeScreen.jpg");
 			System.out.println("The terminal command which is executed is : "+command);
 		//	java.io.OutputStream out = p.getOutputStream();  
 
