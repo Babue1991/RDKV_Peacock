@@ -86,7 +86,9 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 				
 				CommonMethods.execCaptureCommand("test");
 				
-			//	CaptureLiveImage.capture(ImageCaptureConstants.XFINITY_HOME_SCREEN);
+				Thread.sleep(9000L);
+				
+				CaptureLiveImage.capture(ImageCaptureConstants.XFINITY_HOME_SCREEN);
 				
 				///home/user/eclipse-workspace/RDKV_Peacock/src/test/java/com/automatics/rdkv/liveimage/XfinityHomeScreen.jpg
 				
