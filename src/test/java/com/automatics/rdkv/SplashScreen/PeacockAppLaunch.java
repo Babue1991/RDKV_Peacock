@@ -83,7 +83,7 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 				
 				CommonMethods.execCommand(RemoteKeyContstants.XFINITY_BUTTON);
 				
-				CommonMethods.execCommand1("test");
+				CommonMethods.execCaptureCommand("test");
 				
 				CaptureLiveImage.capture(ImageCaptureConstants.XFINITY_HOME_SCREEN);
 				
