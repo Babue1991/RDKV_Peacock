@@ -15,6 +15,11 @@
     <artifactId>image-comparison</artifactId>
     <version>4.4.0</version>
 </dependency>
+<dependency>
+<groupId>RDKMAutomationRDKBUtils</groupId>
+<artifactId>rdkb-utils</artifactId>
+<version>0.0.1-SNAPSHOT</version>
+</dependency>
 
 		<dependency>
 			<groupId>junit</groupId>
