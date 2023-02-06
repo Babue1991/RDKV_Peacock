@@ -12,6 +12,7 @@ public class CommonMethods{
 			Thread.sleep(2000L);
 
 			Process p=Runtime.getRuntime().exec(command);
+			System.out.println("The terminal command which is executed is : "+command);
 		//	java.io.OutputStream out = p.getOutputStream();  
 
 		//	LOGGER.info("The command executed"+command);
