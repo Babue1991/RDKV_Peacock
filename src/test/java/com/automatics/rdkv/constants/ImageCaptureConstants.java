@@ -24,6 +24,8 @@ public class ImageCaptureConstants {
 	/********The variable used to send capture card port to capture image**/
 	public static String BEGIN_COMMAND="gst-launch-1.0 v4l2src device=";
 	
+	public static String COMP_PATH="gst-launch-1.0 v4l2src device="+VIDEO_PORT+" "+"num-buffers=1 ! jpegenc ! filesink location="+XFINITY_HOME_SCREEN;
+	
 	/********The variable used to send capture card port to capture image**/
 	public static String EMPTY_SPACE=" ";
 	
