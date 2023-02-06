@@ -21,7 +21,7 @@ public class CaptureLiveImage {
 		
 		String liveImage ="homescreen.jpg";
 				
-		String completedPath=path+"/src/test/java/com/automatics/rdkv/liveimage/"+liveImage;
+		String completedPath="/var/lib/jenkins/workspace/RDKV_Peacock/"+"/src/test/java/com/automatics/rdkv/liveimage/"+liveImage;
 		   
 		String location="/home/user/eclipse-workspace/currentImage.jpg";
 	//	String cmd1 = "chmod 777 -R"+" "+completedPath;
