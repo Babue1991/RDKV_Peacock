@@ -31,9 +31,8 @@ public class CommonMethods{
 			e.printStackTrace();
 
 		}
-		
-	
 	}
+	
 	public static void printResults(Process process) throws IOException {
 	    BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
 	    String line = "";
@@ -49,7 +48,8 @@ public class CommonMethods{
 			command =ImageCaptureConstants.CAPTURE_COMMAND+imagePath;
 			System.out.println("Capture command value"+command);
 			Process p=Runtime.getRuntime().exec(command);
-			System.out.println("The terminal command which is executed is : "+command);
+			printResults(p);
+			System.out.println("The terminal command which is executed is exec Capture command method: "+command);
 
 
 		}catch(Exception e) {

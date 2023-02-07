@@ -37,7 +37,6 @@ public class CaptureLiveImage {
 		
 		System.out.println(imagePath);
 		String command =ImageCaptureConstants.CAPTURE_COMMAND+imagePath;
-		//runtime = Runtime.getRuntime();
 				
 		ScreenCapturCommand = ImageCaptureConstants.COMP_PATH;
 		System.out.println("The screen capture command is: " +ScreenCapturCommand);
