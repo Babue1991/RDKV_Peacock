@@ -50,13 +50,24 @@ public class CaptureLiveImage {
 
 	}
 
-	public static void cap(){ {
-		String path="/home/user/Live_Image/homescreen1.jpg";
+	public static void cap(){
+		String path="~/workspace/new.jpg";
+		String path1="/home/user/Live_Image/new.jpg";
 		String command=ImageCaptureConstants.CAPTURE_COMMAND+path;
 		
-
+	//	Process p=Runtime.getRuntime().exec(command);
+//		printResults(p);
+		
+	//	CommonMethods.execCommand("sudo chmod 777 -R "+"/var/lib/jenkins/workspace/");
 		CommonMethods.execCommand(command);
+	
 	}
+	public static void printResults(Process process) throws IOException {
+		BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+		String line = "";
+		while ((line = reader.readLine()) != null) {
+			System.out.println(line);
+		}
 	}
 
 }

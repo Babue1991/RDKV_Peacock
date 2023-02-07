@@ -81,7 +81,7 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 				LOGGER.info("*****************************************************************************************");
 				
 				
-				CommonMethods.execCommand(RemoteKeyContstants.XFINITY_BUTTON);
+			//	CommonMethods.execCommand(RemoteKeyContstants.XFINITY_BUTTON);
 				Thread.sleep(5000L);
 				
 				CommonMethods.execCaptureCommand("/var/lib/jenkins/workspace/homescreen1.jpg");

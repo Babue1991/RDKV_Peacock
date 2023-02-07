@@ -41,6 +41,8 @@ public class CommonMethods{
 			System.out.println(imagePath);
 			String command=ImageCaptureConstants.CAPTURE_COMMAND+imagePath;
 			CommonMethods.execCommand(command);
+			
+			
 
 			System.out.println("The command value is: "+command);
 
