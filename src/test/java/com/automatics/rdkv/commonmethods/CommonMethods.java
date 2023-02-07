@@ -16,31 +16,25 @@ public class CommonMethods{
 		try {
 
 			Thread.sleep(2000L);
-
 			Process p=Runtime.getRuntime().exec(command);
 			printResults(p);
 			Thread.sleep(3000L);
 			System.out.println("The terminal command which is executed is : "+command);
-		//	java.io.OutputStream out = p.getOutputStream();  
-
-		//	LOGGER.info("The command executed"+command);
 
 		}catch(Exception e) {
-
 			System.out.println("Error in terminal command execution: "+command);
 			e.printStackTrace();
-
 		}
 	}
-	
+
 	public static void printResults(Process process) throws IOException {
-	    BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-	    String line = "";
-	    while ((line = reader.readLine()) != null) {
-	        System.out.println(line);
-	    }
+		BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+		String line = "";
+		while ((line = reader.readLine()) != null) {
+			System.out.println(line);
+		}
 	}
-	
+
 	public static void execCaptureCommand(String imagePath) {
 		try {
 
@@ -49,7 +43,6 @@ public class CommonMethods{
 			CommonMethods.execCommand(command);
 
 			System.out.println("The command value is: "+command);
-
 
 		}catch(Exception e) {
 

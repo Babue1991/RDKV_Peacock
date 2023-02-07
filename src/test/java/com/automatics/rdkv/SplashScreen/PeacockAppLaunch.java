@@ -93,7 +93,7 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 				///home/user/eclipse-workspace/RDKV_Peacock/src/test/java/com/automatics/rdkv/liveimage/XfinityHomeScreen.jpg
 				
 				
-				liveImage=Imgcodecs.imread("/home/user/Live_Image/homescreen1.jpg");
+				liveImage=Imgcodecs.imread("/var/lib/jenkins/workspace/homescreen1.jpg");
 				referenceImage = Imgcodecs.imread("/home/user/eclipse-workspace/RDKV_Peacock/src/test/java/com/automatics/rdkv/referenceimage/Xfinity_Home.jpg");
 				
 				ImageCompare img = new ImageCompare();
