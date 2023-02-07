@@ -4,12 +4,14 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import com.automatics.rdkv.constants.ImageCaptureConstants;
 import com.automatics.test.AutomaticsTestBase;
 import com.lowagie.text.pdf.codec.Base64.OutputStream;
 
 public class CommonMethods{
 
 	public static String path;
+	static String command;
 	public static void execCommand(String command) {
 		try {
 
@@ -40,18 +42,15 @@ public class CommonMethods{
 	    }
 	}
 	
-	public static void execCaptureCommand(String command) {
+	public static void execCaptureCommand(String imagePath) {
 		try {
 
 			Thread.sleep(2000L);
-			String video ="/dev/video1";
-		//	String cmd1 = "chmod 777 -R"+" "+;
-		//	Runtime.getRuntime().exec(cmd1);
-			Process p=Runtime.getRuntime().exec("gst-launch-1.0 v4l2src device=/dev/video1 num-buffers=1 ! jpegenc ! filesink location=/home/user/eclipse-workspace/RDKV_Peacock/src/test/java/com/automatics/rdkv/liveimage/XfinityHomeScreen.jpg");
+			command =ImageCaptureConstants.CAPTURE_COMMAND+imagePath;
+			System.out.println("Capture command value"+command);
+			Process p=Runtime.getRuntime().exec(command);
 			System.out.println("The terminal command which is executed is : "+command);
-		//	java.io.OutputStream out = p.getOutputStream();  
 
-		//	LOGGER.info("The command executed"+command);
 
 		}catch(Exception e) {
 

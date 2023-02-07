@@ -36,7 +36,7 @@ public class CaptureLiveImage {
 	public static void capture(String imagePath) throws IOException {
 		
 		System.out.println(imagePath);
-		
+		String command =ImageCaptureConstants.CAPTURE_COMMAND+imagePath;
 		//runtime = Runtime.getRuntime();
 				
 		ScreenCapturCommand = ImageCaptureConstants.COMP_PATH;
