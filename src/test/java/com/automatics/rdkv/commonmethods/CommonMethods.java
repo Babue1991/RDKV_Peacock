@@ -1,5 +1,9 @@
 package com.automatics.rdkv.commonmethods;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 import com.automatics.test.AutomaticsTestBase;
 import com.lowagie.text.pdf.codec.Base64.OutputStream;
 
@@ -12,6 +16,8 @@ public class CommonMethods{
 			Thread.sleep(2000L);
 
 			Process p=Runtime.getRuntime().exec(command);
+			printResults(p);
+			Thread.sleep(3000L);
 			System.out.println("The terminal command which is executed is : "+command);
 		//	java.io.OutputStream out = p.getOutputStream();  
 
@@ -26,6 +32,14 @@ public class CommonMethods{
 		
 	
 	}
+	public static void printResults(Process process) throws IOException {
+	    BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+	    String line = "";
+	    while ((line = reader.readLine()) != null) {
+	        System.out.println(line);
+	    }
+	}
+	
 	public static void execCaptureCommand(String command) {
 		try {
 
