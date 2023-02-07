@@ -44,12 +44,11 @@ public class CommonMethods{
 	public static void execCaptureCommand(String imagePath) {
 		try {
 
-			Thread.sleep(2000L);
-			command =ImageCaptureConstants.CAPTURE_COMMAND+imagePath;
-			System.out.println("Capture command value"+command);
-			Process p=Runtime.getRuntime().exec(command);
-			printResults(p);
-			System.out.println("The terminal command which is executed is exec Capture command method: "+command);
+			System.out.println(imagePath);
+			String command=ImageCaptureConstants.CAPTURE_COMMAND+imagePath;
+			CommonMethods.execCommand(command);
+
+			System.out.println("The command value is: "+command);
 
 
 		}catch(Exception e) {

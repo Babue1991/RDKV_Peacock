@@ -36,18 +36,13 @@ public class CaptureLiveImage {
 	public static void capture(String imagePath) throws IOException {
 		
 		System.out.println(imagePath);
-		String command =ImageCaptureConstants.CAPTURE_COMMAND+imagePath;
-				
-		ScreenCapturCommand = ImageCaptureConstants.COMP_PATH;
-		System.out.println("The screen capture command is: " +ScreenCapturCommand);
+		String path="/home/user/Live_Image/homescreen1.jpg";
+		String command=ImageCaptureConstants.CAPTURE_COMMAND+imagePath;
 		
-		CommonMethods.execCommand(ImageCaptureConstants.CAPTURE_COMMAND+imagePath);
 
-	//	File file =new File(imagePath);
+		CommonMethods.execCommand(command);
 		
-		
-		
-//		return file;
+	//	CommonMethods.execCommand(ImageCaptureConstants.CAPTURE_COMMAND+imagePath);
 
 	}
 }
