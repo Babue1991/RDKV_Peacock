@@ -124,7 +124,7 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 				
 				tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
 				
-			} catch (IOException e) {
+			} catch (Exception e) {
 				LOGGER.error("Exception occured while reading the image file " + e);
 				// TODO Auto-generated catch block
 				e.printStackTrace();
