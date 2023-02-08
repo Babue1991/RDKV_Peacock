@@ -4,8 +4,11 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import org.bytedeco.javacpp.opencv_java;
+import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.imgcodecs.Imgcodecs;
+import org.seleniumhq.jetty9.util.Loader;
 import org.testng.annotations.Test;
 
 import com.automatics.annotations.TestDetails;
@@ -40,6 +43,10 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 	 * @throws InterruptedException 
 	 * 
 	 */
+	
+	 static {
+	       System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+	 }
 	static Process p;
 	@Test(dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA })
@@ -81,7 +88,7 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 			Thread.sleep(5000L);
 			ImageCompare imgCompare = new ImageCompare();
 
-			
+		//	System.loadLibrary(opencv_java.class);
 			referenceImage = Imgcodecs.imread(ImageCaptureConstants.STB_HOME_APPS_BUTTON_IMAGE);
 			
 			
