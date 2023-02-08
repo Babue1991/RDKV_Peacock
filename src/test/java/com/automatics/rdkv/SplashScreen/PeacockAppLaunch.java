@@ -86,13 +86,13 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 			//	CommonMethods.execCommand("v4l2-ctl --device " + port + " --set-input=1");
 				p = Runtime.getRuntime().exec(cmd);
 			
-				System.out.println();
+				System.out.println("The command is "+cmd);
 				obj.printResults(p);
 				Thread.sleep(3000L);
 				//CommonMethods.execCommand("gst-launch-1.0 v4l2src device=" + port + " num-buffers=1 ! jpegenc ! filesink location=" + location);
 				String cmd1="gst-launch-1.0 v4l2src device=" + port + " num-buffers=1 ! jpegenc ! filesink location=" + location;
 				p = Runtime.getRuntime().exec(cmd1);
-				
+				System.out.println("The command is "+cmd1);
 				
 				//CommonMethods.execCaptureCommand("/var/lib/jenkins/workspace/homescreen1.png");
 				obj.printResults(p);
@@ -154,7 +154,7 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
 		String line = "";
 		while ((line = reader.readLine()) != null) {
-			System.out.println(line);
+			System.out.println("The terminal response is: "+line);
 		}
 		p.destroy();
 	}
