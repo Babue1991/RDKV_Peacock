@@ -1,14 +1,8 @@
 package com.automatics.rdkv.SplashScreen;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
-import org.bytedeco.javacpp.opencv_java;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.imgcodecs.Imgcodecs;
-import org.seleniumhq.jetty9.util.Loader;
 import org.testng.annotations.Test;
 
 import com.automatics.annotations.TestDetails;
@@ -126,7 +120,6 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-1010");
 
 	}
-
 }
 
 
