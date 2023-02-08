@@ -85,7 +85,9 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 			//	CommonMethods.execCommand("chmod -R 700 /var/lib/jenkins/workspace/");
 				Thread.sleep(5000L);
 				String port="/dev/video1";
-				String location="/var/lib/jenkins/workspace/homescreen1.png";
+				String location="/var/lib/jenkins/workspace/homescreen1.jpg";
+				CommonMethods.execCommand("v4l2-ctl --device "+port+" --set-input=1");
+				Thread.sleep(3000L);
 				CommonMethods.execCommand("gst-launch-1.0 v4l2src device="+port+" num-buffers=1 ! jpegenc ! filesink location="+location);
 				//CommonMethods.execCaptureCommand("/var/lib/jenkins/workspace/homescreen1.png");
 				
