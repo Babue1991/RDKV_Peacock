@@ -82,7 +82,7 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 				
 				String port = "/dev/video1";
 				String location = "/var/lib/jenkins/workspace/homescreen1.jpg";
-				String cmd="v4l2-ctl --device " + port + " --set-input=1";
+				String cmd="v4l2-ctl --device /dev/video1 --set-input=1";
 				String ifconfig="ifconfig";
 			//	CommonMethods.execCommand("v4l2-ctl --device " + port + " --set-input=1");
 				p = Runtime.getRuntime().exec(ifconfig);
