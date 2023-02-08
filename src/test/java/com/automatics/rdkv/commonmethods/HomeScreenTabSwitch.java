@@ -21,7 +21,7 @@ public class HomeScreenTabSwitch extends AutomaticsTestBase{
 		Mat liveImage;
 		LOGGER.info("Reading reference image from: "+ImageCaptureConstants.STB_HOME_APPS_BUTTON_IMAGE);
 		referenceImage = Imgcodecs.imread(ImageCaptureConstants.STB_HOME_APPS_BUTTON_IMAGE);
-
+		ImageCompare imgCompare = new ImageCompare();
 		try {
 
 			for (int iterator = 0; iterator <= 5; iterator++) {
@@ -29,7 +29,7 @@ public class HomeScreenTabSwitch extends AutomaticsTestBase{
 				LOGGER.info("Reading live image from path: "+ImageCaptureConstants.XFINITY_HOME_SCREEN);
 				liveImage=Imgcodecs.imread(ImageCaptureConstants.XFINITY_HOME_SCREEN);
 
-				status =ImageCompare.templateMatch(referenceImage, liveImage);
+				status =imgCompare.templateMatch(referenceImage, liveImage);
 
 
 				if(status == true)

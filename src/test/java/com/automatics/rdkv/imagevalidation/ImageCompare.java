@@ -28,11 +28,13 @@ public class ImageCompare {
 		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
 		reference_image = Imgcodecs.imread("/home/user/eclipse/MyStuff.jpg");
 		live_Image = Imgcodecs.imread("/home/user/eclipse/MyStuff_1.jpg");
-		templateMatch(reference_image,live_Image);
+		
+		ImageCompare obj = new ImageCompare();
+		obj.templateMatch(reference_image,live_Image);
 		System.out.println("end");
 
 	}
-	public static boolean templateMatch(Mat reference_image, Mat live_Image) {
+	public boolean templateMatch(Mat reference_image, Mat live_Image) {
 
 		//System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
 		
@@ -67,6 +69,8 @@ public class ImageCompare {
 		
 		return status;
 	}
+	
+	
 
 	public boolean compare(BufferedImage imgA, BufferedImage imgB)
 	{
