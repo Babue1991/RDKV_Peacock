@@ -90,16 +90,18 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 				obj.printResults(p);
 				Thread.sleep(3000L);
 				//CommonMethods.execCommand("gst-launch-1.0 v4l2src device=" + port + " num-buffers=1 ! jpegenc ! filesink location=" + location);
-				String cmd1="gst-launch-1.0 v4l2src device=" + port + " num-buffers=1 ! jpegenc ! filesink location=" + location;
-				p = Runtime.getRuntime().exec(cmd1);
-				Thread.sleep(5000L);
-
-				System.out.println("The command is "+cmd1);
-				
-				//CommonMethods.execCaptureCommand("/var/lib/jenkins/workspace/homescreen1.png");
-				obj.printResults(p);
-			
-				Thread.sleep(3000L);
+				/*
+				 * String cmd1="gst-launch-1.0 v4l2src device=" + port +
+				 * " num-buffers=1 ! jpegenc ! filesink location=" + location; p =
+				 * Runtime.getRuntime().exec(cmd1); Thread.sleep(5000L);
+				 * 
+				 * System.out.println("The command is "+cmd1);
+				 * 
+				 * //CommonMethods.execCaptureCommand(
+				 * "/var/lib/jenkins/workspace/homescreen1.png"); obj.printResults(p);
+				 * 
+				 * Thread.sleep(3000L);
+				 */
 				
 			//	CaptureLiveImage.capture(ImageCaptureConstants.XFINITY_HOME_SCREEN);
 				
@@ -158,7 +160,7 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 		while ((line = reader.readLine()) != null) {
 			System.out.println("The terminal response is: "+line);
 		}
-		p.destroy();
+	//	p.destroy();
 	}
 
 }
