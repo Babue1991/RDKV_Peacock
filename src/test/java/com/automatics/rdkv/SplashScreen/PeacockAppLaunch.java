@@ -13,6 +13,7 @@ import com.automatics.constants.DataProviderConstants;
 import com.automatics.device.Dut;
 import com.automatics.rdkb.BroadBandTestGroup;
 import com.automatics.rdkb.utils.CommonUtils;
+import com.automatics.rdkv.captureimage.CaptureLiveImage;
 import com.automatics.rdkv.commonmethods.CommonMethods;
 import com.automatics.rdkv.constants.ImageCaptureConstants;
 import com.automatics.rdkv.constants.RemoteKeyContstants;
@@ -77,35 +78,10 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 
 			CommonMethods.execCommand(RemoteKeyContstants.XFINITY_BUTTON);
 			Thread.sleep(5000L);
-			CommonMethods.execCaptureCommand(ImageCaptureConstants.XFINITY_HOME_SCREEN);
-			Thread.sleep(5000L);
-			//PeacockAppLaunch obj =new PeacockAppLaunch();
-
-			String port = "/dev/video1";
-			String location = "/var/lib/jenkins/workspace/homescreen1.jpg";
-			String cmd="sudo v4l2-ctl --device /dev/video1 --set-input=1";
-			String ifconfig="ifconfig";
-			String ss = "gst-launch-1.0 v4l2src device="+ port+" num-buffers=1 ! jpegenc ! filesink location="+location;
-			//	CommonMethods.execCommand("v4l2-ctl --device " + port + " --set-input=1");
-			p = Runtime.getRuntime().exec(cmd);
-			p.waitFor();
-			Thread.sleep(5000L);
-			System.out.println("The command is "+ss);
-	//		obj.printResults(p);
-			Thread.sleep(3000L);
-			//CommonMethods.execCommand("gst-launch-1.0 v4l2src device=" + port + " num-buffers=1 ! jpegenc ! filesink location=" + location);
-
-			String cmd1="sudo gst-launch-1.0 v4l2src device=" + port +" num-buffers=1 ! jpegenc ! filesink location=" + location;
-			p = Runtime.getRuntime().exec(cmd1);
+			CaptureLiveImage.capture(ImageCaptureConstants.XFINITY_HOME_SCREEN);
 			Thread.sleep(5000L);
 
-			System.out.println("The command is "+cmd1);
-
-			//CommonMethods.execCaptureCommand("/var/lib/jenkins/workspace/homescreen1.png");
-		//	obj.printResults(p);
-
-			Thread.sleep(3000L);
-
+			
 
 			//	CaptureLiveImage.capture(ImageCaptureConstants.XFINITY_HOME_SCREEN);
 

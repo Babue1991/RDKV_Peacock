@@ -52,7 +52,6 @@ public class CommonMethods{
 
 			System.out.println("Error in terminal command execution: "+command);
 			e.printStackTrace();
-
 		}
 
 
