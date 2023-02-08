@@ -14,6 +14,8 @@ import com.automatics.device.Dut;
 import com.automatics.rdkb.BroadBandTestGroup;
 import com.automatics.rdkb.utils.CommonUtils;
 import com.automatics.rdkv.commonmethods.CommonMethods;
+import com.automatics.rdkv.constants.ImageCaptureConstants;
+import com.automatics.rdkv.constants.RemoteKeyContstants;
 import com.automatics.rdkv.imagevalidation.ImageCompare;
 import com.automatics.tap.AutomaticsTapApi;
 import com.automatics.test.AutomaticsTestBase;
@@ -73,11 +75,9 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 			LOGGER.info("*****************************************************************************************");
 
 
-			//	CommonMethods.execCommand(RemoteKeyContstants.XFINITY_BUTTON);
+				CommonMethods.execCommand(RemoteKeyContstants.XFINITY_BUTTON);
 
-			//	com.automatics.rdkv.STBhomescreen.CaptureLiveImage obj = new CaptureLiveImage();
-			//	obj.ca
-
+				CommonMethods.execCaptureCommand(ImageCaptureConstants.XFINITY_HOME_SCREEN);
 			PeacockAppLaunch obj =new PeacockAppLaunch();
 
 			String port = "/dev/video1";

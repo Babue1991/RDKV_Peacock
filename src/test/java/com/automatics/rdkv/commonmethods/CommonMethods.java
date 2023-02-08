@@ -21,7 +21,7 @@ public class CommonMethods{
 			printResults(p);
 			Thread.sleep(3000L);
 			System.out.println("The terminal command which is executed is : "+command);
-			
+
 		}catch(Exception e) {
 			System.out.println("Error in terminal command execution: "+command);
 			e.printStackTrace();
@@ -41,14 +41,12 @@ public class CommonMethods{
 
 	public static void execCaptureCommand(String imagePath) {
 		try {
+			CommonMethods.execCaptureCommand(ImageCaptureConstants.SET_VIDEO_PORT);
+			Thread.sleep(3000L);
+			System.out.println("The live image path: "+imagePath);
 
-			System.out.println(imagePath);
 			String command=ImageCaptureConstants.CAPTURE_COMMAND+imagePath;
 			CommonMethods.execCommand(command);
-			
-			
-
-			System.out.println("The command value is: "+command);
 
 		}catch(Exception e) {
 
