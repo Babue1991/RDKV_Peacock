@@ -1,37 +1,24 @@
 package com.automatics.rdkv.SplashScreen;
 
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import com.automatics.test.AutomaticsTestBase;
-import javax.imageio.ImageIO;
-
 import org.opencv.core.Mat;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.testng.annotations.Test;
+
 import com.automatics.annotations.TestDetails;
 import com.automatics.constants.DataProviderConstants;
-import com.automatics.tap.AutomaticsTapApi;
 import com.automatics.device.Dut;
 import com.automatics.rdkb.BroadBandTestGroup;
 import com.automatics.rdkb.utils.CommonUtils;
 import com.automatics.rdkv.commonmethods.CaptureLiveImage;
-import com.automatics.rdkv.commonmethods.CommonMethods;
-import com.automatics.rdkv.constants.ImageCaptureConstants;
-import com.automatics.rdkv.constants.ReferenceImageConstants;
-import com.automatics.rdkv.constants.RemoteKeyContstants;
 import com.automatics.rdkv.imagevalidation.ImageCompare;
-
+import com.automatics.tap.AutomaticsTapApi;
+import com.automatics.test.AutomaticsTestBase;
 
 public class PeacockAppLaunch extends AutomaticsTestBase {
 	
 	/**
 	 * String to store the value for resource usage compute window
 	 */
-	
-	
-	public static final String RESOURCE_USAGE_COMPUTE_WINDOW = "15";
-
 	/**
 	 * 
 	 * This test is to verify user can launch peacock app successfully from Xfinity menu using remote keys	 * 
@@ -83,13 +70,9 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 				
 			//	CommonMethods.execCommand(RemoteKeyContstants.XFINITY_BUTTON);
 				
-				String port="/dev/video1";
-				String location="/var/lib/jenkins/workspace/homescreen1.jpg";
-				String cmd1="v4l2-ctl --device "+port+" --set-input=1";
-				CommonMethods.execCommand(cmd1);
-				Thread.sleep(3000L);
-				String cmd2="gst-launch-1.0 v4l2src device="+port+" num-buffers=1 ! jpegenc ! filesink location="+location;
-				CommonMethods.execCommand(cmd2);
+			//	com.automatics.rdkv.STBhomescreen.CaptureLiveImage obj = new CaptureLiveImage();
+			//	obj.ca
+				com.automatics.rdkv.STBhomescreen.CaptureLiveImage.cap1();
 				
 				//CommonMethods.execCaptureCommand("/var/lib/jenkins/workspace/homescreen1.png");
 				

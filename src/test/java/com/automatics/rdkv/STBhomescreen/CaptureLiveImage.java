@@ -12,10 +12,12 @@ import com.automatics.rdkv.constants.ImageCaptureConstants;
 public class CaptureLiveImage {
 
 	static Process p;
-	public static void main(String[] args) throws IOException, InterruptedException {
-		CaptureLiveImage.cap();
-		
-	}
+	/*
+	 * public static void main(String[] args) throws IOException,
+	 * InterruptedException { // CaptureLiveImage.cap();
+	 * 
+	 * }
+	 */
 
 	public static void capture() throws IOException, InterruptedException {
 		String port="/dev/video1";
@@ -50,7 +52,7 @@ public class CaptureLiveImage {
 
 	}
 
-	public static void cap() throws InterruptedException{
+	public static void cap1() throws InterruptedException{
 		String port="/dev/video1";
 		String location="/var/lib/jenkins/workspace/homescreen1.jpg";
 		CommonMethods.execCommand("v4l2-ctl --device "+port+" --set-input=1");

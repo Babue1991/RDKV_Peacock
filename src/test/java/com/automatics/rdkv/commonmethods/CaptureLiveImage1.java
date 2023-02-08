@@ -9,7 +9,7 @@ import javax.imageio.ImageIO;
 
 import com.automatics.rdkv.constants.ImageCaptureConstants;
 
-public class CaptureLiveImage {
+public class CaptureLiveImage1 {
 	/*
 	 * 
 	 * Command to take live image screenshot

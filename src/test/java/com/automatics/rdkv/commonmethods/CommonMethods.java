@@ -37,7 +37,6 @@ public class CommonMethods{
 		while ((line = reader.readLine()) != null) {
 			System.out.println(line);
 		}
-	//+	p.destroy();
 	}
 
 	public static void execCaptureCommand(String imagePath) {
