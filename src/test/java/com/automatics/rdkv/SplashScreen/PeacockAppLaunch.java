@@ -9,7 +9,6 @@ import com.automatics.constants.DataProviderConstants;
 import com.automatics.device.Dut;
 import com.automatics.rdkb.BroadBandTestGroup;
 import com.automatics.rdkb.utils.CommonUtils;
-import com.automatics.rdkv.commonmethods.CaptureLiveImage;
 import com.automatics.rdkv.imagevalidation.ImageCompare;
 import com.automatics.tap.AutomaticsTapApi;
 import com.automatics.test.AutomaticsTestBase;
