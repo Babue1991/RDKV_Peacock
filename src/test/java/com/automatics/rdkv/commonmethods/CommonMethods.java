@@ -20,6 +20,7 @@ public class CommonMethods{
 			printResults(p);
 			Thread.sleep(3000L);
 			System.out.println("The terminal command which is executed is : "+command);
+			p.destroy();
 
 		}catch(Exception e) {
 			System.out.println("Error in terminal command execution: "+command);
