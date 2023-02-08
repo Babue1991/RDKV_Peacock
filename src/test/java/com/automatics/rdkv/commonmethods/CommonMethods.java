@@ -26,7 +26,7 @@ public class CommonMethods{
 			System.out.println("Error in terminal command execution: "+command);
 			e.printStackTrace();
 		}finally {
-		//	p.destroy();
+			//	p.destroy();
 			System.out.println("Process destroyed in finally block");
 		}
 	}
@@ -41,8 +41,8 @@ public class CommonMethods{
 
 	public static void execCaptureCommand(String imagePath) {
 		try {
-			CommonMethods.execCaptureCommand(ImageCaptureConstants.SET_VIDEO_PORT);
 			Thread.sleep(3000L);
+			CommonMethods.execCommand(ImageCaptureConstants.SET_VIDEO_PORT);
 			System.out.println("The live image path: "+imagePath);
 
 			String command=ImageCaptureConstants.CAPTURE_COMMAND+imagePath;
@@ -54,6 +54,11 @@ public class CommonMethods{
 			e.printStackTrace();
 
 		}
+
+
+	}
+	public static void setPort() {
+		CommonMethods.execCaptureCommand(ImageCaptureConstants.SET_VIDEO_PORT);
 	}
 
 	public static void AppButtonHighlight() {
