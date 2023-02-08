@@ -84,10 +84,11 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 				String location = "/var/lib/jenkins/workspace/homescreen1.jpg";
 				String cmd="v4l2-ctl --device /dev/video1 --set-input=1";
 				String ifconfig="ifconfig";
+				String ss = "gst-launch-1.0 v4l2src device="+ port+" num-buffers=1 ! jpegenc ! filesink location="+location;
 			//	CommonMethods.execCommand("v4l2-ctl --device " + port + " --set-input=1");
-				p = Runtime.getRuntime().exec(cmd);
+				p = Runtime.getRuntime().exec(ss);
 				Thread.sleep(5000L);
-				System.out.println("The command is "+cmd);
+				System.out.println("The command is "+ss);
 				obj.printResults(p);
 				Thread.sleep(3000L);
 				//CommonMethods.execCommand("gst-launch-1.0 v4l2src device=" + port + " num-buffers=1 ! jpegenc ! filesink location=" + location);
