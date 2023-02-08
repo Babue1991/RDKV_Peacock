@@ -27,7 +27,7 @@ public class ImageCaptureConstants {
 	
 
 	/********The variable used to send capture card port to capture image**/
-	public static String XFINITY_HOME_SCREEN="XfinityHomeScreen.jpg";
+	public static String XFINITY_HOME_SCREEN=LIVE_IMAGE_PATH+"XfinityHomeScreen.jpg";
 
 	/********The variable used to send capture card port to capture image**/
 	public static String BEGIN_COMMAND="sudo gst-launch-1.0 v4l2src device=";
