@@ -75,9 +75,9 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 			LOGGER.info("*****************************************************************************************");
 
 
-				CommonMethods.execCommand(RemoteKeyContstants.XFINITY_BUTTON);
-
-				CommonMethods.execCaptureCommand(ImageCaptureConstants.XFINITY_HOME_SCREEN);
+			CommonMethods.execCommand(RemoteKeyContstants.XFINITY_BUTTON);
+			Thread.sleep(5000L);
+			CommonMethods.execCaptureCommand(ImageCaptureConstants.XFINITY_HOME_SCREEN);
 			PeacockAppLaunch obj =new PeacockAppLaunch();
 
 			String port = "/dev/video1";
