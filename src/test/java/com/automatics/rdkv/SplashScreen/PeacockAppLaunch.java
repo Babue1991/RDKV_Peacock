@@ -1,6 +1,7 @@
 package com.automatics.rdkv.SplashScreen;
 
 import org.opencv.core.Core;
+
 import org.opencv.core.Mat;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.testng.annotations.Test;
@@ -74,8 +75,8 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 			LOGGER.info("Click Xfinity button ");
 			CommonMethods.execCommand(RemoteKeyContstants.XFINITY_BUTTON);
 			Thread.sleep(5000L);
-			
-			nu.pattern.OpenCV.loadLibrary();
+			System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+			nu.pattern.OpenCV.loadLocally();
 			LOGGER.info("Taking live screenshot in "+ImageCaptureConstants.XFINITY_HOME_SCREEN);
 			CaptureLiveImage.capture(ImageCaptureConstants.XFINITY_HOME_SCREEN);
 			Thread.sleep(5000L);

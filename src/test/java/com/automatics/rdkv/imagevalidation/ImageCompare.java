@@ -15,6 +15,8 @@ import org.opencv.imgproc.Imgproc;
 
 import com.automatics.rdkv.constants.ImageCaptureConstants;
 
+import nu.pattern.OpenCV;
+
 
 public class ImageCompare {
 	static Mat reference_image;
@@ -24,10 +26,11 @@ public class ImageCompare {
 	public static void main(String args[]) throws IOException {
 		File file = new File("home/user");
 		System.out.println("Start");
-//		nu.pattern.OpenCV.loadLocally();
-		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-		reference_image = Imgcodecs.imread("/home/user/eclipse/MyStuff.jpg");
-		live_Image = Imgcodecs.imread("/home/user/eclipse/MyStuff_1.jpg");
+		nu.pattern.OpenCV.loadLocally();
+	//	OpenCV.loadShared();
+	//	System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+		reference_image = Imgcodecs.imread("/home/user/Desktop/Xfinity_Cropimg.jpg");
+		live_Image = Imgcodecs.imread("/home/user/Desktop/Xfinity_Cropimg.jpg");
 		
 		ImageCompare obj = new ImageCompare();
 		obj.templateMatch(reference_image,live_Image);
@@ -41,7 +44,7 @@ public class ImageCompare {
 		Mat source=null;
 		Mat template=null;
 		String filePath=ImageCaptureConstants.LIVE_IMAGE_PATH;
-
+		System.out.println("The path is: "+filePath);
 		//Load image file
 		source=reference_image;
 		template=live_Image;
@@ -56,8 +59,9 @@ public class ImageCompare {
 		MinMaxLocResult mmr = Core.minMaxLoc(outputImage);
 		Point matchLoc=mmr.maxLoc;
 		//Draw rectangle on result image
+	
 		Imgproc.rectangle(source, matchLoc, new Point(matchLoc.x + template.cols(),
-				matchLoc.y + template.rows()), new Scalar(255, 255, 255));
+			matchLoc.y + template.rows()), new Scalar(255, 255, 255));
 
 		Imgcodecs.imwrite(filePath+"matched.jpg", source);
 		System.out.println("Completed");

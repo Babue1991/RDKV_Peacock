@@ -20,7 +20,7 @@ public class HomeScreenTabSwitch extends AutomaticsTestBase{
 	public boolean clickAppsButton() {
 		Mat referenceImage;
 		Mat liveImage;
-	//	nu.pattern.OpenCV.loadLocally();
+		nu.pattern.OpenCV.loadLocally();
 		
 		LOGGER.info("Reading reference image from: "+ImageCaptureConstants.STB_HOME_APPS_BUTTON_IMAGE);
 		referenceImage = Imgcodecs.imread(ImageCaptureConstants.STB_HOME_APPS_BUTTON_IMAGE);
