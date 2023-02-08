@@ -75,7 +75,6 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 			LOGGER.info("Click Xfinity button ");
 			CommonMethods.execCommand(RemoteKeyContstants.XFINITY_BUTTON);
 			Thread.sleep(5000L);
-			System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
 			nu.pattern.OpenCV.loadLocally();
 			LOGGER.info("Taking live screenshot in "+ImageCaptureConstants.XFINITY_HOME_SCREEN);
 			CaptureLiveImage.capture(ImageCaptureConstants.XFINITY_HOME_SCREEN);
