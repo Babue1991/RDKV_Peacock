@@ -88,8 +88,6 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 			//	CommonMethods.execCommand("v4l2-ctl --device " + port + " --set-input=1");
 				p = Runtime.getRuntime().exec(cmd);
 				p.waitFor();
-				p = Runtime.getRuntime().exec("root123");
-			    p.waitFor();
 				Thread.sleep(5000L);
 				System.out.println("The command is "+ss);
 				obj.printResults(p);
