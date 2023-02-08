@@ -50,7 +50,8 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 		String testId = "PEACOCK-AAMP-TC-101";
 		String errorMessage = null;
 		String stepNum = null;
-
+		Mat referenceImage;
+		Mat liveImage;
 		// Variables declaration Ends
 
 		LOGGER.info("#######################################################################################");
@@ -78,11 +79,23 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 			LOGGER.info("Taking live screenshot in "+ImageCaptureConstants.XFINITY_HOME_SCREEN);
 			CaptureLiveImage.capture(ImageCaptureConstants.XFINITY_HOME_SCREEN);
 			Thread.sleep(5000L);
+			ImageCompare imgCompare = new ImageCompare();
+
+			
+			referenceImage = Imgcodecs.imread(ImageCaptureConstants.STB_HOME_APPS_BUTTON_IMAGE);
+			
+			
+			LOGGER.info("Reading live image from path: "+ImageCaptureConstants.XFINITY_HOME_SCREEN);
+			liveImage=Imgcodecs.imread(ImageCaptureConstants.XFINITY_HOME_SCREEN);
+		
+			LOGGER.info("Calling template compare method: ");
+
+			status =imgCompare.templateMatch(referenceImage, liveImage);
 			
 			HomeScreenTabSwitch tab = new HomeScreenTabSwitch();
 			
 			LOGGER.info("Calling apps button click method: ");
-			status = tab.clickAppsButton();
+			//status = tab.clickAppsButton();
 			
 		
 			if (status) {
