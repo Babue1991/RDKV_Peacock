@@ -13,15 +13,14 @@ import com.automatics.test.AutomaticsTestBase;
 
 public class HomeScreenTabSwitch extends AutomaticsTestBase{
 
-	static Mat referenceImage;
-	static Mat liveImage;
+	
 	static boolean status;
 
 	public boolean clickAppsButton() {
-
-		LOGGER.info("Reading reference image from path: "+ImageCaptureConstants.STB_HOME_APPS_BUTTON_IMAGE);
+		Mat referenceImage;
+		Mat liveImage;
+		LOGGER.info("Reading reference image from: "+ImageCaptureConstants.STB_HOME_APPS_BUTTON_IMAGE);
 		referenceImage = Imgcodecs.imread(ImageCaptureConstants.STB_HOME_APPS_BUTTON_IMAGE);
-
 
 		try {
 
