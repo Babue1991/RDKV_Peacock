@@ -8,7 +8,7 @@ import com.automatics.rdkv.constants.ImageCaptureConstants;
 import com.automatics.test.AutomaticsTestBase;
 import com.lowagie.text.pdf.codec.Base64.OutputStream;
 
-public class CommonMethods{
+public class CommonMethods extends AutomaticsTestBase{
 
 	public static String path;
 	static String command;
@@ -20,10 +20,13 @@ public class CommonMethods{
 			p=Runtime.getRuntime().exec(command);
 			printResults(p);
 			Thread.sleep(3000L);
-			System.out.println("The terminal command which is executed is : "+command);
+			LOGGER.info("The terminal command which is executed is : "+command);
+			System.out.println();
 
 		}catch(Exception e) {
-			System.out.println("Error in terminal command execution: "+command);
+			LOGGER.info("Error in terminal command execution : "+command);
+			
+			System.out.println();
 			e.printStackTrace();
 		}finally {
 			//	p.destroy();
@@ -35,7 +38,8 @@ public class CommonMethods{
 		BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
 		String line = "";
 		while ((line = reader.readLine()) != null) {
-			System.out.println(line);
+			LOGGER.info("Terminal logs "+line);
+		//	System.out.println(line);
 		}
 	}
 

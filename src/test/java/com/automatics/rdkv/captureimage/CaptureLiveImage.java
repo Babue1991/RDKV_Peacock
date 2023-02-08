@@ -8,8 +8,9 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import com.automatics.rdkv.commonmethods.CommonMethods;
 import com.automatics.rdkv.constants.ImageCaptureConstants;
+import com.automatics.test.AutomaticsTestBase;
 
-public class CaptureLiveImage {
+public class CaptureLiveImage extends AutomaticsTestBase {
 
 	static Process p;
 	static String command;
@@ -25,14 +26,13 @@ public class CaptureLiveImage {
 		try {
 			Thread.sleep(3000L);
 			CommonMethods.execCommand(ImageCaptureConstants.SET_VIDEO_PORT);
-			System.out.println("The live image path: "+destPath);
-
+			LOGGER.info("The live image path: "+destPath);
+			
 			command=ImageCaptureConstants.CAPTURE_COMMAND+destPath;
 			CommonMethods.execCommand(command);
 
 		}catch(Exception e) {
-
-			System.out.println("Error in terminal command execution: "+command);
+			LOGGER.info("Error in terminal command execution: "+command);
 			e.printStackTrace();
 		}
 	}

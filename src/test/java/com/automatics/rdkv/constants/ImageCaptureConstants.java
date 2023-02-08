@@ -18,6 +18,9 @@ public class ImageCaptureConstants {
 	/********The variable used to send capture card port to capture image**/
 	public static String ROOT_DIRECTORY=System.getProperty("user.dir");
 	
+	public static String REFERENCE_IMAGE_PATH=ROOT_DIRECTORY+"/src/test/java/com/automatics/rdkv/referenceimage/";
+
+	public static String STB_HOME_APPS_BUTTON_IMAGE=REFERENCE_IMAGE_PATH+"Xfinity_Home.jpg";
 	
 	/********The variable used to send capture card port to capture image**/
 	public static String LIVE_IMAGE_PATH=ROOT_DIRECTORY+"/src/test/java/com/automatics/rdkv/liveimage/";
