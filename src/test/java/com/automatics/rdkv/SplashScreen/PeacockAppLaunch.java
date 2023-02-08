@@ -82,11 +82,15 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 				
 				
 			//	CommonMethods.execCommand(RemoteKeyContstants.XFINITY_BUTTON);
+				
 				String port="/dev/video1";
 				String location="/var/lib/jenkins/workspace/homescreen1.jpg";
-				CommonMethods.execCommand("v4l2-ctl --device "+port+" --set-input=1");
+				String cmd1="v4l2-ctl --device "+port+" --set-input=1";
+				CommonMethods.execCommand(cmd1);
 				Thread.sleep(3000L);
-				CommonMethods.execCommand("gst-launch-1.0 v4l2src device="+port+" num-buffers=1 ! jpegenc ! filesink location="+location);
+				String cmd2="gst-launch-1.0 v4l2src device="+port+" num-buffers=1 ! jpegenc ! filesink location="+location;
+				CommonMethods.execCommand(cmd2);
+				
 				//CommonMethods.execCaptureCommand("/var/lib/jenkins/workspace/homescreen1.png");
 				
 				Thread.sleep(3000L);
