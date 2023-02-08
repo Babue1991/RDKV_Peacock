@@ -1,6 +1,5 @@
 package com.automatics.rdkv.commonmethods;
-import java.io.IOException;
-
+import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.imgcodecs.Imgcodecs;
 
@@ -19,18 +18,19 @@ public class HomeScreenTabSwitch extends AutomaticsTestBase{
 	public boolean clickAppsButton() {
 		Mat referenceImage;
 		Mat liveImage;
+		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+		
 		LOGGER.info("Reading reference image from: "+ImageCaptureConstants.STB_HOME_APPS_BUTTON_IMAGE);
 		referenceImage = Imgcodecs.imread(ImageCaptureConstants.STB_HOME_APPS_BUTTON_IMAGE);
 		ImageCompare imgCompare = new ImageCompare();
 		try {
-
+			
 			for (int iterator = 0; iterator <= 5; iterator++) {
 
 				LOGGER.info("Reading live image from path: "+ImageCaptureConstants.XFINITY_HOME_SCREEN);
 				liveImage=Imgcodecs.imread(ImageCaptureConstants.XFINITY_HOME_SCREEN);
 
 				status =imgCompare.templateMatch(referenceImage, liveImage);
-
 
 				if(status == true)
 				{
