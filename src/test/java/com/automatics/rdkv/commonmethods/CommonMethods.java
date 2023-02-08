@@ -26,7 +26,7 @@ public class CommonMethods{
 			System.out.println("Error in terminal command execution: "+command);
 			e.printStackTrace();
 		}finally {
-			p.destroy();
+		//	p.destroy();
 			System.out.println("Process destroyed in finally block");
 		}
 	}
