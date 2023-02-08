@@ -12,9 +12,6 @@ import com.automatics.test.AutomaticsTestBase;
 
 public class HomeScreenTabSwitch extends AutomaticsTestBase{
 
-	 static {
-	       System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-	 }
 	static boolean status;
 
 	public boolean clickAppsButton() {
