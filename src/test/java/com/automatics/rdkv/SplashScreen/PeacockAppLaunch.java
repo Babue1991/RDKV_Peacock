@@ -38,9 +38,7 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 	 * 
 	 */
 	
-	 static {
-	       System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-	 }
+
 	static Process p;
 	@Test(dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA })
@@ -77,6 +75,7 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 			CommonMethods.execCommand(RemoteKeyContstants.XFINITY_BUTTON);
 			Thread.sleep(5000L);
 			
+			nu.pattern.OpenCV.loadLibrary();
 			LOGGER.info("Taking live screenshot in "+ImageCaptureConstants.XFINITY_HOME_SCREEN);
 			CaptureLiveImage.capture(ImageCaptureConstants.XFINITY_HOME_SCREEN);
 			Thread.sleep(5000L);
