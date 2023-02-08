@@ -78,7 +78,8 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 			CommonMethods.execCommand(RemoteKeyContstants.XFINITY_BUTTON);
 			Thread.sleep(5000L);
 			CommonMethods.execCaptureCommand(ImageCaptureConstants.XFINITY_HOME_SCREEN);
-			PeacockAppLaunch obj =new PeacockAppLaunch();
+			Thread.sleep(5000L);
+			//PeacockAppLaunch obj =new PeacockAppLaunch();
 
 			String port = "/dev/video1";
 			String location = "/var/lib/jenkins/workspace/homescreen1.jpg";
@@ -90,7 +91,7 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 			p.waitFor();
 			Thread.sleep(5000L);
 			System.out.println("The command is "+ss);
-			obj.printResults(p);
+	//		obj.printResults(p);
 			Thread.sleep(3000L);
 			//CommonMethods.execCommand("gst-launch-1.0 v4l2src device=" + port + " num-buffers=1 ! jpegenc ! filesink location=" + location);
 
@@ -101,7 +102,7 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 			System.out.println("The command is "+cmd1);
 
 			//CommonMethods.execCaptureCommand("/var/lib/jenkins/workspace/homescreen1.png");
-			obj.printResults(p);
+		//	obj.printResults(p);
 
 			Thread.sleep(3000L);
 
@@ -151,19 +152,9 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 			LOGGER.error("Exception while reading the image file: " + errorMessage);
 			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 
-		}finally {
-			p.destroy();
 		}
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-1010");
 
-	}
-	public void printResults(Process process) throws IOException {
-		BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-		String line = "";
-		while ((line = reader.readLine()) != null) {
-			System.out.println("The terminal response is: "+line);
-		}
-		//	p.destroy();
 	}
 
 }
