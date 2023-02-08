@@ -87,6 +87,7 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 				String ss = "gst-launch-1.0 v4l2src device="+ port+" num-buffers=1 ! jpegenc ! filesink location="+location;
 			//	CommonMethods.execCommand("v4l2-ctl --device " + port + " --set-input=1");
 				p = Runtime.getRuntime().exec(ss);
+			    p.waitFor();
 				Thread.sleep(5000L);
 				System.out.println("The command is "+ss);
 				obj.printResults(p);
