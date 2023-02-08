@@ -1,5 +1,9 @@
 package com.automatics.rdkv.SplashScreen;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 import org.opencv.core.Mat;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.testng.annotations.Test;
@@ -9,6 +13,7 @@ import com.automatics.constants.DataProviderConstants;
 import com.automatics.device.Dut;
 import com.automatics.rdkb.BroadBandTestGroup;
 import com.automatics.rdkb.utils.CommonUtils;
+import com.automatics.rdkv.commonmethods.CommonMethods;
 import com.automatics.rdkv.imagevalidation.ImageCompare;
 import com.automatics.tap.AutomaticsTapApi;
 import com.automatics.test.AutomaticsTestBase;
@@ -31,7 +36,7 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 	 * @throws InterruptedException 
 	 * 
 	 */
-
+	static Process p;
 	@Test(dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA })
 	@TestDetails(testUID = "PEACOCK-AAMP-TC-1001")
@@ -43,6 +48,7 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 		String stepNum = null;
 		Mat referenceImage;
 		Mat liveImage;
+		
 
 		// Variables declaration Ends
 
@@ -71,10 +77,20 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 				
 			//	com.automatics.rdkv.STBhomescreen.CaptureLiveImage obj = new CaptureLiveImage();
 			//	obj.ca
-				com.automatics.rdkv.STBhomescreen.CaptureLiveImage.cap1();
 				
+				PeacockAppLaunch obj =new PeacockAppLaunch();
+				
+				String port = "/dev/video1";
+				String location = "/var/lib/jenkins/workspace/homescreen1.jpg";
+			//	CommonMethods.execCommand("v4l2-ctl --device " + port + " --set-input=1");
+				p = Runtime.getRuntime().exec("v4l2-ctl --device " + port + " --set-input=1");
+				obj.printResults(p);
+				Thread.sleep(3000L);
+				//CommonMethods.execCommand("gst-launch-1.0 v4l2src device=" + port + " num-buffers=1 ! jpegenc ! filesink location=" + location);
+				
+				p = Runtime.getRuntime().exec("gst-launch-1.0 v4l2src device=" + port + " num-buffers=1 ! jpegenc ! filesink location=" + location);
 				//CommonMethods.execCaptureCommand("/var/lib/jenkins/workspace/homescreen1.png");
-				
+				obj.printResults(p);
 				Thread.sleep(3000L);
 				
 			//	CaptureLiveImage.capture(ImageCaptureConstants.XFINITY_HOME_SCREEN);
@@ -122,9 +138,19 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 				LOGGER.error("Exception while reading the image file: " + errorMessage);
 				CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 				
+			}finally {
+				p.destroy();
 			}
 			LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-1010");
 		
+	}
+	public void printResults(Process process) throws IOException {
+		BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+		String line = "";
+		while ((line = reader.readLine()) != null) {
+			System.out.println(line);
+		}
+		p.destroy();
 	}
 
 }
