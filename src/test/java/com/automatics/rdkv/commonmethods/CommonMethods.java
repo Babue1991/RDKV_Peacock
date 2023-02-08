@@ -25,6 +25,9 @@ public class CommonMethods{
 		}catch(Exception e) {
 			System.out.println("Error in terminal command execution: "+command);
 			e.printStackTrace();
+		}finally {
+			p.destroy();
+			System.out.println("Process destroyed in finally block");
 		}
 	}
 
@@ -34,7 +37,7 @@ public class CommonMethods{
 		while ((line = reader.readLine()) != null) {
 			System.out.println(line);
 		}
-		p.destroy();
+	//+	p.destroy();
 	}
 
 	public static void execCaptureCommand(String imagePath) {
