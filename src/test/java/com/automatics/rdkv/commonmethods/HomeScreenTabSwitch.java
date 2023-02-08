@@ -33,7 +33,10 @@ public class HomeScreenTabSwitch extends AutomaticsTestBase{
 
 				if(status == true)
 				{
-					System.out.println("The image matches and it's status " +status);
+					LOGGER.info("The image matche found and it's status " +status);
+					LOGGER.info("Reading live image from path: "+ImageCaptureConstants.XFINITY_HOME_SCREEN);
+					LOGGER.info("Click Ok button in remote");
+					CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
 					break;
 				}
 				else {
