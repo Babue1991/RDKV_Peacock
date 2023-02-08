@@ -12,16 +12,17 @@ public class CommonMethods{
 
 	public static String path;
 	static String command;
+	static Process p;
 	public static void execCommand(String command) {
 		try {
 
 			Thread.sleep(2000L);
-			Process p=Runtime.getRuntime().exec(command);
+			p=Runtime.getRuntime().exec(command);
 			printResults(p);
+			p.destroy();
 			Thread.sleep(3000L);
 			System.out.println("The terminal command which is executed is : "+command);
-			p.destroy();
-
+			
 		}catch(Exception e) {
 			System.out.println("Error in terminal command execution: "+command);
 			e.printStackTrace();
