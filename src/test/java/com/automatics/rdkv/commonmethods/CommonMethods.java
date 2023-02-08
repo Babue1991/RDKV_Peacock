@@ -19,7 +19,6 @@ public class CommonMethods{
 			Thread.sleep(2000L);
 			p=Runtime.getRuntime().exec(command);
 			printResults(p);
-			p.destroy();
 			Thread.sleep(3000L);
 			System.out.println("The terminal command which is executed is : "+command);
 			
@@ -35,6 +34,7 @@ public class CommonMethods{
 		while ((line = reader.readLine()) != null) {
 			System.out.println(line);
 		}
+		p.destroy();
 	}
 
 	public static void execCaptureCommand(String imagePath) {

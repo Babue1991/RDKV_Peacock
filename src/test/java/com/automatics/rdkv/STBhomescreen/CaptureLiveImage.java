@@ -14,7 +14,7 @@ public class CaptureLiveImage {
 	static Process p;
 	public static void main(String[] args) throws IOException, InterruptedException {
 		CaptureLiveImage.cap();
-		p.destroy();
+		
 	}
 
 	public static void capture() throws IOException, InterruptedException {
@@ -53,7 +53,7 @@ public class CaptureLiveImage {
 	public static void cap() throws InterruptedException{
 		String port="/dev/video1";
 		String location="/var/lib/jenkins/workspace/homescreen1.jpg";
-		CommonMethods.execCommand("v4l2-ctl --device /dev/video1 --set-input=1");
+		CommonMethods.execCommand("v4l2-ctl --device "+port+" --set-input=1");
 		Thread.sleep(3000L);
 		CommonMethods.execCommand("gst-launch-1.0 v4l2src device="+port+" num-buffers=1 ! jpegenc ! filesink location="+location);
 	}
@@ -63,6 +63,8 @@ public class CaptureLiveImage {
 		while ((line = reader.readLine()) != null) {
 			System.out.println(line);
 		}
+		p.destroy();
 	}
+	
 
 }
