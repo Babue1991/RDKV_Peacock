@@ -42,7 +42,7 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 
 	static Process p;
 	@Test(dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
-			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA })
+			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
 	@TestDetails(testUID = "PEACOCK-AAMP-TC-1001")
 	public void testVerifySplashScreenSTB(Dut device) throws InterruptedException {
 		// Variables declaration starts
@@ -109,8 +109,8 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 
 	}
 	
-	@Test(dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, dependsOnMethods= {"testVerifySplashScreenSTB"}, alwaysRun = true, enabled = true, groups = {
-			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch" })
+	@Test(dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dependsOnGroups = { "AppLaunch" }, dataProviderClass = AutomaticsTapApi.class, dependsOnMethods= {"testVerifySplashScreenSTB"}, alwaysRun = true, enabled = true, groups = {
+			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA})
 	@TestDetails(testUID = "PEACOCK-AAMP-TC-1002")
 	public void testVerifyApplicationScreen(Dut device) throws InterruptedException {
 		// Variables declaration starts
