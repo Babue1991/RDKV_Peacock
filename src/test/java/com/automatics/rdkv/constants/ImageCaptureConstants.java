@@ -22,12 +22,17 @@ public class ImageCaptureConstants {
 
 	public static String STB_HOME_APPS_BUTTON_IMAGE=REFERENCE_IMAGE_PATH+"Xfinity_Home.jpg";
 	
+	public static String STB_APP_TITLE_IMAGE=REFERENCE_IMAGE_PATH+"ApplicationTextImage.jpg";
+	
 	/********The variable used to send capture card port to capture image**/
 	public static String LIVE_IMAGE_PATH=ROOT_DIRECTORY+"/src/test/java/com/automatics/rdkv/liveimage/";
 	
 
 	/********The variable used to send capture card port to capture image**/
 	public static String XFINITY_HOME_SCREEN=LIVE_IMAGE_PATH+"XfinityHomeScreen.jpg";
+	
+	/********The variable used to send capture card port to capture image**/
+	public static String XFINITY_APPLICATION_SCREEN=LIVE_IMAGE_PATH+"ApplicationScreen.jpg";
 
 	/********The variable used to send capture card port to capture image**/
 	public static String BEGIN_COMMAND="sudo gst-launch-1.0 v4l2src device=";

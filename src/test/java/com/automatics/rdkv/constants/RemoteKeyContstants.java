@@ -14,7 +14,7 @@ public class RemoteKeyContstants {
 
 	/*****This variable used to click Xfinity button in remote***/
 
-	public static String XFINITY_BUTTON=BASE_COMMAND+"Comcast_Xfinity";
+	public static String XFINITY_BUTTON=BASE_COMMAND+"Xfinity";
 
 
 	/*****This variable used to click left button in Xfinity remote ***/

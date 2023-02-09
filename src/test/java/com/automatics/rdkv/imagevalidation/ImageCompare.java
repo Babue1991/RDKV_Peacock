@@ -30,7 +30,7 @@ public class ImageCompare {
 	//	OpenCV.loadShared();
 	//	System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
 		reference_image = Imgcodecs.imread("/home/user/Desktop/matched.jpg");
-		live_Image = Imgcodecs.imread("/home/user/Desktop/Xfinity_Cropimg.jpg");
+		live_Image = Imgcodecs.imread("/home/user/Desktop/XfinityHomeScreen.jpg");
 		
 		ImageCompare obj = new ImageCompare();
 		obj.templateMatch(reference_image,live_Image);

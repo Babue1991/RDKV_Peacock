@@ -60,8 +60,6 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 		LOGGER.info("TEST STEPS : ");
 		LOGGER.info("1. Press Xfinity button on the comcast remote");
 		LOGGER.info("#######################################################################################");
-		ImageCompare mg = new ImageCompare();
-
 		try {
 			stepNum = "S1";
 			errorMessage = "Failed to launch Xfinity Menu";
@@ -108,6 +106,70 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 
 		}
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-1010");
+
+	}
+	
+	@Test(dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, dependsOnMethods= {"testVerifySplashScreenSTB"}, alwaysRun = true, enabled = true, groups = {
+			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch" })
+	@TestDetails(testUID = "PEACOCK-AAMP-TC-1002")
+	public void testVerifyApplicationScreen(Dut device) throws InterruptedException {
+		// Variables declaration starts
+		boolean status = false;
+		String testId = "PEACOCK-AAMP-TC-102";
+		String errorMessage = null;
+		String stepNum = null;
+		Mat referenceImage;
+		Mat liveImage;
+		// Variables declaration Ends
+
+		LOGGER.info("#######################################################################################");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1002");
+		LOGGER.info("TEST DESCRIPTION: This test is to verify application screen launch");
+		LOGGER.info("TEST STEPS : ");
+		LOGGER.info("1. Press Xfinity button on the comcast remote");
+		LOGGER.info("#######################################################################################");
+
+		try {
+			stepNum = "S1";
+			errorMessage = "Failed to Application screen";
+			LOGGER.info("*****************************************************************************************");
+			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify user can launch application screen using remote keys");
+			LOGGER.info("STEP 1: ACTION : ACTION: Take screen shot of the live screen and compare it with reference image");
+			LOGGER.info("STEP 1: EXPECTED : Application screen should launch successfully.");
+			LOGGER.info("*****************************************************************************************");
+
+			LOGGER.info("Take screenshot in application screen ");
+			LOGGER.info(" ");
+			nu.pattern.OpenCV.loadLocally();
+			referenceImage = Imgcodecs.imread(ImageCaptureConstants.STB_APP_TITLE_IMAGE);
+			
+			CaptureLiveImage.capture(ImageCaptureConstants.XFINITY_APPLICATION_SCREEN);
+			
+			liveImage = Imgcodecs.imread(ImageCaptureConstants.XFINITY_APPLICATION_SCREEN);
+			
+			ImageCompare imgCompare =new ImageCompare();
+			
+			status = imgCompare.templateMatch(referenceImage, liveImage);
+		
+			if (status) {
+				LOGGER.info("The status of image comparision is: " + status);
+			} else {
+				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+			}
+			LOGGER.info("**********************************************************************************");
+			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+
+		} catch (Exception e) {
+			LOGGER.error("Exception occured while reading the image file " + e);
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			LOGGER.info("Inside catch");
+			errorMessage = e.getMessage();
+			LOGGER.error("Exception while launching home screen file: " + errorMessage);
+			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
+
+		}
+		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-1002");
 
 	}
 }
