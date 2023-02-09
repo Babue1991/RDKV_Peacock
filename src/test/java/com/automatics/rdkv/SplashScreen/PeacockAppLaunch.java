@@ -81,19 +81,7 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 			Thread.sleep(5000L);
 			ImageCompare imgCompare = new ImageCompare();
 
-		//	System.loadLibrary(opencv_java.class);
 			referenceImage = Imgcodecs.imread(ImageCaptureConstants.STB_HOME_APPS_BUTTON_IMAGE);
-			
-			
-			/*
-			 * LOGGER.info("Reading live image from path: "+ImageCaptureConstants.
-			 * XFINITY_HOME_SCREEN);
-			 * liveImage=Imgcodecs.imread(ImageCaptureConstants.XFINITY_HOME_SCREEN);
-			 * 
-			 * LOGGER.info("Calling template compare method: ");
-			 * 
-			 * status =imgCompare.templateMatch(referenceImage, liveImage);
-			 */
 			
 			HomeScreenTabSwitch tab = new HomeScreenTabSwitch();
 			

@@ -29,7 +29,7 @@ public class ImageCompare {
 		nu.pattern.OpenCV.loadLocally();
 	//	OpenCV.loadShared();
 	//	System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-		reference_image = Imgcodecs.imread("/home/user/Desktop/Xfinity_Cropimg.jpg");
+		reference_image = Imgcodecs.imread("/home/user/Desktop/matched.jpg");
 		live_Image = Imgcodecs.imread("/home/user/Desktop/Xfinity_Cropimg.jpg");
 		
 		ImageCompare obj = new ImageCompare();
@@ -46,8 +46,8 @@ public class ImageCompare {
 		String filePath=ImageCaptureConstants.LIVE_IMAGE_PATH;
 		System.out.println("The path is: "+filePath);
 		//Load image file
-		source=reference_image;
-		template=live_Image;
+		source=live_Image;
+		template=reference_image;
 
 		Mat outputImage=new Mat();    
 		int machMethod=Imgproc.TM_CCOEFF;
