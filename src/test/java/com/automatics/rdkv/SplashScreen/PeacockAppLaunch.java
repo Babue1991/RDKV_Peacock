@@ -141,14 +141,19 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 			LOGGER.info("Take screenshot in application screen ");
 			LOGGER.info(" ");
 			nu.pattern.OpenCV.loadLocally();
+			LOGGER.info("Reading reference image");
 			referenceImage = Imgcodecs.imread(ImageCaptureConstants.STB_APP_TITLE_IMAGE);
 			
+			LOGGER.info("Capture application screen live image");
 			CaptureLiveImage.capture(ImageCaptureConstants.XFINITY_APPLICATION_SCREEN);
 			
+			LOGGER.info("Reading live image");
 			liveImage = Imgcodecs.imread(ImageCaptureConstants.XFINITY_APPLICATION_SCREEN);
 			
 			ImageCompare imgCompare =new ImageCompare();
 			
+			LOGGER.info("Calling screen compare method");
+
 			status = imgCompare.templateMatch(referenceImage, liveImage);
 		
 			if (status) {
