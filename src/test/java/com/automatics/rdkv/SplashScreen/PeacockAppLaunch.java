@@ -109,7 +109,7 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 
 	}
 	
-	@Test(dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dependsOnGroups = { "AppLaunch" }, dataProviderClass = AutomaticsTapApi.class, dependsOnMethods= {"testVerifySplashScreenSTB"}, alwaysRun = true, enabled = true, groups = {
+	@Test(dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dependsOnGroups = { BroadBandTestGroup.WEBPA }, dataProviderClass = AutomaticsTapApi.class, dependsOnMethods= {"testVerifySplashScreenSTB"}, alwaysRun = true, enabled = true, groups = {
 			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA})
 	@TestDetails(testUID = "PEACOCK-AAMP-TC-1002")
 	public void testVerifyApplicationScreen(Dut device) throws InterruptedException {
