@@ -14,11 +14,12 @@ import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 
 import com.automatics.rdkv.constants.ImageCaptureConstants;
+import com.automatics.test.AutomaticsTestBase;
 
 import nu.pattern.OpenCV;
 
 
-public class ImageCompare {
+public class ImageCompare extends AutomaticsTestBase {
 	static Mat reference_image;
 	static Mat live_Image;
 	static boolean status;
@@ -29,8 +30,8 @@ public class ImageCompare {
 		nu.pattern.OpenCV.loadLocally();
 	//	OpenCV.loadShared();
 	//	System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-		reference_image = Imgcodecs.imread("/home/user/Desktop/matched.jpg");
-		live_Image = Imgcodecs.imread("/home/user/Desktop/XfinityHomeScreen.jpg");
+		reference_image = Imgcodecs.imread("/home/user/Desktop/splashScreen_Logo.jpg");
+		live_Image = Imgcodecs.imread("/home/user/Desktop/splashImage.jpg");
 		
 		ImageCompare obj = new ImageCompare();
 		obj.templateMatch(reference_image,live_Image);
@@ -91,7 +92,7 @@ public class ImageCompare {
 		if ((width1 != width2) || (height1 != height2)) {
 
 			// Display message straightaway
-			System.out.println("Error: Images dimensions" + " mismatch");
+			LOGGER.error("Error: Images dimensions" + " mismatch");
 			status=false;
 		}else {
 
@@ -139,11 +140,12 @@ public class ImageCompare {
 			double percentage = (avg_different_pixels / 255) * 100;
 
 			// Lastly print the difference percentage
-			System.out.println("Difference Percentage-->" + percentage);
+			LOGGER.info("The image match percentage value" +percentage);
+			
 			if(percentage == 0) {
-				status=true;
+					status=true;
 			}else {
-				status=false;
+					status=false;
 			}
 		}
 

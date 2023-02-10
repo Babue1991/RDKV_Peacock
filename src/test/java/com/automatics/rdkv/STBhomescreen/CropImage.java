@@ -16,16 +16,16 @@ public class CropImage {
 
 	public static void main(String[] args) throws IOException {
 
-		BufferedImage liveImage = ImageIO.read(new File("/home/user/Desktop/MyStuff.jpg"));
+		BufferedImage liveImage = ImageIO.read(new File("/home/user/Desktop/ApplicationScreen.jpg"));
 		
 		try {
-			cropedImage = cropImage(liveImage, 10,10,90,90);
+			cropedImage = cropImage(liveImage,  24,176, 60, 509);
 		} catch (Exception e) {
 			
 			e.printStackTrace();
 		}
 		
-		File outputFile = new File("/home/user/eclipse-workspace/cropImage/image.jpg");
+		File outputFile = new File("/home/user/Desktop/image1.jpg");
 		ImageIO.write(cropedImage, "jpg", outputFile);
 	}
 	
@@ -41,6 +41,11 @@ public class CropImage {
      *   endX and endY 
      *   		- End point of the the image to be cropped.
      */
+	
+	public static BufferedImage subImage(BufferedImage liveImage, int startX, int startY, int endX, int endY ) {
+	      BufferedImage image=liveImage.getSubimage(70,380,380,70);
+	      return image;
+	}
 	public static BufferedImage cropImage(BufferedImage liveImage, int startX, int startY, int endX, int endY ) {
 		//fill in the corners of the desired crop location here
 		BufferedImage img = liveImage.getSubimage(startX, startY, endX, endY); 

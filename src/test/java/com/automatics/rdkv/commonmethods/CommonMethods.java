@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import org.openqa.selenium.support.ui.ExpectedCondition;
+
 import com.automatics.rdkv.constants.ImageCaptureConstants;
 import com.automatics.test.AutomaticsTestBase;
 import com.lowagie.text.pdf.codec.Base64.OutputStream;
@@ -13,6 +15,7 @@ public class CommonMethods extends AutomaticsTestBase{
 	public static String path;
 	static String command;
 	static Process p;
+	static boolean status;
 	public static void execCommand(String command) {
 		try {
 
@@ -64,7 +67,15 @@ public class CommonMethods extends AutomaticsTestBase{
 		CommonMethods.execCaptureCommand(ImageCaptureConstants.SET_VIDEO_PORT);
 	}
 
-	public static void AppButtonHighlight() {
+	public static boolean textCompare(String exepected, String actual) {
+		status =false;
+		if(exepected.equals(actual)) {
+			LOGGER.info("Both the text matching "+actual);
+			status = true;
+		}else {
+			LOGGER.error("The actual string not returns exepected value: "+actual);
+		}
+		return status;
 
 	}
 

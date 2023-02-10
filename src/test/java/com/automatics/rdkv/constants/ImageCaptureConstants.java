@@ -33,6 +33,20 @@ public class ImageCaptureConstants {
 	
 	/********The variable used to send capture card port to capture image**/
 	public static String XFINITY_APPLICATION_SCREEN=LIVE_IMAGE_PATH+"ApplicationScreen.jpg";
+	
+	
+	/********The variable used to send capture card port to capture image**/
+	public static String PEACOCK_HOME_SCREEN=LIVE_IMAGE_PATH+"Peacock_home_screen.jpg";
+	
+	/********The variable used to send capture card port to capture image**/
+	public static String PEACOCK_HOME_LEFT_HIDDEN_MENU=REFERENCE_IMAGE_PATH+"PeacockHomeLeftHiddenMenu.jpg";
+	
+	/********The variable used to send capture card port to capture image**/
+//	public static String XFINITY_APPLICATION_SCREEN=LIVE_IMAGE_PATH+"ApplicationScreen.jpg";
+	
+	/********The variable used to send capture card port to capture image**/
+	public static String homescren=LIVE_IMAGE_PATH+"ApplicationScreen.jpg";
+	
 
 	/********The variable used to send capture card port to capture image**/
 	public static String BEGIN_COMMAND="sudo gst-launch-1.0 v4l2src device=";
