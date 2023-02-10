@@ -87,6 +87,9 @@ public class ImageCompare extends AutomaticsTestBase {
 		int height1 = imgA.getHeight();
 		int height2 = imgB.getHeight();
 
+		LOGGER.info("The reference image dimension is: "+ "Width" +width1 + "Height" +height1);
+		LOGGER.info("The live image dimension is: "+ "Width" +width1 + "Height" +height1);
+		
 		// Checking whether the images are of same size or
 		// not
 		if ((width1 != width2) || (height1 != height2)) {
