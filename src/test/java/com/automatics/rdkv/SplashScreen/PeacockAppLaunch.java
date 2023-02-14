@@ -9,6 +9,8 @@ import org.opencv.core.Core;
 
 import org.opencv.core.Mat;
 import org.opencv.imgcodecs.Imgcodecs;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.automatics.annotations.TestDetails;
@@ -47,9 +49,8 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 	 * 
 	 */
 
-
 	static Process p;
-	@Test(dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+	@Test(priority=0, dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
 	@TestDetails(testUID = "PEACOCK-AAMP-TC-1001")
 	public void testVerifySplashScreenSTB(Dut device) throws InterruptedException {
@@ -117,7 +118,7 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 
 	}
 
-	@Test(dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+	@Test(priority=1, dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
 	@TestDetails(testUID = "PEACOCK-AAMP-TC-1002")
 	public void testVerifyApplicationScreen(Dut device) throws InterruptedException {
@@ -187,7 +188,7 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 	}
 
 
-	@Test(dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+	@Test(priority=2,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
 	@TestDetails(testUID = "PEACOCK-AAMP-TC-1003")
 	public void popularEntertainmentSection(Dut device) throws InterruptedException {
@@ -203,7 +204,7 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 		// Variables declaration Ends
 
 		LOGGER.info("#######################################################################################");
-		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1002");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1003");
 		LOGGER.info("TEST DESCRIPTION: This test is to verify popular entertainment section in STB");
 		LOGGER.info("TEST STEPS : ");
 		LOGGER.info("1. Switch to application screen from Xfinity screen");

@@ -107,7 +107,7 @@ public class PeacockHomeScreen extends AutomaticsTestBase {
 			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 
 		}
-		LOGGER.info("ENDING TEST CASE: PEACOCK-AAMP-TC-1010");
+		LOGGER.info("ENDING TEST CASE: PEACOCK-AAMP-TC-110");
 	}
 }
 

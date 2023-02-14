@@ -18,16 +18,20 @@ public class GrabText {
 	public static void main(String[] args) throws IOException {
 		String path="/home/user/Downloads/Application.jpg";
 		GrabText grabText = new GrabText();
-		BufferedImage	liveImage = ImageIO.read(new File("/home/user/Downloads/Application.jpg"));
+		BufferedImage	liveImage = ImageIO.read(new File("/home/user/Desktop/ApplicationScreen.jpg"));
 		System.out.println(grabText.crackImage(liveImage));
 	}
 
 	public String crackImage(BufferedImage filePath) {
 
 		ITesseract instance = new Tesseract();
-		instance.setDatapath(LanguageConstants.TRAIN_DATA_PATH);
-		instance.setLanguage(LanguageConstants.ENGLISH_LANGUAGE);
+	//	instance.setDatapath(LanguageConstants.TRAIN_DATA_PATH);
+	//	instance.setLanguage(LanguageConstants.ENGLISH_LANGUAGE);
 
+		instance.setDatapath(LanguageConstants.TRAIN_DATA_PATH);
+		instance.setLanguage("eng");
+		
+		
 		try {
 			String result = instance.doOCR(filePath);
 			return result;

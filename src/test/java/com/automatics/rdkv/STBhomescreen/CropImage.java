@@ -50,6 +50,8 @@ public class CropImage {
 		//fill in the corners of the desired crop location here
 		BufferedImage img = liveImage.getSubimage(startX, startY, endX, endY); 
 		BufferedImage copyOfImage = new BufferedImage(img.getWidth(), img.getHeight(), BufferedImage.TYPE_INT_RGB);
+		System.out.println("Width of image"+img.getWidth());
+		System.out.println("Height of image"+img.getHeight());
 		Graphics g = copyOfImage.createGraphics();
 		g.drawImage(img, 0, 0, null);
 		return copyOfImage;
