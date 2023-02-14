@@ -128,7 +128,10 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 		String errorMessage = null;
 		String stepNum = null;
 		Mat referenceImage;
-		Mat liveImage;
+		BufferedImage liveImage;
+		BufferedImage subImage;
+		String actual;
+		String expected;
 		// Variables declaration Ends
 
 		LOGGER.info("#######################################################################################");
@@ -141,29 +144,32 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 		try {
 			stepNum = "S1";
 			errorMessage = "Failed to Application screen";
+			expected = "Applications";
 			LOGGER.info("*****************************************************************************************");
 			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify user can launch application screen using remote keys");
-			LOGGER.info("STEP 1: ACTION : ACTION: Take screen shot of the live screen and compare it with reference image");
+			LOGGER.info("STEP 1: ACTION : Take screen shot of the live screen and compare it with reference image");
 			LOGGER.info("STEP 1: EXPECTED : Application screen should launch successfully.");
 			LOGGER.info("*****************************************************************************************");
 
 			LOGGER.info("Take screenshot in application screen ");
 			LOGGER.info(" ");
 			nu.pattern.OpenCV.loadLocally();
-			LOGGER.info("Reading reference image");
-			referenceImage = Imgcodecs.imread(ImageCaptureConstants.STB_APP_TITLE_IMAGE);
 
 			LOGGER.info("Capture application screen live image");
 			CaptureLiveImage.capture(ImageCaptureConstants.XFINITY_APPLICATION_SCREEN);
 
 			LOGGER.info("Reading live image");
-			liveImage = Imgcodecs.imread(ImageCaptureConstants.XFINITY_APPLICATION_SCREEN);
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.XFINITY_APPLICATION_SCREEN));
+			LOGGER.info("Crop the live image");
+			subImage = CropImage.subImage(liveImage, 70,380,380,70);
 
-			ImageCompare imgCompare =new ImageCompare();
+			GrabText grabText = new GrabText();
+			actual = grabText.crackImage(subImage);
+			status = CommonMethods.textCompare(expected, actual);
+
 
 			LOGGER.info("Calling screen compare method");
 
-			status = imgCompare.templateMatch(referenceImage, liveImage);
 
 			if (status) {
 				LOGGER.info("The status of image comparision is: " + status);

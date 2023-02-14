@@ -16,10 +16,10 @@ public class CropImage {
 
 	public static void main(String[] args) throws IOException {
 
-		BufferedImage liveImage = ImageIO.read(new File("/home/user/Desktop/ApplicationScreen.jpg"));
+		BufferedImage liveImage = ImageIO.read(new File("/home/user/Desktop/appscreen.jpg"));
 		
 		try {
-			cropedImage = cropImage(liveImage, 70,380,380,70);
+			cropedImage = cropImage(liveImage, 10,20,200,70);
 		} catch (Exception e) {
 			
 			e.printStackTrace();
@@ -43,7 +43,7 @@ public class CropImage {
      */
 	
 	public BufferedImage subImage(BufferedImage liveImage, int startX, int startY, int endX, int endY ) {
-	      BufferedImage image=liveImage.getSubimage(70,380,380,70);
+	      BufferedImage image=liveImage.getSubimage(10,20,200,70);
 	      return image;
 	}
 	public static BufferedImage cropImage(BufferedImage liveImage, int startX, int startY, int endX, int endY ) {
