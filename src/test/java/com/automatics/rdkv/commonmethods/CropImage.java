@@ -16,7 +16,7 @@ public class CropImage {
 
 	public static void main(String[] args) throws IOException {
 
-		BufferedImage liveImage = ImageIO.read(new File("/home/user/Desktop/appscreen.jpg"));
+		BufferedImage liveImage = ImageIO.read(new File("/home/user/Desktop/Application.jpg"));
 		
 		try {
 			cropedImage = cropImage(liveImage, 10,20,200,70);
