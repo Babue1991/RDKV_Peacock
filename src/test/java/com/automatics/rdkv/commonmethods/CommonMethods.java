@@ -10,6 +10,8 @@ import com.automatics.rdkv.constants.ImageCaptureConstants;
 import com.automatics.test.AutomaticsTestBase;
 import com.lowagie.text.pdf.codec.Base64.OutputStream;
 
+import ch.qos.logback.classic.Logger;
+
 public class CommonMethods extends AutomaticsTestBase{
 
 	public static String path;
@@ -69,6 +71,7 @@ public class CommonMethods extends AutomaticsTestBase{
 
 	public static boolean textCompare(String exepected, String actual) {
 		status =false;
+		LOGGER.info("The values are: "+exepected+" and "+actual);
 		if(exepected.equals(actual)) {
 			LOGGER.info("Both the text matching "+actual);
 			status = true;
