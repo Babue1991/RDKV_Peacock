@@ -24,7 +24,7 @@ public class HomeScreenTabSwitch extends AutomaticsTestBase{
 		ImageCompare imgCompare = new ImageCompare();
 		try {
 			
-			for (int iterator = 0; iterator <= 5; iterator++) {
+			for (int iterator = 0; iterator <= 7; iterator++) {
 
 				LOGGER.info("Reading live image from path: "+ImageCaptureConstants.XFINITY_HOME_SCREEN);
 				liveImage=Imgcodecs.imread(ImageCaptureConstants.XFINITY_HOME_SCREEN);
