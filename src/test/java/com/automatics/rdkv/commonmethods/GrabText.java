@@ -14,7 +14,7 @@ import net.sourceforge.tess4j.ITesseract;
 import net.sourceforge.tess4j.Tesseract;
 import net.sourceforge.tess4j.TesseractException;
 
-public class GrabText extends AutomaticsTestBase{
+public class GrabText {
 
 	public static void main(String[] args) throws IOException {
 		String path="/home/user/Downloads/Application.jpg";
@@ -37,7 +37,7 @@ public class GrabText extends AutomaticsTestBase{
 		try {
 			text = instance.doOCR(filePath);
 			result = text.trim();
-			LOGGER.info("The grabbed text from image is: " +result);
+	//		LOGGER.info("The grabbed text from image is: " +result);
 			return result;
 		} catch (TesseractException e) {
 			System.err.println(e.getMessage());

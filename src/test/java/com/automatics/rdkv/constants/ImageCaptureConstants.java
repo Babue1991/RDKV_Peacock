@@ -34,6 +34,12 @@ public class ImageCaptureConstants {
 	/********The variable used to send capture card port to capture image**/
 	public static String XFINITY_APPLICATION_SCREEN=LIVE_IMAGE_PATH+"ApplicationScreen.jpg";
 	
+	/********The variable used to send capture card port to capture image**/
+	public static String XFINITY_APPLICATION_FOCUS_PEACOCK=LIVE_IMAGE_PATH+"ApplicationFocusPeacock.jpg";
+	
+	/********The variable used to send capture card port to capture image**/
+	public static String XFINITY_PEACOCK_SPLASH_SCREEN=LIVE_IMAGE_PATH+"SplashScreen.jpg";
+	
 	
 	/********The variable used to send capture card port to capture image**/
 	public static String PEACOCK_HOME_SCREEN=LIVE_IMAGE_PATH+"Peacock_home_screen.jpg";

@@ -84,7 +84,7 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 			Thread.sleep(2000L);
 			CommonMethods.execCommand(RemoteKeyContstants.XFINITY_BUTTON);
 			Thread.sleep(3000L);
-			
+
 			nu.pattern.OpenCV.loadLocally();
 			LOGGER.info("Taking live screenshot in "+ImageCaptureConstants.XFINITY_HOME_SCREEN);
 			CaptureLiveImage.capture(ImageCaptureConstants.XFINITY_HOME_SCREEN);
@@ -271,6 +271,112 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 
 		}
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-1002");
+
+	}
+
+
+	@Test(priority=1,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
+	@TestDetails(testUID = "PEACOCK-AAMP-TC-1004")
+	public void LaunchPeacock(Dut device) throws InterruptedException {
+		// Variables declaration starts
+		boolean status = false;
+		String testId = "PEACOCK-AAMP-TC-104";
+		String errorMessage = null;
+		String stepNum = null;
+		BufferedImage subImage;
+		BufferedImage liveImage;
+		String expected = "Peacock";
+		String actual;
+		String SplashText = "Peacock:";
+		// Variables declaration Ends
+
+		LOGGER.info("#######################################################################################");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1004");
+		LOGGER.info("TEST DESCRIPTION: This test is to verify popular entertainment section in STB");
+		LOGGER.info("TEST STEPS : ");
+		LOGGER.info("1. Switch to application screen from Xfinity screen");
+		LOGGER.info("#######################################################################################");
+
+		try {
+			stepNum = "S1";
+			errorMessage = "The user is not in the application screen";
+			LOGGER.info("*****************************************************************************************");
+			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify user popular entertainment section in STB");
+			LOGGER.info("STEP 1: ACTION : Take screen shot of the live screen and compare it with reference image");
+			LOGGER.info("STEP 1: EXPECTED : Application screen should display popular entertainment screen. ");
+			LOGGER.info("*****************************************************************************************");
+
+			LOGGER.info("Take live screen screenshot");
+			LOGGER.info(" ");
+			nu.pattern.OpenCV.loadLocally();
+
+			CommonMethods.execCommand(RemoteKeyContstants.DOWN_BUTTON);
+
+
+			LOGGER.info("Capture application screen live image");
+			CaptureLiveImage.capture(ImageCaptureConstants.XFINITY_APPLICATION_FOCUS_PEACOCK);
+
+
+			LOGGER.info("Reading live image");
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.XFINITY_APPLICATION_FOCUS_PEACOCK));
+
+			LOGGER.info("Crop the live image");
+			subImage = CropImage.subImage(liveImage, 50,300,160,45);
+
+			GrabText grabText = new GrabText();
+			actual = grabText.crackImage(subImage);
+			status = CommonMethods.textCompare(expected, actual);
+
+			if(status) {
+				LOGGER.info("Click and launch peacock application");
+				CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+
+			}else {
+				LOGGER.error(" Peacock Application not found");
+			}
+
+
+			if(status) {
+				LOGGER.info("The user is application screen: " + actual);
+				CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+				LOGGER.info("Capture application screen live image");
+				CaptureLiveImage.capture(ImageCaptureConstants.XFINITY_PEACOCK_SPLASH_SCREEN);
+
+
+				LOGGER.info("Reading live image");
+				liveImage = ImageIO.read(new File(ImageCaptureConstants.XFINITY_PEACOCK_SPLASH_SCREEN));
+
+				LOGGER.info("Crop the live image");
+				subImage = CropImage.subImage(liveImage, 120,230,1000,250);
+
+				actual = grabText.crackImage(subImage);
+				status = CommonMethods.textCompare(SplashText, actual);
+								
+			}
+			else {
+				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+			}
+
+			if (status) {
+
+			} else {
+				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+			}
+			LOGGER.info("**********************************************************************************");
+			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+
+		} catch (Exception e) {
+			LOGGER.error("Exception occured while reading the image file " + e);
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			LOGGER.info("Inside catch");
+			errorMessage = e.getMessage();
+			LOGGER.error("Exception while launching home screen file: " + errorMessage);
+			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
+
+		}
+		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-1004");
 
 	}
 }

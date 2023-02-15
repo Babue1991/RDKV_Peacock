@@ -16,14 +16,16 @@ public class CropImage {
 
 	public static void main(String[] args) throws IOException {
 
-		BufferedImage liveImage = ImageIO.read(new File("/home/user/Desktop/Application.jpg"));
+		BufferedImage liveImage = ImageIO.read(new File("/home/user/Desktop/peacock.jpg"));
 		
 		try {
-			cropedImage = cropImage(liveImage,  70,25,160,60);
+			cropedImage = cropImage(liveImage,  120,230,1000,250);
 			
 			//Popular entertainment section  70,380,380,70
 			
-			//
+			//Application text section : 70,25,160,60
+			//Peacock text in application screen grab 50,300,160,45
+			// Splash screen resolution 120,230,1000,250
 			
 			
 		} catch (Exception e) {
