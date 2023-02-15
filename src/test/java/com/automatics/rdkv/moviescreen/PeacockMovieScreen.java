@@ -171,6 +171,9 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 			
 			subImage = CropImage.cropImage(liveImage, 95,280,120,32);
 			
+			File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
+			ImageIO.write(subImage, "jpg", outputFile);
+			
 			LOGGER.info("Calling read text in image method");
 			GrabText grabText = new GrabText();
 			actual = grabText.crackImage(subImage);
