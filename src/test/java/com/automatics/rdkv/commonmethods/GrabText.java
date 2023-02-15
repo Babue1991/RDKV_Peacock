@@ -27,11 +27,11 @@ public class GrabText {
 		String text;
 		String result;
 		ITesseract instance = new Tesseract();
-		instance.setDatapath(LanguageConstants.TRAIN_DATA_PATH);
-		instance.setLanguage(LanguageConstants.ENGLISH_LANGUAGE);
-
 		//instance.setDatapath(LanguageConstants.TRAIN_DATA_PATH);
-		//instance.setLanguage("eng");
+		//instance.setLanguage(LanguageConstants.ENGLISH_LANGUAGE);
+
+		  instance.setDatapath(LanguageConstants.TRAIN_DATA_PATH);
+		  instance.setLanguage("eng");
 		
 		
 		try {

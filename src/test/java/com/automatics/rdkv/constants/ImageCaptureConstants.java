@@ -67,4 +67,19 @@ public class ImageCaptureConstants {
 	
 	/********The variable used to send capture card port to capture image**/
 	public static String CAPTURE_COMMAND=BEGIN_COMMAND+VIDEO_PORT+EMPTY_SPACE+MIDDLE_COMMAND;
+	
+	/********The variable used to send capture card port to capture Peacock menu reference Screen image**/
+	public static String PEACOCK_LEFTMENU_REFERENCE_SCREEN=REFERENCE_IMAGE_PATH+"Menu.jpg";
+	
+	/********The variable used to send capture card port to capture Peacock menu live Screen image**/
+	public static String PEACOCK_LEFTMENU_LIVE_SCREEN=REFERENCE_IMAGE_PATH+"MenuLiveScreen.jpg";
+	
+	/********The variable used to send capture card port to capture Peacock menu movies option image**/
+	public static String PEACOCK_MENU_MOVIE_OPTION=REFERENCE_IMAGE_PATH+"MovieOption.jpg";
+	
+	/********The variable used to send capture card port to capture Movies Section Screen image**/
+	public static String PEACOCK_MOVIE_SCREEN=LIVE_IMAGE_PATH+"MovieSection.jpg";
+	
+	/********The variable used to send capture card port to capture Movies Section Screen image**/
+	public static String PEACOCK_MOVIE_PLAY_CONTENT=LIVE_IMAGE_PATH+"MovieContent.jpg";
 }
