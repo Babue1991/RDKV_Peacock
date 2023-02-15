@@ -322,7 +322,7 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.XFINITY_APPLICATION_FOCUS_PEACOCK));
 
 			LOGGER.info("Crop the live image");
-			subImage = CropImage.subImage(liveImage, 50,250,160,45);
+			subImage = CropImage.cropImage(liveImage, 50,300,160,45);
 
 			File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
 			ImageIO.write(subImage, "jpg", outputFile);
@@ -351,7 +351,7 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 				liveImage = ImageIO.read(new File(ImageCaptureConstants.XFINITY_PEACOCK_SPLASH_SCREEN));
 
 				LOGGER.info("Crop the live image");
-				subImage = CropImage.subImage(liveImage, 120,230,1000,250);
+				subImage = CropImage.cropImage(liveImage, 120,230,1000,250);
 
 				actual = grabText.crackImage(subImage);
 				status = CommonMethods.textCompare(SplashText, actual);
