@@ -324,7 +324,7 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 			LOGGER.info("Crop the live image");
 			subImage = CropImage.subImage(liveImage, 50,300,160,45);
 
-			File outputFile = new File("/home/user/Desktop/image1.jpg");
+			File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
 			ImageIO.write(subImage, "jpg", outputFile);
 			
 			GrabText grabText = new GrabText();
