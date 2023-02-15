@@ -313,7 +313,7 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 
 			CommonMethods.execCommand(RemoteKeyContstants.DOWN_BUTTON);
 
-
+			Thread.sleep(3000L);
 			LOGGER.info("Capture application screen live image");
 			CaptureLiveImage.capture(ImageCaptureConstants.XFINITY_APPLICATION_FOCUS_PEACOCK);
 
