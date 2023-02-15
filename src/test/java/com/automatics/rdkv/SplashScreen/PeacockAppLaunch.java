@@ -161,7 +161,7 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 			LOGGER.info("Reading live image");
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.XFINITY_APPLICATION_SCREEN));
 			LOGGER.info("Crop the live image");
-			subImage = CropImage.subImage(liveImage, 10,20,200,70);
+			subImage = CropImage.subImage(liveImage, 70,25,160,60);
 
 			GrabText grabText = new GrabText();
 			actual = grabText.crackImage(subImage);
@@ -248,7 +248,6 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 			} else {
 				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
 			}
-
 
 			if (status) {
 
