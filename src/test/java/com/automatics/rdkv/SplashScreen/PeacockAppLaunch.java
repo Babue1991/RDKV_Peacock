@@ -324,6 +324,7 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 			LOGGER.info("Crop the live image");
 			subImage = CropImage.subImage(liveImage, 50,300,160,45);
 
+			
 			GrabText grabText = new GrabText();
 			actual = grabText.crackImage(subImage);
 			status = CommonMethods.textCompare(expected, actual);
