@@ -270,7 +270,7 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 
 		}
-		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-1002");
+		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-1003");
 
 	}
 
@@ -324,6 +324,8 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 			LOGGER.info("Crop the live image");
 			subImage = CropImage.subImage(liveImage, 50,300,160,45);
 
+			File outputFile = new File("/home/user/Desktop/image1.jpg");
+			ImageIO.write(subImage, "jpg", outputFile);
 			
 			GrabText grabText = new GrabText();
 			actual = grabText.crackImage(subImage);
