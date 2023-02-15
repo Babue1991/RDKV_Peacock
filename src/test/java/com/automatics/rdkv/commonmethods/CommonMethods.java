@@ -70,13 +70,14 @@ public class CommonMethods extends AutomaticsTestBase{
 	}
 
 	public static boolean textCompare(String exepected, String actual) {
-		status =false;
+		
 		LOGGER.info("The values are: "+exepected+" and "+actual);
 		if(exepected.equals(actual)) {
 			LOGGER.info("Both the text matching "+actual);
 			status = true;
 		}else {
 			LOGGER.error("The actual string not returns exepected value: "+actual);
+			status =false;
 		}
 		return status;
 

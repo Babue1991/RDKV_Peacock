@@ -34,7 +34,7 @@ public class GrabText {
 		
 		try {
 			String result = instance.doOCR(filePath);
-			System.out.println("The text present in the image is: "+result+"apps");
+			System.out.println("The text present in the image is:"+result+"apps");
 			return result;
 		} catch (TesseractException e) {
 			System.err.println(e.getMessage());
