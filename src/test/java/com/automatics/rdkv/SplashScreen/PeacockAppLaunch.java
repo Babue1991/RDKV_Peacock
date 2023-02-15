@@ -81,7 +81,9 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 			LOGGER.info("Redirecting to STB home screen: ");
 			LOGGER.info("Click Xfinity button ");
 			CommonMethods.execCommand(RemoteKeyContstants.XFINITY_BUTTON);
-			Thread.sleep(5000L);
+			Thread.sleep(2000L);
+			CommonMethods.execCommand(RemoteKeyContstants.XFINITY_BUTTON);
+			Thread.sleep(3000L);
 			nu.pattern.OpenCV.loadLocally();
 			LOGGER.info("Taking live screenshot in "+ImageCaptureConstants.XFINITY_HOME_SCREEN);
 			CaptureLiveImage.capture(ImageCaptureConstants.XFINITY_HOME_SCREEN);
@@ -143,8 +145,8 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 
 		try {
 			stepNum = "S1";
-			errorMessage = "Failed to Application screen";
-			expected = "Applications";
+			errorMessage = "Failed to load Application screen";
+			expected = "BMdeucis";
 			LOGGER.info("*****************************************************************************************");
 			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify user can launch application screen using remote keys");
 			LOGGER.info("STEP 1: ACTION : Take screen shot of the live screen and compare it with reference image");
