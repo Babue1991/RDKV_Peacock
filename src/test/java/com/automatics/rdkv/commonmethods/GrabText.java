@@ -33,7 +33,8 @@ public class GrabText {
 		
 		
 		try {
-			String result = instance.doOCR(filePath);
+			String text = instance.doOCR(filePath);
+			String result = text.trim();
 			System.out.println("The text present in the image is:"+result+"apps");
 			return result;
 		} catch (TesseractException e) {
