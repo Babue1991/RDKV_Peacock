@@ -162,6 +162,10 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 			LOGGER.info("Click one UP_BUTTON ");
 			CommonMethods.execCommand(RemoteKeyContstants.UP_BUTTON);
 			
+			LOGGER.info("Click OK_BUTTON ");
+			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			Thread.sleep(5000L);
+			
 			LOGGER.info("Capture peacock search screen live image ");
 			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_SEARCH_BAR_LIVE_IMAGE);	
 			

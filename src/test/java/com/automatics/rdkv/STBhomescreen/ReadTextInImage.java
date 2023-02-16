@@ -10,6 +10,7 @@ public class ReadTextInImage {
 
 	public static void main(String[] args) {
 		String path="/home/user/Downloads/Application.jpg";
+		
         System.out.println(ReadTextInImage.crackImage(path));
 	}
 	
@@ -17,7 +18,7 @@ public class ReadTextInImage {
 	        File imageFile = new File(filePath);
 	        ITesseract instance = new Tesseract();
 	        instance.setDatapath("/home/user/eclipse-workspace/RDKV_Peacock/src/main/resources/");
-
+	        
 	        instance.setLanguage("eng");
 	        
 	        try {
