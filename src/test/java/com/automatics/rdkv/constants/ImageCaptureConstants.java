@@ -82,4 +82,31 @@ public class ImageCaptureConstants {
 	
 	/********The variable used to send capture card port to capture Movies Section Screen image**/
 	public static String PEACOCK_MOVIE_PLAY_CONTENT=LIVE_IMAGE_PATH+"MovieContent.jpg";
+	
+	//Search Bar 
+	/********The variable used to send capture card port to capture Peacock search menu option image**/
+	public static String PEACOCK_SEARCH_BUTTON_HIGHLIGHT=REFERENCE_IMAGE_PATH+"SearchbarHighlight.jpg";
+	
+	/********The variable used to send capture card port to capture Search Section Screen image**/
+	public static String PEACOCK_SEARCH_BUTTON_HIGHLIGHT_LIVE=LIVE_IMAGE_PATH+"SearchMenu.jpg";
+	
+	/********The variable used to send capture card port to capture Peacock search menu option image**/
+	public static String PEACOCK_SEARCH_BAR=REFERENCE_IMAGE_PATH+"Searchbarkeys.jpg";
+	
+	/********The variable used to send capture card port to capture Search Section Screen image**/
+	public static String PEACOCK_SEARCH_BAR_LIVE_IMAGE=LIVE_IMAGE_PATH+"SearchKeyboard.jpg";
+	
+	/********The variable used to send capture card port to capture Peacock search bar text image**/
+	public static String PEACOCK_SEARCH_BAR_TEXT=REFERENCE_IMAGE_PATH+"SearchbarTextVerify.jpg";
+	
+	/********The variable used to send capture card port to capture Search Section Screen image**/
+	public static String PEACOCK_SEARCHBAR_TEXT_LIVE_IMAGE=LIVE_IMAGE_PATH+"SearchText.jpg";
+	
+	/********The variable used to send capture card port to capture Peacock search Feature Antz image**/
+	public static String PEACOCK_SEARCH_FEATURE=REFERENCE_IMAGE_PATH+"SearchAntz.jpg";
+	
+	/********The variable used to send capture card port to capture Search Section Screen image**/
+	public static String PEACOCK_SEARCH_FEATURE_LIVE_IMAGE=LIVE_IMAGE_PATH+"AntzSearch.jpg";
+	
+	
 }
