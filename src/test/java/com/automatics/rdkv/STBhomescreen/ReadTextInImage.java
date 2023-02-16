@@ -9,7 +9,7 @@ import net.sourceforge.tess4j.TesseractException;
 public class ReadTextInImage {
 
 	public static void main(String[] args) {
-		String path="/home/user/Downloads/Application.jpg";
+		String path="/home/user/Downloads/SearchbarTextVerify.jpg";
 		
         System.out.println(ReadTextInImage.crackImage(path));
 	}
