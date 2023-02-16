@@ -156,11 +156,13 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 
 			LOGGER.info("Crop the reference image from the search bar menu");
 			
-			LOGGER.info("Click one LEFT_BUTTON ");
-			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
-			
-			LOGGER.info("Click one UP_BUTTON ");
-			CommonMethods.execCommand(RemoteKeyContstants.UP_BUTTON);
+			/*
+			 * LOGGER.info("Click one LEFT_BUTTON ");
+			 * CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			 * 
+			 * LOGGER.info("Click one UP_BUTTON ");
+			 * CommonMethods.execCommand(RemoteKeyContstants.UP_BUTTON);
+			 */
 			
 			LOGGER.info("Click OK_BUTTON ");
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
