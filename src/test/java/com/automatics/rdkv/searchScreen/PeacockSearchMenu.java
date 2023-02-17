@@ -90,7 +90,7 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 			CommonMethods.execCommand(RemoteKeyContstants.UP_BUTTON);
 			
 			LOGGER.info("Reading reference image");
-			referenceImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_SEARCH_BUTTON_HIGHLIGHT);
+			referenceImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_SEARCH_BUTTON_HIGHLIGHT));
 			
 			LOGGER.info("Capture peacock home screen live image");
 			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_SEARCH_BUTTON_HIGHLIGHT_LIVE);
