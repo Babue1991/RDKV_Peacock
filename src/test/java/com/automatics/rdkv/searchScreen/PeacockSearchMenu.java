@@ -57,10 +57,12 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 		String testId = "PEACOCK-AAMP-TC-106";
 		String errorMessage = null;
 		String stepNum = null;
-		Mat referenceImage;
+	    BufferedImage referenceImage;
 	    BufferedImage liveImage;
 		BufferedImage subImage;
-		BufferedImage cropImage;
+		/*
+		 * BufferedImage cropImage; Mat compare;
+		 */
 		// Variables declaration Ends
 
 		LOGGER.info("#######################################################################################");
@@ -78,30 +80,34 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 			LOGGER.info("STEP 1: EXPECTED : Image comparison successful.");
 			LOGGER.info("*****************************************************************************************");
 
-			LOGGER.info("Crop the reference image from the search bar menu");
-			
+			LOGGER.info("Redirecting to Peacock menu screen: ");
 			LOGGER.info("Click one LEFT_BUTTON ");
 			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+	        //Thread.sleep(5000L);
+			nu.pattern.OpenCV.loadLocally();
 			
 			LOGGER.info("Click one UP_BUTTON ");
 			CommonMethods.execCommand(RemoteKeyContstants.UP_BUTTON);
+			
+			LOGGER.info("Reading reference image");
+			referenceImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_SEARCH_BUTTON_HIGHLIGHT);
 			
 			LOGGER.info("Capture peacock home screen live image");
 			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_SEARCH_BUTTON_HIGHLIGHT_LIVE);
 			
 			LOGGER.info("Reading live image");
-			//liveImage = Imgcodecs.imread(ImageCaptureConstants.PEACOCK_SEARCH_BUTTON_HIGHLIGHT_LIVE);
 			liveImage =  ImageIO.read(new File(ImageCaptureConstants.PEACOCK_SEARCH_BUTTON_HIGHLIGHT_LIVE));
-			LOGGER.info("Croping the live search bar image");
-		    subImage = CropImage.cropImage(liveImage, 40,170,240,60);
 			
-			LOGGER.info(" ");
-			nu.pattern.OpenCV.loadLocally();
+            LOGGER.info("Calling Crop Image method");
 			
-			LOGGER.info("Reading reference image");
-			referenceImage = Imgcodecs.imread(ImageCaptureConstants.PEACOCK_SEARCH_BUTTON_HIGHLIGHT);
+			subImage = CropImage.cropImage(liveImage, 40,170,240,60);
 			
-			ImageCompare imgCompare =new ImageCompare();
+            ImageCompare imgCompare =new ImageCompare();
+			
+			LOGGER.info("Calling screen compare method");
+
+			status = imgCompare.compare(referenceImage, subImage);
+			
 			
 			LOGGER.info("Calling screen compare method");
 		
