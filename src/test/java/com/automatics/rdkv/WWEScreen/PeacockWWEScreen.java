@@ -27,6 +27,8 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 import com.automatics.tap.AutomaticsTapApi;
 import com.automatics.test.AutomaticsTestBase;
 
+import net.sourceforge.tess4j.Tesseract;
+
 
 public class PeacockWWEScreen extends AutomaticsTestBase {
 
@@ -135,7 +137,7 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 			String testId = "PEACOCK-AAMP-TC-121";
 			String errorMessage = null;
 			String stepNum = null;
-			Mat referenceImage;
+//			Mat referenceImage;
 			BufferedImage liveImage;
 			String actual;
 			String expected = "WWE";
@@ -188,7 +190,6 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 			status = CommonMethods.textCompare(expected, actual);
 			
 			LOGGER.info("Calling compare text method");
-		
 			
 		
 			if (status) {
@@ -256,8 +257,6 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.WWE_TITLE_LIVE_IMAGE));
 			
             LOGGER.info("Calling crop method");
-			
-
 			subImage = CropImage.cropImage(liveImage, 70,380,160,60);
 			
 			LOGGER.info("Calling read text in image method");

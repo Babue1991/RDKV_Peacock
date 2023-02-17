@@ -249,8 +249,6 @@ public class PeacockTVShows extends AutomaticsTestBase {
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_TVSHOW_SCREEN));
 			
             LOGGER.info("Calling crop method");
-			
-
 			subImage = CropImage.cropImage(liveImage, 70,380,300,60);
 			
 			LOGGER.info("Calling read text in image method");

@@ -131,7 +131,7 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 		String testId = "PEACOCK-AAMP-TC-012";
 		String errorMessage = null;
 		String stepNum = null;
-		Mat referenceImage;
+//		Mat referenceImage;
 		BufferedImage liveImage;
 		String actual;
 		String expected = "Lo";
