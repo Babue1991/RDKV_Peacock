@@ -44,11 +44,11 @@ public class PeacockTVShows extends AutomaticsTestBase {
 	static Process p;
 	@Test(priority=5,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
-	@TestDetails(testUID = "PEACOCK-AAMP-TC-1021")
+	@TestDetails(testUID = "PEACOCK-AAMP-TC-1031")
 	public void testVerifyPeacockMenu(Dut device) throws InterruptedException {
 		// Variables declaration starts
 		boolean status = false;
-		String testId = "PEACOCK-AAMP-TC-021";
+		String testId = "PEACOCK-AAMP-TC-031";
 		String errorMessage = null;
 		String stepNum = null;
 		BufferedImage referenceImage;
@@ -124,11 +124,11 @@ public class PeacockTVShows extends AutomaticsTestBase {
 
 	@Test(priority=6,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
-	@TestDetails(testUID = "PEACOCK-AAMP-TC-1022")
+	@TestDetails(testUID = "PEACOCK-AAMP-TC-1032")
 	public void testVerifyMoviesOption(Dut device) throws InterruptedException {
 		// Variables declaration starts
 		boolean status = false;
-		String testId = "PEACOCK-AAMP-TC-022";
+		String testId = "PEACOCK-AAMP-TC-032";
 		String errorMessage = null;
 		String stepNum = null;
 		Mat referenceImage;
@@ -207,11 +207,11 @@ public class PeacockTVShows extends AutomaticsTestBase {
 	}
 	@Test(priority=7,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
-	@TestDetails(testUID = "PEACOCK-AAMP-TC-1023")
+	@TestDetails(testUID = "PEACOCK-AAMP-TC-1033")
 	public void testVerifyMovieScreen(Dut device) throws InterruptedException {
 		// Variables declaration starts
 		boolean status = false;
-		String testId = "PEACOCK-AAMP-TC-023";
+		String testId = "PEACOCK-AAMP-TC-033";
 		String errorMessage = null;
 		String stepNum = null;
 		BufferedImage liveImage;

@@ -114,6 +114,20 @@ public class ImageCaptureConstants {
 	/********The variable used to send capture card port to capture Movies Section Screen image**/
 	public static String PEACOCK_TVSHOW_SCREEN=LIVE_IMAGE_PATH+"TvShowSection.jpg";
 	
+	//WWE Screen
+	/********The variable used to send capture card port to capture Peacock WWE menu option image**/
+	public static String PEACOCK_SCREEN_WWE_BUTTON=REFERENCE_IMAGE_PATH+"WWE.jpg";
+	
+	/********The variable used to send capture card port to capture WWE Section Screen image**/
+	public static String PEACOCK_WWE_LIVE_IMAGE=LIVE_IMAGE_PATH+"WWEButton.jpg";
+	
+	/********The variable used to send capture card port to capture WWE Section Screen image**/
+	public static String WWE_TITLE_LIVE_IMAGE=LIVE_IMAGE_PATH+"WWETitle.jpg";
+	
+	/********The variable used to send capture card port to capture WWE Section Screen image**/
+	public static String WWE_MY_STUFF_LIVE_IMAGE=LIVE_IMAGE_PATH+"WWEMystuff.jpg";
+	
+	
 	
 	
 }

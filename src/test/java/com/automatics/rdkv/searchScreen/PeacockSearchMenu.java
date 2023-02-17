@@ -270,8 +270,6 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 			 * Imgcodecs.imread(ImageCaptureConstants.PEACOCK_SEARCH_BAR_TEXT);
 			 */
 		
-			ImageCompare imgCompare =new ImageCompare();
-			LOGGER.info("Calling screen compare method");
 		
 			if (status) {
 				LOGGER.info("The status of image comparision is: " + status);
