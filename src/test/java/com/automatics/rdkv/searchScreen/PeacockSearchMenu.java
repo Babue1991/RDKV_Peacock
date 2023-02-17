@@ -218,12 +218,10 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 		String testId = "PEACOCK-AAMP-TC-108";
 		String errorMessage = null;
 		String stepNum = null;
-		Mat referenceImage;
 		String actual;
-		String expected = "Lo";
+		String expected = "Popular Searches";
 		BufferedImage liveImage;
 		BufferedImage subImage;
-		BufferedImage cropImage;
 		// Variables declaration Ends
 
 		LOGGER.info("#######################################################################################");
