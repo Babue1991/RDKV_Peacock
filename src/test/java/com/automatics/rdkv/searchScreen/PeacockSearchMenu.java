@@ -105,11 +105,7 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
             ImageCompare imgCompare =new ImageCompare();
 			
 			LOGGER.info("Calling screen compare method");
-
 			status = imgCompare.compare(referenceImage, subImage);
-			
-			
-			LOGGER.info("Calling screen compare method");
 		
 			if (status) {
 				LOGGER.info("The status of image comparision is: " + status);
@@ -140,7 +136,7 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 		String testId = "PEACOCK-AAMP-TC-107";
 		String errorMessage = null;
 		String stepNum = null;
-		Mat referenceImage;
+		BufferedImage referenceImage;
 		BufferedImage liveImage;
 		BufferedImage subImage;
 		BufferedImage cropImage;
@@ -160,20 +156,15 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 			LOGGER.info("STEP 1: ACTION : ACTION: compare search bar reference image with the live image ");
 			LOGGER.info("STEP 1: EXPECTED : Image comparison successful.");
 			LOGGER.info("*****************************************************************************************");
-
-			LOGGER.info("Crop the reference image from the search bar menu");
 			
-			/*
-			 * LOGGER.info("Click one LEFT_BUTTON ");
-			 * CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
-			 * 
-			 * LOGGER.info("Click one UP_BUTTON ");
-			 * CommonMethods.execCommand(RemoteKeyContstants.UP_BUTTON);
-			 */
-			
+			LOGGER.info("Redirecting to Peacock search menu screen: ");
 			LOGGER.info("Click OK_BUTTON ");
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
 			Thread.sleep(5000L);
+			nu.pattern.OpenCV.loadLocally();
+			
+			LOGGER.info("Reading reference image");
+			referenceImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_SEARCH_BAR));
 			
 			LOGGER.info("Capture peacock search screen live image ");
 			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_SEARCH_BAR_LIVE_IMAGE);	
@@ -183,14 +174,10 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 			
 			LOGGER.info("Croping the live search keyboard image");
 		    subImage = CropImage.cropImage(liveImage, 80,100,1180,180);
-			
-			LOGGER.info(" ");
-			nu.pattern.OpenCV.loadLocally();
-			
-			LOGGER.info("Reading reference image");
-			referenceImage = Imgcodecs.imread(ImageCaptureConstants.PEACOCK_SEARCH_BAR);
-			
+
 			ImageCompare imgCompare =new ImageCompare();
+			
+			status = imgCompare.compare(referenceImage, subImage);
 			
 			LOGGER.info("Calling screen compare method");
 		
@@ -227,6 +214,7 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 		String actual;
 		String expected = "Popular Searches";
 		BufferedImage liveImage;
+		BufferedImage referenceImage;
 		BufferedImage subImage;
 		// Variables declaration Ends
 
@@ -245,15 +233,8 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 			LOGGER.info("STEP 1: EXPECTED : Image comparison successful.");
 			LOGGER.info("*****************************************************************************************");
 			
-			LOGGER.info("Crop the reference image from the search bar menu");
-			
-			/*
-			 * LOGGER.info("Click one LEFT_BUTTON ");
-			 * CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
-			 * 
-			 * LOGGER.info("Click one UP_BUTTON ");
-			 * CommonMethods.execCommand(RemoteKeyContstants.UP_BUTTON);
-			 */
+			 LOGGER.info("Reading reference image"); 
+			 referenceImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_SEARCH_BAR_TEXT));
 			
 			LOGGER.info("Capture peacock search screen live image");
 			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_SEARCHBAR_TEXT_LIVE_IMAGE);
@@ -268,14 +249,6 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 			GrabText grabText = new GrabText();
 			actual = grabText.crackImage(subImage);
 			status = CommonMethods.textCompare(expected, actual);
-		    
-			/*
-			 * LOGGER.info(" "); nu.pattern.OpenCV.loadLocally();
-			 * 
-			 * LOGGER.info("Reading reference image"); referenceImage =
-			 * Imgcodecs.imread(ImageCaptureConstants.PEACOCK_SEARCH_BAR_TEXT);
-			 */
-		
 		
 			if (status) {
 				LOGGER.info("The status of image comparision is: " + status);
