@@ -187,7 +187,9 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 			actual = grabText.crackImage(subImage);
 			status = CommonMethods.textCompare(expected, actual);
 			
-			LOGGER.info("Calling comapre text method");
+			LOGGER.info("Calling compare text method");
+		
+			
 		
 			if (status) {
 				LOGGER.info("The status of image comparision is: " + status);
