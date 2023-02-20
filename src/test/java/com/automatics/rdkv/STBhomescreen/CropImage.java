@@ -16,10 +16,10 @@ public class CropImage {
 
 	public static void main(String[] args) throws IOException {
 
-		BufferedImage liveImage = ImageIO.read(new File("/home/user/Desktop/Searchbar.jpg"));
+		BufferedImage liveImage = ImageIO.read(new File("/home/user/Desktop/MoviePause.jpg"));
 		
 		try {
-			cropedImage = cropImage(liveImage, 100,280,380,50);
+			cropedImage = cropImage(liveImage, 50,570,40,44);
 			
 			//Popular entertainment section  70,380,380,70
 			
@@ -29,6 +29,7 @@ public class CropImage {
 			// Menu resolution 35,150,250,420
 			//Movie option from menu 95,280,120,32
 			//Featured Movies 70,380,300,60
+			//Movie play pause 50,570,40,44
 			//Search button highlight menu 40,170,240,60
 			//Search bar keyboard 80,100,1180,180
 			//Search bar text verify 100,280,380,50
@@ -40,7 +41,7 @@ public class CropImage {
 			e.printStackTrace();
 		}
 		
-		File outputFile = new File("/home/user/Desktop/image1.jpg");
+		File outputFile = new File("/home/user/Desktop/image2.jpg");
 		ImageIO.write(cropedImage, "jpg", outputFile);
 	}
 	

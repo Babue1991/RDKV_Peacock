@@ -7,6 +7,8 @@ import java.io.InputStreamReader;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 
 import com.automatics.rdkv.constants.ImageCaptureConstants;
+import com.automatics.rdkv.constants.IntergerCount;
+import com.automatics.rdkv.constants.RemoteKeyContstants;
 import com.automatics.test.AutomaticsTestBase;
 import com.lowagie.text.pdf.codec.Base64.OutputStream;
 
@@ -30,13 +32,37 @@ public class CommonMethods extends AutomaticsTestBase{
 
 		}catch(Exception e) {
 			LOGGER.info("Error in terminal command execution : "+command);
-			
+
 			System.out.println();
 			e.printStackTrace();
 		}finally {
-			//	p.destroy();
+			p.destroy();
 			System.out.println("Process destroyed in finally block");
 		}
+	}
+
+	public static void execCommandRepeat(String command, int count) {
+
+		for(int i = 1 ; i <= count; i++) {
+			try {
+
+				Thread.sleep(2000L);
+				p=Runtime.getRuntime().exec(command);
+				printResults(p);
+				Thread.sleep(3000L);
+				LOGGER.info("The terminal command which is executed is : "+command);
+				System.out.println();
+
+			}
+
+			catch(Exception e) {
+				LOGGER.info("Error in terminal command execution : "+command);
+
+				System.out.println();
+				e.printStackTrace();
+			}
+		}
+		p.destroy();
 	}
 
 	public static void printResults(Process process) throws IOException {
@@ -44,7 +70,7 @@ public class CommonMethods extends AutomaticsTestBase{
 		String line = "";
 		while ((line = reader.readLine()) != null) {
 			LOGGER.info("Terminal logs "+line);
-		//	System.out.println(line);
+			//	System.out.println(line);
 		}
 	}
 
@@ -70,7 +96,7 @@ public class CommonMethods extends AutomaticsTestBase{
 	}
 
 	public static boolean textCompare(String exepected, String actual) {
-		
+
 		LOGGER.info("The values are: "+exepected+" and "+actual);
 		if(exepected.equals(actual)) {
 			LOGGER.info("Both the text matching "+actual);

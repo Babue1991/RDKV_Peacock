@@ -279,7 +279,7 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 	@Test(priority=8,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
 	@TestDetails(testUID = "PEACOCK-AAMP-TC-1014")
-	public void testVerifyPlayMovie(Dut device) throws InterruptedException {
+	public void testVerifyMovie(Dut device) throws InterruptedException {
 		// Variables declaration starts
 		boolean status = false;
 		String testId = "PEACOCK-AAMP-TC-014";
@@ -293,7 +293,7 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 
 		LOGGER.info("#######################################################################################");
 		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1014");
-		LOGGER.info("TEST DESCRIPTION:  This test is to verify user can play movie content using remote keys");
+		LOGGER.info("TEST DESCRIPTION:  This test is to verify user can Select movie content using remote keys");
 		LOGGER.info("TEST STEPS : ");
 		LOGGER.info("1. Click on any Movie");
 		LOGGER.info("#######################################################################################");
@@ -301,9 +301,9 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 			stepNum = "S1";
 			errorMessage = "Failed to play Movies";
 			LOGGER.info("*****************************************************************************************");
-			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify user can play movie content using remote keys");
+			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify user can Select movie content using remote keys");
 			LOGGER.info("STEP 1: ACTION : Press ok button and take screenshot");
-			LOGGER.info("STEP 1: EXPECTED : Movies should play successfully.");
+			LOGGER.info("STEP 1: EXPECTED : Movies player screen should be shown.");
 			LOGGER.info("*****************************************************************************************");
 
 			LOGGER.info("Click Xfinity ok button ");
@@ -351,6 +351,188 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 
 		}
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-1014");
+
+	}
+	@Test(priority=9,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
+	@TestDetails(testUID = "PEACOCK-AAMP-TC-1015")
+	public void testVerifyMoviePlay(Dut device) throws InterruptedException {
+		// Variables declaration starts
+		boolean status = false;
+		String testId = "PEACOCK-AAMP-TC-015";
+		String errorMessage = null;
+		String stepNum = null;
+		BufferedImage liveImage;
+		BufferedImage liveNextImage;
+		// Variables declaration Ends
+
+		LOGGER.info("#######################################################################################");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1015");
+		LOGGER.info("TEST DESCRIPTION:  This test is to verify user can play movie content using remote keys");
+		LOGGER.info("TEST STEPS : ");
+		LOGGER.info("1. Click on Play icon");
+		LOGGER.info("#######################################################################################");
+		try {
+			stepNum = "S1";
+			errorMessage = "Failed to play Movies";
+			LOGGER.info("*****************************************************************************************");
+			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify user can play movie content using remote keys");
+			LOGGER.info("STEP 1: ACTION : Press ok button and take screenshot");
+			LOGGER.info("STEP 1: EXPECTED : Movies should play successfully.");
+			LOGGER.info("*****************************************************************************************");
+
+			LOGGER.info("Click Xfinity ok button ");
+			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			Thread.sleep(5000L);
+			nu.pattern.OpenCV.loadLocally();
+			
+			LOGGER.info("Capture application screen live image");
+			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_MOVIE_PLAY_CONTENT);
+			Thread.sleep(10000L);
+			
+			LOGGER.info("Reading live image");
+			
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_MOVIE_PLAY_CONTENT));
+			
+			LOGGER.info("Capture application screen live image");
+			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_MOVIE_PLAY_CONTENT);
+			Thread.sleep(5000L);
+			
+			LOGGER.info("Reading live next image");
+			
+			liveNextImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_MOVIE_PLAY_NEXT_CONTENT));
+			
+			LOGGER.info("Calling image compare method");
+			
+            ImageCompare imgCompare =new ImageCompare();
+
+			status = imgCompare.compare(liveImage, liveNextImage);
+			
+			if (status) {
+				
+				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+				
+			} else {
+				LOGGER.info("The status of image comparision is: " + status + "and movie is playing");
+			}
+			LOGGER.info("**********************************************************************************");
+			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+
+		} catch (Exception e) {
+			LOGGER.error("Exception occured while reading the image file " + e);
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			LOGGER.info("Inside catch");
+			errorMessage = e.getMessage();
+			LOGGER.error("Exception while playing movie: " + errorMessage);
+			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
+
+		}
+		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-1015");
+
+	}
+	@Test(priority=10,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
+	@TestDetails(testUID = "PEACOCK-AAMP-TC-1016")
+	public void testVerifyMoviePause(Dut device) throws InterruptedException {
+		// Variables declaration starts
+		boolean status = false;
+		String testId = "PEACOCK-AAMP-TC-016";
+		String errorMessage = null;
+		String stepNum = null;
+		BufferedImage referenceImage;
+		BufferedImage liveImage;
+		BufferedImage liveNextImage;
+		BufferedImage subImage;
+		// Variables declaration Ends
+
+		LOGGER.info("#######################################################################################");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1016");
+		LOGGER.info("TEST DESCRIPTION:  This test is to verify user can pause movie content using remote keys");
+		LOGGER.info("TEST STEPS : ");
+		LOGGER.info("1. Click on Pause icon");
+		LOGGER.info("#######################################################################################");
+		try {
+			stepNum = "S1";
+			errorMessage = "Failed to pause Movies";
+			LOGGER.info("*****************************************************************************************");
+			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify user can pause movie content using remote keys");
+			LOGGER.info("STEP 1: ACTION : Press left button and click ok button");
+			LOGGER.info("STEP 1: EXPECTED : Movies should pause playing.");
+			LOGGER.info("*****************************************************************************************");
+            
+			LOGGER.info("Click Xfinity left button ");
+			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			Thread.sleep(2000L);
+			
+			LOGGER.info("Click Xfinity ok button ");
+			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			Thread.sleep(3000L);
+			nu.pattern.OpenCV.loadLocally();
+			
+			LOGGER.info("Reading reference image");
+			referenceImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_MOVIE_REFERENCE_PLAY_ICON));
+			
+			LOGGER.info("Capture application screen live image");
+			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_MOVIE_PAUSE_CONTENT);
+			
+			LOGGER.info("Reading live image");
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_MOVIE_PAUSE_CONTENT));
+			
+			LOGGER.info("Calling image cropping method");
+			subImage = CropImage.subImage(liveImage, 50,570,40,44);
+			
+			LOGGER.info("Calling image compare method");
+			
+            ImageCompare imgCompare =new ImageCompare();
+
+			status = imgCompare.compare(referenceImage, subImage);
+			
+			if (status) {
+				
+				LOGGER.info("The status of image comparision is: " + status + "and Play icon verified");
+				
+			} else {
+				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+			}
+			
+			Thread.sleep(3000L);
+			LOGGER.info("Click Xfinity left button ");
+			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			Thread.sleep(2000L);
+			
+			LOGGER.info("Capture application screen live image");
+			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_MOVIE_PAUSE_CONTENT_SCREEN);
+			
+			LOGGER.info("Reading next live image");
+			liveNextImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_MOVIE_PAUSE_CONTENT_SCREEN));
+			
+	        LOGGER.info("Calling image compare method");
+
+			status = imgCompare.compare(liveImage, liveNextImage);
+			
+			if (status) {
+				
+				LOGGER.info("The status of image comparision is: " + status + "and Pause verified");
+				
+			} else {
+				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+			}
+			
+			LOGGER.info("**********************************************************************************");
+			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+
+		} catch (Exception e) {
+			LOGGER.error("Exception occured while reading the image file " + e);
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			LOGGER.info("Inside catch");
+			errorMessage = e.getMessage();
+			LOGGER.error("Exception while pausing movie: " + errorMessage);
+			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
+
+		}
+		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-1016");
 
 	}
 }

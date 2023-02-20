@@ -83,6 +83,21 @@ public class ImageCaptureConstants {
 	/********The variable used to send capture card port to capture Movies Section Screen image**/
 	public static String PEACOCK_MOVIE_PLAY_CONTENT=LIVE_IMAGE_PATH+"MovieContent.jpg";
 	
+	/********The variable used to send capture card port to capture Movies Section Screen image**/
+	public static String PEACOCK_MOVIE_PLAY_NEXT_CONTENT=LIVE_IMAGE_PATH+"MovieNextContent.jpg";
+	
+	/********The variable used to send capture card port to capture Movies Section Screen image**/
+	public static String PEACOCK_MOVIE_PAUSE_CONTENT=LIVE_IMAGE_PATH+"MovieContentPause.jpg";
+	
+	/********The variable used to send capture card port to capture Movies Section Screen image**/
+	public static String PEACOCK_MOVIE_PAUSE_CONTENT_SCREEN=LIVE_IMAGE_PATH+"MovieContentPauseScreen.jpg";
+	
+	/********The variable used to send capture card port to capture Movies Section Screen image**/
+	public static String PEACOCK_MOVIE_REFERENCE_PAUSE_ICON=REFERENCE_IMAGE_PATH+"Pause_icon.jpg";
+	
+	/********The variable used to send capture card port to capture Movies Section Screen image**/
+	public static String PEACOCK_MOVIE_REFERENCE_PLAY_ICON=REFERENCE_IMAGE_PATH+"Play_icon.jpg";
+	
 	//Search Bar 
 	/********The variable used to send capture card port to capture Peacock search menu option image**/
 	public static String PEACOCK_SEARCH_BUTTON_HIGHLIGHT=REFERENCE_IMAGE_PATH+"SearchbarHighlight.jpg";
@@ -117,6 +132,7 @@ public class ImageCaptureConstants {
 	//WWE Screen
 	/********The variable used to send capture card port to capture Peacock WWE menu option image**/
 	public static String PEACOCK_SCREEN_WWE_BUTTON=REFERENCE_IMAGE_PATH+"WWE.jpg";
+
 	
 	/********The variable used to send capture card port to capture WWE Section Screen image**/
 	public static String PEACOCK_WWE_LIVE_IMAGE=LIVE_IMAGE_PATH+"WWEButton.jpg";
