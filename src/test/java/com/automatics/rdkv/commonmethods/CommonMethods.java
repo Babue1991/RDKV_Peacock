@@ -23,10 +23,10 @@ public class CommonMethods extends AutomaticsTestBase{
 	public static void execCommand(String command) {
 		try {
 
-			Thread.sleep(2000L);
+		//	Thread.sleep(2000L);
 			p=Runtime.getRuntime().exec(command);
 			printResults(p);
-			Thread.sleep(3000L);
+		//	Thread.sleep(3000L);
 			LOGGER.info("The terminal command which is executed is : "+command);
 			System.out.println();
 
