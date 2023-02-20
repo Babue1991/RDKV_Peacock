@@ -384,15 +384,15 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 			nu.pattern.OpenCV.loadLocally();
 			
 			LOGGER.info("Capture application screen live image");
-			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_MOVIE_PLAY_CONTENT);
+			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_MOVIE_PLAY_CONTENT_SCREEN);
 			Thread.sleep(10000L);
 			
 			LOGGER.info("Reading live image");
 			
-			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_MOVIE_PLAY_CONTENT));
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_MOVIE_PLAY_CONTENT_SCREEN));
 			
 			LOGGER.info("Capture application screen live image");
-			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_MOVIE_PLAY_CONTENT);
+			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_MOVIE_PLAY_NEXT_CONTENT);
 			Thread.sleep(5000L);
 			
 			LOGGER.info("Reading live next image");
