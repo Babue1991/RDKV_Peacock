@@ -286,7 +286,7 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 		String errorMessage = null;
 		String stepNum = null;
 		BufferedImage liveImage;
-		String expected = "Resume:";
+		String expected = "Resume";
 		String actual;
 		BufferedImage subImage;
 		// Variables declaration Ends
@@ -322,9 +322,6 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
             LOGGER.info("Calling crop method");
 			
 			subImage = CropImage.cropImage(liveImage, 260,630,80,50);
-			
-			File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
-			ImageIO.write(subImage, "jpg", outputFile);
 			
 			LOGGER.info("Calling read text in image method");
 			GrabText grabText = new GrabText();
@@ -482,7 +479,7 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 			LOGGER.info("Calling image cropping method");
 			subImage = CropImage.subImage(liveImage, 50,570,40,44);
 			
-			File outputFile = new File("/home/user/Desktop/image1.jpg");
+			File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
 			ImageIO.write(subImage, "jpg", outputFile);
 			
 			LOGGER.info("Calling image compare method");
