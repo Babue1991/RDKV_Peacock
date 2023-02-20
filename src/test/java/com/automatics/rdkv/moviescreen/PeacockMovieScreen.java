@@ -286,7 +286,7 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 		String errorMessage = null;
 		String stepNum = null;
 		BufferedImage liveImage;
-		String expected = "Resume";
+		String expected = "Resume h";
 		String actual;
 		BufferedImage subImage;
 		// Variables declaration Ends
@@ -477,7 +477,7 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_MOVIE_PAUSE_CONTENT));
 			
 			LOGGER.info("Calling image cropping method");
-			subImage = CropImage.subImage(liveImage, 50,570,40,44);
+			subImage = CropImage.cropImage(liveImage, 50,570,40,44);
 			
 			File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
 			ImageIO.write(subImage, "jpg", outputFile);
