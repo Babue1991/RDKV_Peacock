@@ -464,14 +464,15 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 			
 			LOGGER.info("Click Xfinity ok button ");
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
-			Thread.sleep(3000L);
+			//Thread.sleep(3000L);
+			LOGGER.info("Capture application screen live image");
+			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_MOVIE_PAUSE_CONTENT);
 			nu.pattern.OpenCV.loadLocally();
 			
 			LOGGER.info("Reading reference image");
 			referenceImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_MOVIE_REFERENCE_PLAY_ICON));
 			
-			LOGGER.info("Capture application screen live image");
-			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_MOVIE_PAUSE_CONTENT);
+			
 			
 			LOGGER.info("Reading live image");
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_MOVIE_PAUSE_CONTENT));
