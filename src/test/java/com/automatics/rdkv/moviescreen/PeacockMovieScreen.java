@@ -463,7 +463,7 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
             
 			LOGGER.info("Click Xfinity left button ");
 			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
-			Thread.sleep(2000L);
+			//Thread.sleep(3000L);
 			
 			LOGGER.info("Click Xfinity ok button ");
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
@@ -481,6 +481,9 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 			
 			LOGGER.info("Calling image cropping method");
 			subImage = CropImage.subImage(liveImage, 50,570,40,44);
+			
+			File outputFile = new File(ImageCaptureConstants.PEACOCK_MOVIE_PAUSE_CONTENT);
+			ImageIO.write(subImage, "jpg", outputFile);
 			
 			LOGGER.info("Calling image compare method");
 			
