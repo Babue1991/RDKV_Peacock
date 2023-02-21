@@ -144,7 +144,25 @@ public class ImageCaptureConstants {
 	public static String WWE_TITLE_LIVE_IMAGE=LIVE_IMAGE_PATH+"WWETitle.jpg";
 	
 	/********The variable used to send capture card port to capture WWE Section Screen image**/
-	public static String WWE_MY_STUFF_LIVE_IMAGE=LIVE_IMAGE_PATH+"WWEMystuff.jpg";
+	public static String WWE_SUBTITLE_BUTTON_LIVE_IMAGE=LIVE_IMAGE_PATH+"WWESubtitlebutton.jpg";
+	
+	/********The variable used to send capture card port to capture WWE Section Screen image**/
+	public static String WWE_ENGLISH_SUBTITLE_BUTTON_LIVE_IMAGE=LIVE_IMAGE_PATH+"WWEEnglishSubtitlebutton.jpg";
+	
+	/********The variable used to send capture card port to capture WWE Section Screen image**/
+	public static String WWE_FASTFORWORD_LIVE_IMAGE=LIVE_IMAGE_PATH+"WWEfastforword.jpg";
+	
+	/********The variable used to send capture card port to capture WWE Section Screen image**/
+	public static String WWE_BACKFORWORD_LIVE_IMAGE=LIVE_IMAGE_PATH+"WWEbackforword.jpg";
+	
+	/********The variable used to send capture card port to capture Peacock search Feature Antz image**/
+	public static String WWE_BACKFORWORD=REFERENCE_IMAGE_PATH+"WWE_BackForward.jpg";
+	
+	/********The variable used to send capture card port to capture Peacock search Feature Antz image**/
+	public static String WWE_FASTFORWORD=REFERENCE_IMAGE_PATH+"WWE_Fastforword.jpg";
+	
+	
+	
 	
 	
 	

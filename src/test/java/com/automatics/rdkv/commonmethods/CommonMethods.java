@@ -108,6 +108,19 @@ public class CommonMethods extends AutomaticsTestBase{
 		return status;
 
 	}
+	public static boolean partialTextCompare(String exepected, String actual) {
+
+		LOGGER.info("The values are: "+exepected+" and "+actual);
+		if(actual.contains(exepected)) {
+			LOGGER.info("Search keyword found "+actual);
+			status = true;
+		}else {
+			LOGGER.error("Keyword not present: "+actual);
+			status =false;
+		}
+		return status;
+
+	}
 
 	public static String currentDirectoryPath() {
 		System.out.println("BeforePath");

@@ -49,7 +49,7 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 		 * 
 		 */
 		static Process p;
-		@Test(priority=5,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+		@Test(priority=8,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 				BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
 		@TestDetails(testUID = "PEACOCK-AAMP-TC-1020")
 		public void testVerifyPeacockMenu(Dut device) throws InterruptedException {
@@ -64,7 +64,7 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 			// Variables declaration Ends
 
 			LOGGER.info("#######################################################################################");
-			LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-120");
+			LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1020");
 			LOGGER.info("TEST DESCRIPTION: This test is to verify user can navigate to Peacock left menu using remote keys");
 			LOGGER.info("TEST STEPS : ");
 			LOGGER.info("1. Press left button for the Peacock left menu");
@@ -225,7 +225,7 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 			String stepNum = null;
 			BufferedImage liveImage;
 			String actual;
-			String expected ="Featured";
+			String expected = "Featured";
 			BufferedImage subImage;
 			// Variables declaration Ends
 	
@@ -254,10 +254,10 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 			Thread.sleep(5000L);
 			
 			LOGGER.info("Reading live image");
-			liveImage = ImageIO.read(new File(ImageCaptureConstants.WWE_TITLE_LIVE_IMAGE));
+			liveImage1 = ImageIO.read(new File(ImageCaptureConstants.WWE_TITLE_LIVE_IMAGE));
 			
             LOGGER.info("Calling crop method");
-			subImage = CropImage.cropImage(liveImage, 70,380,160,60);
+			subImage = CropImage.cropImage(liveImage1, 70,380,160,60);
 			
 			LOGGER.info("Calling read text in image method");
 			GrabText grabText = new GrabText();
@@ -284,7 +284,7 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 
 		}
-		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-1013");
+		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-1022");
 
 	}
 		@Test(priority=11,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
@@ -361,7 +361,301 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 		}
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-1023");
 
-	}
 }
+		@Test(priority=12,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+				BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
+		@TestDetails(testUID = "PEACOCK-AAMP-TC-1024")
+		public void testVerifySubtitleButton(Dut device) throws InterruptedException {
+			// Variables declaration starts
+			boolean status = false;
+			String testId = "PEACOCK-AAMP-TC-124";
+			String errorMessage = null;
+			String stepNum = null;
+			BufferedImage liveImage;
+			String actual;
+			String expected = "WWE";
+			BufferedImage subImage;
+			// Variables declaration Ends
+
+			LOGGER.info("#######################################################################################");
+			LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1026");
+			LOGGER.info("TEST DESCRIPTION: This test is to verify subtitle button present in the WWE Content video ");
+			LOGGER.info("TEST STEPS : ");
+			LOGGER.info("1.click 2 up button and click left button");
+			LOGGER.info("#######################################################################################");
+			try {
+				stepNum = "S1";
+				errorMessage = "Failed to compare Title of the subtitle button present in the WWE Content video";
+				LOGGER.info("*****************************************************************************************");
+				LOGGER.info("STEP 1: DESCRIPTION : This test is to verify subtitle button present in the WWE Content video");
+				LOGGER.info("STEP 1: ACTION :compare subtitle button with the live image ");
+				LOGGER.info("STEP 1: EXPECTED : Image comparision successful.");
+
+				LOGGER.info("Redirecting to Peacock menu screen: ");
+				LOGGER.info("Click Xfinity left button ");
+				CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+				Thread.sleep(5000L);
+				
+				nu.pattern.OpenCV.loadLocally();
+				
+
+				LOGGER.info("Capture application screen live image");
+				CaptureLiveImage.capture(ImageCaptureConstants.WWE_SUBTITLE_BUTTON_LIVE_IMAGE);
+				Thread.sleep(5000L);
+				
+				LOGGER.info("Reading live image");
+				liveImage = ImageIO.read(new File(ImageCaptureConstants.WWE_SUBTITLE_BUTTON_LIVE_IMAGE));
+				
+	            LOGGER.info("Calling crop method");
+				subImage = CropImage.cropImage(liveImage, 180,500,200,80);
+				
+				LOGGER.info("Calling read text in image method");
+				GrabText grabText = new GrabText();
+				actual = grabText.crackImage(subImage);
+				status = CommonMethods.textCompare(expected, actual);
+				
+				LOGGER.info("Calling comapre text method");
+			
+				if (status) {
+					LOGGER.info("The status of text comparision is: " + status);
+				} else {
+					LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+				}
+				LOGGER.info("**********************************************************************************");
+				tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+
+			} catch (Exception e) {
+				LOGGER.error("Exception occured while reading the image file " + e);
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				LOGGER.info("Inside catch");
+				errorMessage = e.getMessage();
+				LOGGER.error("Exception while launching movie screen: " + errorMessage);
+				CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
+
+			}
+			LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-1024");
+
+}
+		@Test(priority=13,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+				BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
+		@TestDetails(testUID = "PEACOCK-AAMP-TC-1025")
+		public void testVerifyEnglishSubtitle(Dut device) throws InterruptedException {
+			// Variables declaration starts
+			boolean status = false;
+			String testId = "PEACOCK-AAMP-TC-125";
+			String errorMessage = null;
+			String stepNum = null;
+			BufferedImage liveImage;
+			String actual;
+			String expected = "WWE";
+			BufferedImage subImage;
+			// Variables declaration Ends
+
+			LOGGER.info("#######################################################################################");
+			LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1025");
+			LOGGER.info("TEST DESCRIPTION: This test is to verify english subtitle button present in the WWE content video");
+			LOGGER.info("TEST STEPS : ");
+			LOGGER.info("1.click up button");
+			LOGGER.info("#######################################################################################");
+			try {
+				stepNum = "S1";
+				errorMessage = "Failed to compare english subtitle present in the WWE content video";
+				LOGGER.info("*****************************************************************************************");
+				LOGGER.info("STEP 1: DESCRIPTION : This test is to compare english subtitle button present in the WWE content video");
+				LOGGER.info("STEP 1: ACTION : compare english subtitle reference image with the live image ");
+				LOGGER.info("STEP 1: EXPECTED : Image comparision successful.");
+				LOGGER.info("*****************************************************************************************");
+				
+				LOGGER.info("Redirecting to Peacock menu screen: ");
+				LOGGER.info("Click Xfinity left button ");
+				CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+				Thread.sleep(5000L);
+				
+				nu.pattern.OpenCV.loadLocally();
+				
+
+				LOGGER.info("Capture application screen live image");
+				CaptureLiveImage.capture(ImageCaptureConstants.WWE_ENGLISH_SUBTITLE_BUTTON_LIVE_IMAGE);
+				Thread.sleep(5000L);
+				
+				LOGGER.info("Reading live image");
+				liveImage = ImageIO.read(new File(ImageCaptureConstants.WWE_ENGLISH_SUBTITLE_BUTTON_LIVE_IMAGE));
+				
+	            LOGGER.info("Calling crop method");
+				subImage = CropImage.cropImage(liveImage, 220,460,140,50);
+				
+				LOGGER.info("Calling read text in image method");
+				GrabText grabText = new GrabText();
+				actual = grabText.crackImage(subImage);
+				status = CommonMethods.textCompare(expected, actual);
+				
+				LOGGER.info("Calling comapre text method");
+			
+				if (status) {
+					LOGGER.info("The status of text comparision is: " + status);
+				} else {
+					LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+				}
+				LOGGER.info("**********************************************************************************");
+				tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+
+			} catch (Exception e) {
+				LOGGER.error("Exception occured while reading the image file " + e);
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				LOGGER.info("Inside catch");
+				errorMessage = e.getMessage();
+				LOGGER.error("Exception while launching movie screen: " + errorMessage);
+				CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
+
+			}
+			LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-1025");
+
+		}
+		@Test(priority=14,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+				BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
+		@TestDetails(testUID = "PEACOCK-AAMP-TC-1026")
+		public void testVerifyFastforward(Dut device) throws InterruptedException {
+			// Variables declaration starts
+			boolean status = false;
+			String testId = "PEACOCK-AAMP-TC-126";
+			String errorMessage = null;
+			String stepNum = null;
+			BufferedImage referenceImage;
+			BufferedImage liveImage;
+			BufferedImage subImage;
+			// Variables declaration Ends
+
+			LOGGER.info("#######################################################################################");
+			LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1026");
+			LOGGER.info("TEST DESCRIPTION: This test is to verify fast forward button in present in the WWE content video ");
+			LOGGER.info("TEST STEPS : ");
+			LOGGER.info("1.click Right button");
+			LOGGER.info("#######################################################################################");
+			try {
+				stepNum = "S1";
+				errorMessage = "Failed to compare fast forward fast forward button in present in the WWE content video";
+				LOGGER.info("*****************************************************************************************");
+				LOGGER.info("STEP 1: DESCRIPTION : This test is to compare fast forward button in present in the WWE content video");
+				LOGGER.info("STEP 1: ACTION :compare fast forward button with the live image ");
+				LOGGER.info("STEP 1: EXPECTED : Image comparision successful.");
+				LOGGER.info("*****************************************************************************************");
+
+				LOGGER.info("switching to the WWE content video");
+				LOGGER.info("Click RIGHT_BUTTON");
+				CommonMethods.execCommand(RemoteKeyContstants.RIGHT_BUTTON);
+				nu.pattern.OpenCV.loadLocally();
+
+				
+				LOGGER.info("Reading reference image");
+				referenceImage = ImageIO.read(new File(ImageCaptureConstants.WWE_FASTFORWORD));
+
+				LOGGER.info("Capture application screen live image");
+				CaptureLiveImage.capture(ImageCaptureConstants.WWE_FASTFORWORD_LIVE_IMAGE);
+				Thread.sleep(5000L);
+				
+				LOGGER.info("Reading live image");
+				liveImage = ImageIO.read(new File(ImageCaptureConstants.WWE_FASTFORWORD_LIVE_IMAGE));
+
+				ImageCompare imgCompare =new ImageCompare();
+				LOGGER.info("Calling screen compare method");
+
+				status = imgCompare.compare(referenceImage, subImage);
+			
+				if (status) {
+					LOGGER.info("The status of image comparision is: " + status);
+				} else {
+					LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+				}
+				LOGGER.info("**********************************************************************************");
+				tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+
+			} catch (Exception e) {
+				LOGGER.error("Exception occured while reading the image file " + e);
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				LOGGER.info("Inside catch");
+				errorMessage = e.getMessage();
+				LOGGER.error("Exception while launching home screen file: " + errorMessage);
+				CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
+
+			}
+			LOGGER.info("ENDING TEST CASE: PEACOCK-AAMP-TC-1026");
+		}
+
+
+	@Test(priority=15,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
+	@TestDetails(testUID = "PEACOCK-AAMP-TC-1027")
+	public void testVerifyBackForward(Dut device) throws InterruptedException {
+		// Variables declaration starts
+		boolean status = false;
+		String testId = "PEACOCK-AAMP-TC-127";
+		String errorMessage = null;
+		String stepNum = null;
+		BufferedImage referenceImage;
+		BufferedImage liveImage;
+		BufferedImage subImage;
+		// Variables declaration Ends
+
+		LOGGER.info("#######################################################################################");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1027");
+		LOGGER.info("TEST DESCRIPTION: This test is to verify Back forward button in present in the WWE content video ");
+		LOGGER.info("TEST STEPS : "); 
+		LOGGER.info("1.click left button");
+		LOGGER.info("#######################################################################################");
+		try {
+			stepNum = "S1";
+			errorMessage = "Failed to compare Back forward  button in present in the WWE content video";
+			LOGGER.info("*****************************************************************************************");
+			LOGGER.info("STEP 1: DESCRIPTION : This test is to compare Back forward button in present in the WWE content video");
+			LOGGER.info("STEP 1: ACTION :compare Title of the Back forward with the live image ");
+			LOGGER.info("STEP 1: EXPECTED : Image comparision successful.");
+			LOGGER.info("*****************************************************************************************");
+
+			LOGGER.info("switching to the WWE content video");
+			LOGGER.info("Click LEFT_BUTTON");
+			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			nu.pattern.OpenCV.loadLocally();
+			
+			LOGGER.info("Reading reference image");
+			referenceImage = ImageIO.read(new File(ImageCaptureConstants.WWE_BACKFORWORD));
+
+			LOGGER.info("Capture application screen live image");
+			CaptureLiveImage.capture(ImageCaptureConstants.WWE_BACKFORWORD_LIVE_IMAGE);
+			Thread.sleep(5000L);
+			
+			LOGGER.info("Reading live image");
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.WWE_BACKFORWORD_LIVE_IMAGE));
+			
+			
+			ImageCompare imgCompare =new ImageCompare();
+			LOGGER.info("Calling screen compare method");
+			status = imgCompare.compare(referenceImage, subImage);
+		
+			if (status) {
+				LOGGER.info("The status of image comparision is: " + status);
+			} else {
+				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+			}
+			LOGGER.info("**********************************************************************************");
+			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+
+		} catch (Exception e) {
+			LOGGER.error("Exception occured while reading the image file " + e);
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			LOGGER.info("Inside catch");
+			errorMessage = e.getMessage();
+			LOGGER.error("Exception while launching home screen file: " + errorMessage);
+			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
+
+		}
+		LOGGER.info("ENDING TEST CASE: PEACOCK-AAMP-TC-1027");
+	}
+
+}
+
 
 	

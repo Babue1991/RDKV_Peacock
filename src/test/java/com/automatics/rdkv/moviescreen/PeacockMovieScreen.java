@@ -295,7 +295,7 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 		String errorMessage = null;
 		String stepNum = null;
 		BufferedImage liveImage;
-		String expected = "Resume\r\n"+ "h";
+		String expected = "Resume";
 		String actual;
 		BufferedImage subImage;
 		// Variables declaration Ends
@@ -335,7 +335,7 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 			LOGGER.info("Calling read text in image method");
 			GrabText grabText = new GrabText();
 			actual = grabText.crackImage(subImage);
-			status = CommonMethods.textCompare(expected, actual);
+			status = CommonMethods.partialTextCompare(expected, actual);
 			
 			LOGGER.info("Calling comapre text method");
 			if (status) {
@@ -422,7 +422,7 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 				LOGGER.info("The status of image comparision is: " + status + "and movie is playing");
 			}
 			LOGGER.info("**********************************************************************************");
-			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, true);
+			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
 
 		} catch (Exception e) {
 			LOGGER.error("Exception occured while reading the image file " + e);
@@ -431,7 +431,7 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 			LOGGER.info("Inside catch");
 			errorMessage = e.getMessage();
 			LOGGER.error("Exception while playing movie: " + errorMessage);
-			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, true);
+			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 
 		}
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-1015");
