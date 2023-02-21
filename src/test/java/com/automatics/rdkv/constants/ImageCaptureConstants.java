@@ -112,7 +112,7 @@ public class ImageCaptureConstants {
 	public static String PEACOCK_SEARCH_BAR=REFERENCE_IMAGE_PATH+"Searchbarkeys.jpg";
 	
 	/********The variable used to send capture card port to capture Search Section Screen image**/
-	public static String PEACOCK_SEARCH_BAR_LIVE_IMAGE=LIVE_IMAGE_PATH+"SearchKeyboard.jpg";
+	public static String PEACOCK_SEARCH_BAR_LIVE_IMAGE=REFERENCE_IMAGE_PATH+"SearchKeyboard.jpg";
 	
 	/********The variable used to send capture card port to capture Peacock search bar text image**/
 	public static String PEACOCK_SEARCH_BAR_TEXT=REFERENCE_IMAGE_PATH+"SearchbarTextVerify.jpg";
