@@ -62,6 +62,7 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 		BufferedImage subImage;
 		String actual;
 		String expected = "Search";
+
 		/*
 		 * BufferedImage cropImage; Mat compare;
 		 */
@@ -82,7 +83,11 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 			LOGGER.info("STEP 1: EXPECTED : Image comparison successful.");
 			LOGGER.info("*****************************************************************************************");
 
+			LOGGER.info("Reading reference image");
+			referenceImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_SEARCH_BUTTON_HIGHLIGHT));
+			
 			LOGGER.info("Redirecting to Peacock menu screen: ");
+			
 			LOGGER.info("Click one LEFT_BUTTON ");
 			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
 	        //Thread.sleep(5000L);
@@ -90,9 +95,6 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 			
 			LOGGER.info("Click one UP_BUTTON ");
 			CommonMethods.execCommand(RemoteKeyContstants.UP_BUTTON);
-			
-			LOGGER.info("Reading reference image");
-			referenceImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_SEARCH_BUTTON_HIGHLIGHT));
 			
 			LOGGER.info("Capture peacock home screen live image");
 			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_SEARCH_BUTTON_HIGHLIGHT_LIVE);
