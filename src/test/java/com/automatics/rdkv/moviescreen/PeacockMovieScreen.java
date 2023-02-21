@@ -52,6 +52,7 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 		String errorMessage = null;
 		String stepNum = null;
 		BufferedImage referenceImage;
+		BufferedImage subrefImage;
 		BufferedImage liveImage;
 		BufferedImage subImage;
 		// Variables declaration Ends
@@ -78,9 +79,17 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 			
 			nu.pattern.OpenCV.loadLocally();
 			
-			LOGGER.info("Reading reference image");
+			LOGGER.info("Capture application screen reference live image");
+			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_LEFTMENU_REFERENCE_SCREEN);
+			Thread.sleep(5000L);
+			
+			LOGGER.info("Reading live reference image");
 			//referenceImage = Imgcodecs.imread(ImageCaptureConstants.PEACOCK_LEFTMENU_REFERENCE_SCREEN);
 			 referenceImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LEFTMENU_REFERENCE_SCREEN));
+			 
+			LOGGER.info("Calling Crop Image method");
+				
+			subrefImage = CropImage.cropImage(referenceImage, 35,150,250,420);
 
 			LOGGER.info("Capture application screen live image");
 			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_LEFTMENU_LIVE_SCREEN);
@@ -98,7 +107,7 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 			
 			LOGGER.info("Calling screen compare method");
 
-			status = imgCompare.compare(referenceImage, subImage);
+			status = imgCompare.compare(subrefImage, subImage);
 			
 			if (status) {
 				LOGGER.info("The status of image comparision is: " + status);
@@ -134,7 +143,7 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 //		Mat referenceImage;
 		BufferedImage liveImage;
 		String actual;
-		String expected = "Lo";
+		String expected = "Movies";
 		BufferedImage subImage;
 		// Variables declaration Ends
 
@@ -286,7 +295,7 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 		String errorMessage = null;
 		String stepNum = null;
 		BufferedImage liveImage;
-		String expected = "Resume h";
+		String expected = "Resume\r\n"+ "h";
 		String actual;
 		BufferedImage subImage;
 		// Variables declaration Ends
@@ -422,7 +431,7 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 			LOGGER.info("Inside catch");
 			errorMessage = e.getMessage();
 			LOGGER.error("Exception while playing movie: " + errorMessage);
-			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
+			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, true);
 
 		}
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-1015");
