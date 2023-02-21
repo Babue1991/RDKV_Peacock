@@ -26,7 +26,7 @@ public class CommonMethods extends AutomaticsTestBase{
 			Thread.sleep(2000L);
 			p=Runtime.getRuntime().exec(command);
 			printResults(p);
-			Thread.sleep(3000L);
+			//Thread.sleep(3000L);
 			LOGGER.info("The terminal command which is executed is : "+command);
 			System.out.println();
 
@@ -76,7 +76,7 @@ public class CommonMethods extends AutomaticsTestBase{
 
 	public static void execCaptureCommand(String imagePath) {
 		try {
-			Thread.sleep(3000L);
+			//Thread.sleep(3000L);
 			CommonMethods.execCommand(ImageCaptureConstants.SET_VIDEO_PORT);
 			System.out.println("The live image path: "+imagePath);
 
