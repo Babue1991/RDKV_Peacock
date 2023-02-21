@@ -286,7 +286,7 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 		String stepNum = null;
 		BufferedImage subImage;
 		BufferedImage liveImage;
-		String expected = "peacock";
+		String expected = "Peacock";
 		String actual;
 		String SplashText = "peacock:";
 		// Variables declaration Ends
