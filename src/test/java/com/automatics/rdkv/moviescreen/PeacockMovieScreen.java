@@ -413,7 +413,7 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 				LOGGER.info("The status of image comparision is: " + status + "and movie is playing");
 			}
 			LOGGER.info("**********************************************************************************");
-			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, true);
 
 		} catch (Exception e) {
 			LOGGER.error("Exception occured while reading the image file " + e);
