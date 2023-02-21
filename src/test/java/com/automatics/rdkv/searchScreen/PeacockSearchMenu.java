@@ -60,6 +60,8 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 	    BufferedImage referenceImage;
 	    BufferedImage liveImage;
 		BufferedImage subImage;
+		String actual;
+		String expected = "Search";
 		/*
 		 * BufferedImage cropImage; Mat compare;
 		 */
@@ -99,13 +101,12 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 			liveImage =  ImageIO.read(new File(ImageCaptureConstants.PEACOCK_SEARCH_BUTTON_HIGHLIGHT_LIVE));
 			
             LOGGER.info("Calling Crop Image method");
-			
 			subImage = CropImage.cropImage(liveImage, 40,170,240,60);
 			
-            ImageCompare imgCompare =new ImageCompare();
-			
-			LOGGER.info("Calling screen compare method");
-			status = imgCompare.compare(referenceImage, subImage);
+			LOGGER.info("Calling read text in image method");
+			GrabText grabText = new GrabText();
+			actual = grabText.crackImage(subImage);
+			status = CommonMethods.textCompare(expected, actual);
 		
 			if (status) {
 				LOGGER.info("The status of image comparision is: " + status);
