@@ -174,6 +174,9 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 			
 			LOGGER.info("Croping the live search keyboard image");
 		    subImage = CropImage.cropImage(liveImage, 80,100,1180,180);
+		    
+		    File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
+			ImageIO.write(subImage, "jpg", outputFile);
 
 			ImageCompare imgCompare =new ImageCompare();
 			
