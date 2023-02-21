@@ -161,8 +161,8 @@ public class ImageCaptureConstants {
 	/********The variable used to send capture card port to capture Peacock search Feature Antz image**/
 	public static String WWE_FASTFORWORD=REFERENCE_IMAGE_PATH+"WWE_Fastforword.jpg";
 	
-	
-	
+	/********The variable used to send capture card port to capture Peacock search Feature Antz image**/
+	public static String WWE_MY_STUFF_LIVE_IMAGE=REFERENCE_IMAGE_PATH+"WWE_Fastforword.jpg";
 	
 	
 	
