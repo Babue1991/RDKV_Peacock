@@ -140,7 +140,7 @@ public class PeacockSearchFeatureAntz extends AutomaticsTestBase {
 			
             ImageCompare imgCompare =new ImageCompare();
 			LOGGER.info("Calling screen compare method");
-			status = imgCompare.compare(subrefImage, subImage);
+			status = imgCompare.compare(referenceImage, subImage);
 			
 			File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
 			ImageIO.write(subImage, "jpg", outputFile);
