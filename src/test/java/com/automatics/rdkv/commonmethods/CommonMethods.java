@@ -138,6 +138,21 @@ public class CommonMethods extends AutomaticsTestBase{
 		return status;
 
 	}
+	
+	public static boolean checkText(String text) {
+		
+		LOGGER.info("The text is: "+text);
+		if(text.isEmpty()) {
+			LOGGER.info("String is empty ");
+			status =false;		
+		}
+		else {
+			LOGGER.error("Subtitle present: ");
+			status =true;
+		}
+	    return status;
+		
+	}
 
 	public static String currentDirectoryPath() {
 		System.out.println("BeforePath");
