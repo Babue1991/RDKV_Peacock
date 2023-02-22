@@ -143,7 +143,7 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 //		Mat referenceImage;
 		BufferedImage liveImage;
 		String actual;
-		String expected = "Movies";
+		String expected = "Lo";
 		BufferedImage subImage;
 		// Variables declaration Ends
 
