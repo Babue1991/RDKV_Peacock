@@ -62,7 +62,7 @@ public class PeacockSearchFeatureAntz extends AutomaticsTestBase {
 		BufferedImage liveImage;
 		BufferedImage subImage;
 		BufferedImage cropImage;
-		BufferedImage subrefImage = null;
+		BufferedImage outputImage;
 		// Variables declaration Ends
 
 		LOGGER.info("#######################################################################################");
@@ -138,14 +138,17 @@ public class PeacockSearchFeatureAntz extends AutomaticsTestBase {
             LOGGER.info("Calling Crop Image method");
 			subImage = CropImage.cropImage(liveImage, 90,340,290,180);
 			
-            ImageCompare imgCompare =new ImageCompare();
-			LOGGER.info("Calling screen compare method");
-			status = imgCompare.compare(referenceImage, subImage);
+            
 			
 			File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
 			ImageIO.write(subImage, "jpg", outputFile);
 			
-			BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/image1.jpg"));
+			outputImage = ImageIO.read(new File("/var/lib/jenkins/workspace/image1.jpg"));
+			
+			ImageCompare imgCompare =new ImageCompare();
+			LOGGER.info("Calling screen compare method");
+			status = imgCompare.compare(referenceImage, outputImage);
+
 		
 			if (status) {
 				LOGGER.info("The status of image comparision is: " + status);
