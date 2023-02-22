@@ -36,6 +36,20 @@ public class CaptureLiveImage extends AutomaticsTestBase {
 			e.printStackTrace();
 		}
 	}
+	public static void captureIcon(String destPath) throws IOException, InterruptedException {
+		try {
+			//Thread.sleep(3000L);
+			CommonMethods.execCommand(ImageCaptureConstants.SET_VIDEO_PORT);
+			LOGGER.info("The live image path: "+destPath);
+			
+			command=ImageCaptureConstants.CAPTURE_COMMAND+destPath;
+			CommonMethods.execCommandIcon(command);
+
+		}catch(Exception e) {
+			LOGGER.info("Error in terminal command execution: "+command);
+			e.printStackTrace();
+		}
+	}
 
 	public static void cap1() throws InterruptedException {
 		String port = "/dev/video1";

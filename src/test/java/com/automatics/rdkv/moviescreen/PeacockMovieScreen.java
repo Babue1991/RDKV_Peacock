@@ -475,7 +475,7 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
 			
 			LOGGER.info("Capture application screen live image");
-			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_MOVIE_PAUSE_CONTENT);
+			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_MOVIE_PAUSE_CONTENT);
 			
 			LOGGER.info("Reading reference image");
 			referenceImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_MOVIE_REFERENCE_PLAY_ICON));

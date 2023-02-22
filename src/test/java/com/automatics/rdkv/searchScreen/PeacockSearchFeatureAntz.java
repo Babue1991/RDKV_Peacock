@@ -92,14 +92,18 @@ public class PeacockSearchFeatureAntz extends AutomaticsTestBase {
 			
 			LOGGER.info("Click one DOWN_BUTTON ");
 			CommonMethods.execCommand(RemoteKeyContstants.DOWN_BUTTON);
+			
 			LOGGER.info("Click one LEFT_BUTTON ");
 			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			
 			LOGGER.info("Click two UP_BUTTON ");
-			CommonMethods.execCommand(RemoteKeyContstants.UP_BUTTON);
+			CommonMethods.execCommandRepeat(RemoteKeyContstants.UP_BUTTON, IntergerCount.TWO);
+			
 			LOGGER.info("Click four LEFT_BUTTON ");
-			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			CommonMethods.execCommandRepeat(RemoteKeyContstants.LEFT_BUTTON, IntergerCount.FOUR);
+			
 			LOGGER.info("Click two DOWN_BUTTON");
-			CommonMethods.execCommand(RemoteKeyContstants.DOWN_BUTTON);
+			CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.TWO);
 			LOGGER.info("ANTZ");
 			
 			LOGGER.info("Capture peacock home screen live image");
