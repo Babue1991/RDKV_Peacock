@@ -21,6 +21,7 @@ import com.automatics.rdkv.captureimage.CaptureLiveImage;
 import com.automatics.rdkv.commonmethods.CommonMethods;
 import com.automatics.rdkv.commonmethods.HomeScreenTabSwitch;
 import com.automatics.rdkv.constants.ImageCaptureConstants;
+import com.automatics.rdkv.constants.IntergerCount;
 import com.automatics.rdkv.constants.RemoteKeyContstants;
 import com.automatics.rdkv.imagevalidation.ImageCompare;
 import com.automatics.tap.AutomaticsTapApi;
@@ -47,7 +48,7 @@ public class PeacockSearchFeatureAntz extends AutomaticsTestBase {
 	
 
 	static Process p;
-	@Test(dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+	@Test(priority=9, dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
 	@TestDetails(testUID = "PEACOCK-AAMP-TC-1009")
 	public void testVerifySplashScreenSTB(Dut device) throws InterruptedException {
@@ -77,16 +78,18 @@ public class PeacockSearchFeatureAntz extends AutomaticsTestBase {
 			LOGGER.info("STEP 1: EXPECTED : Image comparison successful.");
 			LOGGER.info("*****************************************************************************************");
 			
-			LOGGER.info("Crop the reference image from the search bar menu");
-			
 			LOGGER.info("Click one LEFT_BUTTON ");
 			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			
 			LOGGER.info("Click one UP_BUTTON ");
 			CommonMethods.execCommand(RemoteKeyContstants.UP_BUTTON);
+			
 			LOGGER.info("Click one DOWN_BUTTON ");
 			CommonMethods.execCommand(RemoteKeyContstants.DOWN_BUTTON);
+			
 			LOGGER.info("Click five RIGHT_BUTTON ");
-			CommonMethods.execCommand(RemoteKeyContstants.RIGHT_BUTTON);
+			CommonMethods.execCommandRepeat(RemoteKeyContstants.RIGHT_BUTTON, IntergerCount.FIVE);
+			
 			LOGGER.info("Click one DOWN_BUTTON ");
 			CommonMethods.execCommand(RemoteKeyContstants.DOWN_BUTTON);
 			LOGGER.info("Click one LEFT_BUTTON ");

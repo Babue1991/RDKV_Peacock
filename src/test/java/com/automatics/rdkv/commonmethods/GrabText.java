@@ -19,7 +19,7 @@ public class GrabText {
 	public static void main(String[] args) throws IOException {
 		String path="/home/user/Downloads/SearchbarHighlight(1).jpg";
 		GrabText grabText = new GrabText();
-		BufferedImage	liveImage = ImageIO.read(new File("/home/user/Desktop/image1.jpg"));
+		BufferedImage	liveImage = ImageIO.read(new File("/home/user/Desktop/SearchbarHighlight(1).jpg"));
 		System.out.println(grabText.crackImage(liveImage));
 	}
 
