@@ -58,12 +58,11 @@ public class PeacockSearchFeatureAntz extends AutomaticsTestBase {
 		String testId = "PEACOCK-AAMP-TC-109";
 		String errorMessage = null;
 		String stepNum = null;
-		Mat referenceImage;
+		BufferedImage referenceImage;
 		BufferedImage liveImage;
 		BufferedImage subImage;
 		BufferedImage cropImage;
-		String actual;
-		String expected = "ANTZ";
+		BufferedImage subrefImage = null;
 		// Variables declaration Ends
 
 		LOGGER.info("#######################################################################################");
@@ -127,23 +126,22 @@ public class PeacockSearchFeatureAntz extends AutomaticsTestBase {
 			LOGGER.info("ANTZ");
 			
 			LOGGER.info("Reading reference image");
-			referenceImage =Imgcodecs.imread(ImageCaptureConstants.PEACOCK_SEARCH_FEATURE);
+			referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_SEARCH_FEATURE));
 			
 			LOGGER.info("Capture peacock home screen live image");
 			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_SEARCH_FEATURE_LIVE_IMAGE);
 			
 			LOGGER.info("Reading live image"); 
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_SEARCH_FEATURE_LIVE_IMAGE));
-			
-			 Thread.sleep(5000L);
+			Thread.sleep(5000L);
 			
             LOGGER.info("Calling Crop Image method");
-			subImage = CropImage.cropImage(liveImage, 90,340,290,180);
+			//subImage = CropImage.cropImage(liveImage, 90,340,290,180);
+			subImage = CropImage.cropImage(referenceImage, 90,340,290,180);
 			
-			LOGGER.info("Calling read text in image method");
-			GrabText grabText = new GrabText();
-			actual = grabText.crackImage(subImage);
-			status = CommonMethods.textCompare(expected, actual);
+            ImageCompare imgCompare =new ImageCompare();
+			LOGGER.info("Calling screen compare method");
+			status = imgCompare.compare(subrefImage, subImage);
 		
 			if (status) {
 				LOGGER.info("The status of image comparision is: " + status);
