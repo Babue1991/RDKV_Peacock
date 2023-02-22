@@ -103,7 +103,7 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 			liveImage =  ImageIO.read(new File(ImageCaptureConstants.PEACOCK_SEARCH_BUTTON_HIGHLIGHT_LIVE));
 			
             LOGGER.info("Calling Crop Image method");
-			subImage = CropImage.cropImage(liveImage, 40,170,240,60);
+			subImage = CropImage.cropImage(liveImage, 95,185,120,32);
 			
 			LOGGER.info("Calling read text in image method");
 			GrabText grabText = new GrabText();
