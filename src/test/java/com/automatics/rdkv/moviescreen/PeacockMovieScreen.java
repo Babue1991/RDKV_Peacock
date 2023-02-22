@@ -478,11 +478,11 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 			LOGGER.info("Capture application screen live image");
 			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_MOVIE_PAUSE_CONTENT);
 			
-			LOGGER.info("Reading reference image");
-			referenceImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_MOVIE_REFERENCE_PLAY_ICON));
-			
 			LOGGER.info("Reading live image");
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_MOVIE_PAUSE_CONTENT));
+			
+			LOGGER.info("Reading reference image");
+			referenceImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_MOVIE_REFERENCE_PLAY_ICON));
 			
 			LOGGER.info("Calling image cropping method");
 			subImage = CropImage.cropImage(liveImage, 50,630,40,44);
@@ -490,11 +490,13 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 			File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
 			ImageIO.write(subImage, "jpg", outputFile);
 			
+			BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/image1.jpg"));
+			
 			LOGGER.info("Calling image compare method");
 			
             ImageCompare imgCompare =new ImageCompare();
 
-			status = imgCompare.compare(referenceImage, subImage);
+			status = imgCompare.compare(referenceImage, output);
 			
 			if (status) {
 				
