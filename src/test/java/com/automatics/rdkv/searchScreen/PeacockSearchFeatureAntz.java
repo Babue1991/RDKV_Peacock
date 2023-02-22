@@ -19,6 +19,7 @@ import com.automatics.rdkb.utils.CommonUtils;
 import com.automatics.rdkv.STBhomescreen.CropImage;
 import com.automatics.rdkv.captureimage.CaptureLiveImage;
 import com.automatics.rdkv.commonmethods.CommonMethods;
+import com.automatics.rdkv.commonmethods.GrabText;
 import com.automatics.rdkv.commonmethods.HomeScreenTabSwitch;
 import com.automatics.rdkv.constants.ImageCaptureConstants;
 import com.automatics.rdkv.constants.IntergerCount;
@@ -61,6 +62,8 @@ public class PeacockSearchFeatureAntz extends AutomaticsTestBase {
 		BufferedImage liveImage;
 		BufferedImage subImage;
 		BufferedImage cropImage;
+		String actual;
+		String expected = "ANTZ";
 		// Variables declaration Ends
 
 		LOGGER.info("#######################################################################################");
@@ -78,14 +81,16 @@ public class PeacockSearchFeatureAntz extends AutomaticsTestBase {
 			LOGGER.info("STEP 1: EXPECTED : Image comparison successful.");
 			LOGGER.info("*****************************************************************************************");
 			
-			LOGGER.info("Click one LEFT_BUTTON ");
-			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
-			
-			LOGGER.info("Click one UP_BUTTON ");
-			CommonMethods.execCommand(RemoteKeyContstants.UP_BUTTON);
-			
-			LOGGER.info("Click one OK_BUTTON ");
-			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			/*
+			 * LOGGER.info("Click one LEFT_BUTTON ");
+			 * CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			 * 
+			 * LOGGER.info("Click one UP_BUTTON ");
+			 * CommonMethods.execCommand(RemoteKeyContstants.UP_BUTTON);
+			 * 
+			 * LOGGER.info("Click one OK_BUTTON ");
+			 * CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			 */
 			
 			LOGGER.info("Click one DOWN_BUTTON ");
 			CommonMethods.execCommand(RemoteKeyContstants.DOWN_BUTTON);
@@ -96,20 +101,20 @@ public class PeacockSearchFeatureAntz extends AutomaticsTestBase {
 			LOGGER.info("Click five RIGHT_BUTTON ");
 			CommonMethods.execCommandRepeat(RemoteKeyContstants.RIGHT_BUTTON, IntergerCount.FIVE);
 			
-			/*
-			 * LOGGER.info("Click one OK_BUTTON ");
-			 * CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
-			 */
 			LOGGER.info("Click one DOWN_BUTTON ");
 			CommonMethods.execCommand(RemoteKeyContstants.DOWN_BUTTON);
 			
-
+			LOGGER.info("Click one OK_BUTTON ");
+			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
 			
 			LOGGER.info("Click one LEFT_BUTTON ");
 			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
 			
 			LOGGER.info("Click two UP_BUTTON ");
 			CommonMethods.execCommandRepeat(RemoteKeyContstants.UP_BUTTON, IntergerCount.TWO);
+			
+			LOGGER.info("Click one OK_BUTTON ");
+			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
 			
 			LOGGER.info("Click four LEFT_BUTTON ");
 			CommonMethods.execCommandRepeat(RemoteKeyContstants.LEFT_BUTTON, IntergerCount.FOUR);
@@ -121,24 +126,22 @@ public class PeacockSearchFeatureAntz extends AutomaticsTestBase {
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
 			LOGGER.info("ANTZ");
 			
+			LOGGER.info("Reading reference image");
+			referenceImage =Imgcodecs.imread(ImageCaptureConstants.PEACOCK_SEARCH_FEATURE);
+			
 			LOGGER.info("Capture peacock home screen live image");
 			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_SEARCH_FEATURE_LIVE_IMAGE);
 			
-			LOGGER.info("Reading live image");
+			LOGGER.info("Reading live image"); 
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_SEARCH_FEATURE_LIVE_IMAGE));
 			
-			LOGGER.info("Croping the live search feature image");
-		    subImage = CropImage.cropImage(liveImage, 90,340,290,180);
+            LOGGER.info("Calling Crop Image method");
+			subImage = CropImage.cropImage(liveImage, 90,340,290,180);
 			
-			LOGGER.info(" ");
-			nu.pattern.OpenCV.loadLocally();
-			
-			LOGGER.info("Reading reference image");
-			referenceImage = Imgcodecs.imread(ImageCaptureConstants.PEACOCK_SEARCH_FEATURE);
-			
-			ImageCompare imgCompare =new ImageCompare();
-			
-			LOGGER.info("Calling screen compare method");
+			LOGGER.info("Calling read text in image method");
+			GrabText grabText = new GrabText();
+			actual = grabText.crackImage(subImage);
+			status = CommonMethods.textCompare(expected, actual);
 		
 			if (status) {
 				LOGGER.info("The status of image comparision is: " + status);
