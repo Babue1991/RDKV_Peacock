@@ -43,8 +43,8 @@ public class CommonMethods extends AutomaticsTestBase{
 	public static void execCommandIcon(String command) {
 		try {
 
-			Thread.sleep(2000L);
-			p=Runtime.getRuntime().exec("irsend SEND_ONCE Apple Comcast_Left");
+			//Thread.sleep(2000L);
+			//p=Runtime.getRuntime().exec("irsend SEND_ONCE Apple Comcast_Left");
 			p=Runtime.getRuntime().exec(command);
 			printResults(p);
 			//Thread.sleep(3000L);

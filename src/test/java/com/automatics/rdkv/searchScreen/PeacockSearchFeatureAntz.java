@@ -104,6 +104,10 @@ public class PeacockSearchFeatureAntz extends AutomaticsTestBase {
 			
 			LOGGER.info("Click two DOWN_BUTTON");
 			CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.TWO);
+			
+			LOGGER.info("Click one OK_BUTTON ");
+			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			
 			LOGGER.info("ANTZ");
 			
 			LOGGER.info("Capture peacock home screen live image");
