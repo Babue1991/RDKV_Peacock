@@ -136,8 +136,7 @@ public class PeacockSearchFeatureAntz extends AutomaticsTestBase {
 			Thread.sleep(5000L);
 			
             LOGGER.info("Calling Crop Image method");
-			//subImage = CropImage.cropImage(liveImage, 90,340,290,180);
-			subImage = CropImage.cropImage(referenceImage, 90,340,290,180);
+			subImage = CropImage.cropImage(liveImage, 90,340,290,180);
 			
             ImageCompare imgCompare =new ImageCompare();
 			LOGGER.info("Calling screen compare method");

@@ -27,17 +27,18 @@ public class GrabText {
 		String text;
 		String result;
 		ITesseract instance = new Tesseract();
-		  instance.setDatapath(LanguageConstants.TRAIN_DATA_PATH);
-		  instance.setLanguage(LanguageConstants.ENGLISH_LANGUAGE);
-
 		 // instance.setDatapath(LanguageConstants.TRAIN_DATA_PATH);
-		 // instance.setLanguage("eng");
+		 // instance.setLanguage(LanguageConstants.ENGLISH_LANGUAGE);
+
+		    instance.setDatapath(LanguageConstants.TRAIN_DATA_PATH);
+		    instance.setLanguage("eng");
 		
 		
 		try {
 			text = instance.doOCR(filePath);
 			result = text.trim();
 	//		LOGGER.info("The grabbed text from image is: " +result);
+			System.out.println("The grabbed text from image is: " +result);
 			return result;
 		} catch (TesseractException e) {
 			System.err.println(e.getMessage());
