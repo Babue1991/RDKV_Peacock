@@ -448,7 +448,8 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 		String stepNum = null;
 		BufferedImage referenceImage;
 		BufferedImage liveImage;
-		BufferedImage liveNextImage;
+		BufferedImage livePauseImage;
+		BufferedImage livePauseNextImage;
 		BufferedImage subImage;
 		// Variables declaration Ends
 
@@ -484,7 +485,7 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_MOVIE_PAUSE_CONTENT));
 			
 			LOGGER.info("Calling image cropping method");
-			subImage = CropImage.cropImage(liveImage, 50,570,40,44);
+			subImage = CropImage.cropImage(liveImage, 50,630,40,44);
 			
 			File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
 			ImageIO.write(subImage, "jpg", outputFile);
@@ -512,11 +513,17 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_MOVIE_PAUSE_CONTENT_SCREEN);
 			
 			LOGGER.info("Reading next live image");
-			liveNextImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_MOVIE_PAUSE_CONTENT_SCREEN));
+			livePauseImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_MOVIE_PAUSE_CONTENT_SCREEN));
+			
+			LOGGER.info("Capture after 5seconds application screen live image");
+			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_MOVIE_PAUSE_CONTENT_SCREEN_NEXT);
+			
+			LOGGER.info("Reading next live image");
+			livePauseNextImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_MOVIE_PAUSE_CONTENT_SCREEN_NEXT));
 			
 	        LOGGER.info("Calling image compare method");
 
-			status = imgCompare.compare(liveImage, liveNextImage);
+			status = imgCompare.compare(livePauseImage, livePauseNextImage);
 			
 			if (status) {
 				
