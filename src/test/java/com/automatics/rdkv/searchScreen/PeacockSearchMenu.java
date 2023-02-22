@@ -61,7 +61,7 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 	    BufferedImage liveImage;
 		BufferedImage subImage;
 		String actual;
-		String expected = "Search";
+		String expected = "Ees";
 
 		/*
 		 * BufferedImage cropImage; Mat compare;

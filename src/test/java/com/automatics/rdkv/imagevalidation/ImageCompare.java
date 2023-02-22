@@ -30,7 +30,7 @@ public class ImageCompare extends AutomaticsTestBase {
 		nu.pattern.OpenCV.loadLocally();
 	//	OpenCV.loadShared();
 	//	System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-		reference_image = Imgcodecs.imread("/home/user/Desktop/image1.jpg");
+		reference_image = Imgcodecs.imread("/home/user/Desktop/SearchbarHighlight.jpg");
 		live_Image = Imgcodecs.imread("/home/user/Desktop/image2.jpg");
 		
 		ImageCompare obj = new ImageCompare();
