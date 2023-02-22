@@ -135,6 +135,8 @@ public class PeacockSearchFeatureAntz extends AutomaticsTestBase {
 			LOGGER.info("Reading live image"); 
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_SEARCH_FEATURE_LIVE_IMAGE));
 			
+			 Thread.sleep(5000L);
+			
             LOGGER.info("Calling Crop Image method");
 			subImage = CropImage.cropImage(liveImage, 90,340,290,180);
 			
