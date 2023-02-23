@@ -356,8 +356,6 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
             LOGGER.info("Calling Crop Image method");
 			subImage = CropImage.cropImage(liveImage, 90,340,290,180);
 			
-            
-			
 			File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
 			ImageIO.write(subImage, "jpg", outputFile);
 			
