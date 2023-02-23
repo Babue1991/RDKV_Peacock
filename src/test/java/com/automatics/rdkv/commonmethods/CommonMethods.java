@@ -143,11 +143,11 @@ public class CommonMethods extends AutomaticsTestBase{
 		
 		LOGGER.info("The text is: "+text);
 		if(text.isEmpty()) {
-			LOGGER.info("String is empty ");
+			LOGGER.error("String is empty ");
 			status =false;		
 		}
 		else {
-			LOGGER.error("Subtitle is present");
+			LOGGER.info("Subtitle is present");
 			status =true;
 		}
 	    return status;

@@ -685,6 +685,8 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 				status = CommonMethods.checkText(actual);
 				if(status == true) {
 					LOGGER.info("The status of Subtile text verification is: " + status);
+					LOGGER.info("Click Xfinity OK button ");
+					CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
 					break;
 				}else {
 					i++;
