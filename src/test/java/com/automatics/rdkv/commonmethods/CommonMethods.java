@@ -1,11 +1,17 @@
 package com.automatics.rdkv.commonmethods;
 
+import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import javax.imageio.ImageIO;
+
 import org.openqa.selenium.support.ui.ExpectedCondition;
 
+import com.automatics.rdkv.STBhomescreen.CropImage;
+import com.automatics.rdkv.captureimage.CaptureLiveImage;
 import com.automatics.rdkv.constants.ImageCaptureConstants;
 import com.automatics.rdkv.constants.IntergerCount;
 import com.automatics.rdkv.constants.RemoteKeyContstants;
@@ -151,6 +157,49 @@ public class CommonMethods extends AutomaticsTestBase{
 			status =true;
 		}
 	    return status;
+		
+	}
+	
+	public static boolean checkSubtitle() throws IOException, InterruptedException {
+		
+		BufferedImage liveImage;
+		BufferedImage subImage;
+		String actual;
+		
+		nu.pattern.OpenCV.loadLocally();
+		int i = 0;
+		while (i < 10) {
+			
+			LOGGER.info("Capture application screen live image");
+			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_MOVIE_SUBTITLE);
+			
+			LOGGER.info("Reading live image");
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_MOVIE_SUBTITLE));
+			
+			LOGGER.info("Calling image cropping method");
+			subImage = CropImage.cropImage(liveImage, 320,570,540,80);
+			
+			File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
+			ImageIO.write(subImage, "jpg", outputFile);
+			
+			LOGGER.info("Calling method to read text in image");
+			GrabText grabText = new GrabText();
+			actual = grabText.crackImage(subImage);
+			
+			LOGGER.info("Calling text verify method");
+			status = CommonMethods.checkText(actual);
+			if(status == true) {
+				LOGGER.info("The status of Subtile text verification is: " + status);
+				LOGGER.info("Click Xfinity OK button ");
+				CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+				break;
+			}else {
+				i++;
+				LOGGER.info("The status of Subtile text verification is: " + status);
+			}
+				
+		}
+		return status;
 		
 	}
 

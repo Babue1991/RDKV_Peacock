@@ -658,45 +658,16 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
             
 			LOGGER.info("Click Xfinity left button ");
 			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			
 			LOGGER.info("Click Xfinity OK button ");
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
 			Thread.sleep(3000L);
 			
-			nu.pattern.OpenCV.loadLocally();
-			int i = 0;
-			while (i<10) {
-				LOGGER.info("Capture application screen live image");
-				CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_MOVIE_SUBTITLE);
-				
-				LOGGER.info("Reading live image");
-				liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_MOVIE_SUBTITLE));
-				
-				LOGGER.info("Calling image cropping method");
-				subImage = CropImage.cropImage(liveImage, 320,570,540,80);
-				
-				File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
-				ImageIO.write(subImage, "jpg", outputFile);
-				
-				LOGGER.info("Calling method to read text in image");
-				GrabText grabText = new GrabText();
-				actual = grabText.crackImage(subImage);
-				
-				LOGGER.info("Calling text verify method");
-				status = CommonMethods.checkText(actual);
-				if(status == true) {
-					LOGGER.info("The status of Subtile text verification is: " + status);
-					LOGGER.info("Click Xfinity OK button ");
-					CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
-					break;
-				}else {
-					i++;
-					LOGGER.info("The status of Subtile text verification is: " + status);
-				}
-					
-			}
+			LOGGER.info("Calling method to check subtitle");
+			status = CommonMethods.checkSubtitle();
 			
 			if (status) {
-				LOGGER.info("The status of Subtile text verification is: " + status);
+				LOGGER.info("Subtitle text is shown and status is : " + status);
 			} else {
 				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
 			}
