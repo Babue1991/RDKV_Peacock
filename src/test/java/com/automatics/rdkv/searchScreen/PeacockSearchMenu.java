@@ -295,7 +295,7 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 		// Variables declaration Ends
 
 		LOGGER.info("#######################################################################################");
-		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1007");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1009");
 		LOGGER.info("TEST DESCRIPTION: This test is to verify peacock search feature ");
 		LOGGER.info("TEST STEPS : ");
 		LOGGER.info("1.Launch peacock home screen and press Left_button and press up");
