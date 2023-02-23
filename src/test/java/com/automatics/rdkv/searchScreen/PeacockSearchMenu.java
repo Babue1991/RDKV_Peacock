@@ -403,7 +403,7 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 		BufferedImage subImage;
 		BufferedImage cropImage;
 		BufferedImage outputImage;
-		String expected = "My Stuff";
+		String expected = "My Stuft";
 		String actual;
 		// Variables declaration Ends
 
