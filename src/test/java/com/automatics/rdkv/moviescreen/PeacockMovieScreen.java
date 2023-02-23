@@ -682,4 +682,80 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-1018");
 
 	}
+	@Test(priority=11,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
+	@TestDetails(testUID = "PEACOCK-AAMP-TC-1019")
+	public void testVerifyDisableSubtitle(Dut device) throws InterruptedException {
+		// Variables declaration starts
+		boolean status = false;
+		String testId = "PEACOCK-AAMP-TC-019";
+		String errorMessage = null;
+		String stepNum = null;
+		// Variables declaration Ends
+
+		LOGGER.info("#######################################################################################");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1018");
+		LOGGER.info("TEST DESCRIPTION:  This test is to verify disable subtitle");
+		LOGGER.info("TEST STEPS : ");
+		LOGGER.info("1. Click on left button twice and then on ok button");
+		LOGGER.info("#######################################################################################");
+		try {
+			stepNum = "S1";
+			errorMessage = "Failed to verify disable subtitle";
+			LOGGER.info("*****************************************************************************************");
+			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify disable subtitle");
+			LOGGER.info("STEP 1: ACTION : Press left button twice and click ok button");
+			LOGGER.info("STEP 1: EXPECTED : Subtitle should displayed");
+			LOGGER.info("*****************************************************************************************");
+            
+			LOGGER.info("Click Xfinity left button ");
+			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			
+			LOGGER.info("Click Xfinity up button ");
+			CommonMethods.execCommand(RemoteKeyContstants.UP_BUTTON);
+			
+			LOGGER.info("Click Xfinity right button ");
+			CommonMethods.execCommand(RemoteKeyContstants.RIGHT_BUTTON);
+			
+			LOGGER.info("Click Xfinity OK button ");
+			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			
+			LOGGER.info("Click Xfinity left button ");
+			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			
+			LOGGER.info("Click Xfinity left button ");
+			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			
+			LOGGER.info("Click Xfinity OK button ");
+			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			
+			Thread.sleep(10000L);
+			
+			LOGGER.info("Click Xfinity OK button ");
+			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			
+			LOGGER.info("Calling method to check subtitle");
+			status = CommonMethods.checkSubtitle();
+			
+			if (status) {
+				LOGGER.info("Subtitle text is shown and status is : " + status);
+			} else {
+				LOGGER.info("Subtitle text is not shown and status is : " + status);
+			}
+			LOGGER.info("**********************************************************************************");
+			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+
+		} catch (Exception e) {
+			LOGGER.error("Exception occured while reading the image file " + e);
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			LOGGER.info("Inside catch");
+			errorMessage = e.getMessage();
+			LOGGER.error("Exception while verifying disabling subtitle : " + errorMessage);
+			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
+
+		}
+		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-1019");
+
+	}
 }
