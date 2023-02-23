@@ -495,7 +495,7 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 		LOGGER.info("#######################################################################################");
 		try {
 			stepNum = "S1";
-			errorMessage = "Failed to get the search My stuff icon";
+			errorMessage = "Failed to get the search Resume icon";
 			LOGGER.info("*****************************************************************************************");
 			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify the search screen Resume icon");
 			LOGGER.info("STEP 1: ACTION : ACTION: compare search screen Resume reference image with the live image ");
