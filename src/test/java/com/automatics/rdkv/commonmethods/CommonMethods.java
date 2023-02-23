@@ -129,7 +129,7 @@ public class CommonMethods extends AutomaticsTestBase{
 
 		LOGGER.info("The values are: "+exepected+" and "+actual);
 		if(actual.contains(exepected)) {
-			LOGGER.info("Search keyword found "+actual);
+			LOGGER.info("Search keyword found "+exepected);
 			status = true;
 		}else {
 			LOGGER.error("Keyword not present: "+actual);

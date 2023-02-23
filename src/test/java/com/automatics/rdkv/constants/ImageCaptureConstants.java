@@ -106,6 +106,9 @@ public class ImageCaptureConstants {
 	
 	/********The variable used to send capture card port to capture Movies Section Screen image**/
 	public static String PEACOCK_MOVIE_SUBTITLE_BUTTON=LIVE_IMAGE_PATH+"MovieSubtitleButton.jpg";
+	
+	/********The variable used to send capture card port to capture Movies Section Screen image**/
+	public static String PEACOCK_MOVIE_SUBTITLE=LIVE_IMAGE_PATH+"MovieSubtitle.jpg";
 
 	
 	//Search Bar 
