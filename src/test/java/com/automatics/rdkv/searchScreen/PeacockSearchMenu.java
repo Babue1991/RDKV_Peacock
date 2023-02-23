@@ -409,17 +409,17 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 
 		LOGGER.info("#######################################################################################");
 		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1010");
-		LOGGER.info("TEST DESCRIPTION: This test is to verify peacock search feature ");
+		LOGGER.info("TEST DESCRIPTION: This test is to verify peacock search screen My stuff icon ");
 		LOGGER.info("TEST STEPS : ");
-		LOGGER.info("1.Launch peacock home screen and press Left_button and press up");
+		LOGGER.info("1.Launch peacock search screen and verify my stuff icon");
 		LOGGER.info("#######################################################################################");
 		try {
 			stepNum = "S1";
-			errorMessage = "Failed to get the search icon";
+			errorMessage = "Failed to get the search My stuff icon";
 			LOGGER.info("*****************************************************************************************");
-			LOGGER.info("STEP 1: DESCRIPTION : This test is to compare search feature verification reference image with the live image");
-			LOGGER.info("STEP 1: ACTION : ACTION: compare search feature reference image with the live image ");
-			LOGGER.info("STEP 1: EXPECTED : Image comparison successful.");
+			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify the search screen My stuff icon");
+			LOGGER.info("STEP 1: ACTION : ACTION: compare search screen my stuff reference image with the live image ");
+			LOGGER.info("STEP 1: EXPECTED : Image comparison of my stuff is successful.");
 			LOGGER.info("*****************************************************************************************");
 			
 			LOGGER.info("Click two DOWN_BUTTON");
@@ -460,7 +460,7 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 			e.printStackTrace();
 			LOGGER.info("Inside catch");
 			errorMessage = e.getMessage();
-			LOGGER.error("Exception while searching feature screen file: " + errorMessage);
+			LOGGER.error("Exception while searching search screen file: " + errorMessage);
 			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 
 		}
