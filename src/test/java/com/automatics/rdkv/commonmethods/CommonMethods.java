@@ -147,7 +147,7 @@ public class CommonMethods extends AutomaticsTestBase{
 			status =false;		
 		}
 		else {
-			LOGGER.error("Subtitle present: ");
+			LOGGER.error("Subtitle is present");
 			status =true;
 		}
 	    return status;

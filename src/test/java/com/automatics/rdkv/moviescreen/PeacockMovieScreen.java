@@ -551,4 +551,80 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-1016");
 
 	}
+	@Test(priority=11,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
+	@TestDetails(testUID = "PEACOCK-AAMP-TC-1017")
+	public void testVerifySubtitleButton(Dut device) throws InterruptedException {
+		// Variables declaration starts
+		boolean status = false;
+		String testId = "PEACOCK-AAMP-TC-017";
+		String errorMessage = null;
+		String stepNum = null;
+		BufferedImage liveImage;
+		BufferedImage subImage;
+		String expected ="Subtitles";
+		String actual;
+		// Variables declaration Ends
+
+		LOGGER.info("#######################################################################################");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1017");
+		LOGGER.info("TEST DESCRIPTION:  This test is to verify subtile button text");
+		LOGGER.info("TEST STEPS : ");
+		LOGGER.info("1. Click on left button and Up button");
+		LOGGER.info("#######################################################################################");
+		try {
+			stepNum = "S1";
+			errorMessage = "Failed to verify subtitle button";
+			LOGGER.info("*****************************************************************************************");
+			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify subtile button text");
+			LOGGER.info("STEP 1: ACTION : Press left button and click up button");
+			LOGGER.info("STEP 1: EXPECTED : Subtile option should be there");
+			LOGGER.info("*****************************************************************************************");
+            
+			LOGGER.info("Click Xfinity left button ");
+			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			LOGGER.info("Click Xfinity up button ");
+			CommonMethods.execCommand(RemoteKeyContstants.UP_BUTTON);
+			
+			nu.pattern.OpenCV.loadLocally();
+			LOGGER.info("Capture application screen live image");
+			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_MOVIE_SUBTITLE_BUTTON);
+			
+			LOGGER.info("Reading live image");
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_MOVIE_SUBTITLE_BUTTON));
+			
+			LOGGER.info("Calling image cropping method");
+			subImage = CropImage.cropImage(liveImage, 220,515,140,40);
+			
+			File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
+			ImageIO.write(subImage, "jpg", outputFile);
+			
+			LOGGER.info("Calling method to read text in image");
+			GrabText grabText = new GrabText();
+			actual = grabText.crackImage(subImage);
+			
+			LOGGER.info("Calling comapre text method");
+			status = CommonMethods.partialTextCompare(expected, actual);
+			
+			if (status) {
+				LOGGER.info("The status of image comparision is: " + status);
+			} else {
+				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+			}
+			LOGGER.info("**********************************************************************************");
+			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+
+		} catch (Exception e) {
+			LOGGER.error("Exception occured while reading the image file " + e);
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			LOGGER.info("Inside catch");
+			errorMessage = e.getMessage();
+			LOGGER.error("Exception while verifying subtitle button: " + errorMessage);
+			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
+
+		}
+		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-1017");
+
+	}
 }
