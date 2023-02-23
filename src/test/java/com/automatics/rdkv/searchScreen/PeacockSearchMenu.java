@@ -514,7 +514,6 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 			LOGGER.info("Calling read text in image method");
 			GrabText grabText = new GrabText();
 			actual = grabText.crackImage(subImage);
-			//status = CommonMethods.textCompare(expected, actual);
 			status = CommonMethods.partialTextCompare(expected, actual);
 		
 			if (status) {
