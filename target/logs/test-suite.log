@@ -1,0 +1,7 @@
+[ERROR][2023-02-21 18:08:07,141][][|main|net.sourceforge.tess4j.Tesseract:doOCR:244] Input not set
+java.lang.IllegalStateException: Input not set
+	at java.desktop/com.sun.imageio.plugins.jpeg.JPEGImageReader.getNumImagesOnThread(JPEGImageReader.java:431)
+	at java.desktop/com.sun.imageio.plugins.jpeg.JPEGImageReader.getNumImages(JPEGImageReader.java:407)
+	at net.sourceforge.tess4j.Tesseract.doOCR(Tesseract.java:220)
+	at net.sourceforge.tess4j.Tesseract.doOCR(Tesseract.java:194)
+	at com.automatics.rdkv.STBhomescreen.ReadText.main(ReadText.java:20)
