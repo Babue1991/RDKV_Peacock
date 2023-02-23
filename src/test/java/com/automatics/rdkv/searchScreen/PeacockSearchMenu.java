@@ -545,10 +545,7 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 		String errorMessage = null;
 		String stepNum = null;
 		BufferedImage liveImage;
-		BufferedImage subImage;
 		BufferedImage nextliveImage;
-		String expected = "Resume";
-		String actual;
 		// Variables declaration Ends
 
 		LOGGER.info("#######################################################################################");
@@ -569,15 +566,16 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 			LOGGER.info("Click one OK_BUTTON ");
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
 			Thread.sleep(5000L);
+			nu.pattern.OpenCV.loadLocally();
 			
-			LOGGER.info("Capture peacock home screen live image");
+			LOGGER.info("Capture peacock search screen live image");
 			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_SEARCH_PLAY_LIVE_IMAGE);
-			Thread.sleep(12000L);
+			Thread.sleep(10000L);
 			
 			LOGGER.info("Reading live image"); 
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_SEARCH_PLAY_LIVE_IMAGE));
 			
-			LOGGER.info("Capture peacock home screen next live image");
+			LOGGER.info("Capture peacock search screen next live image");
 			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_SEARCH_PLAY_NEXT_LIVE_IMAGE);
 			Thread.sleep(5000L);
 			
