@@ -429,9 +429,6 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
 			Thread.sleep(5000L);
 			
-			LOGGER.info("Reading reference image");
-			referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_SEARCH_MYSTUFF));
-			
 			LOGGER.info("Capture peacock home screen live image");
 			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_SEARCH_MYSTUFF_LIVE_IMAGE);
 			
@@ -444,7 +441,7 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 			LOGGER.info("Calling read text in image method");
 			GrabText grabText = new GrabText();
 			actual = grabText.crackImage(subImage);
-			status = CommonMethods.partialTextCompare(expected, actual);
+			status = CommonMethods.textCompare(expected, actual);
 		
 			if (status) {
 				LOGGER.info("The status of image comparision is: " + status);
