@@ -429,6 +429,9 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
 			Thread.sleep(5000L);
 			
+			LOGGER.info("Click one LEFT_BUTTON ");
+			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			
 			LOGGER.info("Capture peacock home screen live image");
 			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_SEARCH_MYSTUFF_LIVE_IMAGE);
 			
