@@ -4,8 +4,6 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 
 import javax.imageio.ImageIO;
-
-import org.opencv.core.Mat;
 import org.testng.annotations.Test;
 import com.automatics.annotations.TestDetails;
 import com.automatics.constants.DataProviderConstants;
@@ -636,9 +634,6 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 		String testId = "PEACOCK-AAMP-TC-018";
 		String errorMessage = null;
 		String stepNum = null;
-		BufferedImage liveImage;
-		BufferedImage subImage;
-		String actual;
 		// Variables declaration Ends
 
 		LOGGER.info("#######################################################################################");

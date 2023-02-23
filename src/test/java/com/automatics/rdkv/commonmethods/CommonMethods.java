@@ -7,18 +7,12 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import javax.imageio.ImageIO;
-
-import org.openqa.selenium.support.ui.ExpectedCondition;
-
 import com.automatics.rdkv.STBhomescreen.CropImage;
 import com.automatics.rdkv.captureimage.CaptureLiveImage;
 import com.automatics.rdkv.constants.ImageCaptureConstants;
-import com.automatics.rdkv.constants.IntergerCount;
 import com.automatics.rdkv.constants.RemoteKeyContstants;
 import com.automatics.test.AutomaticsTestBase;
-import com.lowagie.text.pdf.codec.Base64.OutputStream;
 
-import ch.qos.logback.classic.Logger;
 
 public class CommonMethods extends AutomaticsTestBase{
 
@@ -144,9 +138,8 @@ public class CommonMethods extends AutomaticsTestBase{
 		return status;
 
 	}
-	
 	public static boolean checkText(String text) {
-		
+
 		LOGGER.info("The text is: "+text);
 		if(text.isEmpty()) {
 			LOGGER.error("String is empty ");
@@ -156,36 +149,35 @@ public class CommonMethods extends AutomaticsTestBase{
 			LOGGER.info("Subtitle is present");
 			status =true;
 		}
-	    return status;
-		
+		return status;
+
 	}
-	
 	public static boolean checkSubtitle() throws IOException, InterruptedException {
-		
+
 		BufferedImage liveImage;
 		BufferedImage subImage;
 		String actual;
-		
+
 		nu.pattern.OpenCV.loadLocally();
 		int i = 0;
 		while (i < 10) {
-			
+
 			LOGGER.info("Capture application screen live image");
 			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_MOVIE_SUBTITLE);
-			
+
 			LOGGER.info("Reading live image");
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_MOVIE_SUBTITLE));
-			
+
 			LOGGER.info("Calling image cropping method");
 			subImage = CropImage.cropImage(liveImage, 320,570,540,80);
-			
+
 			File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
 			ImageIO.write(subImage, "jpg", outputFile);
-			
+
 			LOGGER.info("Calling method to read text in image");
 			GrabText grabText = new GrabText();
 			actual = grabText.crackImage(subImage);
-			
+
 			LOGGER.info("Calling text verify method");
 			status = CommonMethods.checkText(actual);
 			if(status == true) {
@@ -197,12 +189,11 @@ public class CommonMethods extends AutomaticsTestBase{
 				i++;
 				LOGGER.info("The status of Subtile text verification is: " + status);
 			}
-				
+
 		}
 		return status;
-		
-	}
 
+	}
 	public static String currentDirectoryPath() {
 		System.out.println("BeforePath");
 
