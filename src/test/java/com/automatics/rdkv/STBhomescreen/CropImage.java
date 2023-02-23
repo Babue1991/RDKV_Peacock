@@ -19,7 +19,7 @@ public class CropImage {
 		BufferedImage liveImage = ImageIO.read(new File("/home/user/Desktop/MystuffAntz.jpg"));
 		
 		try {
-			cropedImage = cropImage(liveImage, 130,630,90,50);
+			cropedImage = cropImage(liveImage, 260,630,80,50);
 			
 			//Popular entertainment section  70,380,380,70
 			

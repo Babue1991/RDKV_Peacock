@@ -392,10 +392,81 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 	@Test(priority=10, dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
 	@TestDetails(testUID = "PEACOCK-AAMP-TC-1010")
-	public void testVerifySearchSTB(Dut device) throws InterruptedException {
+	public void testVerifySearchResumeSTB(Dut device) throws InterruptedException {
 		// Variables declaration starts
 		boolean status = false;
 		String testId = "PEACOCK-AAMP-TC-110";
+		String errorMessage = null;
+		String stepNum = null;
+		BufferedImage referenceImage;
+		BufferedImage liveImage;
+		BufferedImage subImage;
+		BufferedImage cropImage;
+		BufferedImage outputImage;
+		String expected = "Resume";
+		String actual;
+		// Variables declaration Ends
+
+		LOGGER.info("#######################################################################################");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1051");
+		LOGGER.info("TEST DESCRIPTION: This test is to verify peacock search screen Resume icon ");
+		LOGGER.info("TEST STEPS : ");
+		LOGGER.info("1.Launch peacock search screen and verify Resume icon");
+		LOGGER.info("#######################################################################################");
+		try {
+			stepNum = "S1";
+			errorMessage = "Failed to get the search My stuff icon";
+			LOGGER.info("*****************************************************************************************");
+			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify the search screen Resume icon");
+			LOGGER.info("STEP 1: ACTION : ACTION: compare search screen Resume reference image with the live image ");
+			LOGGER.info("STEP 1: EXPECTED : Image comparison of my Resume is successful.");
+			LOGGER.info("*****************************************************************************************");
+			
+			LOGGER.info("Click one RIGHT_BUTTON ");
+			CommonMethods.execCommand(RemoteKeyContstants.RIGHT_BUTTON);
+			
+			LOGGER.info("Capture peacock home screen live image");
+			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_SEARCH_RESUME_LIVE_IMAGE);
+			
+			LOGGER.info("Reading live image"); 
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_SEARCH_RESUME_LIVE_IMAGE));
+			
+            LOGGER.info("Calling Crop Image method");
+			subImage = CropImage.cropImage(liveImage, 260,630,80,50);
+			
+			LOGGER.info("Calling read text in image method");
+			GrabText grabText = new GrabText();
+			actual = grabText.crackImage(subImage);
+			status = CommonMethods.textCompare(expected, actual);
+		
+			if (status) {
+				LOGGER.info("The status of image comparision is: " + status);
+			} else {
+				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+			}
+			LOGGER.info("**********************************************************************************");
+			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+
+		} catch (Exception e) {
+			LOGGER.error("Exception occured while reading the image file " + e);
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			LOGGER.info("Inside catch");
+			errorMessage = e.getMessage();
+			LOGGER.error("Exception while searching search screen file: " + errorMessage);
+			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
+
+		}
+		LOGGER.info("ENDING TEST CASE: PEACOCK-AAMP-TC-1010");
+	}
+	
+	@Test(priority=51, dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
+	@TestDetails(testUID = "PEACOCK-AAMP-TC-1051")
+	public void testVerifySearchSTB(Dut device) throws InterruptedException {
+		// Variables declaration starts
+		boolean status = false;
+		String testId = "PEACOCK-AAMP-TC-151";
 		String errorMessage = null;
 		String stepNum = null;
 		BufferedImage referenceImage;
@@ -464,7 +535,8 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 
 		}
-		LOGGER.info("ENDING TEST CASE: PEACOCK-AAMP-TC-1010");
+		LOGGER.info("ENDING TEST CASE: PEACOCK-AAMP-TC-1051");
 	}
+	
 }
 
