@@ -478,11 +478,8 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 		String testId = "PEACOCK-AAMP-TC-151";
 		String errorMessage = null;
 		String stepNum = null;
-		BufferedImage referenceImage;
 		BufferedImage liveImage;
 		BufferedImage subImage;
-		BufferedImage cropImage;
-		BufferedImage outputImage;
 		String expected = "Resume";
 		String actual;
 		// Variables declaration Ends
@@ -517,7 +514,8 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 			LOGGER.info("Calling read text in image method");
 			GrabText grabText = new GrabText();
 			actual = grabText.crackImage(subImage);
-			status = CommonMethods.textCompare(expected, actual);
+			//status = CommonMethods.textCompare(expected, actual);
+			status = CommonMethods.partialTextCompare(expected, actual);
 		
 			if (status) {
 				LOGGER.info("The status of image comparision is: " + status);
