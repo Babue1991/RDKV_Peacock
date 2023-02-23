@@ -712,22 +712,22 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
 			
 			LOGGER.info("Click Xfinity up button ");
-			CommonMethods.execCommand(RemoteKeyContstants.UP_BUTTON);
+			CommonMethods.execCommandIcon(RemoteKeyContstants.UP_BUTTON);
 			
 			LOGGER.info("Click Xfinity right button ");
-			CommonMethods.execCommand(RemoteKeyContstants.RIGHT_BUTTON);
+			CommonMethods.execCommandIcon(RemoteKeyContstants.RIGHT_BUTTON);
 			
 			LOGGER.info("Click Xfinity OK button ");
-			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 			
 			LOGGER.info("Click Xfinity left button ");
-			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
 			
 			LOGGER.info("Click Xfinity left button ");
-			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
 			
 			LOGGER.info("Click Xfinity OK button ");
-			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 			
 			Thread.sleep(10000L);
 			
