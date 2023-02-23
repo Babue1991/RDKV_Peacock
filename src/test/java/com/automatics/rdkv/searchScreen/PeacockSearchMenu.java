@@ -556,7 +556,7 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 		LOGGER.info("#######################################################################################");
 		try {
 			stepNum = "S1";
-			errorMessage = "Failed to play the video";
+			errorMessage = "Failed to play the video and compare";
 			LOGGER.info("*****************************************************************************************");
 			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify the search screen play content");
 			LOGGER.info("STEP 1: ACTION : ACTION: compare search screen play content reference image with the live image ");

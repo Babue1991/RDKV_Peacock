@@ -170,4 +170,77 @@ public class PeacockSearchFeatureAntz extends AutomaticsTestBase {
 		}
 		LOGGER.info("ENDING TEST CASE: PEACOCK-AAMP-TC-1009");
 	}
+	@Test(priority=52, dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
+	@TestDetails(testUID = "PEACOCK-AAMP-TC-1052")
+	public void testVerifySearchResumeButtonSTB(Dut device) throws InterruptedException {
+		// Variables declaration starts
+		boolean status = false;
+		String testId = "PEACOCK-AAMP-TC-152";
+		String errorMessage = null;
+		String stepNum = null;
+		BufferedImage liveImage;
+		BufferedImage nextliveImage;
+		// Variables declaration Ends
+
+		LOGGER.info("#######################################################################################");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1052");
+		LOGGER.info("TEST DESCRIPTION: This test is to verify peacock search screen play content ");
+		LOGGER.info("TEST STEPS : ");
+		LOGGER.info("1.Launch peacock search screen and verify play content");
+		LOGGER.info("#######################################################################################");
+		try {
+			stepNum = "S1";
+			errorMessage = "Failed to play the video and compare";
+			LOGGER.info("*****************************************************************************************");
+			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify the search screen play content");
+			LOGGER.info("STEP 1: ACTION : ACTION: compare search screen play content reference image with the live image ");
+			LOGGER.info("STEP 1: EXPECTED : content is playing successful.");
+			LOGGER.info("*****************************************************************************************");
+			
+			LOGGER.info("Click one OK_BUTTON ");
+			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			Thread.sleep(5000L);
+			nu.pattern.OpenCV.loadLocally();
+			
+			LOGGER.info("Capture peacock search screen live image");
+			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_SEARCH_PLAY_LIVE_IMAGE);
+			Thread.sleep(10000L);
+			
+			LOGGER.info("Reading live image"); 
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_SEARCH_PLAY_LIVE_IMAGE));
+			
+			LOGGER.info("Capture peacock search screen next live image");
+			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_SEARCH_PLAY_NEXT_LIVE_IMAGE);
+			Thread.sleep(5000L);
+			
+			LOGGER.info("Reading next live image"); 
+			nextliveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_SEARCH_PLAY_NEXT_LIVE_IMAGE));
+			
+			LOGGER.info("Calling image compare method");
+			ImageCompare imgCompare =new ImageCompare();
+			status = imgCompare.compare(liveImage, nextliveImage);
+     
+			if (status) {
+				LOGGER.info("The status of image comparision is: " + status);
+			} else {
+				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+			}
+			LOGGER.info("**********************************************************************************");
+			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+
+		} catch (Exception e) {
+			LOGGER.error("Exception occured while reading the image file " + e);
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			LOGGER.info("Inside catch");
+			errorMessage = e.getMessage();
+			LOGGER.error("Exception while playing the video: " + errorMessage);
+			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
+
+		}
+		LOGGER.info("ENDING TEST CASE: PEACOCK-AAMP-TC-1052");
+	}
+	
+	
 }
