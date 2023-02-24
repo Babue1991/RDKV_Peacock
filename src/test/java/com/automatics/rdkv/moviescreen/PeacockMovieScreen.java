@@ -701,7 +701,7 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 		// Variables declaration Ends
 
 		LOGGER.info("#######################################################################################");
-		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1018");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1019");
 		LOGGER.info("TEST DESCRIPTION:  This test is to verify disable subtitle");
 		LOGGER.info("TEST STEPS : ");
 		LOGGER.info("1. Click on left button twice and then on ok button");
@@ -736,7 +736,7 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 			LOGGER.info("Click Xfinity OK button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 			
-			Thread.sleep(5000L);
+			Thread.sleep(10000L);
 			
 			LOGGER.info("Click Xfinity OK button ");
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
