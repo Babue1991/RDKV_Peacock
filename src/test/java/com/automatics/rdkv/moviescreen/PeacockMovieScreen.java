@@ -656,6 +656,12 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 			LOGGER.info("STEP 1: EXPECTED : Subtitle should displayed");
 			LOGGER.info("*****************************************************************************************");
             
+			LOGGER.info("Calling disable subtitle to make sure the subtitle is off ");
+			CommonMethods.disablesubtitle();
+			
+			LOGGER.info("Calling enable subtitle method ");
+			CommonMethods.enablesubtitle();
+			
 			LOGGER.info("Click Xfinity left button ");
 			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
 			
@@ -716,28 +722,8 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 			LOGGER.info("STEP 1: EXPECTED : Subtitle should displayed");
 			LOGGER.info("*****************************************************************************************");
             
-			LOGGER.info("Click Xfinity left button ");
-			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
-			
-			LOGGER.info("Click Xfinity up button ");
-			CommonMethods.execCommandIcon(RemoteKeyContstants.UP_BUTTON);
-			
-			LOGGER.info("Click Xfinity right button ");
-			CommonMethods.execCommandIcon(RemoteKeyContstants.RIGHT_BUTTON);
-			
-			LOGGER.info("Click Xfinity OK button ");
-			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
-			
-			LOGGER.info("Click Xfinity left button ");
-			CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
-			
-			LOGGER.info("Click Xfinity left button ");
-			CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
-			
-			LOGGER.info("Click Xfinity OK button ");
-			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
-			
-			Thread.sleep(10000L);
+			LOGGER.info("Calling disable subtitle method");
+			CommonMethods.disablesubtitle();
 			
 			LOGGER.info("Click Xfinity OK button ");
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
@@ -763,6 +749,8 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 			
 			if (status) {
 				LOGGER.info("Subtitle text is not shown and status is : " + status);
+				LOGGER.info("Click Xfinity OK button ");
+				CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
 			} else {
 				LOGGER.error("Subtitle text is shown and status is: " + status);
 			}
