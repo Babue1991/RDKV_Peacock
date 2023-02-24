@@ -217,7 +217,7 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 		String stepNum = null;
 		BufferedImage liveImage;
 		String actual;
-		String expected ="Featured Movies";
+		String expected ="Just Added";
 		BufferedImage subImage;
 		// Variables declaration Ends
 
@@ -235,8 +235,11 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 			LOGGER.info("STEP 1: ACTION : Press ok button and take screenshot");
 			LOGGER.info("STEP 1: EXPECTED : Movies section should launch successfully.");
 			LOGGER.info("*****************************************************************************************");
-
+            
 			LOGGER.info("Click Movies option on Peacock menu ");
+			CommonMethods.execCommand(RemoteKeyContstants.DOWN_BUTTON);
+			Thread.sleep(2000L);
+			LOGGER.info("Select movie by clicking Ok ");
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
 			Thread.sleep(5000L);
 			nu.pattern.OpenCV.loadLocally();
