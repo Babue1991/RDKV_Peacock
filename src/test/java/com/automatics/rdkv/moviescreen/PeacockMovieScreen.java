@@ -21,7 +21,7 @@ import com.automatics.tap.AutomaticsTapApi;
 import com.automatics.test.AutomaticsTestBase;
 
 
-public class PeacockMovieScreen  {
+public class PeacockMovieScreen extends AutomaticsTestBase {
 	
 	/**
 	 * String to store the value for resource usage compute window
