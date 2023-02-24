@@ -16,11 +16,11 @@ public class CropImage {
 
 	public static void main(String[] args) throws IOException {
 
-		BufferedImage liveImage = ImageIO.read(new File("/home/user/Desktop/subtitledisable.jpg"));
+		BufferedImage liveImage = ImageIO.read(new File("/home/user/Desktop/WWE.jpg"));
 		
 		try {
-			cropedImage = cropImage(liveImage, 70,460,90,38);
-			
+			cropedImage = cropImage(liveImage, 90,410,60,30);
+			//30,400,250,60
 			//Popular entertainment section  70,380,380,70
 			
 			//Application text section : 70,25,160,60
