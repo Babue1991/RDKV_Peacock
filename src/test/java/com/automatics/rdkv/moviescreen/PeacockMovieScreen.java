@@ -421,7 +421,8 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
 				
 			} else {
-				LOGGER.info("The status of image comparision is: " + status + "and movie is playing");
+				LOGGER.info("The status of image comparision is: " + status + " and movie is playing");
+				status = true;
 			}
 			LOGGER.info("**********************************************************************************");
 			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
@@ -758,12 +759,12 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 			actual = grabText.crackImage(subImage);
 
 			LOGGER.info("Calling text verify method");
-			status = CommonMethods.checkText(actual);
+			status = CommonMethods.checkEmptyText(actual);
 			
 			if (status) {
-				LOGGER.error("Subtitle text is shown and status is : " + status);
-			} else {
 				LOGGER.info("Subtitle text is not shown and status is : " + status);
+			} else {
+				LOGGER.error("Subtitle text is shown and status is: " + status);
 			}
 			LOGGER.info("**********************************************************************************");
 			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);

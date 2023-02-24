@@ -152,6 +152,19 @@ public class CommonMethods extends AutomaticsTestBase{
 		return status;
 
 	}
+	public static boolean checkEmptyText(String text) {
+
+		if(text.isEmpty()) {
+			LOGGER.info("String is empty ");
+			status =true;		
+		}
+		else {
+			LOGGER.error("Subtitle is present");
+			status =false;
+		}
+		return status;
+
+	}
 	public static boolean checkSubtitle() throws IOException, InterruptedException {
 
 		BufferedImage liveImage;
