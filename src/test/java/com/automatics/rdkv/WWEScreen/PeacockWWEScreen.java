@@ -22,6 +22,7 @@ import com.automatics.rdkv.commonmethods.CommonMethods;
 import com.automatics.rdkv.commonmethods.GrabText;
 import com.automatics.rdkv.commonmethods.HomeScreenTabSwitch;
 import com.automatics.rdkv.constants.ImageCaptureConstants;
+import com.automatics.rdkv.constants.IntergerCount;
 import com.automatics.rdkv.constants.RemoteKeyContstants;
 import com.automatics.rdkv.imagevalidation.ImageCompare;
 import com.automatics.tap.AutomaticsTapApi;
@@ -155,16 +156,9 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 			LOGGER.info("*****************************************************************************************");
 	
 
-			LOGGER.info("Click Xfinity down button ");
-			CommonMethods.execCommand(RemoteKeyContstants.DOWN_BUTTON);
-			LOGGER.info("Click Xfinity down button ");
-			CommonMethods.execCommand(RemoteKeyContstants.DOWN_BUTTON);
-			LOGGER.info("Click Xfinity down button ");
-			CommonMethods.execCommand(RemoteKeyContstants.DOWN_BUTTON);
-			LOGGER.info("Click Xfinity down button ");
-			CommonMethods.execCommand(RemoteKeyContstants.DOWN_BUTTON);
+			LOGGER.info("Click Xfinity down button four times ");
+			CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.FOUR);
 			Thread.sleep(3000L);
-			
 			nu.pattern.OpenCV.loadLocally();
 
 			LOGGER.info("Capture application screen live image");
