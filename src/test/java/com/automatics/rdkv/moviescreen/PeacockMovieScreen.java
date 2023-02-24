@@ -236,12 +236,13 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 			LOGGER.info("STEP 1: EXPECTED : Movies section should launch successfully.");
 			LOGGER.info("*****************************************************************************************");
             
-			LOGGER.info("Click Movies option on Peacock menu ");
-			CommonMethods.execCommand(RemoteKeyContstants.DOWN_BUTTON);
-			Thread.sleep(2000L);
 			LOGGER.info("Select movie by clicking Ok ");
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
 			Thread.sleep(5000L);
+			
+			LOGGER.info("Click Movies option on Peacock menu ");
+			CommonMethods.execCommand(RemoteKeyContstants.DOWN_BUTTON);
+			Thread.sleep(2000L);
 			nu.pattern.OpenCV.loadLocally();
 
 			LOGGER.info("Capture application screen live image");
