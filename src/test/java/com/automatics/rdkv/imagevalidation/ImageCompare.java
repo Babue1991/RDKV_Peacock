@@ -74,9 +74,6 @@ public class ImageCompare extends AutomaticsTestBase {
 		
 		return status;
 	}
-	
-	
-
 	public boolean compare(BufferedImage imgA, BufferedImage imgB)
 	{
 
