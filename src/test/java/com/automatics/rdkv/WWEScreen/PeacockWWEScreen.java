@@ -86,25 +86,20 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 				nu.pattern.OpenCV.loadLocally();
 				
 				LOGGER.info("Reading reference image");
-				//referenceImage = Imgcodecs.imread(ImageCaptureConstants.PEACOCK_LEFTMENU_REFERENCE_SCREEN);
-				 referenceImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LEFTMENU_REFERENCE_SCREEN));
+				referenceImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LEFTMENU_REFERENCE_SCREEN));
 
 				LOGGER.info("Capture application screen live image");
 				CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_LEFTMENU_LIVE_SCREEN);
 				Thread.sleep(5000L);
 				
 				LOGGER.info("Reading live image");
-				//liveImage = Imgcodecs.imread(ImageCaptureConstants.PEACOCK_LEFTMENU_LIVE_SCREEN);
 				liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LEFTMENU_LIVE_SCREEN));
 				
 				LOGGER.info("Calling Crop Image method");
-				
 				subImage = CropImage.cropImage(liveImage, 35,150,250,420);
-				
-	            		ImageCompare imgCompare =new ImageCompare();
+				ImageCompare imgCompare =new ImageCompare();
 				
 				LOGGER.info("Calling screen compare method");
-
 				status = imgCompare.compare(referenceImage, subImage);
 				
 				if (status) {

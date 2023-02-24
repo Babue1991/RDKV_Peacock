@@ -691,6 +691,9 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 		String testId = "PEACOCK-AAMP-TC-019";
 		String errorMessage = null;
 		String stepNum = null;
+		BufferedImage liveImage;
+		BufferedImage subImage;
+		String actual;
 		// Variables declaration Ends
 
 		LOGGER.info("#######################################################################################");
@@ -734,11 +737,27 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 			LOGGER.info("Click Xfinity OK button ");
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
 			
-			LOGGER.info("Calling method to check subtitle");
-			status = CommonMethods.checkSubtitle();
+			LOGGER.info("Capture application screen live image");
+			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_MOVIE_SUBTITLE);
+
+			LOGGER.info("Reading live image");
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_MOVIE_SUBTITLE));
+
+			LOGGER.info("Calling image cropping method");
+			subImage = CropImage.cropImage(liveImage, 320,570,540,80);
+
+			File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
+			ImageIO.write(subImage, "jpg", outputFile);
+
+			LOGGER.info("Calling method to read text in image");
+			GrabText grabText = new GrabText();
+			actual = grabText.crackImage(subImage);
+
+			LOGGER.info("Calling text verify method");
+			status = CommonMethods.checkText(actual);
 			
 			if (status) {
-				LOGGER.info("Subtitle text is shown and status is : " + status);
+				LOGGER.error("Subtitle text is shown and status is : " + status);
 			} else {
 				LOGGER.info("Subtitle text is not shown and status is : " + status);
 			}
