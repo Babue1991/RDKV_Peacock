@@ -71,17 +71,17 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 
 		LOGGER.info("#######################################################################################");
 		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1006");
-		LOGGER.info("TEST DESCRIPTION: This test is to verify peacock search button menu is highlighted ");
+		LOGGER.info("TEST DESCRIPTION: This test is to verify peacock search button is highlighted ");
 		LOGGER.info("TEST STEPS : ");
-		LOGGER.info("1. Launch peacock home screen and press Left_button and press up");
+		LOGGER.info("1. Launch peacock application and press Left_button and UP_BUTTON");
 		LOGGER.info("#######################################################################################");
 		try {
 			stepNum = "S1";
-			errorMessage = "Failed to verify peacock search button menu is highlighted";
+			errorMessage = "Failed to verify peacock search button";
 			LOGGER.info("*****************************************************************************************");
-			LOGGER.info("STEP 1: DESCRIPTION : This test is to compare peacock search button with the reference image");
-			LOGGER.info("STEP 1: ACTION : ACTION: compare peacock search menu button with the live image ");
-			LOGGER.info("STEP 1: EXPECTED : Image comparison successful.");
+			LOGGER.info("STEP 1: DESCRIPTION : This test is to read peacock search button text");
+			LOGGER.info("STEP 1: ACTION : ACTION: crop and read the search button icon");
+			LOGGER.info("STEP 1: EXPECTED : Search text read successful.");
 			LOGGER.info("*****************************************************************************************");
 
 			LOGGER.info("Reading reference image");
@@ -148,20 +148,20 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 
 		LOGGER.info("#######################################################################################");
 		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1007");
-		LOGGER.info("TEST DESCRIPTION: This test is to verify search bar screen ");
+		LOGGER.info("TEST DESCRIPTION: This test is to verify search screen keyboard ");
 		LOGGER.info("TEST STEPS : ");
-		LOGGER.info("1.Launch peacock home screen and press Left_button and press up ");
+		LOGGER.info("1.Launch peacock application and press Left_button and UP_BUTTON ");
 		LOGGER.info("#######################################################################################");
 		try {
 			stepNum = "S1";
-			errorMessage = "Failed to get the search icon";
+			errorMessage = "Failed to get the search screen keyboard";
 			LOGGER.info("*****************************************************************************************");
-			LOGGER.info("STEP 1: DESCRIPTION : This test is to compare search bar reference image with the live image");
-			LOGGER.info("STEP 1: ACTION : ACTION: compare search bar reference image with the live image ");
+			LOGGER.info("STEP 1: DESCRIPTION : This test is to compare search keyboard screen reference image with the live image");
+			LOGGER.info("STEP 1: ACTION : ACTION: compare search keyboard screen reference image with the live image ");
 			LOGGER.info("STEP 1: EXPECTED : Image comparison successful.");
 			LOGGER.info("*****************************************************************************************");
 			
-			LOGGER.info("Redirecting to Peacock search menu screen: ");
+			LOGGER.info("Redirecting to Peacock search screen: ");
 			LOGGER.info("Click OK_BUTTON ");
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
 			Thread.sleep(5000L);
@@ -183,9 +183,7 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 			ImageIO.write(subImage, "jpg", outputFile);
 
 			ImageCompare imgCompare =new ImageCompare();
-			
 			status = imgCompare.compare(referenceImage, subImage);
-			
 			LOGGER.info("Calling screen compare method");
 		
 			if (status) {
@@ -227,17 +225,17 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 
 		LOGGER.info("#######################################################################################");
 		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1008");
-		LOGGER.info("TEST DESCRIPTION: This test is to verify search bar screen ");
+		LOGGER.info("TEST DESCRIPTION: This test is to verify peacock search screen text");
 		LOGGER.info("TEST STEPS : ");
-		LOGGER.info("1.Launch peacock home screen and press Left_button and press up");
+		LOGGER.info("1.Launch peacock application screen and press Left_button and UP_BUTTON");
 		LOGGER.info("#######################################################################################");
 		try {
 			stepNum = "S1";
-			errorMessage = "Failed to get the search icon";
+			errorMessage = "Failed to get the peacock search screen text";
 			LOGGER.info("*****************************************************************************************");
-			LOGGER.info("STEP 1: DESCRIPTION : This test is to compare search bar reference image with the live image");
-			LOGGER.info("STEP 1: ACTION : ACTION: compare search bar reference image with the live image ");
-			LOGGER.info("STEP 1: EXPECTED : Image comparison successful.");
+			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify search screen text");
+			LOGGER.info("STEP 1: ACTION : ACTION: verify search screen text with the live image ");
+			LOGGER.info("STEP 1: EXPECTED : verification of search screen text is successful.");
 			LOGGER.info("*****************************************************************************************");
 			
 			 LOGGER.info("Reading reference image"); 
@@ -298,13 +296,13 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1009");
 		LOGGER.info("TEST DESCRIPTION: This test is to verify peacock search feature ");
 		LOGGER.info("TEST STEPS : ");
-		LOGGER.info("1.Launch peacock home screen and press Left_button and press up");
+		LOGGER.info("1.Launch peacock application and press Left_button and UP_BUTTON");
 		LOGGER.info("#######################################################################################");
 		try {
 			stepNum = "S1";
-			errorMessage = "Failed to get the search icon";
+			errorMessage = "Failed to verify peacock search feature";
 			LOGGER.info("*****************************************************************************************");
-			LOGGER.info("STEP 1: DESCRIPTION : This test is to compare search feature verification reference image with the live image");
+			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify search feature in the search screen");
 			LOGGER.info("STEP 1: ACTION : ACTION: compare search feature reference image with the live image ");
 			LOGGER.info("STEP 1: EXPECTED : Image comparison successful.");
 			LOGGER.info("*****************************************************************************************");
