@@ -205,7 +205,6 @@ public class CommonMethods extends AutomaticsTestBase{
 
 		}
 		return status;
-
 	}
 	public static void disablesubtitle() throws InterruptedException {
 		

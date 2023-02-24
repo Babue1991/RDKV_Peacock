@@ -722,6 +722,7 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 			LOGGER.info("STEP 1: EXPECTED : Subtitle should displayed");
 			LOGGER.info("*****************************************************************************************");
             
+			Thread.sleep(10000L);
 			LOGGER.info("Calling disable subtitle method");
 			CommonMethods.disablesubtitle();
 			
