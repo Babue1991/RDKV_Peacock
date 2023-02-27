@@ -1,11 +1,17 @@
 package com.automatics.rdkv.STBhomescreen;
 
 import java.awt.image.BufferedImage;
-import java.io.File;
-
-import java.io.File;
 import java.io.IOException;
-import javax.imageio.ImageIO;
+import org.opencv.core.Core;
+import org.opencv.core.Mat;
+import org.opencv.core.Point;
+import org.opencv.core.Scalar;
+import org.opencv.core.Core.MinMaxLocResult;
+import org.opencv.imgcodecs.Imgcodecs;
+import org.opencv.imgproc.Imgproc;
+
+import com.automatics.rdkv.constants.ImageCaptureConstants;
+import com.automatics.rdkv.imagevalidation.ImageCompare;
 
 public class ImageComparision {
 	// Java Program to Compare Two Images Using OpenCV
@@ -18,6 +24,23 @@ public class ImageComparision {
 	// ImageComparison
 
 	// Main driver method
+	
+	static Mat reference_image;
+	static Mat live_Image;
+	static boolean status;
+	
+	public static void main(String args[]) throws IOException {
+		
+		System.out.println("Start");
+		nu.pattern.OpenCV.loadLocally();
+		reference_image = Imgcodecs.imread("/home/user/Desktop/forward.jpg");
+		live_Image = Imgcodecs.imread("/home/user/Desktop/forward.jpg");
+		
+		ImageCompare obj = new ImageCompare();
+		obj.templateMatch(reference_image,live_Image);
+		System.out.println("end");
+
+	}
 	public boolean compare(BufferedImage imgA, BufferedImage imgB)
 	{
 
@@ -111,6 +134,44 @@ public class ImageComparision {
 			}
 		}
 
+		return status;
+	}
+	
+	public boolean templateMatch(Mat reference_image, Mat live_Image) {
+
+		//System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+		nu.pattern.OpenCV.loadLocally();
+		Mat source=null;
+		Mat template=null;
+		String filePath=ImageCaptureConstants.LIVE_IMAGE_PATH;
+		System.out.println("The path is: "+filePath);
+		//Load image file
+		source=live_Image;
+		template=reference_image;
+
+		Mat outputImage=new Mat();    
+		int machMethod=Imgproc.TM_CCOEFF;
+		boolean status;
+		//Template matching method
+		try {
+		Imgproc.matchTemplate(source, template, outputImage, machMethod);
+
+
+		MinMaxLocResult mmr = Core.minMaxLoc(outputImage);
+		Point matchLoc=mmr.maxLoc;
+		//Draw rectangle on result image
+	
+		Imgproc.rectangle(source, matchLoc, new Point(matchLoc.x + template.cols(),
+			matchLoc.y + template.rows()), new Scalar(255, 255, 255));
+
+		Imgcodecs.imwrite(filePath+"matched.jpg", source);
+		System.out.println("Completed");
+		status=true;
+		}catch(Exception e) {
+			status=false;
+			e.printStackTrace();
+		}
+		
 		return status;
 	}
 }
