@@ -298,7 +298,7 @@ public class PeacockTVShows extends AutomaticsTestBase {
 
 		LOGGER.info("#######################################################################################");
 		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1034");
-		LOGGER.info("TEST DESCRIPTION: This test is to verify peacock TVShows screen My stuff icon ");
+		LOGGER.info("TEST DESCRIPTION: This test is to verify peacock TVShows screen MyStuff icon ");
 		LOGGER.info("TEST STEPS : ");
 		LOGGER.info("1.Launch peacock TVShows screen and verify my stuff icon");
 		LOGGER.info("#######################################################################################");
