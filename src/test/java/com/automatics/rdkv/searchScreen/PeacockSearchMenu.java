@@ -607,7 +607,7 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 	@Test(priority=53, dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
 	@TestDetails(testUID = "PEACOCK-AAMP-TC-1053")
-	public void testVerifySearchResumeButtonSTB(Dut device) throws InterruptedException {
+	public void testVerifySearchButtonSTB(Dut device) throws InterruptedException {
 		// Variables declaration starts
 		boolean status = false;
 		String testId = "PEACOCK-AAMP-TC-153";
