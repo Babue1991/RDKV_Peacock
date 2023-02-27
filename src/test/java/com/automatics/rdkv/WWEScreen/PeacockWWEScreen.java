@@ -293,7 +293,7 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 	
 		LOGGER.info("#######################################################################################");
 		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1023");
-		LOGGER.info("TEST DESCRIPTION: This test is to verify Title of the WWE screen ");
+		LOGGER.info("TEST DESCRIPTION: This test is to verify MyStuff content in WWE screen ");
 		LOGGER.info("TEST STEPS : ");
 		LOGGER.info("1.click WWE option");
 		LOGGER.info("#######################################################################################");
@@ -301,9 +301,9 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 			stepNum = "S1";
 			errorMessage = "Failed to compare Title of the WWE screen with the live image";
 			LOGGER.info("*****************************************************************************************");
-			LOGGER.info("STEP 1: DESCRIPTION : This test is to compare Title of the WWE screen with the reference image");
-			LOGGER.info("STEP 1: ACTION : ACTION: compare Title of the WWE screen with the live image ");
-			LOGGER.info("STEP 1: EXPECTED : Image comparision successful.");
+			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify MyStuff content in WWE screen ");
+			LOGGER.info("STEP 1: ACTION : ACTION: Launch WWE screen and check MyStuff icon ");
+			LOGGER.info("STEP 1: EXPECTED : MyStuff verified successful.");
 			LOGGER.info("*****************************************************************************************");
 	
 			LOGGER.info("Click WWE content ");
@@ -319,8 +319,6 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.WWE_MY_STUFF_LIVE_IMAGE));
 			
             LOGGER.info("Calling crop method");
-			
-
 			subImage = CropImage.cropImage(liveImage, 70,620,160,60);
 			
 			LOGGER.info("Calling read text in image method");
@@ -460,9 +458,7 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 				LOGGER.info("Click Xfinity left button ");
 				CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
 				Thread.sleep(5000L);
-				
 				nu.pattern.OpenCV.loadLocally();
-				
 
 				LOGGER.info("Capture application screen live image");
 				CaptureLiveImage.capture(ImageCaptureConstants.WWE_ENGLISH_SUBTITLE_BUTTON_LIVE_IMAGE);
