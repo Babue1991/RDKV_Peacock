@@ -110,17 +110,21 @@ public class ImageCaptureConstants {
 	/********The variable used to send capture card port to capture Movies Section Screen image**/
 	public static String PEACOCK_MOVIE_SUBTITLE=LIVE_IMAGE_PATH+"MovieSubtitle.jpg";
 	
+	//tv shows
 	/********The variable used to send capture card port to capture Movies Section Screen image**/
-	public static String PEACOCK_TVSHOWS_PAUSE_CONTENT=LIVE_IMAGE_PATH+"MovieSubtitle.jpg";
+	public static String PEACOCK_TVSHOWS_PAUSE_CONTENT=LIVE_IMAGE_PATH+"TvshowsSubtitle.jpg";
 	
 	/********The variable used to send capture card port to capture Movies Section Screen image**/
-	public static String PEACOCK_TVSHOWS_REFERENCE_PLAY_ICON=REFERENCE_IMAGE_PATH+"Play.jpg";
+	public static String PEACOCK_TVSHOWS_REFERENCE_PLAY_ICON=REFERENCE_IMAGE_PATH+"TVShowsPlay.jpg";
 	
 	/********The variable used to send capture card port to capture Movies Section Screen image**/
-	public static String PEACOCK_TVSHOWS_PAUSE_CONTENT_SCREEN=LIVE_IMAGE_PATH+"MovieSubtitle.jpg";
+	public static String PEACOCK_TVSHOWS_PAUSE_CONTENT_SCREEN=LIVE_IMAGE_PATH+"TVShowsSubtitle.jpg";
 	
 	/********The variable used to send capture card port to capture Movies Section Screen image**/
-	public static String PEACOCK_TVSHOWS_PAUSE_CONTENT_SCREEN_NEXT=LIVE_IMAGE_PATH+"MovieSubtitle.jpg";
+	public static String PEACOCK_TVSHOWS_PAUSE_CONTENT_SCREEN_NEXT=LIVE_IMAGE_PATH+"TVSubtitle.jpg";
+	
+	/********The variable used to send capture card port to capture Movies Section Screen image**/
+	public static String PEACOCK_TVSHOWS_SUBTITLE_BUTTON=LIVE_IMAGE_PATH+"TVShowsSubtitle.jpg";
 
 	//TV SHOWS
 	
