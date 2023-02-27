@@ -151,6 +151,19 @@ public class ImageCaptureConstants {
 	/********The variable used to send capture card port to capture Search Section Screen image**/
 	public static String PEACOCK_SEARCH_PLAY_NEXT_LIVE_IMAGE=LIVE_IMAGE_PATH+"SearchPlay.jpg";
 	
+	/********The variable used to send capture card port to capture Search Section Screen image**/
+	public static String PEACOCK_SEARCH_PAUSE_CONTENT=LIVE_IMAGE_PATH+"SearchPause.jpg";
+	
+	/********The variable used to send capture card port to capture Peacock search Feature Antz image**/
+	public static String PEACOCK_SEARCH_REFERENCE_PLAY_ICON=REFERENCE_IMAGE_PATH+"SearchPlayIcon.jpg";
+	
+	/********The variable used to send capture card port to capture Search Section Screen image**/
+	public static String PEACOCK_SEARCH_PAUSE_CONTENT_SCREEN=LIVE_IMAGE_PATH+"SearchPause.jpg";
+	
+	/********The variable used to send capture card port to capture Search Section Screen image**/
+	public static String PEACOCK_SEARCH_PAUSE_CONTENT_SCREEN_NEXT=LIVE_IMAGE_PATH+"SearchAntzPause.jpg";
+	
+	
 	//Search
 	
 	/********The variable used to send capture card port to capture Peacock menu movies option image**/
