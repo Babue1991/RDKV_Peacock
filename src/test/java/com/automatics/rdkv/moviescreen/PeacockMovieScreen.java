@@ -821,15 +821,15 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 			LOGGER.info("Reading reference image");
 				
 			referenceImage=Imgcodecs.imread(ImageCaptureConstants.PEACOCK_MOVIE_REFERENCE_FORWARD);
+			
+			ImageCompare imgCompare = new ImageCompare();
+			status =imgCompare.templateMatch(referenceImage, liveImage);
 
 			LOGGER.info("Click Xfinity OK button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 			Thread.sleep(5000L);
 			LOGGER.info("Click Xfinity OK button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
-			
-			ImageCompare imgCompare = new ImageCompare();
-			status =imgCompare.templateMatch(referenceImage, liveImage);
       
 			if (status) {
 				LOGGER.info("The status of image comparision is: " + status);

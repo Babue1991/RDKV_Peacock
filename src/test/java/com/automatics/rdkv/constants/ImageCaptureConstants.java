@@ -110,6 +110,12 @@ public class ImageCaptureConstants {
 	/********The variable used to send capture card port to capture Movies Section Screen image**/
 	public static String PEACOCK_MOVIE_SUBTITLE=LIVE_IMAGE_PATH+"MovieSubtitle.jpg";
 	
+	/********The variable used to send capture card port to capture Peacock movie forward image**/
+	public static String PEACOCK_MOVIE_REFERENCE_FORWARD=REFERENCE_IMAGE_PATH+"WWE_Fastforword.jpg";
+	
+	/********The variable used to send capture card port to capture Peacock movie forward image**/
+	public static String PEACOCK_MOVIE_LIVE_FORWARD=LIVE_IMAGE_PATH+"forward.jpg";
+	
 	//tv shows
 	/********The variable used to send capture card port to capture Movies Section Screen image**/
 	public static String PEACOCK_TVSHOWS_PAUSE_CONTENT=LIVE_IMAGE_PATH+"TvshowsSubtitle.jpg";
@@ -182,12 +188,6 @@ public class ImageCaptureConstants {
 	
 	/********The variable used to send capture card port to capture Search Section Screen image**/
 	public static String PEACOCK_SEARCH_PAUSE_CONTENT=LIVE_IMAGE_PATH+"SearchPause.jpg";
-	
-	/********The variable used to send capture card port to capture Peacock movie forward image**/
-	public static String PEACOCK_MOVIE_REFERENCE_FORWARD=REFERENCE_IMAGE_PATH+"forward.jpg";
-	
-	/********The variable used to send capture card port to capture Peacock movie forward image**/
-	public static String PEACOCK_MOVIE_LIVE_FORWARD=LIVE_IMAGE_PATH+"forward.jpg";
 	
 	/********The variable used to send capture card port to capture Peacock search Feature Antz image**/
 	public static String PEACOCK_SEARCH_REFERENCE_PLAY_ICON=REFERENCE_IMAGE_PATH+"SearchPlayReference.jpg";
