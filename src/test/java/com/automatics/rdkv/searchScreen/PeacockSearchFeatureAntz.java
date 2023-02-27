@@ -49,23 +49,22 @@ public class PeacockSearchFeatureAntz extends AutomaticsTestBase {
 	
 
 	static Process p;
-	@Test(priority=52, dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+	@Test(priority=55,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
-	@TestDetails(testUID = "PEACOCK-AAMP-TC-1052")
-	public void testVerifySearchResumeButtonSTB(Dut device) throws InterruptedException {
+	@TestDetails(testUID = "PEACOCK-AAMP-TC-1055")
+	public void testVerifySubtitleText(Dut device) throws InterruptedException {
 		// Variables declaration starts
 		boolean status = false;
-		String testId = "PEACOCK-AAMP-TC-152";
+		String testId = "PEACOCK-AAMP-TC-155";
 		String errorMessage = null;
 		String stepNum = null;
-		BufferedImage liveImage;
-		BufferedImage nextliveImage;
 		// Variables declaration Ends
 
 		LOGGER.info("#######################################################################################");
-		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1052");
-		LOGGER.info("TEST DESCRIPTION: This test is to verify peacock search screen play content ");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1055");
+		LOGGER.info("TEST DESCRIPTION:  This test is to verify subtile text");
 		LOGGER.info("TEST STEPS : ");
+<<<<<<< HEAD
 		LOGGER.info("1.Click on play icon");
 		LOGGER.info("#######################################################################################");
 		try {
@@ -75,33 +74,44 @@ public class PeacockSearchFeatureAntz extends AutomaticsTestBase {
 			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify the search screen play content");
 			LOGGER.info("STEP 1: ACTION : ACTION: Press left button ");
 			LOGGER.info("STEP 1: EXPECTED : Antz content should keep playing.");
+=======
+		LOGGER.info("1. Click on left button and then on ok button");
+		LOGGER.info("#######################################################################################");
+		try {
+			stepNum = "S1";
+			errorMessage = "Failed to verify subtitle text";
 			LOGGER.info("*****************************************************************************************");
+			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify subtile text");
+			LOGGER.info("STEP 1: ACTION : Press left button and click ok button");
+			LOGGER.info("STEP 1: EXPECTED : Subtitle should displayed");
+>>>>>>> da0a08f3d45e4feee750f3f1370079959704c597
+			LOGGER.info("*****************************************************************************************");
+            
+			LOGGER.info("Calling disable subtitle to make sure the subtitle is off ");
+			CommonMethods.disablesubtitle();
 			
-			LOGGER.info("Click one OK_BUTTON ");
+			LOGGER.info("Calling enable subtitle method ");
+			CommonMethods.enablesubtitle();
+			
+			LOGGER.info("Click Xfinity left button ");
+			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			
+			LOGGER.info("Click Xfinity OK button ");
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
-			Thread.sleep(5000L);
-			nu.pattern.OpenCV.loadLocally();
+			Thread.sleep(3000L);
 			
-			LOGGER.info("Capture peacock search screen live image");
-			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_SEARCH_PLAY_LIVE_IMAGE);
-			Thread.sleep(10000L);
+			LOGGER.info("Calling method to check subtitle");
+			status = CommonMethods.checkSubtitle();
 			
-			LOGGER.info("Reading live image"); 
-			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_SEARCH_PLAY_LIVE_IMAGE));
-			
-			LOGGER.info("Capture peacock search screen next live image");
-			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_SEARCH_PLAY_NEXT_LIVE_IMAGE);
-			Thread.sleep(5000L);
-			
-			LOGGER.info("Reading next live image"); 
-			nextliveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_SEARCH_PLAY_NEXT_LIVE_IMAGE));
-			
+<<<<<<< HEAD
 			LOGGER.info("Calling image compare method");
 			ImageCompare imgCompare =new ImageCompare();
 			status = imgCompare.compare(liveImage, nextliveImage);
 
+=======
+>>>>>>> da0a08f3d45e4feee750f3f1370079959704c597
 			if (status) {
-				LOGGER.info("The status of image comparision is: " + status);
+				LOGGER.info("Subtitle text is shown and status is : " + status);
 			} else {
 				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
 			}
@@ -114,11 +124,12 @@ public class PeacockSearchFeatureAntz extends AutomaticsTestBase {
 			e.printStackTrace();
 			LOGGER.info("Inside catch");
 			errorMessage = e.getMessage();
-			LOGGER.error("Exception while playing the video: " + errorMessage);
+			LOGGER.error("Exception while verifying subtitle text: " + errorMessage);
 			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 
 		}
-		LOGGER.info("ENDING TEST CASE: PEACOCK-AAMP-TC-1052");
+		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-1055");
+
 	}
 	
 	@Test(priority=53,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
