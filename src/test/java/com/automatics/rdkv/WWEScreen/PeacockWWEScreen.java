@@ -289,7 +289,7 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 			String stepNum = null;
 			BufferedImage liveImage;
 			String actual;
-			String expected ="My Stuff";
+			String expected ="+ My Stuff";
 			BufferedImage subImage;
 			// Variables declaration Ends
 	

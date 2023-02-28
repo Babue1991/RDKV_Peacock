@@ -476,7 +476,7 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 		BufferedImage subImage;
 		BufferedImage cropImage;
 		BufferedImage outputImage;
-		String expected = "My Stuft";
+		String expected = "+ My Stuff";
 		String actual;
 		// Variables declaration Ends
 
@@ -513,6 +513,7 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 			
             LOGGER.info("Calling Crop Image method");
 			subImage = CropImage.cropImage(liveImage, 130,630,90,50);
+			//70,620,160,60
 			
 			LOGGER.info("Calling read text in image method");
 			GrabText grabText = new GrabText();
