@@ -309,6 +309,12 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 			LOGGER.info("Click WWE content ");
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
 			Thread.sleep(5000L);
+			
+			LOGGER.info("Click left Mystuff ");
+			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			Thread.sleep(5000L);
+			
+			
 			nu.pattern.OpenCV.loadLocally();
 
 			LOGGER.info("Capture application screen live image");
@@ -351,11 +357,11 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 	}
 		@Test(priority=12,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 				BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
-		@TestDetails(testUID = "PEACOCK-AAMP-TC-1024")
+		@TestDetails(testUID = "PEACOCK-AAMP-TC-1045")
 		public void testVerifySubtitle(Dut device) throws InterruptedException {
 			// Variables declaration starts
 			boolean status = false;
-			String testId = "PEACOCK-AAMP-TC-124";
+			String testId = "PEACOCK-AAMP-TC-045";
 			String errorMessage = null;
 			String stepNum = null;
 			BufferedImage liveImage;
@@ -365,7 +371,7 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 			// Variables declaration Ends
 
 			LOGGER.info("#######################################################################################");
-			LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1024");
+			LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1045");
 			LOGGER.info("TEST DESCRIPTION: This test is to verify subtitle button present in the WWE Content video ");
 			LOGGER.info("TEST STEPS : ");
 			LOGGER.info("1.click 2 up button and click left button");
@@ -421,7 +427,7 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 				CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 
 			}
-			LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-1024");
+			LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-1045");
 
 }
 		@Test(priority=13,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
