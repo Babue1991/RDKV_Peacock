@@ -97,7 +97,7 @@ public class ImageCaptureConstants {
 	public static String PEACOCK_MOVIE_REFERENCE_PAUSE_ICON=REFERENCE_IMAGE_PATH+"Pause_icon.jpg";
 	
 	/********The variable used to send capture card port to capture Movies Section Screen image**/
-	public static String PEACOCK_MOVIE_REFERENCE_PLAY_ICON=REFERENCE_IMAGE_PATH+"play.jpg";
+	public static String PEACOCK_MOVIE_REFERENCE_PLAY_ICON=REFERENCE_IMAGE_PATH+"Play_icon.jpg";
 	
 	/********The variable used to send capture card port to capture Movies Section Screen image**/
 	public static String PEACOCK_MOVIE_PAUSE_CONTENT_SCREEN_NEXT=LIVE_IMAGE_PATH+"MovieContentPauseScreenTwo.jpg";
@@ -122,10 +122,10 @@ public class ImageCaptureConstants {
 	
 	//tv shows
 	/********The variable used to send capture card port to capture Movies Section Screen image**/
-	public static String PEACOCK_TVSHOWS_PAUSE_CONTENT=LIVE_IMAGE_PATH+"TvshowsSubtitle.jpg";
+	public static String PEACOCK_TVSHOWS_PAUSE_CONTENT=LIVE_IMAGE_PATH+"TvshowsPause.jpg";
 	
 	/********The variable used to send capture card port to capture Movies Section Screen image**/
-	public static String PEACOCK_TVSHOWS_REFERENCE_PLAY_ICON=REFERENCE_IMAGE_PATH+"TVShowsPlay.jpg";
+	public static String PEACOCK_TVSHOWS_REFERENCE_PLAY_ICON=REFERENCE_IMAGE_PATH+"Pause.jpg";
 	
 	/********The variable used to send capture card port to capture Movies Section Screen image**/
 	public static String PEACOCK_TVSHOWS_PAUSE_CONTENT_SCREEN=LIVE_IMAGE_PATH+"TVShowsSubtitle.jpg";
@@ -145,10 +145,10 @@ public class ImageCaptureConstants {
 	public static String PEACOCK_TVSHOWS_RESUME_LIVE_IMAGE=LIVE_IMAGE_PATH+"TVShowsMyStuff.jpg";
 	
 	/********The variable used to send capture card port to capture Movies Section Screen image**/
-	public static String PEACOCK_TVSHOWS_PLAY_LIVE_IMAGE=LIVE_IMAGE_PATH+"TVShowsMyStuff.jpg";
+	public static String PEACOCK_TVSHOWS_PLAY_LIVE_IMAGE=LIVE_IMAGE_PATH+"TVShows.jpg";
 	
 	/********The variable used to send capture card port to capture Movies Section Screen image**/
-	public static String PEACOCK_TVSHOWS_PLAY_NEXT_LIVE_IMAGE=LIVE_IMAGE_PATH+"TVShowsMyStuff.jpg";
+	public static String PEACOCK_TVSHOWS_PLAY_NEXT_LIVE_IMAGE=LIVE_IMAGE_PATH+"TVShowsNextLive.jpg";
 	
 	//Search Bar 
 	/********The variable used to send capture card port to capture Peacock search menu option image**/
