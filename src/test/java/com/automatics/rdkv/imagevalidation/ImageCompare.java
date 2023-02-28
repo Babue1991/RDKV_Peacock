@@ -41,7 +41,6 @@ public class ImageCompare extends AutomaticsTestBase {
 	public boolean templateMatch(Mat reference_image, Mat live_Image) {
 
 		//System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-		
 		Mat source=null;
 		Mat template=null;
 		String filePath=ImageCaptureConstants.LIVE_IMAGE_PATH;
@@ -56,13 +55,11 @@ public class ImageCompare extends AutomaticsTestBase {
 		try {
 		Imgproc.matchTemplate(source, template, outputImage, machMethod);
 
-
 		MinMaxLocResult mmr = Core.minMaxLoc(outputImage);
 		Point matchLoc=mmr.maxLoc;
+		
 		//Draw rectangle on result image
-	
-		Imgproc.rectangle(source, matchLoc, new Point(matchLoc.x + template.cols(),
-			matchLoc.y + template.rows()), new Scalar(255, 255, 255));
+		Imgproc.rectangle(source, matchLoc, new Point(matchLoc.x + template.cols(),matchLoc.y + template.rows()), new Scalar(255, 255, 255));
 
 		Imgcodecs.imwrite(filePath+"matched.jpg", source);
 		System.out.println("Completed");

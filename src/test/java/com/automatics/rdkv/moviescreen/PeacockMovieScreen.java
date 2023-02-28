@@ -825,7 +825,7 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 
 			LOGGER.info("Click Xfinity OK button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
-			Thread.sleep(5000L);
+			Thread.sleep(10000L);
 			LOGGER.info("Click Xfinity OK button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
       
@@ -902,7 +902,7 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 
 			LOGGER.info("Click Xfinity OK button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
-			Thread.sleep(5000L);
+			Thread.sleep(3000L);
 			LOGGER.info("Click Xfinity OK button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
       
