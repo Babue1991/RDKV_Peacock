@@ -3,6 +3,8 @@ package com.automatics.rdkv.commonmethods;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 
 import javax.imageio.ImageIO;
 
@@ -44,6 +46,20 @@ public class GrabText {
 			System.err.println(e.getMessage());
 			return "Error while reading image";
 		}
+	}
+	public boolean checkSpecialChar(String actual) {
+		
+		
+		Pattern p = Pattern.compile("[^a-z0-9 ]", Pattern.CASE_INSENSITIVE);
+		Matcher m = p.matcher(actual);
+		boolean b = m.find();
+
+		if (b)
+		   System.out.println("There is a special character in my string");
+		else
+		   System.out.println("There is a no special character in my string");
+		
+		return b;
 	}
 
 }

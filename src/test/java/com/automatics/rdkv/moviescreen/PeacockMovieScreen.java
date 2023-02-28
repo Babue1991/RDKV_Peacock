@@ -733,7 +733,7 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 			LOGGER.info("*****************************************************************************************");
 			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify disable subtitle");
 			LOGGER.info("STEP 1: ACTION : Press left button twice and click ok button");
-			LOGGER.info("STEP 1: EXPECTED : Subtitle should displayed");
+			LOGGER.info("STEP 1: EXPECTED : Subtitle should not be displayed");
 			LOGGER.info("*****************************************************************************************");
             
 			Thread.sleep(10000L);
@@ -761,6 +761,7 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 
 			LOGGER.info("Calling text verify method");
 			status = CommonMethods.checkEmptyText(actual);
+			status = grabText.checkSpecialChar(actual);
 			
 			if (status) {
 				LOGGER.info("Subtitle text is not shown and status is : " + status);
