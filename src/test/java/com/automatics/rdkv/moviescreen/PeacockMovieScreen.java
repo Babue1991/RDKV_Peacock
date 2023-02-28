@@ -830,7 +830,7 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
       
 			if (status) {
-				LOGGER.info("The status of image comparision is: " + status);
+				LOGGER.info("The status of template match is: " + status);
 			} else {
 				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
 			}
@@ -907,7 +907,7 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
       
 			if (status) {
-				LOGGER.info("The status of image comparision is: " + status);
+				LOGGER.info("The status of template match is: " + status);
 			} else {
 				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
 			}
