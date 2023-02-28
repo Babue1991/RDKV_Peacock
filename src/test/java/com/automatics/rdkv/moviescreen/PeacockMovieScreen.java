@@ -568,7 +568,7 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 		String stepNum = null;
 		BufferedImage liveImage;
 		BufferedImage subImage;
-		String expected ="Subtitles";
+		String expected ="Audio";
 		String actual;
 		// Variables declaration Ends
 
