@@ -137,7 +137,7 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 	    BufferedImage liveImage;
 		BufferedImage subImage;
 		String actual;
-		String expected = "Ees";
+		String expected = "Es";
 
 		/*
 		 * BufferedImage cropImage; Mat compare;
@@ -146,7 +146,7 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 
 		LOGGER.info("#######################################################################################");
 		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1006");
-		LOGGER.info("TEST DESCRIPTION: This test is to verify peacock search button is highlighted ");
+		LOGGER.info("TEST DESCRIPTION: This test is to verify peacock search button is present in the menu ");
 		LOGGER.info("TEST STEPS : ");
 		LOGGER.info("1. Launch peacock application and press Left_button and UP_BUTTON");
 		LOGGER.info("#######################################################################################");
@@ -476,7 +476,7 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 		BufferedImage subImage;
 		BufferedImage cropImage;
 		BufferedImage outputImage;
-		String expected = "My Stuft";
+		String expected = "My Stuff";
 		String actual;
 		// Variables declaration Ends
 
@@ -502,8 +502,10 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
 			Thread.sleep(5000L);
 			
-			LOGGER.info("Click one LEFT_BUTTON ");
-			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+		
+//			 LOGGER.info("Click one LEFT_BUTTON ");
+//			 CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			 
 			
 			LOGGER.info("Capture peacock home screen live image");
 			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_SEARCH_MYSTUFF_LIVE_IMAGE);
@@ -571,8 +573,8 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 			LOGGER.info("STEP 1: EXPECTED : Image comparison of my Resume is successful.");
 			LOGGER.info("*****************************************************************************************");
 			
-			LOGGER.info("Click one RIGHT_BUTTON ");
-			CommonMethods.execCommand(RemoteKeyContstants.RIGHT_BUTTON);
+//			LOGGER.info("Click one RIGHT_BUTTON ");
+//			CommonMethods.execCommand(RemoteKeyContstants.RIGHT_BUTTON);
 			
 			LOGGER.info("Capture peacock home screen live image");
 			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_SEARCH_RESUME_LIVE_IMAGE);
@@ -797,7 +799,7 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 		String stepNum = null;
 		BufferedImage liveImage;
 		BufferedImage subImage;
-		String expected ="Subtitles";
+		String expected ="Subtitles & Audio";
 		String actual;
 		// Variables declaration Ends
 
