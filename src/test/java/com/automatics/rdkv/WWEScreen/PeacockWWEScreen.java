@@ -289,7 +289,7 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 			String stepNum = null;
 			BufferedImage liveImage;
 			String actual;
-			String expected ="My Stuff";
+			String expected ="+ My Stuff";
 			BufferedImage subImage;
 			// Variables declaration Ends
 	
@@ -315,8 +315,6 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 			LOGGER.info("Click left Mystuff ");
 			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
 			Thread.sleep(5000L);
-			
-			
 			nu.pattern.OpenCV.loadLocally();
 
 			LOGGER.info("Capture application screen live image");
