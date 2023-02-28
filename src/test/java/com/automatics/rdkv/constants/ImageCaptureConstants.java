@@ -115,7 +115,7 @@ public class ImageCaptureConstants {
 	public static String PEACOCK_MOVIE_LIVE_FORWARD=LIVE_IMAGE_PATH+"forward.jpg";
 	
 	/********The variable used to read reference Peacock movie back forward icon image**/
-	public static String PEACOCK_MOVIE_REFERENCE_BACKFORWARD=REFERENCE_IMAGE_PATH+"WWE_Backforward.jpg";
+	public static String PEACOCK_MOVIE_REFERENCE_BACKFORWARD=REFERENCE_IMAGE_PATH+"WWE_BackForward.jpg";
 	
 	/********The variable used to send capture card port to capture live Peacock movie back forward icon image**/
 	public static String PEACOCK_MOVIE_LIVE_BACKFORWARD=LIVE_IMAGE_PATH+"backward.jpg";
