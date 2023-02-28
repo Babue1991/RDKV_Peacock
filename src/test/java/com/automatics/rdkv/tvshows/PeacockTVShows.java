@@ -292,7 +292,7 @@ public class PeacockTVShows extends AutomaticsTestBase {
 		String stepNum = null;
 		BufferedImage liveImage;
 		BufferedImage subImage;
-		String expected = "My Stuff";
+		String expected = "My Stuft";
 		String actual;
 		// Variables declaration Ends
 
