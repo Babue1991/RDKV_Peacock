@@ -493,10 +493,10 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 			LOGGER.info("Calling image cropping method");
 			subImage = CropImage.cropImage(liveImage, 50,630,40,44);
 			
-			File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
+			File outputFile = new File("/var/lib/jenkins/workspace/play.jpg");
 			ImageIO.write(subImage, "jpg", outputFile);
 			
-			BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/image1.jpg"));
+			BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/play.jpg"));
 			
 			LOGGER.info("Calling image compare method");
 			
