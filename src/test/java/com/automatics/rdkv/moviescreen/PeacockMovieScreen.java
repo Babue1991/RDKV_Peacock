@@ -494,8 +494,12 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 			LOGGER.info("Calling image cropping method");
 			subImage = CropImage.cropImage(liveImage, 50,638,32,33);
 			
+			LOGGER.info("Calling convert image method");
+			ConvertImage cg = new ConvertImage();
+			BufferedImage result = cg.ConvertGrayScale(subImage);
+			
 			File outputFile = new File("/var/lib/jenkins/workspace/play.jpg");
-			ImageIO.write(subImage, "jpg", outputFile);
+			ImageIO.write(result, "jpg", outputFile);
 			
 			BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/play.jpg"));
 			
