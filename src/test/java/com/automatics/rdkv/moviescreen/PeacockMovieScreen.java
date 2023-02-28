@@ -492,8 +492,8 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 			referenceImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_MOVIE_REFERENCE_PLAY_ICON));
 			
 			LOGGER.info("Calling image cropping method");
-			subImage = CropImage.cropImage(liveImage, 50,638,32,33);
-			
+			subImage = CropImage.cropImage(liveImage, 50,630,40,44);
+			//50,638,32,33
 			LOGGER.info("Calling convert image method");
 			ConvertImage cg = new ConvertImage();
 			BufferedImage result = cg.ConvertGrayScale(subImage);
@@ -733,7 +733,7 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 			LOGGER.info("*****************************************************************************************");
 			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify disable subtitle");
 			LOGGER.info("STEP 1: ACTION : Press left button twice and click ok button");
-			LOGGER.info("STEP 1: EXPECTED : Subtitle should displayed");
+			LOGGER.info("STEP 1: EXPECTED : Subtitle should not be displayed");
 			LOGGER.info("*****************************************************************************************");
             
 			Thread.sleep(10000L);
@@ -761,6 +761,7 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 
 			LOGGER.info("Calling text verify method");
 			status = CommonMethods.checkEmptyText(actual);
+			//status = grabText.checkSpecialChar(actual);
 			
 			if (status) {
 				LOGGER.info("Subtitle text is not shown and status is : " + status);

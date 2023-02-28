@@ -137,6 +137,8 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 			BufferedImage liveImage;
 			String actual;
 			String expected = "s";
+
+			//String expected ="WWE";
 			BufferedImage subImage;
 			
 	
