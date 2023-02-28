@@ -136,7 +136,11 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 //			Mat referenceImage;
 			BufferedImage liveImage;
 			String actual;
+<<<<<<< HEAD
+			String expected = "s";
+=======
 			String expected ="WWE";
+>>>>>>> 35272aca36dc9f73d2e957a5891e02f372511978
 			BufferedImage subImage;
 			
 	
@@ -171,7 +175,7 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 			
 			LOGGER.info("Calling crop method");
 			
-			subImage = CropImage.cropImage(liveImage, 90,410,60,30);
+			subImage = CropImage.cropImage(liveImage,90,410,80,30);
 			
 			LOGGER.info("Calling read text in image method");
 			GrabText grabText = new GrabText();

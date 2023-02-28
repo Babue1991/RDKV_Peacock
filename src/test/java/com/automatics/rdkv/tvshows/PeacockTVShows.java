@@ -38,7 +38,7 @@ public class PeacockTVShows extends AutomaticsTestBase {
 	 * 
 	 * @param device Dut to be used for execution
 	 * 
-	 * @author Tejaswi KY
+	 * @author Babu
 	 * @throws InterruptedException 
 	 * 
 	 */
@@ -58,7 +58,7 @@ public class PeacockTVShows extends AutomaticsTestBase {
 		// Variables declaration Ends
 
 		LOGGER.info("#######################################################################################");
-		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1021");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1031");
 		LOGGER.info("TEST DESCRIPTION: This test is to verify user can navigate to Peacock left menu using remote keys");
 		LOGGER.info("TEST STEPS : ");
 		LOGGER.info("1. Press left button for the Peacock left menu");
@@ -119,7 +119,7 @@ public class PeacockTVShows extends AutomaticsTestBase {
 			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 
 		}
-		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-1021");
+		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-1031");
 
 	}
 
@@ -135,12 +135,12 @@ public class PeacockTVShows extends AutomaticsTestBase {
 		Mat referenceImage;
 		BufferedImage liveImage;
 		String actual;
-		String expected = "uesd";
+		String expected = "esd";
 		BufferedImage subImage;
 		// Variables declaration Ends
 
 		LOGGER.info("#######################################################################################");
-		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1022");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1032");
 		LOGGER.info("TEST DESCRIPTION:  This test is to verify TV Shows option present in the menu using remote keys");
 		LOGGER.info("TEST STEPS : ");
 		LOGGER.info("1. Navigate to TV shows option form the Peacock left menu");
@@ -203,7 +203,7 @@ public class PeacockTVShows extends AutomaticsTestBase {
 			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 
 		}
-		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-1012");
+		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-1032");
 
 	}
 	@Test(priority=7,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
@@ -292,7 +292,7 @@ public class PeacockTVShows extends AutomaticsTestBase {
 		String stepNum = null;
 		BufferedImage liveImage;
 		BufferedImage subImage;
-		String expected = "My Stuff";
+		String expected = "My Stuft";
 		String actual;
 		// Variables declaration Ends
 
