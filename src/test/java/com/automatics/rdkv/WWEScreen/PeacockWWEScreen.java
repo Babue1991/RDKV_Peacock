@@ -311,6 +311,10 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 			LOGGER.info("Click WWE content ");
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
 			Thread.sleep(5000L);
+			
+			LOGGER.info("Click left Mystuff ");
+			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			Thread.sleep(5000L);
 			nu.pattern.OpenCV.loadLocally();
 
 			LOGGER.info("Capture application screen live image");
@@ -353,11 +357,11 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 	}
 		@Test(priority=12,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 				BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
-		@TestDetails(testUID = "PEACOCK-AAMP-TC-1024")
+		@TestDetails(testUID = "PEACOCK-AAMP-TC-1045")
 		public void testVerifySubtitle(Dut device) throws InterruptedException {
 			// Variables declaration starts
 			boolean status = false;
-			String testId = "PEACOCK-AAMP-TC-124";
+			String testId = "PEACOCK-AAMP-TC-045";
 			String errorMessage = null;
 			String stepNum = null;
 			BufferedImage liveImage;
@@ -367,7 +371,7 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 			// Variables declaration Ends
 
 			LOGGER.info("#######################################################################################");
-			LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1024");
+			LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1045");
 			LOGGER.info("TEST DESCRIPTION: This test is to verify subtitle button present in the WWE Content video ");
 			LOGGER.info("TEST STEPS : ");
 			LOGGER.info("1.click 2 up button and click left button");
@@ -423,16 +427,16 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 				CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 
 			}
-			LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-1024");
+			LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-1045");
 
 }
 		@Test(priority=13,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 				BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
-		@TestDetails(testUID = "PEACOCK-AAMP-TC-1025")
+		@TestDetails(testUID = "PEACOCK-AAMP-TC-1046")
 		public void testVerifyEnglishsubtitle(Dut device) throws InterruptedException {
 			// Variables declaration starts
 			boolean status = false;
-			String testId = "PEACOCK-AAMP-TC-125";
+			String testId = "PEACOCK-AAMP-TC-146";
 			String errorMessage = null;
 			String stepNum = null;
 			BufferedImage liveImage;
@@ -442,7 +446,7 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 			// Variables declaration Ends
 
 			LOGGER.info("#######################################################################################");
-			LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1025");
+			LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1046");
 			LOGGER.info("TEST DESCRIPTION: This test is to verify english subtitle button present in the WWE content video");
 			LOGGER.info("TEST STEPS : ");
 			LOGGER.info("1.click up button");
@@ -497,16 +501,16 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 				CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 
 			}
-			LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-1025");
+			LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-1046");
 
 		}
 		@Test(priority=14,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 				BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
-		@TestDetails(testUID = "PEACOCK-AAMP-TC-1026")
+		@TestDetails(testUID = "PEACOCK-AAMP-TC-1047")
 		public void testVerifySplashforwardbackward(Dut device) throws InterruptedException {
 			// Variables declaration starts
 			boolean status = false;
-			String testId = "PEACOCK-AAMP-TC-126";
+			String testId = "PEACOCK-AAMP-TC-147";
 			String errorMessage = null;
 			String stepNum = null;
 			BufferedImage referenceImage;
@@ -515,7 +519,7 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 			// Variables declaration Ends
 
 			LOGGER.info("#######################################################################################");
-			LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1026");
+			LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1047");
 			LOGGER.info("TEST DESCRIPTION: This test is to verify fast forward button in present in the WWE content video ");
 			LOGGER.info("TEST STEPS : ");
 			LOGGER.info("1.click Right button");
@@ -568,17 +572,17 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 				CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 
 			}
-			LOGGER.info("ENDING TEST CASE: PEACOCK-AAMP-TC-1026");
+			LOGGER.info("ENDING TEST CASE: PEACOCK-AAMP-TC-1047");
 		}
 
 
 	@Test(priority=15,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
-	@TestDetails(testUID = "PEACOCK-AAMP-TC-1027")
+	@TestDetails(testUID = "PEACOCK-AAMP-TC-1048")
 	public void testVerifySplashScreenSTB(Dut device) throws InterruptedException {
 		// Variables declaration starts
 		boolean status = false;
-		String testId = "PEACOCK-AAMP-TC-127";
+		String testId = "PEACOCK-AAMP-TC-148";
 		String errorMessage = null;
 		String stepNum = null;
 		BufferedImage referenceImage;
@@ -587,7 +591,7 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 		// Variables declaration Ends
 
 		LOGGER.info("#######################################################################################");
-		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1027");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1048");
 		LOGGER.info("TEST DESCRIPTION: This test is to verify Back forward button in present in the WWE content video ");
 		LOGGER.info("TEST STEPS : "); 
 		LOGGER.info("1.click left button");
@@ -639,7 +643,7 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 
 		}
-		LOGGER.info("ENDING TEST CASE: PEACOCK-AAMP-TC-1027");
+		LOGGER.info("ENDING TEST CASE: PEACOCK-AAMP-TC-1048");
 	}
 
 }
