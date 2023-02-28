@@ -4,6 +4,9 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 
 import javax.imageio.ImageIO;
+
+import org.opencv.core.Mat;
+import org.opencv.imgcodecs.Imgcodecs;
 import org.testng.annotations.Test;
 import com.automatics.annotations.TestDetails;
 import com.automatics.constants.DataProviderConstants;
@@ -769,6 +772,159 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 
 		}
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-1019 ");
+
+	}
+	@Test(priority=14,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
+	@TestDetails(testUID = "PEACOCK-AAMP-TC-1020")
+	public void testVerifyFastForward(Dut device) throws InterruptedException {
+		// Variables declaration starts
+		boolean status = false;
+		String testId = "PEACOCK-AAMP-TC-020";
+		String errorMessage = null;
+		String stepNum = null;
+		Mat liveImage;
+		Mat referenceImage;
+		// Variables declaration Ends
+
+		LOGGER.info("#######################################################################################");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1020");
+		LOGGER.info("TEST DESCRIPTION:  This test is to verify forward icon using remote keys");
+		LOGGER.info("TEST STEPS : ");
+		LOGGER.info("1. Click on right and check forward icon is dispalyed");
+		LOGGER.info("#######################################################################################");
+		try {
+			stepNum = "S1";
+			errorMessage = "Failed to validate forward";
+			LOGGER.info("*****************************************************************************************");
+			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify forward icon using remote keys");
+			LOGGER.info("STEP 1: ACTION : Press right button and take screenshot");
+			LOGGER.info("STEP 1: EXPECTED : Forward icon should be shown.");
+			LOGGER.info("*****************************************************************************************");
+			
+			LOGGER.info("Click Xfinity right button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.RIGHT_BUTTON);
+			
+			LOGGER.info("Click Xfinity right button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.RIGHT_BUTTON);
+			
+            nu.pattern.OpenCV.loadLocally();
+			
+			LOGGER.info("Capture application screen live image");
+			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_MOVIE_LIVE_FORWARD);
+			
+            LOGGER.info("Reading live image");
+			liveImage=Imgcodecs.imread(ImageCaptureConstants.PEACOCK_MOVIE_LIVE_FORWARD);
+			
+			LOGGER.info("Reading reference image");
+			referenceImage=Imgcodecs.imread(ImageCaptureConstants.PEACOCK_MOVIE_REFERENCE_FORWARD);
+			
+			LOGGER.info("Calling template match method");
+			ImageCompare imgCompare = new ImageCompare();
+			status =imgCompare.templateMatch(referenceImage, liveImage);
+
+			LOGGER.info("Click Xfinity OK button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+			Thread.sleep(10000L);
+			LOGGER.info("Click Xfinity OK button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+      
+			if (status) {
+				LOGGER.info("The status of template match is: " + status);
+			} else {
+				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+			}
+			LOGGER.info("**********************************************************************************");
+			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+
+		} catch (Exception e) {
+			LOGGER.error("Exception occured while reading the image file " + e);
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			LOGGER.info("Inside catch");
+			errorMessage = e.getMessage();
+			LOGGER.error("Exception while launching home screen file: " + errorMessage);
+			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
+
+		}
+		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-1020");
+
+	}
+	
+	@Test(priority=15,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
+	@TestDetails(testUID = "PEACOCK-AAMP-TC-1021")
+	public void testVerifyBackForward(Dut device) throws InterruptedException {
+		// Variables declaration starts
+		boolean status = false;
+		String testId = "PEACOCK-AAMP-TC-021";
+		String errorMessage = null;
+		String stepNum = null;
+		Mat liveImage;
+		Mat referenceImage;
+		// Variables declaration Ends
+
+		LOGGER.info("#######################################################################################");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1021");
+		LOGGER.info("TEST DESCRIPTION:  This test is to verify backforward icon using remote keys");
+		LOGGER.info("TEST STEPS : ");
+		LOGGER.info("1. Click on left and check backforward icon is dispalyed");
+		LOGGER.info("#######################################################################################");
+		try {
+			stepNum = "S1";
+			errorMessage = "Failed to validate backforward";
+			LOGGER.info("*****************************************************************************************");
+			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify backforward icon using remote keys");
+			LOGGER.info("STEP 1: ACTION : Press left button and take screenshot");
+			LOGGER.info("STEP 1: EXPECTED : backforward icon should be shown.");
+			LOGGER.info("*****************************************************************************************");
+			
+			LOGGER.info("Click Xfinity left button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
+			
+			LOGGER.info("Click Xfinity right button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
+			
+            nu.pattern.OpenCV.loadLocally();
+			
+			LOGGER.info("Capture application screen live image");
+			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_MOVIE_LIVE_BACKFORWARD);
+			
+            LOGGER.info("Reading live image");
+			liveImage=Imgcodecs.imread(ImageCaptureConstants.PEACOCK_MOVIE_LIVE_BACKFORWARD);
+			
+			LOGGER.info("Reading reference image");	
+			referenceImage=Imgcodecs.imread(ImageCaptureConstants.PEACOCK_MOVIE_REFERENCE_BACKFORWARD);
+			
+			LOGGER.info("Calling template match method");
+			ImageCompare imgCompare = new ImageCompare();
+			status =imgCompare.templateMatch(referenceImage, liveImage);
+
+			LOGGER.info("Click Xfinity OK button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+			Thread.sleep(3000L);
+			LOGGER.info("Click Xfinity OK button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+      
+			if (status) {
+				LOGGER.info("The status of template match is: " + status);
+			} else {
+				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+			}
+			LOGGER.info("**********************************************************************************");
+			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+
+		} catch (Exception e) {
+			LOGGER.error("Exception occured while reading the image file " + e);
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			LOGGER.info("Inside catch");
+			errorMessage = e.getMessage();
+			LOGGER.error("Exception while launching home screen file: " + errorMessage);
+			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
+
+		}
+		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-1021");
 
 	}
 }

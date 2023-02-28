@@ -1,7 +1,5 @@
 package com.automatics.rdkv.constants;
 
-import com.automatics.rdkv.commonmethods.CommonMethods;
-
 public class ImageCaptureConstants {
 
 	/********The variable used to send capture card port to capture image**/
@@ -110,6 +108,18 @@ public class ImageCaptureConstants {
 	/********The variable used to send capture card port to capture Movies Section Screen image**/
 	public static String PEACOCK_MOVIE_SUBTITLE=LIVE_IMAGE_PATH+"MovieSubtitle.jpg";
 	
+	/********The variable used to read reference Peacock movie forward icon image**/
+	public static String PEACOCK_MOVIE_REFERENCE_FORWARD=REFERENCE_IMAGE_PATH+"WWE_Fastforword.jpg";
+	
+	/********The variable used to send capture card port to capture live Peacock movie forward icon image**/
+	public static String PEACOCK_MOVIE_LIVE_FORWARD=LIVE_IMAGE_PATH+"forward.jpg";
+	
+	/********The variable used to read reference Peacock movie back forward icon image**/
+	public static String PEACOCK_MOVIE_REFERENCE_BACKFORWARD=REFERENCE_IMAGE_PATH+"WWE_BackForward.jpg";
+	
+	/********The variable used to send capture card port to capture live Peacock movie back forward icon image**/
+	public static String PEACOCK_MOVIE_LIVE_BACKFORWARD=LIVE_IMAGE_PATH+"backward.jpg";
+	
 	//tv shows
 	/********The variable used to send capture card port to capture Movies Section Screen image**/
 	public static String PEACOCK_TVSHOWS_PAUSE_CONTENT=LIVE_IMAGE_PATH+"TvshowsSubtitle.jpg";
@@ -178,7 +188,7 @@ public class ImageCaptureConstants {
 	public static String PEACOCK_SEARCH_PLAY_LIVE_IMAGE=LIVE_IMAGE_PATH+"SearchPlay.jpg";
 	
 	/********The variable used to send capture card port to capture Search Section Screen image**/
-	public static String PEACOCK_SEARCH_PLAY_NEXT_LIVE_IMAGE=LIVE_IMAGE_PATH+"SearchPlay.jpg";
+	public static String PEACOCK_SEARCH_PLAY_NEXT_LIVE_IMAGE=LIVE_IMAGE_PATH+"SearchNextPlay.jpg";
 	
 	/********The variable used to send capture card port to capture Search Section Screen image**/
 	public static String PEACOCK_SEARCH_PAUSE_CONTENT=LIVE_IMAGE_PATH+"SearchPause.jpg";
@@ -190,19 +200,23 @@ public class ImageCaptureConstants {
 	public static String PEACOCK_SEARCH_PAUSE_CONTENT_SCREEN=LIVE_IMAGE_PATH+"SearchPause.jpg";
 	
 	/********The variable used to send capture card port to capture Search Section Screen image**/
-	public static String PEACOCK_SEARCH_PAUSE_CONTENT_SCREEN_NEXT=LIVE_IMAGE_PATH+"SearchPause.jpg";
-	
-	/********The variable used to send capture card port to capture Search Section Screen image**/
 	public static String PEACOCK_SEARCH_SUBTITLE_BUTTON=LIVE_IMAGE_PATH+"SearchAntzPause.jpg";
 	
 	/********The variable used to send capture card port to capture Search Section Screen image**/
 	public static String PEACOCK_SEARCH_SUBTITLE=LIVE_IMAGE_PATH+"SearchAntzPause.jpg";
 	
+<<<<<<< HEAD
 	/********The variable used to send capture card port to capture Peacock search Feature Antz image**/
 	public static String PEACOCK_LEFTMENU_REFERENCE_IMAGE=REFERENCE_IMAGE_PATH+"SearchPlayReference.jpg";
 	
 	/********The variable used to send capture card port to capture Search Section Screen image**/
 	public static String PEACOCK_LEFTMENU_LIVE_IMAGE=LIVE_IMAGE_PATH+"SearchAntzPause.jpg";
+=======
+	/********The variable used to send capture card port to capture Search Section Screen image**/
+	public static String PEACOCK_SEARCH_PAUSE_CONTENT_SCREEN_NEXT=LIVE_IMAGE_PATH+"SearchAntzPause.jpg";
+
+	
+>>>>>>> 31da4f89dc36019797b4ed3b9d402149ab2f8c8a
 	//Search
 	
 	/********The variable used to send capture card port to capture Peacock menu movies option image**/
@@ -244,8 +258,5 @@ public class ImageCaptureConstants {
 	
 	/********The variable used to send capture card port to capture Peacock search Feature Antz image**/
 	public static String WWE_MY_STUFF_LIVE_IMAGE=REFERENCE_IMAGE_PATH+"WWE_Fastforword.jpg";
-	
-	
-	
-	
+
 }
