@@ -492,8 +492,8 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 			referenceImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_MOVIE_REFERENCE_PLAY_ICON));
 			
 			LOGGER.info("Calling image cropping method");
-			subImage = CropImage.cropImage(liveImage, 50,638,32,33);
-			
+			subImage = CropImage.cropImage(liveImage, 50,630,40,44);
+			//50,638,32,33
 			LOGGER.info("Calling convert image method");
 			ConvertImage cg = new ConvertImage();
 			BufferedImage result = cg.ConvertGrayScale(subImage);
