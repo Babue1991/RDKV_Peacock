@@ -1,7 +1,5 @@
 package com.automatics.rdkv.constants;
 
-import com.automatics.rdkv.commonmethods.CommonMethods;
-
 public class ImageCaptureConstants {
 
 	/********The variable used to send capture card port to capture image**/
@@ -110,11 +108,17 @@ public class ImageCaptureConstants {
 	/********The variable used to send capture card port to capture Movies Section Screen image**/
 	public static String PEACOCK_MOVIE_SUBTITLE=LIVE_IMAGE_PATH+"MovieSubtitle.jpg";
 	
-	/********The variable used to send capture card port to capture Peacock movie forward image**/
+	/********The variable used to read reference Peacock movie forward icon image**/
 	public static String PEACOCK_MOVIE_REFERENCE_FORWARD=REFERENCE_IMAGE_PATH+"WWE_Fastforword.jpg";
 	
-	/********The variable used to send capture card port to capture Peacock movie forward image**/
+	/********The variable used to send capture card port to capture live Peacock movie forward icon image**/
 	public static String PEACOCK_MOVIE_LIVE_FORWARD=LIVE_IMAGE_PATH+"forward.jpg";
+	
+	/********The variable used to read reference Peacock movie back forward icon image**/
+	public static String PEACOCK_MOVIE_REFERENCE_BACKFORWARD=REFERENCE_IMAGE_PATH+"WWE_Backforward.jpg";
+	
+	/********The variable used to send capture card port to capture live Peacock movie back forward icon image**/
+	public static String PEACOCK_MOVIE_LIVE_BACKFORWARD=LIVE_IMAGE_PATH+"backward.jpg";
 	
 	//tv shows
 	/********The variable used to send capture card port to capture Movies Section Screen image**/

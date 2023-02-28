@@ -52,11 +52,11 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 		static Process p;
 		@Test(priority=5,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 				BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
-		@TestDetails(testUID = "PEACOCK-AAMP-TC-1020")
+		@TestDetails(testUID = "PEACOCK-AAMP-TC-1041")
 		public void testVerifyPeacockMenu(Dut device) throws InterruptedException {
 			// Variables declaration starts
 			boolean status = false;
-			String testId = "PEACOCK-AAMP-TC-120";
+			String testId = "PEACOCK-AAMP-TC-041";
 			String errorMessage = null;
 			String stepNum = null;
 			BufferedImage referenceImage;
@@ -65,7 +65,7 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 			// Variables declaration Ends
 
 			LOGGER.info("#######################################################################################");
-			LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1020");
+			LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1041");
 			LOGGER.info("TEST DESCRIPTION: This test is to verify user can navigate to Peacock left menu using remote keys");
 			LOGGER.info("TEST STEPS : ");
 			LOGGER.info("1. Press left button for the Peacock left menu");
@@ -121,16 +121,16 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 				CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 
 			}
-			LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-1020");
+			LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-1041");
 
 	}
 		@Test(priority=9,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 				BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
-		@TestDetails(testUID = "PEACOCK-AAMP-TC-1021")
+		@TestDetails(testUID = "PEACOCK-AAMP-TC-1042")
 		public void testVerifyWWEScreen(Dut device) throws InterruptedException {
 			// Variables declaration starts
 			boolean status = false;
-			String testId = "PEACOCK-AAMP-TC-121";
+			String testId = "PEACOCK-AAMP-TC-042";
 			String errorMessage = null;
 			String stepNum = null;
 //			Mat referenceImage;
@@ -141,7 +141,7 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 			
 	
 		LOGGER.info("#######################################################################################");
-		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1021");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1042");
 		LOGGER.info("TEST DESCRIPTION: This test is to verify WWE option present in the menu by using the remote keys");
 		LOGGER.info("TEST STEPS :");
 		LOGGER.info("1.Press 4 down button from the peacock menu");
@@ -199,17 +199,17 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 	
 		}
-		LOGGER.info("ENDING TEST CASE: PEACOCK-AAMP-TC-1021");
+		LOGGER.info("ENDING TEST CASE: PEACOCK-AAMP-TC-1042");
 	}
 
 	
 		@Test(priority=10,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 				BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
-		@TestDetails(testUID = "PEACOCK-AAMP-TC-1022")
+		@TestDetails(testUID = "PEACOCK-AAMP-TC-1043")
 		public void testVerifyWWETitle(Dut device) throws InterruptedException {
 			// Variables declaration starts
 			boolean status = false;
-			String testId = "PEACOCK-AAMP-TC-122";
+			String testId = "PEACOCK-AAMP-TC-043";
 			String errorMessage = null;
 			String stepNum = null;
 			BufferedImage liveImage;
@@ -219,7 +219,7 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 			// Variables declaration Ends
 	
 		LOGGER.info("#######################################################################################");
-		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1022");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1043");
 		LOGGER.info("TEST DESCRIPTION: This test is to verify Title of the WWE screen ");
 		LOGGER.info("TEST STEPS : ");
 		LOGGER.info("1.click WWE option");
@@ -273,16 +273,16 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 
 		}
-		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-1022");
+		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-1043");
 
 	}
 		@Test(priority=11,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 				BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
-		@TestDetails(testUID = "PEACOCK-AAMP-TC-1023")
+		@TestDetails(testUID = "PEACOCK-AAMP-TC-1044")
 		public void testVerifyWWEMyStuff(Dut device) throws InterruptedException {
 			// Variables declaration starts
 			boolean status = false;
-			String testId = "PEACOCK-AAMP-TC-123";
+			String testId = "PEACOCK-AAMP-TC-044";
 			String errorMessage = null;
 			String stepNum = null;
 			BufferedImage liveImage;
@@ -292,7 +292,7 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 			// Variables declaration Ends
 	
 		LOGGER.info("#######################################################################################");
-		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1023");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1044");
 		LOGGER.info("TEST DESCRIPTION: This test is to verify MyStuff content in WWE screen ");
 		LOGGER.info("TEST STEPS : ");
 		LOGGER.info("1.click WWE option");
@@ -346,7 +346,7 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 
 		}
-		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-1023");
+		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-1044");
 
 	}
 		@Test(priority=12,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
