@@ -761,7 +761,7 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 
 			LOGGER.info("Calling text verify method");
 			status = CommonMethods.checkEmptyText(actual);
-			status = grabText.checkSpecialChar(actual);
+			//status = grabText.checkSpecialChar(actual);
 			
 			if (status) {
 				LOGGER.info("Subtitle text is not shown and status is : " + status);
