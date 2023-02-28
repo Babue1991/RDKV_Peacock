@@ -479,7 +479,7 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 			//Thread.sleep(3000L);
 			nu.pattern.OpenCV.loadLocally();
 			LOGGER.info("Click Xfinity ok button ");
-			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 			
 			LOGGER.info("Capture application screen live image");
 			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_MOVIE_PAUSE_CONTENT);
