@@ -19,6 +19,7 @@ import com.automatics.rdkv.commonmethods.CommonMethods;
 import com.automatics.rdkv.commonmethods.GrabText;
 import com.automatics.rdkv.constants.ImageCaptureConstants;
 import com.automatics.rdkv.constants.RemoteKeyContstants;
+import com.automatics.rdkv.imagevalidation.ConvertImage;
 import com.automatics.rdkv.imagevalidation.ImageCompare;
 import com.automatics.tap.AutomaticsTapApi;
 import com.automatics.test.AutomaticsTestBase;
@@ -479,7 +480,7 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 			//Thread.sleep(3000L);
 			nu.pattern.OpenCV.loadLocally();
 			LOGGER.info("Click Xfinity ok button ");
-			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 			
 			LOGGER.info("Capture application screen live image");
 			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_MOVIE_PAUSE_CONTENT);
@@ -491,12 +492,16 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 			referenceImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_MOVIE_REFERENCE_PLAY_ICON));
 			
 			LOGGER.info("Calling image cropping method");
-			subImage = CropImage.cropImage(liveImage, 50,630,40,44);
+			subImage = CropImage.cropImage(liveImage, 50,638,32,33);
 			
-			File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
-			ImageIO.write(subImage, "jpg", outputFile);
+			LOGGER.info("Calling convert image method");
+			ConvertImage cg = new ConvertImage();
+			BufferedImage result = cg.ConvertGrayScale(subImage);
 			
-			BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/image1.jpg"));
+			File outputFile = new File("/var/lib/jenkins/workspace/play.jpg");
+			ImageIO.write(result, "jpg", outputFile);
+			
+			BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/play.jpg"));
 			
 			LOGGER.info("Calling image compare method");
 			
@@ -568,7 +573,7 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 		String stepNum = null;
 		BufferedImage liveImage;
 		BufferedImage subImage;
-		String expected ="Subtitles";
+		String expected ="Audio";
 		String actual;
 		// Variables declaration Ends
 
@@ -602,12 +607,18 @@ public class PeacockMovieScreen extends AutomaticsTestBase {
 			LOGGER.info("Calling image cropping method");
 			subImage = CropImage.cropImage(liveImage, 220,515,140,40);
 			
-			File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
-			ImageIO.write(subImage, "jpg", outputFile);
+			LOGGER.info("Calling convert image method");
+			ConvertImage cg = new ConvertImage();
+			BufferedImage result = cg.ConvertGrayScale(subImage);
+			
+			File outputFile = new File("/var/lib/jenkins/workspace/grey.jpg");
+			ImageIO.write(result, "jpg", outputFile);
+			
+			BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/grey.jpg"));
 			
 			LOGGER.info("Calling method to read text in image");
 			GrabText grabText = new GrabText();
-			actual = grabText.crackImage(subImage);
+			actual = grabText.crackImage(output);
 			
 			LOGGER.info("Calling comapre text method");
 			status = CommonMethods.partialTextCompare(expected, actual);
