@@ -80,35 +80,35 @@ public class PeacockTVShows extends AutomaticsTestBase {
 			
 			nu.pattern.OpenCV.loadLocally();
 			
-			LOGGER.info("Reading reference image");
-			//referenceImage = Imgcodecs.imread(ImageCaptureConstants.PEACOCK_LEFTMENU_REFERENCE_SCREEN);
-			 referenceImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LEFTMENU_REFERENCE_SCREEN));
+
+			LOGGER.info("Capture application screen reference live image");
+			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_LEFTMENU_REFERENCE_SCREEN);
+			Thread.sleep(5000L);
+			
+			LOGGER.info("Reading live reference image");
+			referenceImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LEFTMENU_REFERENCE_SCREEN));
+			 
+			LOGGER.info("Calling Crop Image method");
+				
+			BufferedImage subrefImage = CropImage.cropImage(referenceImage, 35,150,250,420);
 
 			LOGGER.info("Capture application screen live image");
 			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_LEFTMENU_LIVE_SCREEN);
 			Thread.sleep(5000L);
 			
 			LOGGER.info("Reading live image");
-			//liveImage = Imgcodecs.imread(ImageCaptureConstants.PEACOCK_LEFTMENU_LIVE_SCREEN);
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LEFTMENU_LIVE_SCREEN));
 			
 			LOGGER.info("Calling Crop Image method");
 			
 			subImage = CropImage.cropImage(liveImage, 35,150,250,420);
-			
-			ConvertImage cimg = new ConvertImage();
-			BufferedImage result = cimg.ConvertGrayScale(subImage);
-			
-			File outputFile = new File("/var/lib/jenkins/workspace/play.jpg");
-			ImageIO.write(result, "jpg", outputFile);
-			
-			BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/play.jpg"));
+
 					
             ImageCompare imgCompare =new ImageCompare();
 			
 			LOGGER.info("Calling screen compare method");
 
-			status = imgCompare.compare(referenceImage, output);
+			status = imgCompare.compare(subrefImage, subImage);
 			
 			if (status) {
 				LOGGER.info("The status of image comparision is: " + status);
@@ -144,7 +144,7 @@ public class PeacockTVShows extends AutomaticsTestBase {
 		Mat referenceImage;
 		BufferedImage liveImage;
 		String actual;
-		String expected = "esd";
+		String expected = "bEso";
 		BufferedImage subImage;
 		// Variables declaration Ends
 
