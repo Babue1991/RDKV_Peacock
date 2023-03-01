@@ -256,7 +256,7 @@ package com.automatics.rdkv.PeacockTC;
 		
 		
 		LOGGER.info("#######################################################################################");
-		LOGGER.info("TEST DESCRIPTION: This test is to verify popular entertainment section in STB");
+		LOGGER.info("TEST DESCRIPTION: This test is to verify popular entertainment section peacock app title");
 		LOGGER.info("TEST STEPS : ");
 		LOGGER.info("1. Switch to application screen from Xfinity screen");
 		LOGGER.info("#######################################################################################");
@@ -270,7 +270,6 @@ package com.automatics.rdkv.PeacockTC;
 			LOGGER.info("STEP 1: EXPECTED : Application screen should display popular entertainment screen. ");
 			LOGGER.info("*****************************************************************************************");
 
-			LOGGER.info("Take live screen screenshot");
 			LOGGER.info(" ");
 			nu.pattern.OpenCV.loadLocally();
 
@@ -307,7 +306,7 @@ package com.automatics.rdkv.PeacockTC;
 				LOGGER.info("The user is application screen: " + actual);
 				CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
 				LOGGER.info("Capture application screen live image");
-				CaptureLiveImage.capture(ImageCaptureConstants.XFINITY_PEACOCK_SPLASH_SCREEN);
+				CaptureLiveImage.captureIcon(ImageCaptureConstants.XFINITY_PEACOCK_SPLASH_SCREEN);
 
 
 				LOGGER.info("Reading live image");
