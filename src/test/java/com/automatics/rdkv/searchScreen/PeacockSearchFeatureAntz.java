@@ -64,17 +64,17 @@ public class PeacockSearchFeatureAntz extends AutomaticsTestBase {
 
 		LOGGER.info("#######################################################################################");
 		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-2002");
-		LOGGER.info("TEST DESCRIPTION:  This test is to verify movies option present in the menu using remote keys");
+		LOGGER.info("TEST DESCRIPTION:  This test is to verify user can navigate to the channels content");
 		LOGGER.info("TEST STEPS : ");
-		LOGGER.info("1. Press down button form the Peacock left menu");
+		LOGGER.info("1. Press left button and go down");
 		LOGGER.info("#######################################################################################");
 		try {
 			stepNum = "S1";
-			errorMessage = "Failed to navigate to Movies button";
+			errorMessage = "Failed to navigate to Channels button";
 			LOGGER.info("*****************************************************************************************");
-			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify movies option present in the menu using remote keys");
+			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify user can navigate to the channels content");
 			LOGGER.info("STEP 1: ACTION : Press down button and take screenshot");
-			LOGGER.info("STEP 1: EXPECTED : Movies option should be there in the menu.");
+			LOGGER.info("STEP 1: EXPECTED : Channels option should launch successfully.");
 			LOGGER.info("*****************************************************************************************");
 
 			LOGGER.info("Click Xfinity left button ");
