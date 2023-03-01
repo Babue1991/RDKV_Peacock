@@ -63,12 +63,12 @@ package com.automatics.rdkv.PeacockTC;
 			//Mat liveImage;
 			BufferedImage liveImage;
 			BufferedImage subImage;
-			//String actual;
-			//String expected;
-			String expected = "Popular entertainment apps";
 			String actual;
-			String Expected = "Peacock";
-			String Actual;
+			String expected;
+			String expectedpopularapp = "Popular entertainment apps";
+			//String actualpopularapp;
+			String Expectedpeacock = "Peacock";
+			//String Actual;
 			String SplashText = "peacock:";
 			// Variables declaration Ends
 
@@ -169,7 +169,6 @@ package com.automatics.rdkv.PeacockTC;
 			actual = grabText.crackImage(subImage);
 			status = CommonMethods.textCompare(expected, actual);
 
-
 			LOGGER.info("Calling screen compare method");
 
 
@@ -225,7 +224,7 @@ package com.automatics.rdkv.PeacockTC;
 
 			GrabText grabText = new GrabText();
 			actual = grabText.crackImage(subImage);
-			status = CommonMethods.textCompare(expected, actual);
+			status = CommonMethods.textCompare(expectedpopularapp, actual);
 
 			if(status) {
 				LOGGER.info("The user is application screen: " + actual);
@@ -263,7 +262,7 @@ package com.automatics.rdkv.PeacockTC;
 		LOGGER.info("#######################################################################################");
 
 		try {
-			stepNum = "S1";
+			stepNum = "S4";
 			errorMessage = "The user is not in the application screen";
 			LOGGER.info("*****************************************************************************************");
 			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify user popular entertainment section in STB");
@@ -292,8 +291,8 @@ package com.automatics.rdkv.PeacockTC;
 			ImageIO.write(subImage, "jpg", outputFile);
 			
 			GrabText grabText = new GrabText();
-			Actual = grabText.crackImage(subImage);
-			status = CommonMethods.textCompare(Expected, Actual);
+			actual = grabText.crackImage(subImage);
+			status = CommonMethods.textCompare(Expectedpeacock, actual);
 
 			if(status) {
 				LOGGER.info("Click and launch peacock application");
@@ -305,7 +304,7 @@ package com.automatics.rdkv.PeacockTC;
 
 
 			if(status) {
-				LOGGER.info("The user is application screen: " + Actual);
+				LOGGER.info("The user is application screen: " + actual);
 				CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
 				LOGGER.info("Capture application screen live image");
 				CaptureLiveImage.capture(ImageCaptureConstants.XFINITY_PEACOCK_SPLASH_SCREEN);
