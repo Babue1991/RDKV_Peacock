@@ -342,7 +342,7 @@ public class PeacockAppLaunch extends AutomaticsTestBase {
 
 			if(status) {
 				LOGGER.info("The user is application screen: " + actual);
-				CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+				CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 				LOGGER.info("Capture application screen live image");
 				CaptureLiveImage.captureIcon(ImageCaptureConstants.XFINITY_PEACOCK_SPLASH_SCREEN);
 
