@@ -16,10 +16,10 @@ public class CropImage {
 
 	public static void main(String[] args) throws IOException {
 
-		BufferedImage liveImage = ImageIO.read(new File("/home/user/Desktop/MovieContentPause.jpg"));
+		BufferedImage liveImage = ImageIO.read(new File("/home/user/Desktop/WWE_Audio_english.jpg"));
 		
 		try {
-			cropedImage = cropImage(liveImage, 54,637,25,26);
+			cropedImage = cropImage(liveImage, 220,460,140,50);
 			//30,400,250,60
 			//Popular entertainment section  70,380,380,70
 			
