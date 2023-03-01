@@ -146,7 +146,7 @@ package com.automatics.rdkv.PeacockTC;
 		try {
 			stepNum = "S2";
 			errorMessage = "Failed to load Application screen";
-			expected="BMdEucis";
+			expected="BMdeucis";
 			LOGGER.info("*****************************************************************************************");
 			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify user can launch application screen using remote keys");
 			LOGGER.info("STEP 1: ACTION : Take screen shot of the live screen and compare it with reference image");
@@ -304,7 +304,7 @@ package com.automatics.rdkv.PeacockTC;
 
 			if(status) {
 				LOGGER.info("The user is application screen: " + actual);
-				CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+				CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 				LOGGER.info("Capture application screen live image");
 				CaptureLiveImage.captureIcon(ImageCaptureConstants.XFINITY_PEACOCK_SPLASH_SCREEN);
 
