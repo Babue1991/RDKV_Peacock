@@ -476,7 +476,7 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 		BufferedImage subImage;
 		BufferedImage cropImage;
 		BufferedImage outputImage;
-		String expected = "My Stuff";
+		String expected = "My Stuft";
 		String actual;
 		// Variables declaration Ends
 
@@ -503,8 +503,8 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 			Thread.sleep(5000L);
 			
 		
-//			 LOGGER.info("Click one LEFT_BUTTON ");
-//			 CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			 LOGGER.info("Click one LEFT_BUTTON ");
+			 CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
 			 
 			
 			LOGGER.info("Capture peacock home screen live image");
@@ -573,8 +573,8 @@ public class PeacockSearchMenu extends AutomaticsTestBase {
 			LOGGER.info("STEP 1: EXPECTED : Image comparison of my Resume is successful.");
 			LOGGER.info("*****************************************************************************************");
 			
-//			LOGGER.info("Click one RIGHT_BUTTON ");
-//			CommonMethods.execCommand(RemoteKeyContstants.RIGHT_BUTTON);
+			LOGGER.info("Click one RIGHT_BUTTON ");
+			CommonMethods.execCommand(RemoteKeyContstants.RIGHT_BUTTON);
 			
 			LOGGER.info("Capture peacock home screen live image");
 			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_SEARCH_RESUME_LIVE_IMAGE);

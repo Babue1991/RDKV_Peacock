@@ -20,6 +20,7 @@ import com.automatics.rdkv.commonmethods.GrabText;
 import com.automatics.rdkv.constants.ImageCaptureConstants;
 import com.automatics.rdkv.constants.IntergerCount;
 import com.automatics.rdkv.constants.RemoteKeyContstants;
+import com.automatics.rdkv.imagevalidation.ConvertImage;
 import com.automatics.rdkv.imagevalidation.ImageCompare;
 import com.automatics.tap.AutomaticsTapApi;
 import com.automatics.test.AutomaticsTestBase;
@@ -95,11 +96,19 @@ public class PeacockTVShows extends AutomaticsTestBase {
 			
 			subImage = CropImage.cropImage(liveImage, 35,150,250,420);
 			
+			ConvertImage cimg = new ConvertImage();
+			BufferedImage result = cimg.ConvertGrayScale(subImage);
+			
+			File outputFile = new File("/var/lib/jenkins/workspace/play.jpg");
+			ImageIO.write(result, "jpg", outputFile);
+			
+			BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/play.jpg"));
+					
             ImageCompare imgCompare =new ImageCompare();
 			
 			LOGGER.info("Calling screen compare method");
 
-			status = imgCompare.compare(referenceImage, subImage);
+			status = imgCompare.compare(referenceImage, output);
 			
 			if (status) {
 				LOGGER.info("The status of image comparision is: " + status);
@@ -175,12 +184,17 @@ public class PeacockTVShows extends AutomaticsTestBase {
 			
 			subImage = CropImage.cropImage(liveImage, 95,320,120,32);
 			
+			ConvertImage cimg = new ConvertImage();
+			BufferedImage result = cimg.ConvertGrayScale(subImage);
+			
 			File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
-			ImageIO.write(subImage, "jpg", outputFile);
+			ImageIO.write(result, "jpg", outputFile);
+			
+			BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/image1.jpg"));
 			
 			LOGGER.info("Calling read text in image method");
 			GrabText grabText = new GrabText();
-			actual = grabText.crackImage(subImage);
+			actual = grabText.crackImage(output);
 			status = CommonMethods.textCompare(expected, actual);
 			
 			LOGGER.info("Calling comapre text method");
