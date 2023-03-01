@@ -312,9 +312,6 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
 			Thread.sleep(5000L);
 			
-			LOGGER.info("Click left Mystuff ");
-			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
-			Thread.sleep(5000L);
 			nu.pattern.OpenCV.loadLocally();
 
 			LOGGER.info("Capture application screen live image");
@@ -401,6 +398,9 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 				
 	            LOGGER.info("Calling crop method");
 				subImage = CropImage.cropImage(liveImage, 180,500,200,80);
+				
+				File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
+				ImageIO.write(subImage, "jpg", outputFile);
 				
 				LOGGER.info("Calling read text in image method");
 				GrabText grabText = new GrabText();
