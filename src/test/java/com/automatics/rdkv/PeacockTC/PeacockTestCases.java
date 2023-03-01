@@ -52,11 +52,11 @@ package com.automatics.rdkv.PeacockTC;
 		static Process p;
 		@Test(priority=0, dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 				BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
-		@TestDetails(testUID = "PEACOCK-AAMP-TC-1001")
+		@TestDetails(testUID = "PEACOCK-AAMP-TC-2001")
 		public void testVerifySplashScreenSTB(Dut device) throws InterruptedException {
 			// Variables declaration starts
 			boolean status = false;
-			String testId = "PEACOCK-AAMP-TC-101";
+			String testId = "PEACOCK-AAMP-TC-201";
 			String errorMessage = null;
 			String stepNum = null;
 			Mat referenceImage;
