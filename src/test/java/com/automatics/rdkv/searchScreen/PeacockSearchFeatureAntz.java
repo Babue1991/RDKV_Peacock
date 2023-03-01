@@ -80,19 +80,17 @@ public class PeacockSearchFeatureAntz extends AutomaticsTestBase {
 			LOGGER.info("Click Xfinity left button ");
 			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
 			
-			LOGGER.info("Click two DOWN_BUTTON ");
+			LOGGER.info("Click six DOWN_BUTTON ");
 			CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.SIX);
 			
 			LOGGER.info("Click Xfinity ok button ");
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
-			Thread.sleep(3000L);
 			nu.pattern.OpenCV.loadLocally();
 			
-			LOGGER.info("Click Xfinity up button ");
-			CommonMethods.execCommand(RemoteKeyContstants.UP_BUTTON);
+			LOGGER.info("Click four down button ");
+			CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.FOUR);
 			
-			LOGGER.info("Reading reference image");
-			referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_CHANNEL_VERIFY));
+			
 
 			LOGGER.info("Capture Channels screen live image");
 			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_CHANNELS_OPTION);
@@ -103,6 +101,9 @@ public class PeacockSearchFeatureAntz extends AutomaticsTestBase {
 			
 			LOGGER.info("Calling crop method");
 			subImage = CropImage.cropImage(liveImage, 730,400,80,140);
+			
+			LOGGER.info("Reading reference image");
+			referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_CHANNEL_VERIFY));
 			
 			File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
 			ImageIO.write(subImage, "jpg", outputFile);
