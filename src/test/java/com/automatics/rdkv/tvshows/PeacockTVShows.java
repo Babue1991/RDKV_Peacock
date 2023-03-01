@@ -20,6 +20,7 @@ import com.automatics.rdkv.commonmethods.GrabText;
 import com.automatics.rdkv.constants.ImageCaptureConstants;
 import com.automatics.rdkv.constants.IntergerCount;
 import com.automatics.rdkv.constants.RemoteKeyContstants;
+import com.automatics.rdkv.imagevalidation.ConvertImage;
 import com.automatics.rdkv.imagevalidation.ImageCompare;
 import com.automatics.tap.AutomaticsTapApi;
 import com.automatics.test.AutomaticsTestBase;
@@ -79,27 +80,35 @@ public class PeacockTVShows extends AutomaticsTestBase {
 			
 			nu.pattern.OpenCV.loadLocally();
 			
-			LOGGER.info("Reading reference image");
-			//referenceImage = Imgcodecs.imread(ImageCaptureConstants.PEACOCK_LEFTMENU_REFERENCE_SCREEN);
-			 referenceImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LEFTMENU_REFERENCE_SCREEN));
+
+			LOGGER.info("Capture application screen reference live image");
+			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_LEFTMENU_REFERENCE_SCREEN);
+			Thread.sleep(5000L);
+			
+			LOGGER.info("Reading live reference image");
+			referenceImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LEFTMENU_REFERENCE_SCREEN));
+			 
+			LOGGER.info("Calling Crop Image method");
+				
+			BufferedImage subrefImage = CropImage.cropImage(referenceImage, 35,150,250,420);
 
 			LOGGER.info("Capture application screen live image");
 			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_LEFTMENU_LIVE_SCREEN);
 			Thread.sleep(5000L);
 			
 			LOGGER.info("Reading live image");
-			//liveImage = Imgcodecs.imread(ImageCaptureConstants.PEACOCK_LEFTMENU_LIVE_SCREEN);
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LEFTMENU_LIVE_SCREEN));
 			
 			LOGGER.info("Calling Crop Image method");
 			
 			subImage = CropImage.cropImage(liveImage, 35,150,250,420);
-			
+
+					
             ImageCompare imgCompare =new ImageCompare();
 			
 			LOGGER.info("Calling screen compare method");
 
-			status = imgCompare.compare(referenceImage, subImage);
+			status = imgCompare.compare(subrefImage, subImage);
 			
 			if (status) {
 				LOGGER.info("The status of image comparision is: " + status);
@@ -135,7 +144,7 @@ public class PeacockTVShows extends AutomaticsTestBase {
 		Mat referenceImage;
 		BufferedImage liveImage;
 		String actual;
-		String expected = "esd";
+		String expected = "bEso";
 		BufferedImage subImage;
 		// Variables declaration Ends
 
@@ -175,12 +184,17 @@ public class PeacockTVShows extends AutomaticsTestBase {
 			
 			subImage = CropImage.cropImage(liveImage, 95,320,120,32);
 			
+			ConvertImage cimg = new ConvertImage();
+			BufferedImage result = cimg.ConvertGrayScale(subImage);
+			
 			File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
-			ImageIO.write(subImage, "jpg", outputFile);
+			ImageIO.write(result, "jpg", outputFile);
+			
+			BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/image1.jpg"));
 			
 			LOGGER.info("Calling read text in image method");
 			GrabText grabText = new GrabText();
-			actual = grabText.crackImage(subImage);
+			actual = grabText.crackImage(output);
 			status = CommonMethods.textCompare(expected, actual);
 			
 			LOGGER.info("Calling comapre text method");
