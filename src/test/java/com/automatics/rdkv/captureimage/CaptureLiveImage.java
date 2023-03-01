@@ -35,6 +35,21 @@ public class CaptureLiveImage extends AutomaticsTestBase {
 			LOGGER.info("Error in terminal command execution: "+command);
 			e.printStackTrace();
 		}
+		
+	}
+	public static void capture2(String destPath) throws IOException, InterruptedException {
+		try {
+		//	Thread.sleep(3000L);
+		//	CommonMethods.execCommand(ImageCaptureConstants.SET_VIDEO_PORT);
+			LOGGER.info("The live image path: "+destPath);
+			
+			command=ImageCaptureConstants.CAPTURE_COMMAND+destPath;
+			CommonMethods.execCommand1(command);
+
+		}catch(Exception e) {
+			LOGGER.info("Error in terminal command execution: "+command);
+			e.printStackTrace();
+		}
 	}
 	public static void captureIcon(String destPath) throws IOException, InterruptedException {
 		try {

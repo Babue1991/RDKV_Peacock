@@ -88,12 +88,10 @@ public class PeacockSearchFeatureAntz extends AutomaticsTestBase {
 			nu.pattern.OpenCV.loadLocally();
 			
 			LOGGER.info("Click four down button ");
-			CommonMethods.execCommandRepeatChannels(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.FOUR);
+			CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.FOUR);
 			
-			
-
 			LOGGER.info("Capture Channels screen live image");
-			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_CHANNELS_OPTION);
+			CaptureLiveImage.capture2(ImageCaptureConstants.PEACOCK_CHANNELS_OPTION);
 			Thread.sleep(5000L);
 			
 			LOGGER.info("Reading live image");
