@@ -97,7 +97,7 @@ public class ImageCaptureConstants {
 	public static String PEACOCK_MOVIE_REFERENCE_PAUSE_ICON=REFERENCE_IMAGE_PATH+"Pause_icon.jpg";
 	
 	/********The variable used to send capture card port to capture Movies Section Screen image**/
-	public static String PEACOCK_MOVIE_REFERENCE_PLAY_ICON=REFERENCE_IMAGE_PATH+"play.jpg";
+	public static String PEACOCK_MOVIE_REFERENCE_PLAY_ICON=REFERENCE_IMAGE_PATH+"play_icon.jpg";
 	
 	/********The variable used to send capture card port to capture Movies Section Screen image**/
 	public static String PEACOCK_MOVIE_PAUSE_CONTENT_SCREEN_NEXT=LIVE_IMAGE_PATH+"MovieContentPauseScreenTwo.jpg";
