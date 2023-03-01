@@ -88,7 +88,7 @@ public class PeacockSearchFeatureAntz extends AutomaticsTestBase {
 			nu.pattern.OpenCV.loadLocally();
 			
 			LOGGER.info("Click four down button ");
-			CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.FOUR);
+			CommonMethods.execCommandRepeatChannels(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.FOUR);
 			
 			
 
