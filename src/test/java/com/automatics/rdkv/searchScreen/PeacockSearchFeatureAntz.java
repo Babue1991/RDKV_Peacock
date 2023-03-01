@@ -47,60 +47,74 @@ public class PeacockSearchFeatureAntz extends AutomaticsTestBase {
 	 * 
 	 */
 	
-	@Test(priority=5,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+	@Test(priority=6,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
-	@TestDetails(testUID = "PEACOCK-AAMP-TC-1005")
-	public void testVerifyPeacockMenu(Dut device) throws InterruptedException {
+	@TestDetails(testUID = "PEACOCK-AAMP-TC-2002")
+	public void testVerifyMoviesOption(Dut device) throws InterruptedException {
 		// Variables declaration starts
 		boolean status = false;
-		String testId = "PEACOCK-AAMP-TC-005";
+		String testId = "PEACOCK-AAMP-TC-202";
 		String errorMessage = null;
 		String stepNum = null;
 		BufferedImage referenceImage;
 		BufferedImage liveImage;
+		BufferedImage outputImage;
 		BufferedImage subImage;
 		// Variables declaration Ends
 
 		LOGGER.info("#######################################################################################");
-		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1005");
-		LOGGER.info("TEST DESCRIPTION: This test is to verify user can navigate to Peacock left menu using remote keys");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-2002");
+		LOGGER.info("TEST DESCRIPTION:  This test is to verify movies option present in the menu using remote keys");
 		LOGGER.info("TEST STEPS : ");
-		LOGGER.info("1. Press left button for the Peacock left menu");
+		LOGGER.info("1. Press down button form the Peacock left menu");
 		LOGGER.info("#######################################################################################");
 		try {
 			stepNum = "S1";
-			errorMessage = "Failed to navigate to Peacock menu section";
+			errorMessage = "Failed to navigate to Movies button";
 			LOGGER.info("*****************************************************************************************");
-			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify user can naviagte to Peacock menu using remote keys");
-			LOGGER.info("STEP 1: ACTION : Press left button and do screen capture");
-			LOGGER.info("STEP 1: EXPECTED :Peacock menu section should launch successfully.");
+			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify movies option present in the menu using remote keys");
+			LOGGER.info("STEP 1: ACTION : Press down button and take screenshot");
+			LOGGER.info("STEP 1: EXPECTED : Movies option should be there in the menu.");
 			LOGGER.info("*****************************************************************************************");
 
-			LOGGER.info("Redirecting to Peacock menu screen: ");
 			LOGGER.info("Click Xfinity left button ");
 			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
-			Thread.sleep(5000L);
+			
+			LOGGER.info("Click two DOWN_BUTTON ");
+			CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.SIX);
+			
+			LOGGER.info("Click Xfinity ok button ");
+			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			Thread.sleep(3000L);
 			nu.pattern.OpenCV.loadLocally();
 			
+			LOGGER.info("Click Xfinity up button ");
+			CommonMethods.execCommand(RemoteKeyContstants.UP_BUTTON);
+			
 			LOGGER.info("Reading reference image");
-			 referenceImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LEFTMENU_REFERENCE_IMAGE));
+			referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_CHANNEL_VERIFY));
 
-			LOGGER.info("Capture application screen live image");
-			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_LEFTMENU_LIVE_IMAGE);
+			LOGGER.info("Capture Channels screen live image");
+			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_CHANNELS_OPTION);
 			Thread.sleep(5000L);
 			
 			LOGGER.info("Reading live image");
-			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LEFTMENU_LIVE_IMAGE));
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_CHANNELS_OPTION));
 			
-			LOGGER.info("Calling Crop Image method");
-			subImage = CropImage.cropImage(liveImage, 35,150,250,420);
+			LOGGER.info("Calling crop method");
+			subImage = CropImage.cropImage(liveImage, 730,400,80,140);
+			
+			File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
+			ImageIO.write(subImage, "jpg", outputFile);
+			
+			outputImage = ImageIO.read(new File("/var/lib/jenkins/workspace/image1.jpg"));
+			
 			ImageCompare imgCompare =new ImageCompare();
-			
 			LOGGER.info("Calling screen compare method");
-			status = imgCompare.compare(referenceImage, subImage);
-			
+			status = imgCompare.compare(referenceImage, outputImage);
+		
 			if (status) {
-				LOGGER.info("The status of image comparision is: " + status);
+				LOGGER.info("The status of text comparision is: " + status);
 			} else {
 				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
 			}
@@ -113,11 +127,11 @@ public class PeacockSearchFeatureAntz extends AutomaticsTestBase {
 			e.printStackTrace();
 			LOGGER.info("Inside catch");
 			errorMessage = e.getMessage();
-			LOGGER.error("Exception while launching movie screen file: " + errorMessage);
+			LOGGER.error("Exception while launching movie screen: " + errorMessage);
 			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 
 		}
-		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-1005");
+		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-2002");
 
 	}
 		

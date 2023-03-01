@@ -178,6 +178,9 @@ public class ImageCaptureConstants {
 	/********The variable used to send capture card port to capture Peacock search Feature Antz image**/
 	public static String PEACOCK_SEARCH_MYSTUFF=REFERENCE_IMAGE_PATH+"SearchMystuff.jpg";
 	
+	/********The variable used to send capture card port to capture Peacock search Feature Antz image**/
+	public static String PEACOCK_CHANNEL_VERIFY=REFERENCE_IMAGE_PATH+"Channels.jpg";
+	
 	/********The variable used to send capture card port to capture Search Section Screen image**/
 	public static String PEACOCK_SEARCH_MYSTUFF_LIVE_IMAGE=LIVE_IMAGE_PATH+"SearchMystuff.jpg";
 	
@@ -221,6 +224,9 @@ public class ImageCaptureConstants {
 	
 	/********The variable used to send capture card port to capture Movies Section Screen image**/
 	public static String PEACOCK_TVSHOW_SCREEN=LIVE_IMAGE_PATH+"TvShowSection.jpg";
+	
+	/********The variable used to send capture card port to capture Movies Section Screen image**/
+	public static String PEACOCK_CHANNELS_OPTION=LIVE_IMAGE_PATH+"ChannelsSection.jpg";
 	
 	
 	
