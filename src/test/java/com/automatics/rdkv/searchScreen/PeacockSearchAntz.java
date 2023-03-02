@@ -132,80 +132,79 @@ public class PeacockSearchAntz extends AutomaticsTestBase {
 			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 
 		}
+	/**
+     * Step 2 : Tune to couple of other linear channels randomly
+     */
+	LOGGER.info("#######################################################################################");
+	LOGGER.info("TEST DESCRIPTION:  This test is to Tune to couple of other linear channels randomly and verify");
+	LOGGER.info("TEST STEPS : ");
+	LOGGER.info("1. Press up button and verify");
+	LOGGER.info("#######################################################################################");
+	try {
+		stepNum = "S2";
+		errorMessage = "Failed to tune other linear channel";
+		LOGGER.info("*****************************************************************************************");
+		LOGGER.info("STEP 2: DESCRIPTION : This test is to Tune to couple of other linear channels randomly and verify");
+		LOGGER.info("STEP 2: ACTION : Press up button and verify");
+		LOGGER.info("STEP 2: EXPECTED : Linear Channels option verified successfully.");
+		LOGGER.info("*****************************************************************************************");
+
+		
+		LOGGER.info("Reading reference image");
+		referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_TUNE_CHANNELS_VERIFY));
+		
+		LOGGER.info("Click two DOWN_BUTTON ");
+		CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.TWO);
+		
+		LOGGER.info("Click Xfinity ok button ");
+		CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+		Thread.sleep(10000);
+		nu.pattern.OpenCV.loadLocally();
+		
+		LOGGER.info("Click Xfinity right button ");
+		//CommonMethods.execCommand(RemoteKeyContstants.RIGHT_BUTTON);
+
+		LOGGER.info("Capture Channels screen live image");
+		CaptureLiveImage.capture2(ImageCaptureConstants.PEACOCK_CHANNELS_TUNE_VERIFY,RemoteKeyContstants.RIGHT_BUTTON,IntergerCount.ONE);
+		Thread.sleep(5000L);
+		
+		LOGGER.info("Reading live image");
+		liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_CHANNELS_TUNE_VERIFY));
+		
+		LOGGER.info("Calling crop method");
+		subImage = CropImage.cropImage(liveImage, 620,630,40,44);
+		
+		File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
+		ImageIO.write(subImage, "jpg", outputFile);
+		
+		outputImage = ImageIO.read(new File("/var/lib/jenkins/workspace/image1.jpg"));
+		
+		ImageCompare imgCompare =new ImageCompare();
+		LOGGER.info("Calling screen compare method");
+		status = imgCompare.compare(referenceImage, outputImage);
+	
+		if (status) {
+			LOGGER.info("The status of text comparision is: " + status);
+		} else {
+			LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+		}
+		LOGGER.info("**********************************************************************************");
+		tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+
+	} catch (Exception e) {
+		LOGGER.error("Exception occured while reading the image file " + e);
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		LOGGER.info("Inside catch");
+		errorMessage = e.getMessage();
+		LOGGER.error("Exception while launching movie screen: " + errorMessage);
+		CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
+
 	}
+	LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-2002");
 }
-//	/**
-//     * Step 2 : Tune to couple of other linear channels randomly
-//     */
-//	LOGGER.info("#######################################################################################");
-//	LOGGER.info("TEST DESCRIPTION:  This test is to Tune to couple of other linear channels randomly and verify");
-//	LOGGER.info("TEST STEPS : ");
-//	LOGGER.info("1. Press up button and verify");
-//	LOGGER.info("#######################################################################################");
-//	try {
-//		stepNum = "S2";
-//		errorMessage = "Failed to tune other linear channel";
-//		LOGGER.info("*****************************************************************************************");
-//		LOGGER.info("STEP 2: DESCRIPTION : This test is to Tune to couple of other linear channels randomly and verify");
-//		LOGGER.info("STEP 2: ACTION : Press up button and verify");
-//		LOGGER.info("STEP 2: EXPECTED : Linear Channels option verified successfully.");
-//		LOGGER.info("*****************************************************************************************");
-//
-//		
-//		LOGGER.info("Reading reference image");
-//		referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_TUNE_CHANNELS_VERIFY));
-//		
-//		LOGGER.info("Click two DOWN_BUTTON ");
-//		CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.TWO);
-//		
-//		LOGGER.info("Click Xfinity ok button ");
-//		CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
-//		Thread.sleep(10000);
-//		nu.pattern.OpenCV.loadLocally();
-//		
-//		LOGGER.info("Click Xfinity right button ");
-//		//CommonMethods.execCommand(RemoteKeyContstants.RIGHT_BUTTON);
-//
-//		
-//		LOGGER.info("Capture Channels screen live image");
-//		CaptureLiveImage.capture2(ImageCaptureConstants.PEACOCK_CHANNELS_TUNE_VERIFY,RemoteKeyContstants.RIGHT_BUTTON,IntergerCount.ONE);
-//		Thread.sleep(5000L);
-//		
-//		LOGGER.info("Reading live image");
-//		liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_CHANNELS_TUNE_VERIFY));
-//		
-//		LOGGER.info("Calling crop method");
-//		subImage = CropImage.cropImage(liveImage, 620,630,40,44);
-//		
-//		File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
-//		ImageIO.write(subImage, "jpg", outputFile);
-//		
-//		outputImage = ImageIO.read(new File("/var/lib/jenkins/workspace/image1.jpg"));
-//		
-//		ImageCompare imgCompare =new ImageCompare();
-//		LOGGER.info("Calling screen compare method");
-//		status = imgCompare.compare(referenceImage, outputImage);
-//	
-//		if (status) {
-//			LOGGER.info("The status of text comparision is: " + status);
-//		} else {
-//			LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
-//		}
-//		LOGGER.info("**********************************************************************************");
-//		tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
-//
-//	} catch (Exception e) {
-//		LOGGER.error("Exception occured while reading the image file " + e);
-//		// TODO Auto-generated catch block
-//		e.printStackTrace();
-//		LOGGER.info("Inside catch");
-//		errorMessage = e.getMessage();
-//		LOGGER.error("Exception while launching movie screen: " + errorMessage);
-//		CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
-//
-//	}
-//	LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-2002");
-//}
+}
+
 //	// step 1 and step 2 are same as TC-2002
 //	@Test(priority=7,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 //			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
