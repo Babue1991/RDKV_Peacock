@@ -162,6 +162,9 @@ public class PeacockSearchFeatureAntz extends AutomaticsTestBase {
 		LOGGER.info("Click Xfinity right button ");
 		CommonMethods.execCommand(RemoteKeyContstants.RIGHT_BUTTON);
 		
+		LOGGER.info("Click Xfinity right button ");
+		CommonMethods.execCommand(RemoteKeyContstants.RIGHT_BUTTON);
+		
 		LOGGER.info("Capture Channels screen live image");
 		CaptureLiveImage.capture2(ImageCaptureConstants.PEACOCK_CHANNELS_TUNE_VERIFY);
 		Thread.sleep(5000L);
