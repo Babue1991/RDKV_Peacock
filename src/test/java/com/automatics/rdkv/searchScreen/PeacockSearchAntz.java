@@ -158,15 +158,13 @@ public class PeacockSearchAntz extends AutomaticsTestBase {
 		
 		LOGGER.info("Click Xfinity ok button ");
 		CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
-		Thread.sleep(10000);
+		Thread.sleep(5000);
 		nu.pattern.OpenCV.loadLocally();
 		
 		LOGGER.info("Click Xfinity right button ");
-		//CommonMethods.execCommand(RemoteKeyContstants.RIGHT_BUTTON);
-
 		LOGGER.info("Capture Channels screen live image");
 		CaptureLiveImage.capture2(ImageCaptureConstants.PEACOCK_CHANNELS_TUNE_VERIFY,RemoteKeyContstants.RIGHT_BUTTON,IntergerCount.ONE);
-		Thread.sleep(5000L);
+		//Thread.sleep(5000L);
 		
 		LOGGER.info("Reading live image");
 		liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_CHANNELS_TUNE_VERIFY));
