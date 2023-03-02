@@ -153,6 +153,11 @@ package com.automatics.rdkv.PeacockTC;
 			LOGGER.info("STEP 1: EXPECTED : Channels option should launch successfully.");
 			LOGGER.info("*****************************************************************************************");
 	
+			
+			LOGGER.info("Reading reference image");
+			referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LINEAR_CHANNELS_VERIFY));
+			
+			
 			LOGGER.info("Capture Channels screen live image");
 			CaptureLiveImage.capture2(ImageCaptureConstants.LINEARCHANNELS_OPTION,RemoteKeyContstants.DOWN_BUTTON,IntergerCount.FOUR);
 			Thread.sleep(5000L);
@@ -163,9 +168,7 @@ package com.automatics.rdkv.PeacockTC;
 			LOGGER.info("Calling crop method");
 			subImage = CropImage.cropImage(liveImage, 750,400,60,120);
 			
-			LOGGER.info("Reading reference image");
-			referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LINEAR_CHANNELS_VERIFY));
-			
+						
 			File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
 			ImageIO.write(subImage, "jpg", outputFile);
 			

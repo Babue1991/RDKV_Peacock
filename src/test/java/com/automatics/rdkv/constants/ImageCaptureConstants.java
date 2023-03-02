@@ -290,7 +290,7 @@ public class ImageCaptureConstants {
 	public static String LINEARCHANNELS_OPTION=LIVE_IMAGE_PATH+"Channelsoption.jpg";
 	
 	/********The variable used to send capture card port to capture linear channels image**/
-	public static String PEACOCK_LINEAR_CHANNELS_VERIFY=REFERENCE_IMAGE_PATH+"Channels.jpg";
+	public static String PEACOCK_LINEAR_CHANNELS_VERIFY=REFERENCE_IMAGE_PATH+"linearchannel.jpg";
 	
 	
 
