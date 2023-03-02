@@ -340,6 +340,7 @@ package com.automatics.rdkv.PeacockTC;
 			LOGGER.error("Exception while launching home screen file: " + errorMessage);
 			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 }
+		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-2001");
 		}
 	}
 	

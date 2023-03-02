@@ -228,6 +228,12 @@ public class ImageCaptureConstants {
 	/********The variable used to send capture card port to capture Movies Section Screen image**/
 	public static String PEACOCK_CHANNELS_OPTION=LIVE_IMAGE_PATH+"ChannelsSection.jpg";
 	
+	/********The variable used to send capture card port to capture Peacock search menu option image**/
+	public static String PEACOCK_TUNE_CHANNELS_VERIFY=REFERENCE_IMAGE_PATH+"TuneChannels.jpg";
+	
+	/********The variable used to send capture card port to capture Search Section Screen image**/
+	public static String PEACOCK_CHANNELS_TUNE_VERIFY=LIVE_IMAGE_PATH+"ChannelsTune.jpg";
+	
 	
 	
 	//WWE Screen
