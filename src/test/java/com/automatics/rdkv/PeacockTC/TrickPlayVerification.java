@@ -154,7 +154,7 @@ package com.automatics.rdkv.PeacockTC;
 			LOGGER.info("*****************************************************************************************");
 	
 			LOGGER.info("Capture Channels screen live image");
-			CaptureLiveImage.capture2(ImageCaptureConstants.LINEARCHANNELS_OPTION,RemoteKeyContstants.RIGHT_BUTTON,IntergerCount.ONE);
+			CaptureLiveImage.capture2(ImageCaptureConstants.LINEARCHANNELS_OPTION,RemoteKeyContstants.DOWN_BUTTON,IntergerCount.FOUR);
 			Thread.sleep(5000L);
 			
 			LOGGER.info("Reading live image");
