@@ -64,7 +64,7 @@ import com.automatics.rdkv.constants.RemoteKeyContstants;
 			BufferedImage liveImage;
 			BufferedImage subImage;
 			String actual;
-			String expectedchannels="EIcicd";
+			String expectedchannels="EICcd";
 			// Variables declaration Ends
    
 			/**
@@ -104,6 +104,7 @@ import com.automatics.rdkv.constants.RemoteKeyContstants;
 				GrabText grabText = new GrabText();
 				actual = grabText.crackImage(subImage);
 				status = CommonMethods.textCompare(expectedchannels, actual);
+				Thread.sleep(5000L);
 						
 							
 				LOGGER.info("Click Xfinity ok button ");
