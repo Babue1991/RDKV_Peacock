@@ -232,28 +232,46 @@ public class ImageCaptureConstants {
 	/********The variable used to send capture card port to capture WWE Section Screen image**/
 	public static String PEACOCK_WWE_LIVE_IMAGE=LIVE_IMAGE_PATH+"WWEButton.jpg";
 	
-	/********The variable used to send capture card port to capture WWE Section Screen image**/
+	/********The variable used to send capture card port to capture WWE Section Title Screen image**/
 	public static String WWE_TITLE_LIVE_IMAGE=LIVE_IMAGE_PATH+"WWETitle.jpg";
 	
-	/********The variable used to send capture card port to capture WWE Section Screen image**/
+	/********The variable used to send capture card port to capture WWE section My stuff image**/
+	public static String WWE_MY_STUFF_LIVE_IMAGE=REFERENCE_IMAGE_PATH+"WWEmystuff.jpg";
+	
+	/********The variable used to send capture card port to capture WWE Section Subtitle Screen image**/
 	public static String WWE_SUBTITLE_BUTTON_LIVE_IMAGE=LIVE_IMAGE_PATH+"WWESubtitlebutton.jpg";
 	
-	/********The variable used to send capture card port to capture WWE Section Screen image**/
+	/********The variable used to send capture card port to capture WWE Section English subtitle Screen image**/
 	public static String WWE_ENGLISH_SUBTITLE_BUTTON_LIVE_IMAGE=LIVE_IMAGE_PATH+"WWEEnglishSubtitlebutton.jpg";
 	
-	/********The variable used to send capture card port to capture WWE Section Screen image**/
+	/********The variable used to send capture card port to capture WWE Section fast forward Screen image**/
 	public static String WWE_FASTFORWORD_LIVE_IMAGE=LIVE_IMAGE_PATH+"WWEfastforword.jpg";
 	
-	/********The variable used to send capture card port to capture WWE Section Screen image**/
+	/********The variable used to send capture card port to capture WWE Section back forward Screen image**/
 	public static String WWE_BACKFORWORD_LIVE_IMAGE=LIVE_IMAGE_PATH+"WWEbackforword.jpg";
 	
-	/********The variable used to send capture card port to capture Peacock search Feature Antz image**/
+	/********The variable used to read reference Peacock WWE Back forward icon image**/
 	public static String WWE_BACKFORWORD=REFERENCE_IMAGE_PATH+"WWE_BackForward.jpg";
 	
-	/********The variable used to send capture card port to capture Peacock search Feature Antz image**/
+	/********The variable used to read reference Peacock wwe fast forward icon image**/
 	public static String WWE_FASTFORWORD=REFERENCE_IMAGE_PATH+"WWE_Fastforword.jpg";
 	
-	/********The variable used to send capture card port to capture Peacock search Feature Antz image**/
-	public static String WWE_MY_STUFF_LIVE_IMAGE=REFERENCE_IMAGE_PATH+"WWE_Fastforword.jpg";
 
+	/********The variable used to send capture card port to capture wwe content video pause image**/
+	public static String PEACOCK_WWE_PAUSE_CONTENT=REFERENCE_IMAGE_PATH+"WWEpause.jpg";
+	
+	
+	/********The variable used to read reference Peacock wwe play icon image**/
+	public static String PEACOCK_WWE_REFERENCE_PLAY_ICON=REFERENCE_IMAGE_PATH+"WWE_Fastforword.jpg";///////
+	
+	/********The variable used to send capture card port to capture wwe content video pause screen image**/
+	public static String PEACOCK_WWE_PAUSE_CONTENT_SCREEN=REFERENCE_IMAGE_PATH+"WWEpausescreen.jpg";
+	
+	/********The variable used to send capture card port to capture wwe content video pause next image**/
+	public static String PEACOCK_WWE_PAUSE_CONTENT_SCREEN_NEXT=REFERENCE_IMAGE_PATH+"WWEpausescreennext.jpg";
+	
+	
+
+	
+	
 }
