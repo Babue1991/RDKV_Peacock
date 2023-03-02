@@ -90,10 +90,10 @@ public class PeacockSearchFeatureAntz extends AutomaticsTestBase {
 			nu.pattern.OpenCV.loadLocally();
 			
 			LOGGER.info("Click four down button ");
-			CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.FOUR);
+		//	CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.FOUR);
 			
 			LOGGER.info("Capture Channels screen live image");
-			CaptureLiveImage.capture2(ImageCaptureConstants.PEACOCK_CHANNELS_OPTION);
+			CaptureLiveImage.capture2(ImageCaptureConstants.PEACOCK_CHANNELS_OPTION,RemoteKeyContstants.DOWN_BUTTON,IntergerCount.FOUR);
 			Thread.sleep(5000L);
 			
 			LOGGER.info("Reading live image");
@@ -160,11 +160,11 @@ public class PeacockSearchFeatureAntz extends AutomaticsTestBase {
 		nu.pattern.OpenCV.loadLocally();
 		
 		LOGGER.info("Click Xfinity right button ");
-		CommonMethods.execCommand(RemoteKeyContstants.RIGHT_BUTTON);
+		//CommonMethods.execCommand(RemoteKeyContstants.RIGHT_BUTTON);
 
 		
 		LOGGER.info("Capture Channels screen live image");
-		CaptureLiveImage.capture2(ImageCaptureConstants.PEACOCK_CHANNELS_TUNE_VERIFY);
+		CaptureLiveImage.capture2(ImageCaptureConstants.PEACOCK_CHANNELS_TUNE_VERIFY,RemoteKeyContstants.RIGHT_BUTTON,IntergerCount.ONE);
 		Thread.sleep(5000L);
 		
 		LOGGER.info("Reading live image");

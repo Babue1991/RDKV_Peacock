@@ -282,8 +282,4 @@ public class ImageCaptureConstants {
 	/********The variable used to send capture card port to capture wwe content video pause next image**/
 	public static String PEACOCK_WWE_PAUSE_CONTENT_SCREEN_NEXT=REFERENCE_IMAGE_PATH+"WWEpausescreennext.jpg";
 	
-	
-
-	
-	
 }

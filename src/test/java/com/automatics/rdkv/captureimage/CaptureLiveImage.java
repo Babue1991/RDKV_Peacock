@@ -39,7 +39,16 @@ public class CaptureLiveImage extends AutomaticsTestBase {
 		}
 		
 	}
-	public static void capture2(String destPath) throws IOException, InterruptedException {
+	public static void setPort() {
+		CommonMethods.execCommand1(ImageCaptureConstants.SET_VIDEO_PORT);
+	}
+	public static void remoteClick() {
+		CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.FOUR);
+	}
+	
+	
+	
+	public static void capture2(String destPath, String button, int count) throws IOException, InterruptedException {
 		try {
 		//	Thread.sleep(3000L);
 		//	CommonMethods.execCommand(ImageCaptureConstants.SET_VIDEO_PORT);
@@ -47,7 +56,7 @@ public class CaptureLiveImage extends AutomaticsTestBase {
 			
 			command=ImageCaptureConstants.CAPTURE_COMMAND+destPath;
 			CommonMethods.execCommand1(ImageCaptureConstants.SET_VIDEO_PORT);
-			CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.FOUR);
+			CommonMethods.execCommandRepeat(button, count);
 			
 			CommonMethods.execCommand1(command);
 
