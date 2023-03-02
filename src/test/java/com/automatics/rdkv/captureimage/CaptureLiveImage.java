@@ -46,6 +46,7 @@ public class CaptureLiveImage extends AutomaticsTestBase {
 			LOGGER.info("The live image path: "+destPath);
 			
 			command=ImageCaptureConstants.CAPTURE_COMMAND+destPath;
+			CommonMethods.execCommand1(ImageCaptureConstants.SET_VIDEO_PORT);
 			CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.FOUR);
 			
 			CommonMethods.execCommand1(command);
