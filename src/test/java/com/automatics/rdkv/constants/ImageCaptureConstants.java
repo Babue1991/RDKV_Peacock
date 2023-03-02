@@ -274,21 +274,16 @@ public class ImageCaptureConstants {
 	
 	
 	/********The variable used to read reference Peacock wwe play icon image**/
-	public static String PEACOCK_WWE_REFERENCE_PLAY_ICON=REFERENCE_IMAGE_PATH+"WWE_Fastforword.jpg";///////
+	public static String PEACOCK_WWE_REFERENCE_PLAY_ICON=REFERENCE_IMAGE_PATH+"WWE_Fastforword.jpg";
 	
 	/********The variable used to send capture card port to capture wwe content video pause screen image**/
 	public static String PEACOCK_WWE_PAUSE_CONTENT_SCREEN=REFERENCE_IMAGE_PATH+"WWEpausescreen.jpg";
 	
 	/********The variable used to send capture card port to capture wwe content video pause next image**/
 	public static String PEACOCK_WWE_PAUSE_CONTENT_SCREEN_NEXT=REFERENCE_IMAGE_PATH+"WWEpausescreennext.jpg";
-	
-<<<<<<< HEAD
-=======
+
 	//channels
 	/********The variable used to send capture card port to channels image**/
 	public static String PEACOCK_CHANNELS=LIVE_IMAGE_PATH+"WWEbackforword.jpg";
 
-	
-	
->>>>>>> 4eb84c40867a0844f45ce866cc2c66601578e6e5
 }
