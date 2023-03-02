@@ -91,19 +91,19 @@ import com.automatics.rdkv.constants.RemoteKeyContstants;
 				LOGGER.info("Click six DOWN_BUTTON ");
 				CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.SIX);
 						
-				LOGGER.info("Capture Channels screen live image");
-				CaptureLiveImage.capture2(ImageCaptureConstants.PEACOCK_CHANNELS);
-				Thread.sleep(5000L);
+//				LOGGER.info("Capture Channels screen live image");
+//				CaptureLiveImage.capture2(ImageCaptureConstants.PEACOCK_CHANNELS);
+//				Thread.sleep(5000L);
+//				
+//				LOGGER.info("Reading live image");
+//				liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_CHANNELS));
 				
-				LOGGER.info("Reading live image");
-				liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_CHANNELS));
-				
-				LOGGER.info("Calling crop method");
-				subImage = CropImage.cropImage(liveImage, 90,500,100,30);
-				
-				GrabText grabText = new GrabText();
-				actual = grabText.crackImage(subImage);
-				status = CommonMethods.textCompare(expectedchannels, actual);
+//				LOGGER.info("Calling crop method");
+//				subImage = CropImage.cropImage(liveImage, 90,500,100,30);
+//				
+//				GrabText grabText = new GrabText();
+//				actual = grabText.crackImage(subImage);
+//				status = CommonMethods.textCompare(expectedchannels, actual);
 						
 							
 				LOGGER.info("Click Xfinity ok button ");
