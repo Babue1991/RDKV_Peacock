@@ -96,7 +96,7 @@ public class PeacockSearchAntz extends AutomaticsTestBase {
 		//	CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.FOUR);
 			
 			LOGGER.info("Capture Channels screen live image");
-		    CaptureLiveImage.capture2(ImageCaptureConstants.PEACOCK_CHANNELS_OPTION,RemoteKeyContstants.DOWN_BUTTON,IntergerCount.SIX);
+		    CaptureLiveImage.capture2(ImageCaptureConstants.PEACOCK_CHANNELS_OPTION,RemoteKeyContstants.DOWN_BUTTON,IntergerCount.EIGHT);
 			Thread.sleep(5000L);
 			
 			LOGGER.info("Reading live image");
