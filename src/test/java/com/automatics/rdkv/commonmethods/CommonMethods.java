@@ -40,6 +40,26 @@ public class CommonMethods extends AutomaticsTestBase{
 			System.out.println("Process destroyed in finally block");
 		}
 	}
+	public static void execCommand1(String command) {
+		try {
+
+		//	Thread.sleep(2000L);
+			p=Runtime.getRuntime().exec(command);
+			printResults(p);
+		//	Thread.sleep(3000L);
+			LOGGER.info("The terminal command which is executed is : "+command);
+			System.out.println();
+
+		}catch(Exception e) {
+			LOGGER.info("Error in terminal command execution : "+command);
+
+			System.out.println();
+			e.printStackTrace();
+		}finally {
+			p.destroy();
+			System.out.println("Process destroyed in finally block");
+		}
+	}
 	public static void execCommandIcon(String command) {
 		try {
 
@@ -81,6 +101,31 @@ public class CommonMethods extends AutomaticsTestBase{
 		}
 		p.destroy();
 	}
+	
+	public static void execCommandRepeatChannels(String command, int count) {
+
+		for(int i = 1 ; i <= count; i++) {
+			try {
+
+				//Thread.sleep(2000L);
+				p=Runtime.getRuntime().exec(command);
+				printResults(p);
+				//Thread.sleep(3000L);
+				LOGGER.info("The terminal command which is executed is : "+command);
+				System.out.println();
+
+			}
+
+			catch(Exception e) {
+				LOGGER.info("Error in terminal command execution : "+command);
+
+				System.out.println();
+				e.printStackTrace();
+			}
+		}
+		p.destroy();
+	}
+
 
 	public static void printResults(Process process) throws IOException {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));

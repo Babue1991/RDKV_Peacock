@@ -12,6 +12,6 @@ public class IntergerCount {
 	
 	public static int FIVE = 5;
 	
-	//public static int SIX = 6;
+	public static int SIX = 6;
 	
 }
