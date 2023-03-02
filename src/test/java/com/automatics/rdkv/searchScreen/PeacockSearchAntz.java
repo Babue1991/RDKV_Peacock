@@ -79,6 +79,9 @@ public class PeacockSearchAntz extends AutomaticsTestBase {
 			LOGGER.info("STEP 1: EXPECTED : Channels option should launch successfully.");
 			LOGGER.info("*****************************************************************************************");
 
+			LOGGER.info("Reading reference image");
+			referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_CHANNEL_VERIFY));
+			
 			LOGGER.info("Click Xfinity left button ");
 			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
 			
@@ -101,9 +104,6 @@ public class PeacockSearchAntz extends AutomaticsTestBase {
 			
 			LOGGER.info("Calling crop method");
 			subImage = CropImage.cropImage(liveImage, 750,400,60,120);
-			
-			LOGGER.info("Reading reference image");
-			referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_CHANNEL_VERIFY));
 			
 			File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
 			ImageIO.write(subImage, "jpg", outputFile);
@@ -151,6 +151,9 @@ public class PeacockSearchAntz extends AutomaticsTestBase {
 		LOGGER.info("*****************************************************************************************");
 
 		
+		LOGGER.info("Reading reference image");
+		referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_TUNE_CHANNELS_VERIFY));
+		
 		LOGGER.info("Click two DOWN_BUTTON ");
 		CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.TWO);
 		
@@ -172,9 +175,6 @@ public class PeacockSearchAntz extends AutomaticsTestBase {
 		
 		LOGGER.info("Calling crop method");
 		subImage = CropImage.cropImage(liveImage, 620,630,40,44);
-		
-		LOGGER.info("Reading reference image");
-		referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_TUNE_CHANNELS_VERIFY));
 		
 		File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
 		ImageIO.write(subImage, "jpg", outputFile);
