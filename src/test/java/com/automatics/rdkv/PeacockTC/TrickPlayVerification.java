@@ -92,7 +92,7 @@ import com.automatics.rdkv.constants.RemoteKeyContstants;
 				CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.SIX);
 						
 				LOGGER.info("Capture Channels screen live image");
-				CaptureLiveImage.capture2(ImageCaptureConstants.PEACOCK_CHANNELS);
+				CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_CHANNELS);
 				Thread.sleep(5000L);
 				
 				LOGGER.info("Reading live image");
