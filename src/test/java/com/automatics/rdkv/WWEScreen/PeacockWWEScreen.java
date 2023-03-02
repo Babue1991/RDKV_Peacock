@@ -24,6 +24,7 @@ import com.automatics.rdkv.commonmethods.HomeScreenTabSwitch;
 import com.automatics.rdkv.constants.ImageCaptureConstants;
 import com.automatics.rdkv.constants.IntergerCount;
 import com.automatics.rdkv.constants.RemoteKeyContstants;
+import com.automatics.rdkv.imagevalidation.ConvertImage;
 import com.automatics.rdkv.imagevalidation.ImageCompare;
 import com.automatics.tap.AutomaticsTapApi;
 import com.automatics.test.AutomaticsTestBase;
@@ -382,6 +383,11 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 				LOGGER.info("STEP 1: EXPECTED : Image comparision successful.");
 
 				LOGGER.info("Redirecting to Peacock menu screen: ");
+				
+				LOGGER.info("Click UP button two times ");
+				CommonMethods.execCommandRepeat(RemoteKeyContstants.UP_BUTTON, IntergerCount.TWO);
+				Thread.sleep(3000L);
+				
 				LOGGER.info("Click Xfinity left button ");
 				CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
 				Thread.sleep(5000L);
@@ -461,6 +467,9 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 				LOGGER.info("*****************************************************************************************");
 				
 				LOGGER.info("Redirecting to Peacock menu screen: ");
+				
+				LOGGER.info("Click ok button ");
+				CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
 				LOGGER.info("Click Xfinity left button ");
 				CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
 				Thread.sleep(5000L);
@@ -507,7 +516,7 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 		@Test(priority=14,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 				BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
 		@TestDetails(testUID = "PEACOCK-AAMP-TC-1047")
-		public void testVerifySplashforwardbackward(Dut device) throws InterruptedException {
+		public void testVerifyforward(Dut device) throws InterruptedException {
 			// Variables declaration starts
 			boolean status = false;
 			String testId = "PEACOCK-AAMP-TC-147";
@@ -579,7 +588,7 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 	@Test(priority=15,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
 	@TestDetails(testUID = "PEACOCK-AAMP-TC-1048")
-	public void testVerifySplashScreenSTB(Dut device) throws InterruptedException {
+	public void testVerifyBackforward(Dut device) throws InterruptedException {
 		// Variables declaration starts
 		boolean status = false;
 		String testId = "PEACOCK-AAMP-TC-148";
@@ -645,5 +654,111 @@ public class PeacockWWEScreen extends AutomaticsTestBase {
 		}
 		LOGGER.info("ENDING TEST CASE: PEACOCK-AAMP-TC-1048");
 	}
+	@Test(priority=16, dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
+	@TestDetails(testUID = "PEACOCK-AAMP-TC-1049")
+	public void testVerifypalypause(Dut device) throws InterruptedException {
+		// Variables declaration starts
+		boolean status = false;
+		String testId = "PEACOCK-AAMP-TC-149";
+		String errorMessage = null;
+		String stepNum = null;
+		BufferedImage liveImage;
+		BufferedImage referenceImage;
+		BufferedImage subImage;
+		BufferedImage livePauseImage;
+		BufferedImage livePauseNextImage;
+		// Variables declaration Ends
 
+		LOGGER.info("#######################################################################################");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-1049");
+		LOGGER.info("TEST DESCRIPTION: This test is to verify the WWE content video pause ");
+		LOGGER.info("TEST STEPS : ");
+		LOGGER.info("1.Launch peacock WWE screen and verify video pause content");
+		LOGGER.info("#######################################################################################");
+		try {
+			stepNum = "S1";
+			errorMessage = "Failed to pause the video and compare";
+			LOGGER.info("*****************************************************************************************");
+			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify the WWE content video pause");
+			LOGGER.info("STEP 1: ACTION : ACTION: compare WWE screen pause content reference image with the live image ");
+			LOGGER.info("STEP 1: EXPECTED : content is paused successful.");
+			LOGGER.info("*****************************************************************************************");
+			
+			LOGGER.info("Click Xfinity left button ");
+			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			nu.pattern.OpenCV.loadLocally();
+			
+			LOGGER.info("Click Xfinity ok button ");
+			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			
+			LOGGER.info("Capture application screen screen live image");
+			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_WWE_PAUSE_CONTENT);
+			
+			LOGGER.info("Reading live image");
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_WWE_PAUSE_CONTENT));
+			
+			LOGGER.info("Reading reference image");
+			referenceImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_WWE_REFERENCE_PLAY_ICON));
+			
+			LOGGER.info("Calling image cropping method");
+			subImage = CropImage.cropImage(liveImage, 50,630,40,44);
+			
+			File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
+			ImageIO.write(subImage, "jpg", outputFile);
+			BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/image1.jpg"));
+			
+			LOGGER.info("Calling image compare method");
+			ImageCompare imgCompare =new ImageCompare();
+			status = imgCompare.compare(referenceImage, output);
+			
+			if (status) {
+				
+				LOGGER.info("The status of image comparision is: " + status + "and Play icon verified");
+				
+			} else {
+				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+			}
+			
+			Thread.sleep(3000L);
+			LOGGER.info("Click Xfinity left button ");
+			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			Thread.sleep(2000L);
+			
+			LOGGER.info("Capture application screen live image");
+			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_WWE_PAUSE_CONTENT_SCREEN);
+			
+			LOGGER.info("Reading next live image");
+			livePauseImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_WWE_PAUSE_CONTENT_SCREEN));
+			
+			LOGGER.info("Capture after 5seconds application screen live image");
+			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_WWE_PAUSE_CONTENT_SCREEN_NEXT);
+			
+			LOGGER.info("Reading next live image");
+			livePauseNextImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_WWE_PAUSE_CONTENT_SCREEN_NEXT));
+			
+	        LOGGER.info("Calling image compare method");
+            status = imgCompare.compare(livePauseImage, livePauseNextImage);
+     
+			if (status) {
+				LOGGER.info("The status of image comparision is: " + status);
+			} else {
+				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+			}
+			LOGGER.info("**********************************************************************************");
+			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+
+		} catch (Exception e) {
+			LOGGER.error("Exception occured while reading the image file " + e);
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			LOGGER.info("Inside catch");
+			errorMessage = e.getMessage();
+			LOGGER.error("Exception while playing the video: " + errorMessage);
+			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
+
+		}
+		LOGGER.info("ENDING TEST CASE: PEACOCK-AAMP-TC-1049");
+	}
 }
+	
