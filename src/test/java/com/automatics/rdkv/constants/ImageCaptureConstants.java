@@ -285,5 +285,12 @@ public class ImageCaptureConstants {
 	//channels
 	/********The variable used to send capture card port to channels image**/
 	public static String PEACOCK_CHANNELS=LIVE_IMAGE_PATH+"WWEbackforword.jpg";
+	
+	/********The variable used to send capture card port to channels image**/
+	public static String PEACOCK_LINEAR_OPTION=LIVE_IMAGE_PATH+"PeacockLinear.jpg";
+	
+	/********The variable used to send capture card port to capture wwe content video pause next image**/
+	public static String PEACOCK_LINEAR_REF_IMG_VERIFY=REFERENCE_IMAGE_PATH+"LinearRef.jpg";
+	
 
 }
