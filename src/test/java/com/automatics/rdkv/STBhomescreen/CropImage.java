@@ -19,7 +19,7 @@ public class CropImage {
 		BufferedImage liveImage = ImageIO.read(new File("/home/user/Desktop/Channels.jpg"));
 		
 		try {
-			cropedImage = cropImage(liveImage, 730,400,80,140);
+			cropedImage = cropImage(liveImage, 750,400,60,120);
 			//730,350,340,150
 			//Popular entertainment section  70,380,380,70
 			
@@ -41,7 +41,7 @@ public class CropImage {
 			e.printStackTrace();
 		}
 		
-		File outputFile = new File("/home/user/Desktop/image2.jpg");
+		File outputFile = new File("/home/user/Desktop/image4.jpg");
 		ImageIO.write(cropedImage, "jpg", outputFile);
 	}
 	
