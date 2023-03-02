@@ -259,7 +259,7 @@ public class PeacockSearchFeatureAntz extends AutomaticsTestBase {
 			LOGGER.info("Calling crop method");
 			subImage = CropImage.cropImage(liveImage, 530,630,250,44);
 			
-			for(int i=0; i<=62; i++) {
+			for(int i=0; i<=3; i++) {
 				if(referenceImage!=null)
 				{
 					LOGGER.info("It is an Linear channel ");
