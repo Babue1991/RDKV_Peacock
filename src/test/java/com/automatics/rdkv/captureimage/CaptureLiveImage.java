@@ -8,6 +8,8 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import com.automatics.rdkv.commonmethods.CommonMethods;
 import com.automatics.rdkv.constants.ImageCaptureConstants;
+import com.automatics.rdkv.constants.IntergerCount;
+import com.automatics.rdkv.constants.RemoteKeyContstants;
 import com.automatics.test.AutomaticsTestBase;
 
 public class CaptureLiveImage extends AutomaticsTestBase {
@@ -44,6 +46,8 @@ public class CaptureLiveImage extends AutomaticsTestBase {
 			LOGGER.info("The live image path: "+destPath);
 			
 			command=ImageCaptureConstants.CAPTURE_COMMAND+destPath;
+			CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.FOUR);
+			
 			CommonMethods.execCommand1(command);
 
 		}catch(Exception e) {
