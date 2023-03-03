@@ -20,10 +20,14 @@ public class CropImage {
 		
 		try {
 <<<<<<< HEAD
+<<<<<<< HEAD
 			cropedImage = cropImage(liveImage, 450,600,550,100);
 =======
 			cropedImage = cropImage(liveImage, 750,400,60,120);
 >>>>>>> c19e801d3bf3e3e581b0a4c7774d4f3a81d9e063
+=======
+			cropedImage = cropImage(liveImage, 530,630,250,44);
+>>>>>>> c27348d656e6cf75f9de65d7536c9c7467ee512e
 			//730,350,340,150
 			//Popular entertainment section  70,380,380,70
 			

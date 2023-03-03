@@ -132,7 +132,7 @@ package com.automatics.rdkv.PeacockTC;
 			}
 			LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-3001");
 
-		
+			
 		
 	/**
      * Step 3 :Tune to linear channels which support trick play
@@ -183,6 +183,30 @@ package com.automatics.rdkv.PeacockTC;
 			} else {
 				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
 			}
+			
+			LOGGER.info("Reading reference image");
+			referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LINEAR_CHANNELS_VERIFY));
+			
+			LOGGER.info("Capture Channels screen live image");
+			CaptureLiveImage.capture2(ImageCaptureConstants.LINEARCHANNELS_OPTION,RemoteKeyContstants.DOWN_BUTTON,IntergerCount.FOUR);
+			Thread.sleep(5000L);
+			
+			LOGGER.info("Reading live image");
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.LINEARCHANNELS_OPTION));
+			
+			LOGGER.info("Calling crop method");
+			subImage = CropImage.cropImage(liveImage, 750,400,60,120);
+			
+						
+			//File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
+			ImageIO.write(subImage, "jpg", outputFile);
+			
+			outputImage = ImageIO.read(new File("/var/lib/jenkins/workspace/image1.jpg"));
+			
+			//ImageCompare imgCompare =new ImageCompare();
+			LOGGER.info("Calling screen compare method");
+			status = imgCompare.compare(referenceImage, outputImage);
+			
 			LOGGER.info("**********************************************************************************");
 			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
 	
@@ -197,8 +221,6 @@ package com.automatics.rdkv.PeacockTC;
 	
 		}
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-3001");
-	
-	}
 		
-	
-	}		
+		}
+	}
