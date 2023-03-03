@@ -295,8 +295,10 @@ public class CommonMethods extends AutomaticsTestBase{
 		CommonMethods.execCommand(RemoteKeyContstants.DOWN_BUTTON);
 		LOGGER.info("Click Xfinity OK button ");
 		CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+		LOGGER.info("Click Xfinity Right button ");
+		CommonMethods.execCommand(RemoteKeyContstants.RIGHT_BUTTON);
 		
-		Thread.sleep(5000L);
+		Thread.sleep(10000L);
 		LOGGER.info("Reading reference image");
 		referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LINEAR_CHANNELS_VERIFY));
 		
