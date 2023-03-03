@@ -153,12 +153,12 @@ public class PeacockSearchAntz extends AutomaticsTestBase {
 		LOGGER.info("Reading reference image");
 		referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_TUNE_CHANNELS_VERIFY));
 		
-		LOGGER.info("Click two DOWN_BUTTON ");
-		CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.TWO);
+		LOGGER.info("Click four DOWN_BUTTON ");
+		CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.FOUR);
 		
 		LOGGER.info("Click Xfinity ok button ");
 		CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
-		Thread.sleep(5000);
+		Thread.sleep(10000);
 		nu.pattern.OpenCV.loadLocally();
 		
 		LOGGER.info("Click Xfinity right button ");
@@ -238,15 +238,18 @@ public class PeacockSearchAntz extends AutomaticsTestBase {
 			LOGGER.info("Reading reference image");
 			referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LINEAR_REF_IMG_VERIFY));
 			
-			LOGGER.info("Click Xfinity up button ");
-			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			LOGGER.info("Click two DOWN_BUTTON ");
+			CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.TWO);
+		
+			LOGGER.info("Click Xfinity OK button ");
+			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
 			
-			LOGGER.info("Click Xfinity down button ");
-			CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.SIX);
+//			LOGGER.info("Click Xfinity down button ");
+//			CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.SIX);
 			
 			LOGGER.info("Click Xfinity ok button ");
 			LOGGER.info("Capture Channels screen live image");
-		    CaptureLiveImage.capture2(ImageCaptureConstants.PEACOCK_LINEAR_OPTION,RemoteKeyContstants.OK_BUTTON,IntergerCount.ONE);
+		    CaptureLiveImage.capture2(ImageCaptureConstants.PEACOCK_LINEAR_OPTION,RemoteKeyContstants.LEFT_BUTTON,IntergerCount.ONE);
 		    Thread.sleep(10000L);
 		    nu.pattern.OpenCV.loadLocally();
 			
@@ -256,19 +259,7 @@ public class PeacockSearchAntz extends AutomaticsTestBase {
 			LOGGER.info("Calling crop method");
 			subImage = CropImage.cropImage(liveImage, 530,630,250,44);
 			
-			for(int i=0; i<=3; i++) {
-				if(referenceImage!=null)
-				{
-					LOGGER.info("It is an Linear channel ");
-				}
-					else {
-						LOGGER.info("It is not Linear channel ");
-		}
-	}
-			
-			//Should add for loop to check whether it is linear channel or not
-			
-			
+						
 			File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
 			ImageIO.write(subImage, "jpg", outputFile);
 			
@@ -277,6 +268,18 @@ public class PeacockSearchAntz extends AutomaticsTestBase {
 			ImageCompare imgCompare =new ImageCompare();
 			LOGGER.info("Calling screen compare method");
 			status = imgCompare.compare(referenceImage, outputImage);
+			
+			for(int i=0; i<=3; i++) {
+				//Total number of channels is 63
+				//as of now i have taken i=3
+				if(outputImage!=null)
+				{
+					LOGGER.info("It is an Linear channel ");
+				}
+					else {
+						LOGGER.info("It is not Linear channel ");
+		}
+	}	
 		
 			if (status) {
 				LOGGER.info("The status of text comparision is: " + status);
@@ -298,4 +301,98 @@ public class PeacockSearchAntz extends AutomaticsTestBase {
 		}
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-2003");
 }
+	
+	// Step 1 : Launch Peacock app
+	// Step 2 : go to channel option in peacock menu
+	
+	@Test(priority=8,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
+	@TestDetails(testUID = "PEACOCK-AAMP-TC-2004")
+	public void testVerifyChannelsOption(Dut device) throws InterruptedException {
+		// Variables declaration starts
+		boolean status = false;
+		String testId = "PEACOCK-AAMP-TC-204";
+		String errorMessage = null;
+		String stepNum = null;
+		BufferedImage referenceImage;
+		BufferedImage liveImage;
+		BufferedImage outputImage;
+		BufferedImage subImage;
+		// Variables declaration Ends
+		/**
+	     * Step 3 : Tune to linear channels which do not support trick play
+	     */
+		LOGGER.info("#######################################################################################");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-2004");
+		LOGGER.info("TEST DESCRIPTION:  This test is to verify linear channels which do not support trick play");
+		LOGGER.info("TEST STEPS : ");
+		LOGGER.info("1. Press down button and click ok");
+		LOGGER.info("#######################################################################################");
+		try {
+			stepNum = "S3";
+			errorMessage = "Failed to navigate to linear channels which do not support trick play";
+			LOGGER.info("*****************************************************************************************");
+			LOGGER.info("STEP 3: DESCRIPTION : This test is to verify linear Press down button and take screenshotchannels which do not support trick play");
+			LOGGER.info("STEP 3: ACTION : Press down button and click ok");
+			LOGGER.info("STEP 3: EXPECTED : Linear channels should launch successfully.");
+			LOGGER.info("*****************************************************************************************");
+
+			LOGGER.info("Reading reference image");
+			referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_TPLAY_VERIFY));
+			
+			LOGGER.info("Click two DOWN_BUTTON ");
+			CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.TWO);
+			
+			LOGGER.info("Click Xfinity ok button ");
+			//CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			
+			LOGGER.info("Capture Channels screen live image");
+		    CaptureLiveImage.capture2(ImageCaptureConstants.PEACOCK_TRIPLAY_OPTION,RemoteKeyContstants.OK_BUTTON,IntergerCount.ONE);
+			Thread.sleep(5000L);
+			nu.pattern.OpenCV.loadLocally();
+			
+			LOGGER.info("Reading live image");
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_TRIPLAY_OPTION));
+			
+			LOGGER.info("Calling crop method");
+			subImage = CropImage.cropImage(liveImage, 750,400,60,120);
+			
+			File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
+			ImageIO.write(subImage, "jpg", outputFile);
+			
+			outputImage = ImageIO.read(new File("/var/lib/jenkins/workspace/image1.jpg"));
+			
+			ImageCompare imgCompare =new ImageCompare();
+			LOGGER.info("Calling screen compare method");
+			status = imgCompare.compare(referenceImage, outputImage);
+			
+			for(int i=0; i<=3; i++) {
+				if(outputImage!=null)
+				{
+					LOGGER.info("It is an Linear channel ");
+				}
+					else {
+						LOGGER.info("It is not Linear channel ");
+		}
+			}
+		
+			if (status) {
+				LOGGER.info("The status of text comparision is: " + status);
+			} else {
+				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+			}
+			LOGGER.info("**********************************************************************************");
+			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+
+		} catch (Exception e) {
+			LOGGER.error("Exception occured while reading the image file " + e);
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			LOGGER.info("Inside catch");
+			errorMessage = e.getMessage();
+			LOGGER.error("Exception while launching movie screen: " + errorMessage);
+			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
+
+		}
+	}
 	}
