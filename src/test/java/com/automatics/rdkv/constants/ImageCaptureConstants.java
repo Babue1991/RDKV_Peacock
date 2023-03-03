@@ -303,5 +303,11 @@ public class ImageCaptureConstants {
 	
 	/********The variable used to send capture card port to channels image**/
 	public static String PEACOCK_TRIPLAY_OPTION=LIVE_IMAGE_PATH+"TPlay.jpg";
+	
+	/********The variable used to send capture card port to channels image**/
+	public static String PEACOCK_CHANNELS_NEXT_TUNE_VERIFY=LIVE_IMAGE_PATH+"Play.jpg";
+	
+	/********The variable used to send capture card port to channels image**/
+	public static String PEACOCK_TUNE_VERIFY=LIVE_IMAGE_PATH+"TuneVerify.jpg";
 
 }

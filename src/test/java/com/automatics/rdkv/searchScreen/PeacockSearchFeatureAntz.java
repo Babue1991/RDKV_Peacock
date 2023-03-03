@@ -207,3 +207,11 @@
 //}
 //	
 //}
+
+
+
+
+
+//LOGGER.info("Click Xfinity right button ");
+////		LOGGER.info("Capture Channels screen live image");
+////		CaptureLiveImage.capture2(ImageCaptureConstants.PEACOCK_CHANNELS_TUNE_VERIFY,RemoteKeyContstants.RIGHT_BUTTON,IntergerCount.ONE);
