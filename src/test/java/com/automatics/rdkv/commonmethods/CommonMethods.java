@@ -11,6 +11,7 @@ import com.automatics.rdkv.STBhomescreen.CropImage;
 import com.automatics.rdkv.captureimage.CaptureLiveImage;
 import com.automatics.rdkv.constants.ImageCaptureConstants;
 import com.automatics.rdkv.constants.RemoteKeyContstants;
+import com.automatics.rdkv.imagevalidation.ImageCompare;
 import com.automatics.test.AutomaticsTestBase;
 
 
@@ -20,6 +21,10 @@ public class CommonMethods extends AutomaticsTestBase{
 	static String command;
 	static Process p;
 	static boolean status;
+	static BufferedImage referenceImage;
+	static BufferedImage liveImage;
+	static BufferedImage subImage;
+	static BufferedImage outputImage;
 	public static void execCommand(String command) {
 		try {
 
@@ -281,5 +286,51 @@ public class CommonMethods extends AutomaticsTestBase{
 		path =System.getProperty("user.dir");
 		System.out.println(path);
 		return path;
+	}
+	
+	public static void Trickplay() throws InterruptedException, IOException {
+		int i=5;
+		for(i=1;i<=5;i++) {
+		LOGGER.info("Click Xfinity DOWN button ");
+		CommonMethods.execCommand(RemoteKeyContstants.DOWN_BUTTON);
+		LOGGER.info("Click Xfinity OK button ");
+		CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+		
+		Thread.sleep(10000L);
+		LOGGER.info("Reading reference image");
+		referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LINEAR_CHANNELS_VERIFY));
+		
+		LOGGER.info("Capture Channels screen live image");
+		CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_CHANNELS);
+		Thread.sleep(5000L);
+		
+		LOGGER.info("Reading live image");
+		liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_CHANNELS));
+		
+		LOGGER.info("Calling crop method");
+		subImage = CropImage.cropImage(liveImage, 750,400,60,120);
+		
+					
+		File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
+		ImageIO.write(subImage, "jpg", outputFile);
+		
+		outputImage = ImageIO.read(new File("/var/lib/jenkins/workspace/image1.jpg"));
+		
+		ImageCompare imgCompare =new ImageCompare();
+		LOGGER.info("Calling screen compare method");
+		status = imgCompare.compare(referenceImage, outputImage);
+		
+		
+
+		if(status==true) {
+			LOGGER.info("It's supports trick play");
+		}
+			else
+				
+			LOGGER.info("It does not supports trick play");
+			
+			
+		}
+		
 	}
 }
