@@ -65,7 +65,7 @@ package com.automatics.rdkv.PeacockTC;
 			BufferedImage subImage;
 			BufferedImage outputImage;
 			String actual;
-			String expectedchannels="Eccd";
+			String expectedchannels="Channels";
 			// Variables declaration Ends
    
 			/**
@@ -148,9 +148,9 @@ package com.automatics.rdkv.PeacockTC;
 			stepNum = "S2";
 			errorMessage = "The user is not in the application screen";
 			LOGGER.info("*****************************************************************************************");
-			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify linear channels which support trick play");
-			LOGGER.info("STEP 1: ACTION : Press four down button and take screenshot");
-			LOGGER.info("STEP 1: EXPECTED : Channels option should launch successfully.");
+			LOGGER.info("STEP 2: DESCRIPTION : This test is to verify linear channels which support trick play");
+			LOGGER.info("STEP 2: ACTION : Press four down button and take screenshot");
+			LOGGER.info("STEP 2: EXPECTED : Channels option should launch successfully.");
 			LOGGER.info("*****************************************************************************************");
 			 
 			
