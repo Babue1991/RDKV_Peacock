@@ -60,6 +60,7 @@ public class PeacockSearchAntz extends AutomaticsTestBase {
 		BufferedImage referenceImage;
 		BufferedImage liveImage;
 		BufferedImage outputImage;
+		BufferedImage nextliveImage;
 		BufferedImage subImage;
 		// Variables declaration Ends
 		/**
@@ -111,7 +112,7 @@ public class PeacockSearchAntz extends AutomaticsTestBase {
 //			LOGGER.info("Calling screen compare method");
 //			status = imgCompare.compare(referenceImage, outputImage);
 			
-			for(int i=0; i<=2; i++) {
+			for(int i=0; i<=3; i++) {
 				//Total number of channels is 63
 				//as of now i have taken i=3
 				LOGGER.info("Click two DOWN_BUTTON ");
@@ -128,6 +129,17 @@ public class PeacockSearchAntz extends AutomaticsTestBase {
 				
 				LOGGER.info("Reading live image");
 				liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_TUNE_VERIFY));
+				
+				LOGGER.info("Capture application screen live image");
+				CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_NEXT_TUNE_VERIFY);
+				Thread.sleep(5000L);
+				
+				LOGGER.info("Reading live image");
+				nextliveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_NEXT_TUNE_VERIFY));
+				
+				LOGGER.info("Calling image compare method");
+				ImageCompare imgCompare =new ImageCompare();
+				status = imgCompare.compare(liveImage, nextliveImage);
 			}
 		
 			if (status) {

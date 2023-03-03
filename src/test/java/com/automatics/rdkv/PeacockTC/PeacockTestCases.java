@@ -480,7 +480,7 @@ import com.automatics.rdkv.constants.RemoteKeyContstants;
 			Thread.sleep(5000L);
 			
 			LOGGER.info("Reading live image");
-			nextliveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_CHANNELS_TUNE_VERIFY));
+			nextliveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_CHANNELS_NEXT_TUNE_VERIFY));
 			
 			LOGGER.info("Calling image compare method");
 			ImageCompare imgCompare =new ImageCompare();
