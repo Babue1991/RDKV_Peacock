@@ -65,7 +65,7 @@ package com.automatics.rdkv.PeacockTC;
 			BufferedImage subImage;
 			BufferedImage outputImage;
 			String actual;
-			String expectedchannels="Eccd";
+			String expectedchannels="Channels";
 			// Variables declaration Ends
    
 			/**
@@ -152,6 +152,7 @@ package com.automatics.rdkv.PeacockTC;
 			LOGGER.info("STEP 2: ACTION : Press four down button and take screenshot");
 			LOGGER.info("STEP 2: EXPECTED : Channels option should launch successfully.");
 			LOGGER.info("*****************************************************************************************");
+<<<<<<< HEAD
 	
 	
 			LOGGER.info("Capture Channels screen live image");
@@ -216,7 +217,69 @@ package com.automatics.rdkv.PeacockTC;
 			
 			LOGGER.info("**********************************************************************************");
 			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+=======
+			 
+			
+			CommonMethods.Trickplay();
+>>>>>>> 3c0589c44af36a98e5c0ea6d35e6c774713f7df4
 	
+			
+//			LOGGER.info("Reading reference image");
+//			referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LINEAR_CHANNELS_VERIFY));
+//			
+//			
+//			LOGGER.info("Capture Channels screen live image");
+//			CaptureLiveImage.capture2(ImageCaptureConstants.LINEARCHANNELS_OPTION,RemoteKeyContstants.DOWN_BUTTON,IntergerCount.FOUR);
+//			Thread.sleep(5000L);
+//			
+//			LOGGER.info("Reading live image");
+//			liveImage = ImageIO.read(new File(ImageCaptureConstants.LINEARCHANNELS_OPTION));
+//			
+//			LOGGER.info("Calling crop method");
+//			subImage = CropImage.cropImage(liveImage, 750,400,60,120);
+//			
+//						
+//			File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
+//			ImageIO.write(subImage, "jpg", outputFile);
+//			
+//			outputImage = ImageIO.read(new File("/var/lib/jenkins/workspace/image1.jpg"));
+//			
+//			ImageCompare imgCompare =new ImageCompare();
+//			LOGGER.info("Calling screen compare method");
+//			status = imgCompare.compare(referenceImage, outputImage);
+//			
+//			if (status) {
+//				LOGGER.info("The status of text comparision is: " + status);
+//			} else {
+//				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+//			}
+//			
+//			LOGGER.info("Reading reference image");
+//			referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LINEAR_CHANNELS_VERIFY));
+//			
+//			LOGGER.info("Capture Channels screen live image");
+//			CaptureLiveImage.capture2(ImageCaptureConstants.LINEARCHANNELS_OPTION,RemoteKeyContstants.DOWN_BUTTON,IntergerCount.FOUR);
+//			Thread.sleep(5000L);
+//			
+//			LOGGER.info("Reading live image");
+//			liveImage = ImageIO.read(new File(ImageCaptureConstants.LINEARCHANNELS_OPTION));
+//			
+//			LOGGER.info("Calling crop method");
+//			subImage = CropImage.cropImage(liveImage, 750,400,60,120);
+//			
+//						
+//			//File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
+//			ImageIO.write(subImage, "jpg", outputFile);
+//			
+//			outputImage = ImageIO.read(new File("/var/lib/jenkins/workspace/image1.jpg"));
+//			
+//			//ImageCompare imgCompare =new ImageCompare();
+//			LOGGER.info("Calling screen compare method");
+//			status = imgCompare.compare(referenceImage, outputImage);
+//			
+//			LOGGER.info("**********************************************************************************");
+//			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+//	
 		} catch (Exception e) {
 			LOGGER.error("Exception occured while reading the image file " + e);
 			// TODO Auto-generated catch block
