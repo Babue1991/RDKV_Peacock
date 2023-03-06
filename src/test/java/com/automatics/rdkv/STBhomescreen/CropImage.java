@@ -16,12 +16,12 @@ public class CropImage {
 
 	public static void main(String[] args) throws IOException {
 
-		BufferedImage liveImage = ImageIO.read(new File("/home/user/Desktop/trickplayChannels.jpg"));
+		BufferedImage liveImage = ImageIO.read(new File("/home/user/Desktop/ads.jpg"));
 		
 		try {
 //			cropedImage = cropImage(liveImage, 450,600,550,100);
 
-			cropedImage = cropImage(liveImage, 490,600,260,120);
+			cropedImage = cropImage(liveImage, 60,630,50,50);
 
 //			cropedImage = cropImage(liveImage, 530,630,250,44);
 

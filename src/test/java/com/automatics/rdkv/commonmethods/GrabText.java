@@ -2,7 +2,6 @@ package com.automatics.rdkv.commonmethods;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.IOException;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
@@ -18,11 +17,12 @@ import net.sourceforge.tess4j.TesseractException;
 
 public class GrabText {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws Exception {
 		String path="/home/user/Downloads/SearchbarHighlight(1).jpg";
 		GrabText grabText = new GrabText();
-		BufferedImage	liveImage = ImageIO.read(new File("/home/user/Desktop/image2.jpg"));
-		System.out.println(grabText.crackImage(liveImage));
+		BufferedImage	liveImage = ImageIO.read(new File("/home/user/Desktop/greyimage1.jpg"));
+		//System.out.println(grabText.crackImage(liveImage));
+		System.out.println(grabText.crackNumber(liveImage));
 	}
 
 	public String crackImage(BufferedImage filePath) {
@@ -47,6 +47,19 @@ public class GrabText {
 			return "Error while reading image";
 		}
 	}
+	
+	public String crackNumber(BufferedImage imageFile) throws Exception {
+		
+	    //final File imageFile = new File("imageWith Digits.jpg");
+	    ITesseract instance = new Tesseract();
+	    instance.setDatapath(LanguageConstants.TRAIN_DATA_PATH);
+	    instance.setLanguage("eng");
+	    instance.setTessVariable("tessedit_char_whitelist", "0123456789");
+	    String result = instance.doOCR(imageFile);
+	    System.out.println(result);
+		return result;
+	}
+
 	public boolean checkSpecialChar(String actual) {
 		
 		
