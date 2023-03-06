@@ -107,6 +107,29 @@ public class CommonMethods extends AutomaticsTestBase{
 		}
 		p.destroy();
 	}
+	public static void execCommandRepeat2(String command, int count) {
+
+		for(int i = 1 ; i <= count; i++) {
+			try {
+
+//				Thread.sleep(2000L);
+				p=Runtime.getRuntime().exec(command);
+				printResults(p);
+//				Thread.sleep(3000L);
+				LOGGER.info("The terminal command which is executed is : "+command);
+				System.out.println();
+
+			}
+
+			catch(Exception e) {
+				LOGGER.info("Error in terminal command execution : "+command);
+
+				System.out.println();
+				e.printStackTrace();
+			}
+		}
+		p.destroy();
+	}
 
 	public static void printResults(Process process) throws IOException {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
@@ -279,7 +302,50 @@ public class CommonMethods extends AutomaticsTestBase{
 	
 		Thread.sleep(10000L);
 	}
-	
+    
+    public static void disableChannelSubtitle() throws InterruptedException {
+		
+	    LOGGER.info("Click Xfinity OK button ");
+	    CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+	    
+		LOGGER.info("Click Xfinity left button ");
+		CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
+		
+		LOGGER.info("Click Xfinity left button ");
+		CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
+		
+		LOGGER.info("Click Xfinity OK button ");
+		CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+		
+		LOGGER.info("Click Xfinity OK button ");
+		CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+		
+		Thread.sleep(5000L);
+	}
+    
+    public static void enableChannelSubtitle() throws InterruptedException {
+		
+    	LOGGER.info("Click Xfinity OK button ");
+ 	    CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+ 	    
+ 		LOGGER.info("Click Xfinity left button ");
+ 		CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
+ 		
+ 		LOGGER.info("Click Xfinity left button ");
+ 		CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
+ 		
+ 		LOGGER.info("Click Xfinity OK button ");
+ 		CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+ 		
+ 		LOGGER.info("Click Xfinity up button ");
+		CommonMethods.execCommandIcon(RemoteKeyContstants.UP_BUTTON);
+		
+		LOGGER.info("Click Xfinity OK button ");
+ 		CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+ 		
+	    Thread.sleep(10000L);
+	}
+    
 	
 	public static String currentDirectoryPath() {
 		System.out.println("BeforePath");
@@ -290,20 +356,20 @@ public class CommonMethods extends AutomaticsTestBase{
 	}
 	
 	public static void Trickplay() throws InterruptedException, IOException {
-		int i=5;
-		for(i=1;i<=5;i++) {
+		int i=3;
+		for(i=1;i<=3;i++) {
 		LOGGER.info("Click Xfinity DOWN button ");
-		CommonMethods.execCommand(RemoteKeyContstants.DOWN_BUTTON);
+		CommonMethods.execCommandRepeat2(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.TWO);
 		LOGGER.info("Click Xfinity OK button ");
-		CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+		CommonMethods.execCommandRepeat2(RemoteKeyContstants.OK_BUTTON, IntergerCount.TWO);
 		Thread.sleep(15000L);
 		LOGGER.info("Click Xfinity Right button ");
-	    CaptureLiveImage.capture2(ImageCaptureConstants.PEACOCK_CHANNELS,RemoteKeyContstants.RIGHT_BUTTON,IntergerCount.ONE);
+	    CaptureLiveImage.CaptureTrickPlay(ImageCaptureConstants.PEACOCK_CHANNELS,IntergerCount.ONE,RemoteKeyContstants.RIGHT_BUTTON);
 		Thread.sleep(5000L);
 		
 		
 		LOGGER.info("Reading reference image");
-		referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LINEAR_CHANNELS_VERIFY));
+		referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_TRICK_PLAY_VERIFY));
 		
 		LOGGER.info("Capture Channels screen live image");
 		CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_CHANNELS);
@@ -313,7 +379,7 @@ public class CommonMethods extends AutomaticsTestBase{
 		liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_CHANNELS));
 		
 		LOGGER.info("Calling crop method");
-		subImage = CropImage.cropImage(liveImage, 750,400,60,120);
+		subImage = CropImage.cropImage(liveImage, 490,600,260,120);
 		
 					
 		File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");

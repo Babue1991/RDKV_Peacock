@@ -65,7 +65,7 @@ package com.automatics.rdkv.PeacockTC;
 			BufferedImage subImage;
 			BufferedImage outputImage;
 			String actual;
-			String expectedchannels="Channels";
+			String expectedchannels="cicd";
 			// Variables declaration Ends
    
 			/**
@@ -153,6 +153,7 @@ package com.automatics.rdkv.PeacockTC;
 			LOGGER.info("STEP 2: EXPECTED : Channels option should launch successfully.");
 			LOGGER.info("*****************************************************************************************");
 <<<<<<< HEAD
+<<<<<<< HEAD
 	
 	
 			LOGGER.info("Capture Channels screen live image");
@@ -221,6 +222,12 @@ package com.automatics.rdkv.PeacockTC;
 			
 			CommonMethods.Trickplay();
 	
+=======
+				 
+			LOGGER.info("Linear channels which supporttrick play");		
+			CommonMethods.Trickplay();
+			
+>>>>>>> ee24eb61dc8272882e90815b4350df7c91d7f699
 			
 //			LOGGER.info("Reading reference image");
 //			referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LINEAR_CHANNELS_VERIFY));
