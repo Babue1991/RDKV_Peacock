@@ -152,7 +152,6 @@ package com.automatics.rdkv.PeacockTC;
 			LOGGER.info("STEP 2: ACTION : Press four down button and take screenshot");
 			LOGGER.info("STEP 2: EXPECTED : Channels option should launch successfully.");
 			LOGGER.info("*****************************************************************************************");
-<<<<<<< HEAD
 	
 	
 			LOGGER.info("Capture Channels screen live image");
@@ -217,11 +216,11 @@ package com.automatics.rdkv.PeacockTC;
 			
 			LOGGER.info("**********************************************************************************");
 			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
-=======
+
 			 
 			
 			CommonMethods.Trickplay();
->>>>>>> 3c0589c44af36a98e5c0ea6d35e6c774713f7df4
+
 	
 			
 //			LOGGER.info("Reading reference image");
