@@ -107,6 +107,29 @@ public class CommonMethods extends AutomaticsTestBase{
 		}
 		p.destroy();
 	}
+	public static void execCommandRepeat2(String command, int count) {
+
+		for(int i = 1 ; i <= count; i++) {
+			try {
+
+//				Thread.sleep(2000L);
+				p=Runtime.getRuntime().exec(command);
+				printResults(p);
+//				Thread.sleep(3000L);
+				LOGGER.info("The terminal command which is executed is : "+command);
+				System.out.println();
+
+			}
+
+			catch(Exception e) {
+				LOGGER.info("Error in terminal command execution : "+command);
+
+				System.out.println();
+				e.printStackTrace();
+			}
+		}
+		p.destroy();
+	}
 
 	public static void printResults(Process process) throws IOException {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
@@ -336,9 +359,9 @@ public class CommonMethods extends AutomaticsTestBase{
 		int i=3;
 		for(i=1;i<=3;i++) {
 		LOGGER.info("Click Xfinity DOWN button ");
-		CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.TWO);
+		CommonMethods.execCommandRepeat2(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.TWO);
 		LOGGER.info("Click Xfinity OK button ");
-		CommonMethods.execCommandRepeat(RemoteKeyContstants.OK_BUTTON, IntergerCount.TWO);
+		CommonMethods.execCommandRepeat2(RemoteKeyContstants.OK_BUTTON, IntergerCount.TWO);
 		Thread.sleep(15000L);
 		LOGGER.info("Click Xfinity Right button ");
 	    CaptureLiveImage.capture2(ImageCaptureConstants.PEACOCK_CHANNELS,RemoteKeyContstants.RIGHT_BUTTON,IntergerCount.ONE);
