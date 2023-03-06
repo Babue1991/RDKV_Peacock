@@ -19,19 +19,15 @@ public class CropImage {
 		BufferedImage liveImage = ImageIO.read(new File("/home/user/Desktop/trickplayChannels.jpg"));
 		
 		try {
-<<<<<<< HEAD
-=======
 
->>>>>>> 3c0589c44af36a98e5c0ea6d35e6c774713f7df4
-			cropedImage = cropImage(liveImage, 450,600,550,100);
+			cropedImage = cropImage(liveImage, 750,400,60,50);
 
-			cropedImage = cropImage(liveImage, 750,400,60,120);
+//			cropedImage = cropImage(liveImage, 750,400,60,120);
+//
+//
+//			cropedImage = cropImage(liveImage, 530,630,250,44);
 
-<<<<<<< HEAD
-=======
-			cropedImage = cropImage(liveImage, 530,630,250,44);
 
->>>>>>> 3c0589c44af36a98e5c0ea6d35e6c774713f7df4
 			//730,350,340,150
 			//Popular entertainment section  70,380,380,70
 			
@@ -53,7 +49,7 @@ public class CropImage {
 			e.printStackTrace();
 		}
 		
-		File outputFile = new File("/home/user/Desktop/image4.jpg");
+		File outputFile = new File("/home/user/Desktop/image3.jpg");
 		ImageIO.write(cropedImage, "jpg", outputFile);
 	}
 	

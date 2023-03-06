@@ -216,12 +216,10 @@ package com.automatics.rdkv.PeacockTC;
 			status = imgCompare.compare(referenceImage, outputImage);
 			
 			LOGGER.info("**********************************************************************************");
-			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
-=======
+			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);s
 			 
 			
 			CommonMethods.Trickplay();
->>>>>>> 3c0589c44af36a98e5c0ea6d35e6c774713f7df4
 	
 			
 //			LOGGER.info("Reading reference image");
