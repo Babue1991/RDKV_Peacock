@@ -333,8 +333,8 @@ public class CommonMethods extends AutomaticsTestBase{
 	}
 	
 	public static void Trickplay() throws InterruptedException, IOException {
-		int i=5;
-		for(i=1;i<=5;i++) {
+		int i=3;
+		for(i=1;i<=3;i++) {
 		LOGGER.info("Click Xfinity DOWN button ");
 		CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.TWO);
 		LOGGER.info("Click Xfinity OK button ");
