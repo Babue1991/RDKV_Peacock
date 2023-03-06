@@ -279,7 +279,50 @@ public class CommonMethods extends AutomaticsTestBase{
 	
 		Thread.sleep(10000L);
 	}
-	
+    
+    public static void disableChannelSubtitle() throws InterruptedException {
+		
+	    LOGGER.info("Click Xfinity OK button ");
+	    CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+	    
+		LOGGER.info("Click Xfinity left button ");
+		CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
+		
+		LOGGER.info("Click Xfinity left button ");
+		CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
+		
+		LOGGER.info("Click Xfinity OK button ");
+		CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+		
+		LOGGER.info("Click Xfinity OK button ");
+		CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+		
+		Thread.sleep(5000L);
+	}
+    
+    public static void enableChannelSubtitle() throws InterruptedException {
+		
+    	LOGGER.info("Click Xfinity OK button ");
+ 	    CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+ 	    
+ 		LOGGER.info("Click Xfinity left button ");
+ 		CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
+ 		
+ 		LOGGER.info("Click Xfinity left button ");
+ 		CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
+ 		
+ 		LOGGER.info("Click Xfinity OK button ");
+ 		CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+ 		
+ 		LOGGER.info("Click Xfinity up button ");
+		CommonMethods.execCommandIcon(RemoteKeyContstants.UP_BUTTON);
+		
+		LOGGER.info("Click Xfinity OK button ");
+ 		CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+ 		
+	    Thread.sleep(10000L);
+	}
+    
 	
 	public static String currentDirectoryPath() {
 		System.out.println("BeforePath");
