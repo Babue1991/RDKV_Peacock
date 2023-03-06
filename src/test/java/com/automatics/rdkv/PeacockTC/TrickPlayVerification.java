@@ -65,7 +65,7 @@ package com.automatics.rdkv.PeacockTC;
 			BufferedImage subImage;
 			BufferedImage outputImage;
 			String actual;
-			String expectedchannels="Channels";
+			String expectedchannels="cicd";
 			// Variables declaration Ends
    
 			/**
