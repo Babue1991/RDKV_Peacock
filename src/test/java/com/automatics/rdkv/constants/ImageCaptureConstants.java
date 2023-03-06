@@ -284,7 +284,7 @@ public class ImageCaptureConstants {
 
 	//channels
 	/********The variable used to send capture card port to channels image**/
-<<<<<<< HEAD
+
 	public static String PEACOCK_CHANNELS=LIVE_IMAGE_PATH+"WWEbackforword.jpg";
 	
 	/********The variable used to send capture card port to channels image**/
@@ -292,29 +292,13 @@ public class ImageCaptureConstants {
 	
 	/********The variable used to send capture card port to capture wwe content video pause next image**/
 	public static String PEACOCK_LINEAR_REF_IMG_VERIFY=REFERENCE_IMAGE_PATH+"LinearRef.jpg";
-=======
-	public static String PEACOCK_CHANNELS=LIVE_IMAGE_PATH+"Pchannels.jpg";
 	
 	/********The variable used to send capture card port to channels option image**/
-	public static String LINEARCHANNELS_OPTION=LIVE_IMAGE_PATH+"Channelsoption.jpg";
+	public static String TRICK_PLAY=LIVE_IMAGE_PATH+"Channelsoption.jpg";
 	
 	/********The variable used to send capture card port to capture linear channels image**/
 	public static String PEACOCK_LINEAR_CHANNELS_VERIFY=REFERENCE_IMAGE_PATH+"linearchannel.jpg";
 	
-<<<<<<< HEAD
->>>>>>> c19e801d3bf3e3e581b0a4c7774d4f3a81d9e063
-=======
 	/********The variable used to send capture card port to capture linear channels image**/
-	public static String PEACOCK_LINEAR_REF_IMG_VERIFY=REFERENCE_IMAGE_PATH+"LinearRef.jpg";
-	
-	/********The variable used to send capture card port to channels image**/
-	public static String PEACOCK_LINEAR_OPTION=LIVE_IMAGE_PATH+"PeacockLinear.jpg";
->>>>>>> c27348d656e6cf75f9de65d7536c9c7467ee512e
-	
-	/********The variable used to send capture card port to capture linear channels image**/
-	public static String PEACOCK_TPLAY_VERIFY=REFERENCE_IMAGE_PATH+"Channels.jpg";
-	
-	/********The variable used to send capture card port to channels image**/
-	public static String PEACOCK_TRIPLAY_OPTION=LIVE_IMAGE_PATH+"TPlay.jpg";
-
+	public static String TRICK_PLAY_REF=REFERENCE_IMAGE_PATH+"LinearRef.jpg";
 }

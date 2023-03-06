@@ -148,26 +148,31 @@ package com.automatics.rdkv.PeacockTC;
 			stepNum = "S2";
 			errorMessage = "The user is not in the application screen";
 			LOGGER.info("*****************************************************************************************");
-			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify linear channels which support trick play");
-			LOGGER.info("STEP 1: ACTION : Press four down button and take screenshot");
-			LOGGER.info("STEP 1: EXPECTED : Channels option should launch successfully.");
+			LOGGER.info("STEP 2: DESCRIPTION : This test is to verify linear channels which support trick play");
+			LOGGER.info("STEP 2: ACTION : Press four down button and take screenshot");
+			LOGGER.info("STEP 2: EXPECTED : Channels option should launch successfully.");
 			LOGGER.info("*****************************************************************************************");
 	
-			
-			LOGGER.info("Reading reference image");
-			referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LINEAR_CHANNELS_VERIFY));
-			
-			
+	
 			LOGGER.info("Capture Channels screen live image");
-			CaptureLiveImage.capture2(ImageCaptureConstants.LINEARCHANNELS_OPTION,RemoteKeyContstants.DOWN_BUTTON,IntergerCount.FOUR);
+			CaptureLiveImage.capture2(ImageCaptureConstants.TRICK_PLAY,RemoteKeyContstants.DOWN_BUTTON,IntergerCount.THREE);
 			Thread.sleep(5000L);
 			
+			LOGGER.info("Click Xfinity OK button ");
+			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			Thread.sleep(5000L);
+			
+			LOGGER.info("Capture Channels screen live image");
+			CaptureLiveImage.capture2(ImageCaptureConstants.TRICK_PLAY,RemoteKeyContstants.RIGHT_BUTTON,IntergerCount.ONE );
+			
+			LOGGER.info("Reading reference image");
+			referenceImage =ImageIO.read(new File(ImageCaptureConstants.TRICK_PLAY_REF));
+			
 			LOGGER.info("Reading live image");
-			liveImage = ImageIO.read(new File(ImageCaptureConstants.LINEARCHANNELS_OPTION));
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.TRICK_PLAY));
 			
 			LOGGER.info("Calling crop method");
-			subImage = CropImage.cropImage(liveImage, 750,400,60,120);
-			
+			subImage = CropImage.cropImage(liveImage, 530,630,250,44);
 						
 			File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
 			ImageIO.write(subImage, "jpg", outputFile);
