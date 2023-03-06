@@ -346,7 +346,7 @@ public class CommonMethods extends AutomaticsTestBase{
 		
 		
 		LOGGER.info("Reading reference image");
-		referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LINEAR_CHANNELS_VERIFY));
+		referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_TRICK_PLAY_VERIFY));
 		
 		LOGGER.info("Capture Channels screen live image");
 		CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_CHANNELS);
@@ -356,7 +356,7 @@ public class CommonMethods extends AutomaticsTestBase{
 		liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_CHANNELS));
 		
 		LOGGER.info("Calling crop method");
-		subImage = CropImage.cropImage(liveImage, 750,400,60,120);
+		subImage = CropImage.cropImage(liveImage, 490,600,260,120);
 		
 					
 		File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");

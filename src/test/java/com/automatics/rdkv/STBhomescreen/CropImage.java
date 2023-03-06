@@ -19,11 +19,11 @@ public class CropImage {
 		BufferedImage liveImage = ImageIO.read(new File("/home/user/Desktop/trickplayChannels.jpg"));
 		
 		try {
-			cropedImage = cropImage(liveImage, 450,600,550,100);
+//			cropedImage = cropImage(liveImage, 450,600,550,100);
 
-			cropedImage = cropImage(liveImage, 750,400,60,120);
+			cropedImage = cropImage(liveImage, 490,600,260,120);
 
-			cropedImage = cropImage(liveImage, 530,630,250,44);
+//			cropedImage = cropImage(liveImage, 530,630,250,44);
 
 			//730,350,340,150
 			//Popular entertainment section  70,380,380,70
