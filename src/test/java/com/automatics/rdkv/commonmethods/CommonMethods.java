@@ -364,7 +364,7 @@ public class CommonMethods extends AutomaticsTestBase{
 		CommonMethods.execCommandRepeat2(RemoteKeyContstants.OK_BUTTON, IntergerCount.TWO);
 		Thread.sleep(15000L);
 		LOGGER.info("Click Xfinity Right button ");
-	    CaptureLiveImage.capture2(ImageCaptureConstants.PEACOCK_CHANNELS,RemoteKeyContstants.RIGHT_BUTTON,IntergerCount.ONE);
+	    CaptureLiveImage.CaptureTrickPlay(ImageCaptureConstants.PEACOCK_CHANNELS,IntergerCount.ONE,RemoteKeyContstants.RIGHT_BUTTON);
 		Thread.sleep(5000L);
 		
 		
