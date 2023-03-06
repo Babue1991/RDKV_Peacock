@@ -184,7 +184,9 @@ package com.automatics.rdkv.PeacockTC;
 			status = imgCompare.compare(referenceImage, outputImage);
 			
 			if (status) {
-				LOGGER.info("The status of text comparision is: " + status);
+				
+				LOGGER.info("The status of image comparision is: " + status + "and ");
+				
 			} else {
 				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
 			}
