@@ -19,12 +19,24 @@ public class CropImage {
 		BufferedImage liveImage = ImageIO.read(new File("/home/user/Desktop/ads.jpg"));
 		
 		try {
+<<<<<<< HEAD
+
+			cropedImage = cropImage(liveImage, 750,400,60,50);
+
+//			cropedImage = cropImage(liveImage, 750,400,60,120);
+//
+//
+//			cropedImage = cropImage(liveImage, 530,630,250,44);
+
+
+=======
 //			cropedImage = cropImage(liveImage, 450,600,550,100);
 
 			cropedImage = cropImage(liveImage, 60,630,50,50);
 
 //			cropedImage = cropImage(liveImage, 530,630,250,44);
 
+>>>>>>> ee24eb61dc8272882e90815b4350df7c91d7f699
 			//730,350,340,150
 			//Popular entertainment section  70,380,380,70
 			
@@ -46,7 +58,7 @@ public class CropImage {
 			e.printStackTrace();
 		}
 		
-		File outputFile = new File("/home/user/Desktop/image4.jpg");
+		File outputFile = new File("/home/user/Desktop/image3.jpg");
 		ImageIO.write(cropedImage, "jpg", outputFile);
 	}
 	
