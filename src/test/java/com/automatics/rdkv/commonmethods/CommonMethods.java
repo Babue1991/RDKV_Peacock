@@ -10,6 +10,7 @@ import javax.imageio.ImageIO;
 import com.automatics.rdkv.STBhomescreen.CropImage;
 import com.automatics.rdkv.captureimage.CaptureLiveImage;
 import com.automatics.rdkv.constants.ImageCaptureConstants;
+import com.automatics.rdkv.constants.IntergerCount;
 import com.automatics.rdkv.constants.RemoteKeyContstants;
 import com.automatics.rdkv.imagevalidation.ImageCompare;
 import com.automatics.test.AutomaticsTestBase;
@@ -295,9 +296,10 @@ public class CommonMethods extends AutomaticsTestBase{
 		CommonMethods.execCommand(RemoteKeyContstants.DOWN_BUTTON);
 		LOGGER.info("Click Xfinity OK button ");
 		CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
-		Thread.sleep(10000L);
+		Thread.sleep(15000L);
 		LOGGER.info("Click Xfinity Right button ");
-		CommonMethods.execCommand(RemoteKeyContstants.RIGHT_BUTTON);
+	    CaptureLiveImage.capture2(ImageCaptureConstants.PEACOCK_CHANNELS,RemoteKeyContstants.RIGHT_BUTTON,IntergerCount.ONE);
+		Thread.sleep(5000L);
 		
 		
 		LOGGER.info("Reading reference image");
