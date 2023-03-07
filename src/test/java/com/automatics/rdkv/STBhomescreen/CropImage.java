@@ -16,7 +16,7 @@ public class CropImage {
 
 	public static void main(String[] args) throws IOException {
 
-		BufferedImage liveImage = ImageIO.read(new File("/home/user/Desktop/trickplayChannels.jpg"));
+		BufferedImage liveImage = ImageIO.read(new File("/home/user/Desktop/ads.jpg"));
 		
 		try {
 
@@ -27,6 +27,7 @@ public class CropImage {
 //
 //			cropedImage = cropImage(liveImage, 530,630,250,44);
 
+<<<<<<< HEAD
 
 //			cropedImage = cropImage(liveImage, 450,600,550,100);
 
@@ -35,6 +36,14 @@ public class CropImage {
 //			cropedImage = cropImage(liveImage, 530,630,250,44);
 
 
+=======
+//			cropedImage = cropImage(liveImage, 450,600,550,100);
+
+			cropedImage = cropImage(liveImage, 60,630,50,50);
+
+//			cropedImage = cropImage(liveImage, 530,630,250,44);
+
+>>>>>>> 0138e781b54cb6c80f87d51243278079f463a280
 			//730,350,340,150
 			//Popular entertainment section  70,380,380,70
 			
