@@ -19,10 +19,15 @@ public class CropImage {
 		BufferedImage liveImage = ImageIO.read(new File("/home/user/Desktop/backward1.jpg"));
 		
 		try {
+			
+			cropedImage = cropImage(liveImage, 60,635,40,40);
 
+<<<<<<< HEAD
 			cropedImage = cropImage(liveImage, 750,400,60,50);
 
 
+=======
+>>>>>>> 2bc17fe96e8777935f4b48cc36df95e3ddf1d311
 			//730,350,340,150
 			//Popular entertainment section  70,380,380,70
 			
@@ -37,6 +42,7 @@ public class CropImage {
 			//Search bar keyboard 80,100,1180,180
 			//Search bar text verify 100,280,380,50
 			//Search bar content Antz 90,340,290,180
+			//Channel ads timer 60,635,40,40
 			
 			
 		} catch (Exception e) {

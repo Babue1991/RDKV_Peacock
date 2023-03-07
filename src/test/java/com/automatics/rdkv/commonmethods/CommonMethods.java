@@ -201,6 +201,18 @@ public class CommonMethods extends AutomaticsTestBase{
 		return status;
 
 	}
+	
+	public static boolean checkNumber(String text) {
+		LOGGER.info("The text is: "+text);
+		if (text.matches("[0-9]+") && text.length() > 2) {
+			LOGGER.error("String has number ");
+		status =true;	
+		}else {
+			LOGGER.error("Number not present: "+text);
+			status =false;
+		}
+		return status;
+	}
 	public static boolean checkEmptyText(String text) {
 
 		if(text.isEmpty()) {
@@ -339,6 +351,57 @@ public class CommonMethods extends AutomaticsTestBase{
  		
  		LOGGER.info("Click Xfinity up button ");
 		CommonMethods.execCommandIcon(RemoteKeyContstants.UP_BUTTON);
+		
+		LOGGER.info("Click Xfinity OK button ");
+ 		CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+ 		
+	    Thread.sleep(10000L);
+	}
+    
+    public static void enableChannelSpanishSubtitle() throws InterruptedException {
+		
+    	LOGGER.info("Click Xfinity OK button ");
+ 	    CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+ 	    
+ 		LOGGER.info("Click Xfinity left button ");
+ 		CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
+ 		
+ 		LOGGER.info("Click Xfinity left button ");
+ 		CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
+ 		
+ 		LOGGER.info("Click Xfinity OK button ");
+ 		CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+ 		
+ 		LOGGER.info("Click Xfinity up button ");
+		CommonMethods.execCommandIcon(RemoteKeyContstants.UP_BUTTON);
+		
+		LOGGER.info("Click Xfinity up button ");
+		CommonMethods.execCommandIcon(RemoteKeyContstants.UP_BUTTON);
+		
+		LOGGER.info("Click Xfinity OK button ");
+ 		CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+ 		
+	    Thread.sleep(10000L);
+	}
+    public static void enableChannelAudio() throws InterruptedException {
+		
+    	LOGGER.info("Click Xfinity OK button ");
+ 	    CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+ 	    
+ 		LOGGER.info("Click Xfinity left button ");
+ 		CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
+ 		
+ 		LOGGER.info("Click Xfinity left button ");
+ 		CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
+ 		
+ 		LOGGER.info("Click Xfinity OK button ");
+ 		CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+ 		
+ 		LOGGER.info("Click Xfinity up button ");
+		CommonMethods.execCommandIcon(RemoteKeyContstants.UP_BUTTON);
+		
+		LOGGER.info("Click Xfinity right button ");
+		CommonMethods.execCommandIcon(RemoteKeyContstants.RIGHT_BUTTON);
 		
 		LOGGER.info("Click Xfinity OK button ");
  		CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
