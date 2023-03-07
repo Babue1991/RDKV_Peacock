@@ -20,9 +20,9 @@ public class GrabText {
 	public static void main(String[] args) throws Exception {
 		String path="/home/user/Downloads/SearchbarHighlight(1).jpg";
 		GrabText grabText = new GrabText();
-		BufferedImage	liveImage = ImageIO.read(new File("/home/user/Desktop/greyimage1.jpg"));
-		//System.out.println(grabText.crackImage(liveImage));
-		System.out.println(grabText.crackNumber(liveImage));
+		BufferedImage	liveImage = ImageIO.read(new File("/home/user/Desktop/image3.jpg"));
+		System.out.println(grabText.crackImage(liveImage));
+		//System.out.println(grabText.crackNumber(liveImage));
 	}
 
 	public String crackImage(BufferedImage filePath) {

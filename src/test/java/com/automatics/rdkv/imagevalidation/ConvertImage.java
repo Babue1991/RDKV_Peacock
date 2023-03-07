@@ -14,7 +14,7 @@ public class ConvertImage {
 		// TODO Auto-generated method stub
 		
 		ConvertImage ci =new ConvertImage();
-		BufferedImage originalImage = ImageIO.read(new File("/home/user/Desktop/image4.jpg"));
+		BufferedImage originalImage = ImageIO.read(new File("/home/user/Desktop/image3.jpg"));
 		ci.ConvertGrayScale(originalImage);
 
 	}
