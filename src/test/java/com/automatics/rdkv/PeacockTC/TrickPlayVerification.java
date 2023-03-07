@@ -152,9 +152,6 @@ package com.automatics.rdkv.PeacockTC;
 			LOGGER.info("STEP 2: ACTION : Press four down button and take screenshot");
 			LOGGER.info("STEP 2: EXPECTED : Channels option should launch successfully.");
 			LOGGER.info("*****************************************************************************************");
-<<<<<<< HEAD
-<<<<<<< HEAD
-	
 	
 			LOGGER.info("Capture Channels screen live image");
 			CaptureLiveImage.capture2(ImageCaptureConstants.TRICK_PLAY,RemoteKeyContstants.DOWN_BUTTON,IntergerCount.THREE);
@@ -217,17 +214,15 @@ package com.automatics.rdkv.PeacockTC;
 			status = imgCompare.compare(referenceImage, outputImage);
 			
 			LOGGER.info("**********************************************************************************");
-			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);s
+			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
 			 
 			
 			CommonMethods.Trickplay();
-	
-=======
 				 
 			LOGGER.info("Linear channels which supporttrick play");		
 			CommonMethods.Trickplay();
 			
->>>>>>> ee24eb61dc8272882e90815b4350df7c91d7f699
+
 			
 //			LOGGER.info("Reading reference image");
 //			referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LINEAR_CHANNELS_VERIFY));
