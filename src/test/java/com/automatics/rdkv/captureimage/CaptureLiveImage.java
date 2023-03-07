@@ -98,21 +98,4 @@ public class CaptureLiveImage extends AutomaticsTestBase {
 		p.destroy();
 	}
 	
-	public static void CaptureTrickPlay(String button, int count,String destPath) throws IOException, InterruptedException {
-		try {
-		//	Thread.sleep(3000L);
-		//	CommonMethods.execCommand(ImageCaptureConstants.SET_VIDEO_PORT);
-			LOGGER.info("The live image path: "+destPath);
-			
-			command=ImageCaptureConstants.CAPTURE_COMMAND+destPath;
-			CommonMethods.execCommand1(ImageCaptureConstants.SET_VIDEO_PORT);
-			CommonMethods.execCommandRepeat(button, count);
-			
-			CommonMethods.execCommand1(command);
-
-		}catch(Exception e) {
-			LOGGER.info("Error in terminal command execution: "+command);
-			e.printStackTrace();
-		}
-}
 }

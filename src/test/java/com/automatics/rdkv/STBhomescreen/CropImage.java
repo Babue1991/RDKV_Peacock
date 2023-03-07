@@ -20,8 +20,34 @@ public class CropImage {
 		
 		try {
 
+<<<<<<< HEAD
 			cropedImage = cropImage(liveImage, 60,635,40,40);
+=======
+			cropedImage = cropImage(liveImage, 750,400,60,50);
 
+//			cropedImage = cropImage(liveImage, 750,400,60,120);
+//
+//
+//			cropedImage = cropImage(liveImage, 530,630,250,44);
+
+<<<<<<< HEAD
+
+//			cropedImage = cropImage(liveImage, 450,600,550,100);
+
+//			cropedImage = cropImage(liveImage, 490,600,260,120);
+
+//			cropedImage = cropImage(liveImage, 530,630,250,44);
+
+
+=======
+//			cropedImage = cropImage(liveImage, 450,600,550,100);
+
+			cropedImage = cropImage(liveImage, 60,630,50,50);
+
+//			cropedImage = cropImage(liveImage, 530,630,250,44);
+>>>>>>> 478ef09ffae1a62cd3a66ca74d3822f4ca5c067a
+
+>>>>>>> 0138e781b54cb6c80f87d51243278079f463a280
 			//730,350,340,150
 			//Popular entertainment section  70,380,380,70
 			
@@ -44,10 +70,10 @@ public class CropImage {
 			e.printStackTrace();
 		}
 		
-		File outputFile = new File("/home/user/Desktop/image3.jpg");
-		ImageIO.write(cropedImage, "jpg", outputFile);
+		File outputFile = new File("/home/user/Desktop/image4.jpg");
+		ImageIO.write(cropedImage, "png", outputFile);
 	}
-	
+
 	   /**  
      * @param args
      * 
