@@ -66,6 +66,18 @@ package com.automatics.rdkv.PeacockTC;
 			BufferedImage outputImage;
 			String actual;
 			String expectedchannels="cicd";
+			String actualspeed;
+			String expectedspeed="x6";
+			String actualspeed12;
+			String expectedspeed12="x12";
+			String actualspeed24;
+			String expectedspeed24="x24";
+			String actualfast6;
+			String expectedfast6="x6";
+			String actualfast12;
+			String expectedfast12="x12";
+			String actualfast24;
+			String expectedfast24="x24";
 			// Variables declaration Ends
    
 			/**
@@ -76,7 +88,8 @@ package com.automatics.rdkv.PeacockTC;
 			LOGGER.info("TEST DESCRIPTION:  This test is to verify user can navigate to the channels content");
 			LOGGER.info("TEST STEPS : ");
 			LOGGER.info("1. Press left button and go six down");
-			LOGGER.info("#######################################################################################");
+			LOGGER.info("##############			String actualspeed12;\n"
+					+ "			String expectedspeed12=\"x12\";#########################################################################");
 			try {
 				stepNum = "S1";
 				errorMessage = "Failed to navigate to Channels button";
@@ -152,7 +165,7 @@ package com.automatics.rdkv.PeacockTC;
 			LOGGER.info("STEP 3: ACTION : Press down button and take screenshot");
 			LOGGER.info("STEP 3: EXPECTED : Channels option should launch successfully.");
 			LOGGER.info("*****************************************************************************************");
-<<<<<<< HEAD
+
 
 			
 			LOGGER.info("Linear channels which supporttrick play");		
@@ -166,11 +179,9 @@ package com.automatics.rdkv.PeacockTC;
 			errorMessage = e.getMessage();
 			LOGGER.error("Exception while launching movie screen: " + errorMessage);
 			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
-=======
->>>>>>> 0138e781b54cb6c80f87d51243278079f463a280
+
 	
 		}
-		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-3001");
 		
 		
 		
@@ -182,66 +193,236 @@ package com.automatics.rdkv.PeacockTC;
 		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-3001");
 		LOGGER.info("TEST DESCRIPTION:  This test is to verify Rewind operation at different speed and play using on screen controls");
 		LOGGER.info("TEST STEPS : ");
-		LOGGER.info("1. Press down button");
+		LOGGER.info("1. Press left button and take screenshot");
 		LOGGER.info("#######################################################################################");
 		try {
 			stepNum = "S4";
-			errorMessage = "The user is not in the application screen";
+			errorMessage = "Failed to verify rewind operation";
 			LOGGER.info("*****************************************************************************************");
 			LOGGER.info("STEP 4: DESCRIPTION : This test is to verify Rewind operation at different speed and play using on screen controls");
-			LOGGER.info("STEP 4: ACTION : Press four down button and take screenshot");
-			LOGGER.info("STEP 4: EXPECTED : Channels option should launch successfully.");
+			LOGGER.info("STEP 4: ACTION : Press left button and take screenshot");
+			LOGGER.info("STEP 4: EXPECTED : Rewind operation is verified at different speed.");
 			LOGGER.info("*****************************************************************************************");
 			
 			
-			LOGGER.info("Click left button ");
+			LOGGER.info("Click one left button ");
 			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
 			
 			LOGGER.info("Click OK BUTTON ");
-			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
-			
-			LOGGER.info("Reading reference image");
-			referenceImage =ImageIO.read(new File(ImageCaptureConstants.REWIND_REF));
+			//CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
 					
 			LOGGER.info("Capture Rewind screen live image");
-			CaptureLiveImage.capture(ImageCaptureConstants.CHANNELS_REWIND);
+			//CaptureLiveImage.capture(ImageCaptureConstants.CHANNELS_REWIND);
+			CaptureLiveImage.capture2(ImageCaptureConstants.CHANNELS_REWIND,RemoteKeyContstants.OK_BUTTON,IntergerCount.ONE);
 			Thread.sleep(5000L);
 			
 			LOGGER.info("Reading live image");
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.CHANNELS_REWIND));
 			
 			LOGGER.info("Calling crop method");
-			subImage = CropImage.cropImage(liveImage, 90,500,100,30);
+			subImage = CropImage.cropImage(liveImage, 490,600,60,120);
 			
-			File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
-			ImageIO.write(subImage, "jpg", outputFile);
+			LOGGER.info("Click one right button ");
+			CommonMethods.execCommand(RemoteKeyContstants.RIGHT_BUTTON);
+			LOGGER.info("Click ok button ");
+			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
 			
-			outputImage = ImageIO.read(new File("/var/lib/jenkins/workspace/image1.jpg"));
-			
-			ImageCompare imgCompare =new ImageCompare();
-			LOGGER.info("Calling screen compare method");
-			status = imgCompare.compare(referenceImage, outputImage);
-			
+			LOGGER.info("Calling read text in image method");
+			GrabText grabText = new GrabText();
+			actualspeed = grabText.crackImage(subImage);
+			status = CommonMethods.textCompare(expectedspeed, actualspeed);
 		
 			if (status) {
 				LOGGER.info("The status of text comparision is: " + status);
 			} else {
 				LOGGER.error("STEP 2: ACTUAL : " + errorMessage);
 			}
-			LOGGER.info("**********************************************************************************");
-			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
-<<<<<<< HEAD
-=======
-			 
 			
-			CommonMethods.Trickplay();
-				 
-			LOGGER.info("Linear channels which supporttrick play");		
-			CommonMethods.Trickplay();
 			
->>>>>>> 0138e781b54cb6c80f87d51243278079f463a280
+			//x12
+			
+			LOGGER.info("Click one left button ");
+			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			
+			LOGGER.info("Click OK BUTTON ");
+			
+			LOGGER.info("Capture Rewind screen live image");
+			CaptureLiveImage.capture2(ImageCaptureConstants.CHANNELS_REWIND,RemoteKeyContstants.OK_BUTTON,IntergerCount.ONE);
+			Thread.sleep(5000L);
+			
+			LOGGER.info("Reading live image");
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.CHANNELS_REWIND));
+			
+			LOGGER.info("Calling crop method");
+			subImage = CropImage.cropImage(liveImage, 490,600,60,120);
+			
+			LOGGER.info("Click one right button ");
+			CommonMethods.execCommand(RemoteKeyContstants.RIGHT_BUTTON);
+			LOGGER.info("Click ok button ");
+			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			
+			LOGGER.info("Calling read text in image method");
+			GrabText grabText12 = new GrabText();
+			actualspeed12 = grabText12.crackImage(subImage);
+			status = CommonMethods.textCompare(expectedspeed12, actualspeed12);
+		
+			if (status) {
+				LOGGER.info("The status of text comparision is: " + status);
+			} else {
+				LOGGER.error("STEP 2: ACTUAL : " + errorMessage);
+			}
+			
+			//x24
 
 			
+			LOGGER.info("Click one left button ");
+			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			
+			LOGGER.info("Click OK BUTTON ");
+			
+			LOGGER.info("Capture Rewind screen live image");
+			CaptureLiveImage.capture2(ImageCaptureConstants.CHANNELS_REWIND,RemoteKeyContstants.OK_BUTTON,IntergerCount.ONE);
+			Thread.sleep(5000L);
+			
+			LOGGER.info("Reading live image");
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.CHANNELS_REWIND));
+			
+			LOGGER.info("Calling crop method");
+			subImage = CropImage.cropImage(liveImage, 490,600,60,120);
+			
+			LOGGER.info("Click one right button ");
+			CommonMethods.execCommand(RemoteKeyContstants.RIGHT_BUTTON);
+			LOGGER.info("Click ok button ");
+			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			
+			LOGGER.info("Calling read text in image method");
+			GrabText grabText24 = new GrabText();
+			actualspeed24 = grabText24.crackImage(subImage);
+			status = CommonMethods.textCompare(expectedspeed24, actualspeed24);
+		
+			if (status) {
+				LOGGER.info("The status of text comparision is: " + status);
+			} else {
+				LOGGER.error("STEP 2: ACTUAL : " + errorMessage);
+			}
+			
+		}
+		
+		
+		catch (Exception e) {
+		LOGGER.error("Exception occured while reading the image file " + e);
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		LOGGER.info("Inside catch");
+		errorMessage = e.getMessage();
+		LOGGER.error("Exception while launching movie screen: " + errorMessage);
+		CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
+
+	}
+		/**
+	     * Step 5 :Perform fast forward operation at different speed and play using on screen controls
+	     */
+		
+		LOGGER.info("#######################################################################################");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-3001");
+		LOGGER.info("TEST DESCRIPTION:  This test is to verify fast forward operation at different speed and play using on screen controls");
+		LOGGER.info("TEST STEPS : ");
+		LOGGER.info("1. Press right and ok button ");
+		LOGGER.info("#######################################################################################");
+		try {
+			stepNum = "S5";
+			errorMessage = "Failed to verify fast forward operation";
+			LOGGER.info("*****************************************************************************************");
+			LOGGER.info("STEP 4: DESCRIPTION : This test is to verify fast forward operation at different speed and play using on screen controls");
+			LOGGER.info("STEP 4: ACTION : Press right button and take screenshot");
+			LOGGER.info("STEP 4: EXPECTED : fast forward operation is verified at different speed.");
+			LOGGER.info("*****************************************************************************************");
+			
+			LOGGER.info("Click one right button ");
+			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			
+			LOGGER.info("Click OK BUTTON ");
+					
+			LOGGER.info("Capture fast forward screen live image");
+			//CaptureLiveImage.capture(ImageCaptureConstants.CHANNELS_REWIND);
+			CaptureLiveImage.capture2(ImageCaptureConstants.CHANNELS_FAST_FORWARD,RemoteKeyContstants.OK_BUTTON,IntergerCount.ONE);
+			Thread.sleep(5000L);
+			
+			LOGGER.info("Reading live image");
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.CHANNELS_FAST_FORWARD));
+			
+			LOGGER.info("Calling crop method");
+			subImage = CropImage.cropImage(liveImage, 730,600,60,120);
+			
+			LOGGER.info("Calling read text in image method");
+			GrabText grabText = new GrabText();
+			actualfast6 = grabText.crackImage(subImage);
+			status = CommonMethods.textCompare(expectedfast6, actualfast6);
+		
+			if (status) {
+				LOGGER.info("The status of text comparision is: " + status);
+			} else {
+				LOGGER.error("STEP 2: ACTUAL : " + errorMessage);
+			}
+			
+			//x12
+			
+
+			LOGGER.info("Click one right button ");
+			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			
+			LOGGER.info("Click OK BUTTON ");
+					
+			LOGGER.info("Capture fast forward screen live image");
+			//CaptureLiveImage.capture(ImageCaptureConstants.CHANNELS_REWIND);
+			CaptureLiveImage.capture2(ImageCaptureConstants.CHANNELS_FAST_FORWARD,RemoteKeyContstants.OK_BUTTON,IntergerCount.ONE);
+			Thread.sleep(5000L);
+			
+			LOGGER.info("Reading live image");
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.CHANNELS_FAST_FORWARD));
+			
+			LOGGER.info("Calling crop method");
+			subImage = CropImage.cropImage(liveImage, 730,600,60,120);
+			
+			LOGGER.info("Calling read text in image method");
+			GrabText grabText12 = new GrabText();
+			actualfast12 = grabText12.crackImage(subImage);
+			status = CommonMethods.textCompare(expectedfast12, actualfast12);
+		
+			if (status) {
+				LOGGER.info("The status of text comparision is: " + status);
+			} else {
+				LOGGER.error("STEP 2: ACTUAL : " + errorMessage);
+			}
+			
+			//x24
+
+			LOGGER.info("Click one right button ");
+			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			
+			LOGGER.info("Click OK BUTTON ");
+					
+			LOGGER.info("Capture fast forward screen live image");
+			//CaptureLiveImage.capture(ImageCaptureConstants.CHANNELS_REWIND);
+			CaptureLiveImage.capture2(ImageCaptureConstants.CHANNELS_FAST_FORWARD,RemoteKeyContstants.OK_BUTTON,IntergerCount.ONE);
+			Thread.sleep(5000L);
+			
+			LOGGER.info("Reading live image");
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.CHANNELS_FAST_FORWARD));
+			
+			LOGGER.info("Calling crop method");
+			subImage = CropImage.cropImage(liveImage, 730,600,60,120);
+			
+			LOGGER.info("Calling read text in image method");
+			GrabText grabText24 = new GrabText();
+			actualfast24 = grabText24.crackImage(subImage);
+			status = CommonMethods.textCompare(expectedfast24, actualfast24);
+		
+			if (status) {
+				LOGGER.info("The status of text comparision is: " + status);
+			} else {
+				LOGGER.error("STEP 2: ACTUAL : " + errorMessage);
+			}
 		}
 		
 		catch (Exception e) {
@@ -254,6 +435,6 @@ package com.automatics.rdkv.PeacockTC;
 		CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 
 	}
-	LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-3001");
-	}
+	}	
+		
 }
