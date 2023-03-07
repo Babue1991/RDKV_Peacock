@@ -152,7 +152,6 @@ package com.automatics.rdkv.PeacockTC;
 			LOGGER.info("STEP 3: ACTION : Press down button and take screenshot");
 			LOGGER.info("STEP 3: EXPECTED : Channels option should launch successfully.");
 			LOGGER.info("*****************************************************************************************");
-<<<<<<< HEAD
 
 			
 			LOGGER.info("Linear channels which supporttrick play");		
@@ -166,8 +165,7 @@ package com.automatics.rdkv.PeacockTC;
 			errorMessage = e.getMessage();
 			LOGGER.error("Exception while launching movie screen: " + errorMessage);
 			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
-=======
->>>>>>> 0138e781b54cb6c80f87d51243278079f463a280
+
 	
 		}
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-3001");
@@ -230,17 +228,13 @@ package com.automatics.rdkv.PeacockTC;
 			}
 			LOGGER.info("**********************************************************************************");
 			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
-<<<<<<< HEAD
-=======
-			 
+
 			
 			CommonMethods.Trickplay();
 				 
 			LOGGER.info("Linear channels which supporttrick play");		
 			CommonMethods.Trickplay();
 			
->>>>>>> 0138e781b54cb6c80f87d51243278079f463a280
-
 			
 		}
 		
