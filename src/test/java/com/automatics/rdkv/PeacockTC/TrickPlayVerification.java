@@ -81,9 +81,9 @@ package com.automatics.rdkv.PeacockTC;
 				stepNum = "S1";
 				errorMessage = "Failed to navigate to Channels button";
 				LOGGER.info("*****************************************************************************************");
-				LOGGER.info("STEP 1: DESCRIPTION : This test is to verify user can navigate to the channels content");
-				LOGGER.info("STEP 1: ACTION : Press down button and take screenshot");
-				LOGGER.info("STEP 1: EXPECTED : Channels option should launch successfully.");
+				LOGGER.info("STEP 2: DESCRIPTION : This test is to verify user can navigate to the channels content");
+				LOGGER.info("STEP 2: ACTION : Press down button and take screenshot");
+				LOGGER.info("STEP 2: EXPECTED : Channels option should launch successfully.");
 				LOGGER.info("*****************************************************************************************");
 
 				LOGGER.info("Click Xfinity left button ");
@@ -115,7 +115,7 @@ package com.automatics.rdkv.PeacockTC;
 				if (status) {
 					LOGGER.info("The status of text comparision is: " + status);
 				} else {
-					LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+					LOGGER.error("STEP 2: ACTUAL : " + errorMessage);
 				}
 				LOGGER.info("**********************************************************************************");
 				tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
@@ -142,149 +142,21 @@ package com.automatics.rdkv.PeacockTC;
 		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-3001");
 		LOGGER.info("TEST DESCRIPTION:  This test is to verify linear channels which support trick play");
 		LOGGER.info("TEST STEPS : ");
-		LOGGER.info("1. Press four down button");
+		LOGGER.info("1. Press down button");
 		LOGGER.info("#######################################################################################");
 		try {
-			stepNum = "S2";
+			stepNum = "S3";
 			errorMessage = "The user is not in the application screen";
 			LOGGER.info("*****************************************************************************************");
-			LOGGER.info("STEP 2: DESCRIPTION : This test is to verify linear channels which support trick play");
-			LOGGER.info("STEP 2: ACTION : Press four down button and take screenshot");
-			LOGGER.info("STEP 2: EXPECTED : Channels option should launch successfully.");
+			LOGGER.info("STEP 3: DESCRIPTION : This test is to verify linear channels which support trick play");
+			LOGGER.info("STEP 3: ACTION : Press down button and take screenshot");
+			LOGGER.info("STEP 3: EXPECTED : Channels option should launch successfully.");
 			LOGGER.info("*****************************************************************************************");
-<<<<<<< HEAD
-<<<<<<< HEAD
-	
-	
-			LOGGER.info("Capture Channels screen live image");
-			CaptureLiveImage.capture2(ImageCaptureConstants.TRICK_PLAY,RemoteKeyContstants.DOWN_BUTTON,IntergerCount.THREE);
-			Thread.sleep(5000L);
+
 			
-			LOGGER.info("Click Xfinity OK button ");
-			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
-			Thread.sleep(5000L);
-			
-			LOGGER.info("Capture Channels screen live image");
-			CaptureLiveImage.capture2(ImageCaptureConstants.TRICK_PLAY,RemoteKeyContstants.RIGHT_BUTTON,IntergerCount.ONE );
-			
-			LOGGER.info("Reading reference image");
-			referenceImage =ImageIO.read(new File(ImageCaptureConstants.TRICK_PLAY_REF));
-			
-			LOGGER.info("Reading live image");
-			liveImage = ImageIO.read(new File(ImageCaptureConstants.TRICK_PLAY));
-			
-			LOGGER.info("Calling crop method");
-			subImage = CropImage.cropImage(liveImage, 530,630,250,44);
-						
-			File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
-			ImageIO.write(subImage, "jpg", outputFile);
-			
-			outputImage = ImageIO.read(new File("/var/lib/jenkins/workspace/image1.jpg"));
-			
-			ImageCompare imgCompare =new ImageCompare();
-			LOGGER.info("Calling screen compare method");
-			status = imgCompare.compare(referenceImage, outputImage);
-			
-			if (status) {
-				
-				LOGGER.info("The status of image comparision is: " + status + "and ");
-				
-			} else {
-				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
-			}
-			
-			LOGGER.info("Reading reference image");
-			referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LINEAR_CHANNELS_VERIFY));
-			
-			LOGGER.info("Capture Channels screen live image");
-			CaptureLiveImage.capture2(ImageCaptureConstants.LINEARCHANNELS_OPTION,RemoteKeyContstants.DOWN_BUTTON,IntergerCount.FOUR);
-			Thread.sleep(5000L);
-			
-			LOGGER.info("Reading live image");
-			liveImage = ImageIO.read(new File(ImageCaptureConstants.LINEARCHANNELS_OPTION));
-			
-			LOGGER.info("Calling crop method");
-			subImage = CropImage.cropImage(liveImage, 750,400,60,120);
-			
-						
-			//File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
-			ImageIO.write(subImage, "jpg", outputFile);
-			
-			outputImage = ImageIO.read(new File("/var/lib/jenkins/workspace/image1.jpg"));
-			
-			//ImageCompare imgCompare =new ImageCompare();
-			LOGGER.info("Calling screen compare method");
-			status = imgCompare.compare(referenceImage, outputImage);
-			
-			LOGGER.info("**********************************************************************************");
-			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);s
-			 
-			
-			CommonMethods.Trickplay();
-	
-=======
-				 
 			LOGGER.info("Linear channels which supporttrick play");		
 			CommonMethods.Trickplay();
-			
->>>>>>> ee24eb61dc8272882e90815b4350df7c91d7f699
-			
-//			LOGGER.info("Reading reference image");
-//			referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LINEAR_CHANNELS_VERIFY));
-//			
-//			
-//			LOGGER.info("Capture Channels screen live image");
-//			CaptureLiveImage.capture2(ImageCaptureConstants.LINEARCHANNELS_OPTION,RemoteKeyContstants.DOWN_BUTTON,IntergerCount.FOUR);
-//			Thread.sleep(5000L);
-//			
-//			LOGGER.info("Reading live image");
-//			liveImage = ImageIO.read(new File(ImageCaptureConstants.LINEARCHANNELS_OPTION));
-//			
-//			LOGGER.info("Calling crop method");
-//			subImage = CropImage.cropImage(liveImage, 750,400,60,120);
-//			
-//						
-//			File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
-//			ImageIO.write(subImage, "jpg", outputFile);
-//			
-//			outputImage = ImageIO.read(new File("/var/lib/jenkins/workspace/image1.jpg"));
-//			
-//			ImageCompare imgCompare =new ImageCompare();
-//			LOGGER.info("Calling screen compare method");
-//			status = imgCompare.compare(referenceImage, outputImage);
-//			
-//			if (status) {
-//				LOGGER.info("The status of text comparision is: " + status);
-//			} else {
-//				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
-//			}
-//			
-//			LOGGER.info("Reading reference image");
-//			referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LINEAR_CHANNELS_VERIFY));
-//			
-//			LOGGER.info("Capture Channels screen live image");
-//			CaptureLiveImage.capture2(ImageCaptureConstants.LINEARCHANNELS_OPTION,RemoteKeyContstants.DOWN_BUTTON,IntergerCount.FOUR);
-//			Thread.sleep(5000L);
-//			
-//			LOGGER.info("Reading live image");
-//			liveImage = ImageIO.read(new File(ImageCaptureConstants.LINEARCHANNELS_OPTION));
-//			
-//			LOGGER.info("Calling crop method");
-//			subImage = CropImage.cropImage(liveImage, 750,400,60,120);
-//			
-//						
-//			//File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
-//			ImageIO.write(subImage, "jpg", outputFile);
-//			
-//			outputImage = ImageIO.read(new File("/var/lib/jenkins/workspace/image1.jpg"));
-//			
-//			//ImageCompare imgCompare =new ImageCompare();
-//			LOGGER.info("Calling screen compare method");
-//			status = imgCompare.compare(referenceImage, outputImage);
-//			
-//			LOGGER.info("**********************************************************************************");
-//			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
-//	
+				
 		} catch (Exception e) {
 			LOGGER.error("Exception occured while reading the image file " + e);
 			// TODO Auto-generated catch block
@@ -297,5 +169,78 @@ package com.automatics.rdkv.PeacockTC;
 		}
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-3001");
 		
+		
+		
+		/**
+	     * Step 4 :Perform Rewind operation at different speed and play using on screen controls
+	     */	
+		
+		LOGGER.info("#######################################################################################");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-3001");
+		LOGGER.info("TEST DESCRIPTION:  This test is to verify Rewind operation at different speed and play using on screen controls");
+		LOGGER.info("TEST STEPS : ");
+		LOGGER.info("1. Press down button");
+		LOGGER.info("#######################################################################################");
+		try {
+			stepNum = "S4";
+			errorMessage = "The user is not in the application screen";
+			LOGGER.info("*****************************************************************************************");
+			LOGGER.info("STEP 4: DESCRIPTION : This test is to verify Rewind operation at different speed and play using on screen controls");
+			LOGGER.info("STEP 4: ACTION : Press four down button and take screenshot");
+			LOGGER.info("STEP 4: EXPECTED : Channels option should launch successfully.");
+			LOGGER.info("*****************************************************************************************");
+			
+			
+			LOGGER.info("Click left button ");
+			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			
+			LOGGER.info("Click OK BUTTON ");
+			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			
+			LOGGER.info("Reading reference image");
+			referenceImage =ImageIO.read(new File(ImageCaptureConstants.REWIND_REF));
+					
+			LOGGER.info("Capture Rewind screen live image");
+			CaptureLiveImage.capture(ImageCaptureConstants.CHANNELS_REWIND);
+			Thread.sleep(5000L);
+			
+			LOGGER.info("Reading live image");
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.CHANNELS_REWIND));
+			
+			LOGGER.info("Calling crop method");
+			subImage = CropImage.cropImage(liveImage, 90,500,100,30);
+			
+			File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
+			ImageIO.write(subImage, "jpg", outputFile);
+			
+			outputImage = ImageIO.read(new File("/var/lib/jenkins/workspace/image1.jpg"));
+			
+			ImageCompare imgCompare =new ImageCompare();
+			LOGGER.info("Calling screen compare method");
+			status = imgCompare.compare(referenceImage, outputImage);
+			
+		
+			if (status) {
+				LOGGER.info("The status of text comparision is: " + status);
+			} else {
+				LOGGER.error("STEP 2: ACTUAL : " + errorMessage);
+			}
+			LOGGER.info("**********************************************************************************");
+			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+
+			
 		}
+		
+		catch (Exception e) {
+		LOGGER.error("Exception occured while reading the image file " + e);
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		LOGGER.info("Inside catch");
+		errorMessage = e.getMessage();
+		LOGGER.error("Exception while launching movie screen: " + errorMessage);
+		CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
+
 	}
+	LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-3001");
+	}
+}
