@@ -16,11 +16,11 @@ public class CropImage {
 
 	public static void main(String[] args) throws IOException {
 
-		BufferedImage liveImage = ImageIO.read(new File("/home/user/Desktop/backward1.jpg"));
+		BufferedImage liveImage = ImageIO.read(new File("/home/user/Desktop/Pausetrick.jpg"));
 		
 		try {
 			
-			cropedImage = cropImage(liveImage, 60,635,40,40);
+			//cropedImage = cropImage(liveImage, 730,600,60,120);
 
 
 			cropedImage = cropImage(liveImage, 750,400,60,50);
@@ -48,7 +48,7 @@ public class CropImage {
 			e.printStackTrace();
 		}
 		
-		File outputFile = new File("/home/user/Desktop/image3.jpg");
+		File outputFile = new File("/home/user/Desktop/image6.jpg");
 		ImageIO.write(cropedImage, "png", outputFile);
 	}
 
