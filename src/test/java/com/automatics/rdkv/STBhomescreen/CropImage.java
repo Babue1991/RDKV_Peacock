@@ -22,12 +22,10 @@ public class CropImage {
 			
 			cropedImage = cropImage(liveImage, 60,635,40,40);
 
-<<<<<<< HEAD
+
 			cropedImage = cropImage(liveImage, 750,400,60,50);
 
 
-=======
->>>>>>> 2bc17fe96e8777935f4b48cc36df95e3ddf1d311
 			//730,350,340,150
 			//Popular entertainment section  70,380,380,70
 			
