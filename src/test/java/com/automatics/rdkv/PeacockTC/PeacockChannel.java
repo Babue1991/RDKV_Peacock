@@ -240,7 +240,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_CHANNEL_ADS_TIMER));
 
 			LOGGER.info("Calling image cropping method");
-			subImage = CropImage.cropImage(liveImage, 60,635,40,40);
+			subImage = CropImage.cropImage(liveImage, 63,635,38,38);
 
 			File outputFile = new File("/var/lib/jenkins/workspace/timerimage.jpg");
 			ImageIO.write(subImage, "jpg", outputFile);
