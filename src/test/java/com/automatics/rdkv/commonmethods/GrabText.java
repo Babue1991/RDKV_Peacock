@@ -4,13 +4,8 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
-
 import javax.imageio.ImageIO;
-
-import com.automatics.rdkv.constants.ImageCaptureConstants;
 import com.automatics.rdkv.constants.LanguageConstants;
-import com.automatics.test.AutomaticsTestBase;
-
 import net.sourceforge.tess4j.ITesseract;
 import net.sourceforge.tess4j.Tesseract;
 import net.sourceforge.tess4j.TesseractException;
@@ -18,9 +13,9 @@ import net.sourceforge.tess4j.TesseractException;
 public class GrabText {
 
 	public static void main(String[] args) throws Exception {
-		String path="/home/user/Downloads/SearchbarHighlight(1).jpg";
+		//String path="/home/user/Downloads/SearchbarHighlight(1).jpg";
 		GrabText grabText = new GrabText();
-		BufferedImage	liveImage = ImageIO.read(new File("/home/user/Desktop/image3.jpg"));
+		BufferedImage	liveImage = ImageIO.read(new File("/home/user/Desktop/image6.jpg"));
 		System.out.println(grabText.crackImage(liveImage));
 		//System.out.println(grabText.crackNumber(liveImage));
 	}

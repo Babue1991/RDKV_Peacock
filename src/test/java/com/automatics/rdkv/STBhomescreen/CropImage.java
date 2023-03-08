@@ -4,33 +4,24 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
 
-import com.automatics.image.imagick.MagickComparison;
-import com.automatics.rdkv.constants.ReferenceImageConstants;
-
 public class CropImage {
-	static BufferedImage cropImage;
+	
 	static BufferedImage cropedImage = null;
 
 	public static void main(String[] args) throws IOException {
 
-		BufferedImage liveImage = ImageIO.read(new File("/home/user/Desktop/backward1.jpg"));
+		BufferedImage liveImage = ImageIO.read(new File("/home/user/Desktop/NBC.jpg"));
 		
 		try {
 			
-			cropedImage = cropImage(liveImage, 60,635,40,40);
 
-<<<<<<< HEAD
-			cropedImage = cropImage(liveImage, 750,400,60,50);
+			cropedImage = cropImage(liveImage, 98,390,60,25);
 
-
-=======
->>>>>>> 2bc17fe96e8777935f4b48cc36df95e3ddf1d311
+            //600,600,60,100
 			//730,350,340,150
 			//Popular entertainment section  70,380,380,70
-			
 			//Application text section : 70,25,160,60
 			//Peacock text in application screen grab 50,300,160,45
 			// Splash screen resolution 120,230,1000,250
@@ -43,6 +34,7 @@ public class CropImage {
 			//Search bar text verify 100,280,380,50
 			//Search bar content Antz 90,340,290,180
 			//Channel ads timer 60,635,40,40
+			//Channel NBC 98,390,60,25
 			
 			
 		} catch (Exception e) {
@@ -50,8 +42,8 @@ public class CropImage {
 			e.printStackTrace();
 		}
 		
-		File outputFile = new File("/home/user/Desktop/image3.jpg");
-		ImageIO.write(cropedImage, "png", outputFile);
+		File outputFile = new File("/home/user/Desktop/image6.jpg");
+		ImageIO.write(cropedImage, "jpg", outputFile);
 	}
 
 	   /**  

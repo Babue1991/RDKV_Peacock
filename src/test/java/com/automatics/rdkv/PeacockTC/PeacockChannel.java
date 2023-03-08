@@ -2,11 +2,11 @@ package com.automatics.rdkv.PeacockTC;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.util.concurrent.TimeUnit;
 
 import javax.imageio.ImageIO;
 
 import org.testng.annotations.Test;
-
 import com.automatics.annotations.TestDetails;
 import com.automatics.constants.DataProviderConstants;
 import com.automatics.device.Dut;
@@ -18,8 +18,10 @@ import com.automatics.rdkv.commonmethods.CommonMethods;
 import com.automatics.rdkv.commonmethods.GrabText;
 import com.automatics.rdkv.constants.ImageCaptureConstants;
 import com.automatics.rdkv.constants.RemoteKeyContstants;
+import com.automatics.rdkv.imagevalidation.ConvertImage;
 import com.automatics.tap.AutomaticsTapApi;
 import com.automatics.test.AutomaticsTestBase;
+
 
 public class PeacockChannel extends AutomaticsTestBase {
 	
@@ -55,14 +57,14 @@ public class PeacockChannel extends AutomaticsTestBase {
 		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-4008");
 		LOGGER.info("TEST DESCRIPTION:  This test is to verify subtile text");
 		LOGGER.info("TEST STEPS : ");
-		LOGGER.info("1. Click on left button and then on ok button");
+		LOGGER.info("1. Enable subtitle and then verify text");
 		LOGGER.info("#######################################################################################");
 		try {
 			stepNum = "S1";
 			errorMessage = "Failed to verify subtitle text";
 			LOGGER.info("*****************************************************************************************");
 			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify subtile text");
-			LOGGER.info("STEP 1: ACTION : Press left button and click ok button");
+			LOGGER.info("STEP 1: ACTION :Enable subtitle and then verify text");
 			LOGGER.info("STEP 1: EXPECTED : Subtitle should displayed");
 			LOGGER.info("*****************************************************************************************");
             
@@ -96,29 +98,29 @@ public class PeacockChannel extends AutomaticsTestBase {
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-4008");
 
 	}
-	@Test(priority=1,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+	@Test(priority=2,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
-	@TestDetails(testUID = "PEACOCK-AAMP-TC-4009")
+	@TestDetails(testUID = "PEACOCK-AAMP-TC-4010")
 	public void testVerifyAudioSubtitleSetting(Dut device) throws InterruptedException {
 		// Variables declaration starts
 		boolean status = false;
-		String testId = "PEACOCK-AAMP-TC-009";
+		String testId = "PEACOCK-AAMP-TC-010";
 		String errorMessage = null;
 		String stepNum = null;
 		// Variables declaration Ends
 
 		LOGGER.info("#######################################################################################");
-		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-4009");
-		LOGGER.info("TEST DESCRIPTION:  This test is to verify subtile text");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-4010");
+		LOGGER.info("TEST DESCRIPTION:This test is to verify Spanish subtitle text");
 		LOGGER.info("TEST STEPS : ");
-		LOGGER.info("1. Click on left button and then on ok button");
+		LOGGER.info("1. Enable spanish lanaguage and verify text");
 		LOGGER.info("#######################################################################################");
 		try {
 			stepNum = "S1";
-			errorMessage = "Failed to verify subtitle text";
+			errorMessage = "Failed to verify Spanish subtitle text";
 			LOGGER.info("*****************************************************************************************");
-			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify subtile text");
-			LOGGER.info("STEP 1: ACTION : Press left button and click ok button");
+			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify Spanish subtitle text");
+			LOGGER.info("STEP 1: ACTION : Enable spanish lanaguage and verify text");
 			LOGGER.info("STEP 1: EXPECTED : Subtitle should displayed");
 			LOGGER.info("*****************************************************************************************");
             
@@ -153,8 +155,8 @@ public class PeacockChannel extends AutomaticsTestBase {
 			stepNum = "S2";
 			errorMessage = "Failed to verify subtitle text";
 			LOGGER.info("*****************************************************************************************");
-			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify subtile text");
-			LOGGER.info("STEP 1: ACTION : Press left button and click ok button");
+			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify different audio and subtitle text");
+			LOGGER.info("STEP 1: ACTION : Enable english auido and spanish subtitle");
 			LOGGER.info("STEP 1: EXPECTED : Subtitle should displayed");
 			LOGGER.info("*****************************************************************************************");
             
@@ -165,7 +167,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 			status = CommonMethods.checkSubtitle();
 			
 			if (status) {
-				LOGGER.info("Subtitle text is shown and status is : " + status);
+				LOGGER.info("Spanish subtitle text is shown and status is : " + status);
 			} else {
 				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
 			}
@@ -182,16 +184,16 @@ public class PeacockChannel extends AutomaticsTestBase {
 			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 
 		}
-		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-4009");
+		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-4010");
 
 	}
-	@Test(priority=1,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+	@Test(priority=3,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
-	@TestDetails(testUID = "PEACOCK-AAMP-TC-4010")
+	@TestDetails(testUID = "PEACOCK-AAMP-TC-4011")
 	public void testVerifyAds(Dut device) throws InterruptedException {
 		// Variables declaration starts
 		boolean status = false;
-		String testId = "PEACOCK-AAMP-TC-010";
+		String testId = "PEACOCK-AAMP-TC-011";
 		String errorMessage = null;
 		String stepNum = null;
 		BufferedImage liveImage;
@@ -199,10 +201,10 @@ public class PeacockChannel extends AutomaticsTestBase {
 		// Variables declaration Ends
 
 		LOGGER.info("#######################################################################################");
-		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-4010");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-4011");
 		LOGGER.info("TEST DESCRIPTION:  This test is to verify ads screen");
 		LOGGER.info("TEST STEPS : ");
-		LOGGER.info("1. Click on play button and then check ads");
+		LOGGER.info("1. Fastforward play and then check for ads");
 		LOGGER.info("#######################################################################################");
 		try {
 			stepNum = "S1";
@@ -214,22 +216,30 @@ public class PeacockChannel extends AutomaticsTestBase {
 			LOGGER.info("*****************************************************************************************");
             
 			LOGGER.info("Click Xfinity OK button ");
-			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 			
 			LOGGER.info("Click Xfinity right button ");
-			CommonMethods.execCommand(RemoteKeyContstants.RIGHT_BUTTON);
+			CommonMethods.execCommandIcon(RemoteKeyContstants.RIGHT_BUTTON);
 			
-			LOGGER.info("Click Xfinity right button ");
-			CommonMethods.execCommand(RemoteKeyContstants.RIGHT_BUTTON);
+			LOGGER.info("Click Xfinity OK button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+			
+			LOGGER.info("Click Xfinity OK button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+			
+			Thread.sleep(10000);
 			
 			LOGGER.info("Click Xfinity left button ");
-			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
 			
 			LOGGER.info("Click Xfinity OK button ");
-			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+			
+			Thread.sleep(3000);
 			
 			LOGGER.info("Click Xfinity OK button ");
-			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+			
 			
 			LOGGER.info("Capture application screen live image");
 			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_CHANNEL_ADS_TIMER);
@@ -238,14 +248,22 @@ public class PeacockChannel extends AutomaticsTestBase {
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_CHANNEL_ADS_TIMER));
 
 			LOGGER.info("Calling image cropping method");
-			subImage = CropImage.cropImage(liveImage, 60,635,40,40);
+			subImage = CropImage.cropImage(liveImage, 68,638,35,35);
 
 			File outputFile = new File("/var/lib/jenkins/workspace/timerimage.jpg");
 			ImageIO.write(subImage, "jpg", outputFile);
+			
+			BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/timerimage.jpg"));
+			
+			ConvertImage ci = new ConvertImage();
+			BufferedImage greyImage =ci.ConvertGrayScale(output);
+			
+			File outputFiletwo = new File("/var/lib/jenkins/workspace/timerimage2.jpg");
+			ImageIO.write(greyImage, "jpg", outputFiletwo);
 
 			LOGGER.info("Calling method to read text in image");
 			GrabText grabText = new GrabText();
-			String actual = grabText.crackImage(subImage);
+			String actual = grabText.crackImage(greyImage);
 			
 			LOGGER.info("Calling method to read number in image");
 			status = CommonMethods.checkNumber(actual);
@@ -268,23 +286,115 @@ public class PeacockChannel extends AutomaticsTestBase {
 			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 
 		}
+		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-4011");
+
+	}
+	@Test(priority=4,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
+	@TestDetails(testUID = "PEACOCK-AAMP-TC-4013")
+	public void testVerifyLongTermStability(Dut device) throws InterruptedException {
+		// Variables declaration starts
+		boolean status = false;
+		String testId = "PEACOCK-AAMP-TC-013";
+		String errorMessage = null;
+		String stepNum = null;
+		BufferedImage liveImage;
+		BufferedImage subImage;
+		String expected = "NOW";
+		String actual;
+		
+		// Variables declaration Ends
+
+		LOGGER.info("#######################################################################################");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-4013");
+		LOGGER.info("TEST DESCRIPTION:This test is to verify Long term stability of linear channels");
+		LOGGER.info("TEST STEPS : ");
+		LOGGER.info("1. Tune to  linear channels  which plays true linear content");
+		LOGGER.info("#######################################################################################");
 		try {
-			stepNum = "S2";
-			errorMessage = "Failed to verify subtitle text";
+			stepNum = "S1";
+			errorMessage = "Failed to verify linear channels";
 			LOGGER.info("*****************************************************************************************");
-			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify subtile text");
-			LOGGER.info("STEP 1: ACTION : Press left button and click ok button");
-			LOGGER.info("STEP 1: EXPECTED : Subtitle should displayed");
+			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify Long term stability of linear channels");
+			LOGGER.info("STEP 1: ACTION : Tune to  linear channels  which plays true linear content");
+			LOGGER.info("STEP 1: EXPECTED : Peacock Linear channel should continue to play without any AV issue for about 2 mins");
 			LOGGER.info("*****************************************************************************************");
             
-			LOGGER.info("Calling enable audio method");
-			CommonMethods.enableChannelAudio();
+			LOGGER.info("Click Xfinity button ");
+			CommonMethods.execCommand(RemoteKeyContstants.XFINITY_BUTTON);
 			
-			LOGGER.info("Calling method to check subtitle");
-			status = CommonMethods.checkSubtitle();
+			Thread.sleep(3000);
+			
+			LOGGER.info("Click Xfinity OK button ");
+			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			
+			Thread.sleep(3000);
+			
+			LOGGER.info("Click Xfinity down button ");
+			CommonMethods.execCommand(RemoteKeyContstants.DOWN_BUTTON);
+			
+			Thread.sleep(2000);
+			
+			LOGGER.info("Click Xfinity OK button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+			
+			Thread.sleep(30000);
+			
+			LOGGER.info("Click Xfinity left button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
+			
+			LOGGER.info("Click Xfinity down button 6 times ");
+			CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON,6);
+			
+			LOGGER.info("Click Xfinity OK button ");
+			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			
+			Thread.sleep(3000);
+			
+			LOGGER.info("Click Xfinity down button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
+			
+			LOGGER.info("Click Xfinity OK button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+			
+			Thread.sleep(10000);
+			
+			LOGGER.info("Click Xfinity OK button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+			
+			LOGGER.info("Click Xfinity right button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.RIGHT_BUTTON);
+			
+			LOGGER.info("Capture application screen live image");
+			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_LINEAR_CHANNEL_NOW);
+
+			LOGGER.info("Reading live image");
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LINEAR_CHANNEL_NOW));
+
+			LOGGER.info("Calling image cropping method");
+			subImage = CropImage.cropImage(liveImage, 97,390,60,25);
+
+			File outputFile = new File("/var/lib/jenkins/workspace/linear.jpg");
+			ImageIO.write(subImage, "jpg", outputFile);
+			
+			BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/linear.jpg"));
+			
+			ConvertImage ci = new ConvertImage();
+			BufferedImage greyImage =ci.ConvertGrayScale(output);
+			
+			File outputFiletwo = new File("/var/lib/jenkins/workspace/linear2.jpg");
+			ImageIO.write(greyImage, "jpg", outputFiletwo);
+
+			LOGGER.info("Calling method to read text in image");
+			GrabText grabText = new GrabText();
+			actual = grabText.crackImage(greyImage);
+			
+			LOGGER.info("Calling method to read number in image");
+			
+			status = CommonMethods.partialTextCompare(expected, actual);
 			
 			if (status) {
-				LOGGER.info("Subtitle text is shown and status is : " + status);
+				LOGGER.info("Channel playing with no AV issues : " + status);
 			} else {
 				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
 			}
@@ -297,11 +407,76 @@ public class PeacockChannel extends AutomaticsTestBase {
 			e.printStackTrace();
 			LOGGER.info("Inside catch");
 			errorMessage = e.getMessage();
-			LOGGER.error("Exception while verifying subtitle text: " + errorMessage);
+			LOGGER.error("Exception while verifying linear channel: " + errorMessage);
 			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 
 		}
-		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-4009");
+		LOGGER.info("2. Play linear channel content for  2 mins");
+		LOGGER.info("#######################################################################################");
+		try {
+			stepNum = "S2";
+			errorMessage = "Failed to  play linear channel content for  2 mins";
+			LOGGER.info("*****************************************************************************************");
+			LOGGER.info("STEP 2: DESCRIPTION : Play linear channel content for  2 mins");
+			LOGGER.info("STEP 2: ACTION : Tune to  linear channels  which plays true linear content");
+			LOGGER.info("STEP 2: EXPECTED : Peacock Linear channel should continue to play without any AV issue for about 2 mins");
+			LOGGER.info("*****************************************************************************************");
+            
+			LOGGER.info("Click Xfinity OK button ");
+			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			
+			TimeUnit. MINUTES. sleep(1);
+			
+			LOGGER.info("Click Xfinity OK button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+			
+			LOGGER.info("Capture application screen live image");
+			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_LINEAR_CHANNEL_NOW);
+
+			LOGGER.info("Reading live image");
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LINEAR_CHANNEL_NOW));
+
+			LOGGER.info("Calling image cropping method");
+			subImage = CropImage.cropImage(liveImage, 98,390,60,25);
+
+			File outputFile = new File("/var/lib/jenkins/workspace/linear.jpg");
+			ImageIO.write(subImage, "jpg", outputFile);
+			
+			BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/linear.jpg"));
+			
+			ConvertImage ci = new ConvertImage();
+			BufferedImage greyImage =ci.ConvertGrayScale(output);
+			
+			File outputFiletwo = new File("/var/lib/jenkins/workspace/linear2.jpg");
+			ImageIO.write(greyImage, "jpg", outputFiletwo);
+
+			LOGGER.info("Calling method to read text in image");
+			GrabText grabText = new GrabText();
+			actual = grabText.crackImage(greyImage);
+			
+			LOGGER.info("Calling method to read number in image");
+			
+			status = CommonMethods.textCompare(expected, actual);
+			
+			if (status) {
+				LOGGER.info("Channel playing with no AV issues : " + status);
+			} else {
+				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+			}
+			LOGGER.info("**********************************************************************************");
+			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+
+		} catch (Exception e) {
+			LOGGER.error("Exception occured while reading the image file " + e);
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			LOGGER.info("Inside catch");
+			errorMessage = e.getMessage();
+			LOGGER.error("Exception while verifying linear channel: " + errorMessage);
+			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
+
+		}
+		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-4013");
 
 	}
 }
