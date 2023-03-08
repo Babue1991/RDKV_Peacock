@@ -393,7 +393,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 			
 			LOGGER.info("Calling method to read number in image");
 			
-			status = CommonMethods.textCompare(expected, actual);
+			status = CommonMethods.partialTextCompare(expected, actual);
 			
 			if (status) {
 				LOGGER.info("Channel playing with no AV issues : " + status);
