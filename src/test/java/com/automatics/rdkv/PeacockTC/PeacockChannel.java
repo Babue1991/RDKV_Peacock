@@ -18,6 +18,7 @@ import com.automatics.rdkv.commonmethods.CommonMethods;
 import com.automatics.rdkv.commonmethods.GrabText;
 import com.automatics.rdkv.constants.ImageCaptureConstants;
 import com.automatics.rdkv.constants.RemoteKeyContstants;
+import com.automatics.rdkv.imagevalidation.ConvertImage;
 import com.automatics.tap.AutomaticsTapApi;
 import com.automatics.test.AutomaticsTestBase;
 
@@ -240,14 +241,19 @@ public class PeacockChannel extends AutomaticsTestBase {
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_CHANNEL_ADS_TIMER));
 
 			LOGGER.info("Calling image cropping method");
-			subImage = CropImage.cropImage(liveImage, 63,635,38,38);
+			subImage = CropImage.cropImage(liveImage, 65,635,35,35);
 
 			File outputFile = new File("/var/lib/jenkins/workspace/timerimage.jpg");
 			ImageIO.write(subImage, "jpg", outputFile);
+			
+			BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/timerimage.jpg"));
+			
+			ConvertImage ci = new ConvertImage();
+			BufferedImage greyImage =ci.ConvertGrayScale(output);
 
 			LOGGER.info("Calling method to read text in image");
 			GrabText grabText = new GrabText();
-			String actual = grabText.crackImage(subImage);
+			String actual = grabText.crackImage(greyImage);
 			
 			LOGGER.info("Calling method to read number in image");
 			status = CommonMethods.checkNumber(actual);
