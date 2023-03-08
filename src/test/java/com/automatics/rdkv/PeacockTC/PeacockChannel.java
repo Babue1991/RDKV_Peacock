@@ -258,7 +258,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 
 			LOGGER.info("Calling method to read text in image");
 			GrabText grabText = new GrabText();
-			String actual = grabText.crackNumber(greyImage);
+			String actual = grabText.crackImage(greyImage);
 			
 			LOGGER.info("Calling method to read number in image");
 			status = CommonMethods.checkNumber(actual);
