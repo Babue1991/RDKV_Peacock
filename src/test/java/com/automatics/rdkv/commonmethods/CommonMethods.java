@@ -426,17 +426,15 @@ public class CommonMethods extends AutomaticsTestBase{
 		LOGGER.info("Click Xfinity OK button ");
 		CommonMethods.execCommandRepeat2(RemoteKeyContstants.OK_BUTTON, IntergerCount.TWO);
 		Thread.sleep(15000L);
-		LOGGER.info("Click Xfinity Right button ");
-	    CaptureLiveImage.capture2(ImageCaptureConstants.PEACOCK_CHANNELS,RemoteKeyContstants.RIGHT_BUTTON,IntergerCount.ONE);
-		Thread.sleep(5000L);
 		
+		LOGGER.info("Click Xfinity Right button ");
+		CommonMethods.execCommandIcon(RemoteKeyContstants.RIGHT_BUTTON);
 		
 		LOGGER.info("Reading reference image");
 		referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_TRICK_PLAY_VERIFY));
 		
-		LOGGER.info("Capture Channels screen live image");
-		CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_CHANNELS);
-		
+		LOGGER.info("Capture application screen live image");
+		CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_CHANNELS);
 		
 		LOGGER.info("Reading live image");
 		liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_CHANNELS));
@@ -459,12 +457,13 @@ public class CommonMethods extends AutomaticsTestBase{
 		if(status==true) {
 			LOGGER.info("It's supports trick play");
 		}
-			else
+			else {
 				
 			LOGGER.info("It does not supports trick play");
 			
 			
 		}
 		
+	}
 	}
 }

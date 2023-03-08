@@ -61,16 +61,14 @@ import com.automatics.rdkv.constants.RemoteKeyContstants;
 			String errorMessage = null;
 			String stepNum = null;
 			Mat referenceImage;
-			//Mat liveImage;
 			BufferedImage liveImage;
 			BufferedImage subImage;
 			String actual;
 			String expected;
 			String expectedpopularapp = "Popular entertainment apps";
-			//String actualpopularapp;
 			String Expectedpeacock = "Peacock";
-			//String Actual;
 			String SplashText = "peacock:";
+			
 			// Variables declaration Ends
 
 			
@@ -104,6 +102,7 @@ import com.automatics.rdkv.constants.RemoteKeyContstants;
 				LOGGER.info("Taking live screenshot in "+ImageCaptureConstants.XFINITY_HOME_SCREEN);
 				CaptureLiveImage.capture(ImageCaptureConstants.XFINITY_HOME_SCREEN);
 				Thread.sleep(5000L);
+				
 				ImageCompare imgCompare = new ImageCompare();
 
 				referenceImage=Imgcodecs.imread(ImageCaptureConstants.STB_HOME_APPS_BUTTON_IMAGE);
@@ -343,7 +342,9 @@ import com.automatics.rdkv.constants.RemoteKeyContstants;
 }
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-2001");
 		}
-		
+		/**
+	     * Step 1 :Launch peacock application
+	     */
 		@Test(priority=6,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 				BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
 		@TestDetails(testUID = "PEACOCK-AAMP-TC-2002")
@@ -358,6 +359,9 @@ import com.automatics.rdkv.constants.RemoteKeyContstants;
 			BufferedImage nextliveImage;
 			BufferedImage outputImage;
 			BufferedImage subImage;
+			String expectedtext ="Cheers";
+			String actualCheers;
+			String expectedCheers= "Cheers";
 			// Variables declaration Ends
 			/**
 		     * Step 1 : Go to channel option in peacock menu and press ok
@@ -376,9 +380,6 @@ import com.automatics.rdkv.constants.RemoteKeyContstants;
 				LOGGER.info("STEP 1: ACTION : Press down button and take screenshot");
 				LOGGER.info("STEP 1: EXPECTED : Channels option should launch successfully.");
 				LOGGER.info("*****************************************************************************************");
-
-				LOGGER.info("Reading reference image");
-				referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_CHANNEL_VERIFY));
 				
 				LOGGER.info("Click Xfinity left button ");
 				CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
@@ -390,46 +391,67 @@ import com.automatics.rdkv.constants.RemoteKeyContstants;
 				CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
 				nu.pattern.OpenCV.loadLocally();
 				
-				LOGGER.info("Click four down button ");
-			//	CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.FOUR);
-				
-				LOGGER.info("Capture Channels screen live image");
-			    CaptureLiveImage.capture2(ImageCaptureConstants.PEACOCK_CHANNELS_OPTION,RemoteKeyContstants.DOWN_BUTTON,IntergerCount.EIGHT);
-				Thread.sleep(5000L);
+				LOGGER.info("Capture application screen live image");
+				CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_CHANNELS_OPTION);
 				
 				LOGGER.info("Reading live image");
 				liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_CHANNELS_OPTION));
 				
 				LOGGER.info("Calling crop method");
-				subImage = CropImage.cropImage(liveImage, 750,400,60,120);
+				subImage = CropImage.cropImage(liveImage, 200,400,100,40);
 				
-				File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
-				ImageIO.write(subImage, "jpg", outputFile);
+				LOGGER.info("Calling read text in image method");
+				GrabText grabTextChannels=new GrabText();
+				actualCheers = grabTextChannels.crackImage(subImage);
+				status = CommonMethods.textCompare(expectedtext,actualCheers);
 				
-				outputImage = ImageIO.read(new File("/var/lib/jenkins/workspace/image1.jpg"));
-				
-				ImageCompare imgCompare =new ImageCompare();
-				LOGGER.info("Calling screen compare method");
-				status = imgCompare.compare(referenceImage, outputImage);
-			
-				if (status) {
-					LOGGER.info("The status of text comparision is: " + status);
-				} else {
-					LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+				if(status) {
+					LOGGER.info("Click ok to navigate to linear channels");
+					CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+
+				}else {
+					LOGGER.error(" Linear Channels not found");
 				}
-				LOGGER.info("**********************************************************************************");
-				tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
 
-			} catch (Exception e) {
-				LOGGER.error("Exception occured while reading the image file " + e);
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				LOGGER.info("Inside catch");
-				errorMessage = e.getMessage();
-				LOGGER.error("Exception while launching movie screen: " + errorMessage);
-				CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 
+				if(status) {
+					LOGGER.info("The user is application screen: " + actualCheers);
+					CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+					LOGGER.info("Capture application screen live image");
+					CaptureLiveImage.captureIcon(ImageCaptureConstants.CHANNELS_CHEERS_LIVE);
+					
+					LOGGER.info("Reading live image");
+					liveImage = ImageIO.read(new File(ImageCaptureConstants.CHANNELS_CHEERS_LIVE));
+
+					LOGGER.info("Crop the live image");
+					subImage = CropImage.cropImage(liveImage, 60,440,150,60);
+
+					GrabText grabTextCheers=new GrabText();
+					actualCheers = grabTextCheers.crackImage(subImage);
+					status = CommonMethods.textCompare(expectedCheers, actualCheers);
+					
 			}
+			else {
+				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+			}
+
+			if (status) {
+
+			} else {
+				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+			}
+			LOGGER.info("**********************************************************************************");
+			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+
+		} catch (Exception e) {
+			LOGGER.error("Exception occured while reading the image file " + e);
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			LOGGER.info("Inside catch");
+			errorMessage = e.getMessage();
+			LOGGER.error("Exception while launching home screen file: " + errorMessage);
+			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
+}
 		/**
 	     * Step 2 : Tune to couple of other linear channels randomly
 	     */
@@ -454,11 +476,6 @@ import com.automatics.rdkv.constants.RemoteKeyContstants;
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
 			Thread.sleep(15000);
 			nu.pattern.OpenCV.loadLocally();
-			
-//			LOGGER.info("Click Xfinity right button ");
-//			LOGGER.info("Capture Channels screen live image");
-//			CaptureLiveImage.capture2(ImageCaptureConstants.PEACOCK_CHANNELS_TUNE_VERIFY,RemoteKeyContstants.RIGHT_BUTTON,IntergerCount.ONE);
-//			//Thread.sleep(5000L);
 			
 			LOGGER.info("Capture application screen live image");
 			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_CHANNELS_TUNE_VERIFY);
@@ -541,43 +558,47 @@ import com.automatics.rdkv.constants.RemoteKeyContstants;
 				LOGGER.info("STEP 1: EXPECTED : Linear channels verified successfully.");
 				LOGGER.info("*****************************************************************************************");	
 				
-				for(int i=0; i<=3; i++) {
-					//Total number of channels is 63
-					//as of now i have taken i=3
-					LOGGER.info("Click two DOWN_BUTTON ");
-					CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.TWO);
-					Thread.sleep(1000);
-					
-					LOGGER.info("Click Xfinity OK button ");
-					CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
-					Thread.sleep(2000);
-					
-					LOGGER.info("Capture application screen live image");
-					CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_TUNE_VERIFY);
-					Thread.sleep(5000L);
-					
-					LOGGER.info("Reading live image");
-					liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_TUNE_VERIFY));
-					
-					LOGGER.info("Capture application screen live image");
-					CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_NEXT_TUNE_VERIFY);
-					Thread.sleep(5000L);
-					
-					LOGGER.info("Reading live image");
-					nextliveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_NEXT_TUNE_VERIFY));
-					
-					LOGGER.info("Calling image compare method");
-					ImageCompare imgCompare =new ImageCompare();
-					status = imgCompare.compare(liveImage, nextliveImage);
-				}
-			
-				if (status) {
-					LOGGER.info("The status of image comparision is: " + status);
-				} else {
-					LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
-				}
-				LOGGER.info("**********************************************************************************");
-				tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+				LOGGER.info("Linear channels which supporttrick play");		
+				CommonMethods.Trickplay();
+				
+				
+//				for(int i=0; i<=3; i++) {
+//					//Total number of channels is 63
+//					//as of now i have taken i=3
+//					LOGGER.info("Click two DOWN_BUTTON ");
+//					CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.TWO);
+//					Thread.sleep(1000);
+//					
+//					LOGGER.info("Click Xfinity OK button ");
+//					CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+//					Thread.sleep(20000);
+//					
+//					LOGGER.info("Capture application screen live image");
+//					CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_TUNE_VERIFY);
+//					Thread.sleep(5000L);
+//					
+//					LOGGER.info("Reading live image");
+//					liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_TUNE_VERIFY));
+//					
+//					LOGGER.info("Capture application screen live image");
+//					CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_NEXT_TUNE_VERIFY);
+//					Thread.sleep(5000L);
+//					
+//					LOGGER.info("Reading live image");
+//					nextliveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_NEXT_TUNE_VERIFY));
+//					
+//					LOGGER.info("Calling image compare method");
+//					ImageCompare imgCompare =new ImageCompare();
+//					status = imgCompare.compare(liveImage, nextliveImage);
+//				}
+//			
+//				if (status) {
+//					LOGGER.info("The status of image comparision is: " + status);
+//				} else {
+//					LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+////				}
+//				LOGGER.info("**********************************************************************************");
+//				tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
 
 			} catch (Exception e) {
 				LOGGER.error("Exception occured while reading the image file " + e);
@@ -591,7 +612,99 @@ import com.automatics.rdkv.constants.RemoteKeyContstants;
 			}
 			LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-2003");
 	}
+		/**
+	     * Step 1 :Launch peacock application
+	     */
+		/**
+	     * Step 2 :Go to channels option in peacock menu and press ok
+	     */
+		@Test(priority=6,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+				BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
+		@TestDetails(testUID = "PEACOCK-AAMP-TC-2004")
+		public void testVerifyChannel(Dut device) throws InterruptedException {
+			// Variables declaration starts
+			boolean status = false;
+			String testId = "PEACOCK-AAMP-TC-204";
+			String errorMessage = null;
+			String stepNum = null;
+			BufferedImage referenceImage;
+			BufferedImage liveImage;
+			BufferedImage subImage;
+			BufferedImage outputImage;
+			// Variables declaration Ends
+			/**
+		     * Step 3: Tune to linear channel which do not support trick play
+		     */
+			LOGGER.info("#######################################################################################");
+			LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-2004");
+			LOGGER.info("TEST DESCRIPTION:  This test is to verify linear channel which do not support trick play");
+			LOGGER.info("TEST STEPS : ");
+			LOGGER.info("1. Press ok and take screenshot");
+			LOGGER.info("#######################################################################################");
+			try {
+				stepNum = "S1";
+				errorMessage = "Failed to navigate to linear channels";
+				LOGGER.info("*****************************************************************************************");
+				LOGGER.info("STEP 1: DESCRIPTION : This test is to verify linear channel which do not support trick play");
+				LOGGER.info("STEP 1: ACTION : Press ok and take screensho");
+				LOGGER.info("STEP 1: EXPECTED : Linear channel which do not support trick play should launch successfully");
+				LOGGER.info("*****************************************************************************************");
+				
+				LOGGER.info("Click Xfinity down button");
+				CommonMethods.execCommand(RemoteKeyContstants.DOWN_BUTTON);
+				
+				LOGGER.info("Click Xfinity ok button ");
+				CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+				Thread.sleep(8000);
+				nu.pattern.OpenCV.loadLocally();
+				
+				LOGGER.info("Capture application screen live image");
+				CaptureLiveImage.captureIcon(ImageCaptureConstants.CHANNELS_PLAY_TRICK);
+				
+				LOGGER.info("Reading live image");
+				liveImage = ImageIO.read(new File(ImageCaptureConstants.CHANNELS_PLAY_TRICK));
+				
+				LOGGER.info("Reading reference image");
+				referenceImage = ImageIO.read(new File(ImageCaptureConstants.CHANNELS_PLAY_TRICK_REFERENCE));
+				
+				LOGGER.info("Calling crop method");
+				subImage = CropImage.cropImage(liveImage, 490,600,260,120);
+				
+				File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
+				ImageIO.write(subImage, "jpg", outputFile);
+				
+				outputImage = ImageIO.read(new File("/var/lib/jenkins/workspace/image1.jpg"));
+				
+				ImageCompare imgCompare =new ImageCompare();
+				LOGGER.info("Calling screen compare method");
+				status = imgCompare.compare(referenceImage, outputImage);
+				
+				if(status==true) {
+					LOGGER.info("It's supports trick play");
+				}
+					else {
+						
+					LOGGER.info("It does not supports trick play");
+					}
+
+			if (status) {
+
+			} else {
+				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+			}
+			LOGGER.info("**********************************************************************************");
+			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+
+		} catch (Exception e) {
+			LOGGER.error("Exception occured while reading the image file " + e);
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			LOGGER.info("Inside catch");
+			errorMessage = e.getMessage();
+			LOGGER.error("Exception while launching home screen file: " + errorMessage);
+			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
+		}
 		
-		
+	}
 	}
 	
