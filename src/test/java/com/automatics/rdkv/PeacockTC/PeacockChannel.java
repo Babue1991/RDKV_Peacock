@@ -250,6 +250,9 @@ public class PeacockChannel extends AutomaticsTestBase {
 			
 			ConvertImage ci = new ConvertImage();
 			BufferedImage greyImage =ci.ConvertGrayScale(output);
+			
+			File outputFiletwo = new File("/var/lib/jenkins/workspace/timerimage2.jpg");
+			ImageIO.write(greyImage, "jpg", outputFile);
 
 			LOGGER.info("Calling method to read text in image");
 			GrabText grabText = new GrabText();
