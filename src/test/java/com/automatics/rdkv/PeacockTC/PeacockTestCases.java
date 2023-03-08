@@ -45,7 +45,7 @@ import com.automatics.rdkv.constants.RemoteKeyContstants;
 		 * 
 		 * @param device Dut to be used for execution
 		 * 
-		 * @author Babu Eagambaram
+		 * @author Babitha
 		 * @throws InterruptedException 
 		 * 
 		 */
