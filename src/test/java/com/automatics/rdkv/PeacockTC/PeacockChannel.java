@@ -234,6 +234,8 @@ public class PeacockChannel extends AutomaticsTestBase {
 			LOGGER.info("Click Xfinity OK button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 			
+			Thread.sleep(3000);
+			
 			LOGGER.info("Capture application screen live image");
 			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_CHANNEL_ADS_TIMER);
 
