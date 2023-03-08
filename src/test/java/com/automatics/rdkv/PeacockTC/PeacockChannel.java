@@ -23,6 +23,8 @@ import com.automatics.rdkv.imagevalidation.ConvertImage;
 import com.automatics.tap.AutomaticsTapApi;
 import com.automatics.test.AutomaticsTestBase;
 
+import net.bytebuddy.implementation.bytecode.constant.IntegerConstant;
+
 public class PeacockChannel extends AutomaticsTestBase {
 	
 	/**
@@ -323,11 +325,17 @@ public class PeacockChannel extends AutomaticsTestBase {
 			LOGGER.info("Click Xfinity button ");
 			CommonMethods.execCommand(RemoteKeyContstants.XFINITY_BUTTON);
 			
+			Thread.sleep(3000);
+			
 			LOGGER.info("Click Xfinity OK button ");
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
 			
+			Thread.sleep(3000);
+			
 			LOGGER.info("Click Xfinity down button ");
 			CommonMethods.execCommand(RemoteKeyContstants.DOWN_BUTTON);
+			
+			Thread.sleep(2000);
 			
 			LOGGER.info("Click Xfinity OK button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
@@ -338,10 +346,12 @@ public class PeacockChannel extends AutomaticsTestBase {
 			CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
 			
 			LOGGER.info("Click Xfinity down button 6 times ");
-			CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
+			CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON,6);
 			
 			LOGGER.info("Click Xfinity OK button ");
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			
+			Thread.sleep(3000);
 			
 			LOGGER.info("Click Xfinity down button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
