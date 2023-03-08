@@ -340,11 +340,12 @@ public class ImageCaptureConstants {
 	
 	/********The variable used to send capture card port to channels image**/
 	public static String CHANNELS_FAST_FORWARD=LIVE_IMAGE_PATH+"Fastforward.jpg";
-	
-
 
 	/********The variable used to send capture card port to channels image**/
 	public static String PEACOCK_CHANNEL_ADS_TIMER=LIVE_IMAGE_PATH+"timer.jpg";
+	
+	/********The variable used to send capture card port to channels image**/
+	public static String PEACOCK_LINEAR_CHANNEL_NOW=LIVE_IMAGE_PATH+"linear.jpg";
 
 
 }
