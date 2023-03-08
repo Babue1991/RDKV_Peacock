@@ -4,14 +4,10 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
 
-import com.automatics.image.imagick.MagickComparison;
-import com.automatics.rdkv.constants.ReferenceImageConstants;
-
 public class CropImage {
-	static BufferedImage cropImage;
+	
 	static BufferedImage cropedImage = null;
 
 	public static void main(String[] args) throws IOException {
@@ -20,15 +16,12 @@ public class CropImage {
 		
 		try {
 			
-			//cropedImage = cropImage(liveImage, 730,600,60,120);
-
 
 			cropedImage = cropImage(liveImage, 750,400,60,50);
 
 
 			//730,350,340,150
 			//Popular entertainment section  70,380,380,70
-			
 			//Application text section : 70,25,160,60
 			//Peacock text in application screen grab 50,300,160,45
 			// Splash screen resolution 120,230,1000,250
