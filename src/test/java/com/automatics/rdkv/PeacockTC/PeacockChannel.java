@@ -55,14 +55,14 @@ public class PeacockChannel extends AutomaticsTestBase {
 		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-4008");
 		LOGGER.info("TEST DESCRIPTION:  This test is to verify subtile text");
 		LOGGER.info("TEST STEPS : ");
-		LOGGER.info("1. Click on left button and then on ok button");
+		LOGGER.info("1. Enable subtitle and then verify text");
 		LOGGER.info("#######################################################################################");
 		try {
 			stepNum = "S1";
 			errorMessage = "Failed to verify subtitle text";
 			LOGGER.info("*****************************************************************************************");
 			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify subtile text");
-			LOGGER.info("STEP 1: ACTION : Press left button and click ok button");
+			LOGGER.info("STEP 1: ACTION :Enable subtitle and then verify text");
 			LOGGER.info("STEP 1: EXPECTED : Subtitle should displayed");
 			LOGGER.info("*****************************************************************************************");
             
@@ -109,16 +109,16 @@ public class PeacockChannel extends AutomaticsTestBase {
 
 		LOGGER.info("#######################################################################################");
 		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-4009");
-		LOGGER.info("TEST DESCRIPTION:  This test is to verify subtile text");
+		LOGGER.info("TEST DESCRIPTION:This test is to verify Spanish subtitle text");
 		LOGGER.info("TEST STEPS : ");
-		LOGGER.info("1. Click on left button and then on ok button");
+		LOGGER.info("1. Enable spanish lanaguage and verify text");
 		LOGGER.info("#######################################################################################");
 		try {
 			stepNum = "S1";
-			errorMessage = "Failed to verify subtitle text";
+			errorMessage = "Failed to verify Spanish subtitle text";
 			LOGGER.info("*****************************************************************************************");
-			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify subtile text");
-			LOGGER.info("STEP 1: ACTION : Press left button and click ok button");
+			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify Spanish subtitle text");
+			LOGGER.info("STEP 1: ACTION : Enable spanish lanaguage and verify text");
 			LOGGER.info("STEP 1: EXPECTED : Subtitle should displayed");
 			LOGGER.info("*****************************************************************************************");
             
@@ -153,8 +153,8 @@ public class PeacockChannel extends AutomaticsTestBase {
 			stepNum = "S2";
 			errorMessage = "Failed to verify subtitle text";
 			LOGGER.info("*****************************************************************************************");
-			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify subtile text");
-			LOGGER.info("STEP 1: ACTION : Press left button and click ok button");
+			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify different audio and subtitle text");
+			LOGGER.info("STEP 1: ACTION : Enable english auido and spanish subtitle");
 			LOGGER.info("STEP 1: EXPECTED : Subtitle should displayed");
 			LOGGER.info("*****************************************************************************************");
             
@@ -165,7 +165,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 			status = CommonMethods.checkSubtitle();
 			
 			if (status) {
-				LOGGER.info("Subtitle text is shown and status is : " + status);
+				LOGGER.info("Spanish subtitle text is shown and status is : " + status);
 			} else {
 				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
 			}
@@ -202,7 +202,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-4010");
 		LOGGER.info("TEST DESCRIPTION:  This test is to verify ads screen");
 		LOGGER.info("TEST STEPS : ");
-		LOGGER.info("1. Click on play button and then check ads");
+		LOGGER.info("1. Fastforward play and then check for ads");
 		LOGGER.info("#######################################################################################");
 		try {
 			stepNum = "S1";
@@ -268,40 +268,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 
 		}
-		try {
-			stepNum = "S2";
-			errorMessage = "Failed to verify subtitle text";
-			LOGGER.info("*****************************************************************************************");
-			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify subtile text");
-			LOGGER.info("STEP 1: ACTION : Press left button and click ok button");
-			LOGGER.info("STEP 1: EXPECTED : Subtitle should displayed");
-			LOGGER.info("*****************************************************************************************");
-            
-			LOGGER.info("Calling enable audio method");
-			CommonMethods.enableChannelAudio();
-			
-			LOGGER.info("Calling method to check subtitle");
-			status = CommonMethods.checkSubtitle();
-			
-			if (status) {
-				LOGGER.info("Subtitle text is shown and status is : " + status);
-			} else {
-				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
-			}
-			LOGGER.info("**********************************************************************************");
-			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
-
-		} catch (Exception e) {
-			LOGGER.error("Exception occured while reading the image file " + e);
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			LOGGER.info("Inside catch");
-			errorMessage = e.getMessage();
-			LOGGER.error("Exception while verifying subtitle text: " + errorMessage);
-			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
-
-		}
-		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-4009");
+		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-4010");
 
 	}
 }

@@ -49,7 +49,7 @@ public class CropImage {
 		}
 		
 		File outputFile = new File("/home/user/Desktop/image6.jpg");
-		ImageIO.write(cropedImage, "png", outputFile);
+		ImageIO.write(cropedImage, "jpg", outputFile);
 	}
 
 	   /**  
