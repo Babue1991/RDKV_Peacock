@@ -68,7 +68,7 @@ public class CaptureLiveImage extends AutomaticsTestBase {
 	public static void captureIcon(String destPath) throws IOException, InterruptedException {
 		try {
 			//Thread.sleep(3000L);
-			CommonMethods.execCommand(ImageCaptureConstants.SET_VIDEO_PORT);
+			CommonMethods.execCommandIcon(ImageCaptureConstants.SET_VIDEO_PORT);
 			LOGGER.info("The live image path: "+destPath);
 			
 			command=ImageCaptureConstants.CAPTURE_COMMAND+destPath;
