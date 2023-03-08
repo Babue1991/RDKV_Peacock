@@ -96,19 +96,19 @@ public class PeacockChannel extends AutomaticsTestBase {
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-4008");
 
 	}
-	@Test(priority=1,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+	@Test(priority=2,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
-	@TestDetails(testUID = "PEACOCK-AAMP-TC-4009")
+	@TestDetails(testUID = "PEACOCK-AAMP-TC-4010")
 	public void testVerifyAudioSubtitleSetting(Dut device) throws InterruptedException {
 		// Variables declaration starts
 		boolean status = false;
-		String testId = "PEACOCK-AAMP-TC-009";
+		String testId = "PEACOCK-AAMP-TC-010";
 		String errorMessage = null;
 		String stepNum = null;
 		// Variables declaration Ends
 
 		LOGGER.info("#######################################################################################");
-		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-4009");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-4010");
 		LOGGER.info("TEST DESCRIPTION:This test is to verify Spanish subtitle text");
 		LOGGER.info("TEST STEPS : ");
 		LOGGER.info("1. Enable spanish lanaguage and verify text");
@@ -182,16 +182,16 @@ public class PeacockChannel extends AutomaticsTestBase {
 			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 
 		}
-		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-4009");
+		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-4010");
 
 	}
-	@Test(priority=1,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+	@Test(priority=3,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
-	@TestDetails(testUID = "PEACOCK-AAMP-TC-4010")
+	@TestDetails(testUID = "PEACOCK-AAMP-TC-4011")
 	public void testVerifyAds(Dut device) throws InterruptedException {
 		// Variables declaration starts
 		boolean status = false;
-		String testId = "PEACOCK-AAMP-TC-010";
+		String testId = "PEACOCK-AAMP-TC-011";
 		String errorMessage = null;
 		String stepNum = null;
 		BufferedImage liveImage;
@@ -199,7 +199,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 		// Variables declaration Ends
 
 		LOGGER.info("#######################################################################################");
-		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-4010");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-4011");
 		LOGGER.info("TEST DESCRIPTION:  This test is to verify ads screen");
 		LOGGER.info("TEST STEPS : ");
 		LOGGER.info("1. Fastforward play and then check for ads");
@@ -268,7 +268,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 
 		}
-		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-4010");
+		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-4011");
 
 	}
 }
