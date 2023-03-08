@@ -214,22 +214,21 @@ public class PeacockChannel extends AutomaticsTestBase {
 			LOGGER.info("*****************************************************************************************");
             
 			LOGGER.info("Click Xfinity OK button ");
-			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 			
 			LOGGER.info("Click Xfinity right button ");
-			CommonMethods.execCommand(RemoteKeyContstants.RIGHT_BUTTON);
+			CommonMethods.execCommandIcon(RemoteKeyContstants.RIGHT_BUTTON);
 			
-			LOGGER.info("Click Xfinity right button ");
-			CommonMethods.execCommand(RemoteKeyContstants.RIGHT_BUTTON);
+			LOGGER.info("Click Xfinity OK button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+			
+			Thread.sleep(5000);
 			
 			LOGGER.info("Click Xfinity left button ");
-			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
 			
 			LOGGER.info("Click Xfinity OK button ");
-			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
-			
-			LOGGER.info("Click Xfinity OK button ");
-			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 			
 			LOGGER.info("Capture application screen live image");
 			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_CHANNEL_ADS_TIMER);
