@@ -7,7 +7,6 @@ import java.util.concurrent.TimeUnit;
 import javax.imageio.ImageIO;
 
 import org.testng.annotations.Test;
-
 import com.automatics.annotations.TestDetails;
 import com.automatics.constants.DataProviderConstants;
 import com.automatics.device.Dut;
@@ -23,7 +22,6 @@ import com.automatics.rdkv.imagevalidation.ConvertImage;
 import com.automatics.tap.AutomaticsTapApi;
 import com.automatics.test.AutomaticsTestBase;
 
-import net.bytebuddy.implementation.bytecode.constant.IntegerConstant;
 
 public class PeacockChannel extends AutomaticsTestBase {
 	
