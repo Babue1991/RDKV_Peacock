@@ -476,4 +476,156 @@ public class PeacockChannel extends AutomaticsTestBase {
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-4013");
 
 	}
+	@Test(priority=5,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
+	@TestDetails(testUID = "PEACOCK-AAMP-TC-4027")
+	public void testVerifyMovieAssetTransition(Dut device) throws InterruptedException {
+		// Variables declaration starts
+		boolean status = false;
+		String testId = "PEACOCK-AAMP-TC-027";
+		String errorMessage = null;
+		String stepNum = null;
+		BufferedImage liveImage;
+		BufferedImage subImage;
+		String expected;
+		String actual;
+		
+		// Variables declaration Ends
+
+		LOGGER.info("#######################################################################################");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-4027");
+		LOGGER.info("TEST DESCRIPTION: This test is to verify movie asset transition");
+		LOGGER.info("TEST STEPS : ");
+		LOGGER.info("1. Fast forward movie and check for next movie to play");
+		LOGGER.info("#######################################################################################");
+		try {
+			stepNum = "S1";
+			errorMessage = "Failed to verify asset transition";
+			LOGGER.info("*****************************************************************************************");
+			LOGGER.info("STEP 1: DESCRIPTION :  This test is to verify movie asset transition");
+			LOGGER.info("STEP 1: ACTION : Fast forward movie and check for next movie to play");
+			LOGGER.info("STEP 1: EXPECTED : Movie should continue to play without any issues");
+			LOGGER.info("*****************************************************************************************");
+            
+			LOGGER.info("Click Xfinity button ");
+			CommonMethods.execCommand(RemoteKeyContstants.XFINITY_BUTTON);
+			
+			Thread.sleep(3000);
+			
+			LOGGER.info("Click Xfinity OK button ");
+			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			
+			Thread.sleep(3000);
+			
+			LOGGER.info("Click Xfinity down button ");
+			CommonMethods.execCommand(RemoteKeyContstants.DOWN_BUTTON);
+			
+			Thread.sleep(2000);
+			
+			LOGGER.info("Click Xfinity OK button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+			
+			Thread.sleep(30000);
+			
+			LOGGER.info("Click Xfinity left button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
+			
+			LOGGER.info("Click Xfinity down button");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
+			
+			LOGGER.info("Click Xfinity OK button ");
+			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			
+			Thread.sleep(3000);
+			
+			LOGGER.info("Click Xfinity down button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
+			
+			LOGGER.info("Click Xfinity OK button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+			
+			Thread.sleep(5000);
+			
+			LOGGER.info("Click Xfinity OK button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+			
+			Thread.sleep(10000);
+			//TimeUnit. MINUTES. sleep(4);
+			
+			LOGGER.info("Click Xfinity OK button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+			
+			LOGGER.info("Click Xfinity Right button 3 times to fast forward ");
+			CommonMethods.execCommandRepeat(RemoteKeyContstants.RIGHT_BUTTON,3);
+			
+			Thread.sleep(20000);
+			
+			LOGGER.info("Capture application screen live image");
+			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_MOVIE_ASSET_TRANSITION);
+
+			LOGGER.info("Reading live image");
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_MOVIE_ASSET_TRANSITION));
+
+			LOGGER.info("Calling image cropping method");
+			subImage = CropImage.cropImage(liveImage, 1052,530,120,100);
+
+			File outputFile = new File("/var/lib/jenkins/workspace/nextasset.jpg");
+			ImageIO.write(subImage, "jpg", outputFile);
+			
+			//BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/nextasset.jpg"));
+			
+			//ConvertImage ci = new ConvertImage();
+			//BufferedImage greyImage =ci.ConvertGrayScale(output);
+			
+			//File outputFiletwo = new File("/var/lib/jenkins/workspace/linear2.jpg");
+			//ImageIO.write(greyImage, "jpg", outputFiletwo);
+
+			LOGGER.info("Calling method to read text in image");
+			GrabText grabText = new GrabText();
+			expected = grabText.crackImage(subImage);
+			
+			TimeUnit. MINUTES. sleep(1);
+			
+			//Thread.sleep(10000);
+			
+			LOGGER.info("Click Xfinity OK button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+			
+			LOGGER.info("Capture application screen live image");
+			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_MOVIE_NEXT_ASSET_TRANSITION);
+
+			LOGGER.info("Reading live image");
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_MOVIE_NEXT_ASSET_TRANSITION));
+
+			LOGGER.info("Calling image cropping method");
+			subImage = CropImage.cropImage(liveImage, 98,54,400,50);
+			
+			LOGGER.info("Calling method to read text in image");
+			actual = grabText.crackImage(subImage);
+			
+			LOGGER.info("Calling method to compare text in image");
+			
+			status = CommonMethods.partialTextCompare(expected, actual);
+			
+			if (status) {
+				LOGGER.info("Asset transition successfull : " + status);
+			} else {
+				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+			}
+			LOGGER.info("**********************************************************************************");
+			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+
+		} catch (Exception e) {
+			LOGGER.error("Exception occured while reading the image file " + e);
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			LOGGER.info("Inside catch");
+			errorMessage = e.getMessage();
+			LOGGER.error("Exception while verifying linear channel: " + errorMessage);
+			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
+
+		}
+		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-4027");
+
+	}
 }

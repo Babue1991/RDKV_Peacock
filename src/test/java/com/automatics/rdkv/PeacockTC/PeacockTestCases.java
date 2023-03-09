@@ -52,7 +52,7 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 		 */
 
 		static Process p;
-		@Test(priority=0, dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+		@Test(priority=1, dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 				BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
 		@TestDetails(testUID = "PEACOCK-AAMP-TC-2001")
 		public void testVerifySplashScreenSTB(Dut device) throws InterruptedException {
@@ -346,13 +346,13 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 		/**
 	     * Step 1 :Launch peacock application
 	     */
-		@Test(priority=6,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+		@Test(priority=1,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 				BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
 		@TestDetails(testUID = "PEACOCK-AAMP-TC-2002")
 		public void testVerifyMoviesOption(Dut device) throws InterruptedException {
 			// Variables declaration starts
 			boolean status = false;
-			String testId = "PEACOCK-AAMP-TC-202";
+			String testId = "PEACOCK-AAMP-TC-002";
 			String errorMessage = null;
 			String stepNum = null;
 			BufferedImage liveImage;

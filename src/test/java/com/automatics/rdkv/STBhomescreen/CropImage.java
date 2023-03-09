@@ -12,12 +12,12 @@ public class CropImage {
 
 	public static void main(String[] args) throws IOException {
 
-		BufferedImage liveImage = ImageIO.read(new File("/home/user/linearchannels.jpg"));
+		BufferedImage liveImage = ImageIO.read(new File("/home/user/Desktop/assetname.jpg"));
 		
 		try {
 			
 
-			cropedImage = cropImage(liveImage, 200,400,100,40);
+			cropedImage = cropImage(liveImage, 98,54,400,50);
 
             //600,600,60,100
 			//730,350,340,150
@@ -36,6 +36,7 @@ public class CropImage {
 			//Search bar content Antz 90,340,290,180
 			//Channel ads timer 60,635,40,40
 			//Channel NBC 98,390,60,25
+			//Moive Next asset 1052,530,120,100
 			
 			
 		} catch (Exception e) {
@@ -43,7 +44,7 @@ public class CropImage {
 			e.printStackTrace();
 		}
 		
-		File outputFile = new File("/home/user/Desktop/image6.jpg");
+		File outputFile = new File("/home/user/Desktop/image5.jpg");
 		ImageIO.write(cropedImage, "jpg", outputFile);
 	}
 
