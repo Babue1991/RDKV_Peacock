@@ -522,6 +522,93 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-2002");
 	}
 
+
+		// step 1 and step 2 are same as TC-2002
+		@Test(priority=7,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+				BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
+		@TestDetails(testUID = "PEACOCK-AAMP-TC-2003")
+		public void testVerifyChannelOption1(Dut device) throws InterruptedException {
+			// Variables declaration starts
+			boolean status = false;
+			String testId = "PEACOCK-AAMP-TC-203";
+			String errorMessage = null;
+			String stepNum = null;
+//			BufferedImage referenceImage;
+//			BufferedImage liveImage;
+//			BufferedImage outputImage;
+//			BufferedImage nextliveImage;
+//			BufferedImage subImage;
+			// Variables declaration Ends
+			/**
+		     * Step 3 : Tune to all linear channels and verify
+		     */
+			LOGGER.info("#######################################################################################");
+			LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-2003");
+			LOGGER.info("TEST DESCRIPTION:  This test is to verify all the linear channels");
+			LOGGER.info("TEST STEPS : ");
+			LOGGER.info("1. Press down button and click ok");
+			LOGGER.info("#######################################################################################");
+			try {
+				stepNum = "S3";
+				errorMessage = "Failed to verify linear channels";
+				LOGGER.info("*****************************************************************************************");
+				LOGGER.info("STEP 1: DESCRIPTION : This test is to verify all the linear channels");
+				LOGGER.info("STEP 1: ACTION : Press down button and click ok");
+				LOGGER.info("STEP 1: EXPECTED : Linear channels verified successfully.");
+				LOGGER.info("*****************************************************************************************");	
+				
+				LOGGER.info("Linear channels which supporttrick play");		
+				CommonMethods.Trickplay();
+				
+				
+//				for(int i=0; i<=3; i++) {
+//					//Total number of channels is 63
+//					//as of now i have taken i=3
+//					LOGGER.info("Click two DOWN_BUTTON ");
+//					CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.TWO);
+//					Thread.sleep(1000);
+//					
+//					LOGGER.info("Click Xfinity OK button ");
+//					CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+//					Thread.sleep(20000);
+//					
+//					LOGGER.info("Capture application screen live image");
+//					CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_TUNE_VERIFY);
+//					Thread.sleep(5000L);
+//					
+//					LOGGER.info("Reading live image");
+//					liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_TUNE_VERIFY));
+//					
+//					LOGGER.info("Capture application screen live image");
+//					CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_NEXT_TUNE_VERIFY);
+//					Thread.sleep(5000L);
+//					
+//					LOGGER.info("Reading live image");
+//					nextliveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_NEXT_TUNE_VERIFY));
+//					
+//					LOGGER.info("Calling image compare method");
+//					ImageCompare imgCompare =new ImageCompare();
+//					status = imgCompare.compare(liveImage, nextliveImage);
+//				}
+//			
+//				if (status) {
+//					LOGGER.info("The status of image comparision is: " + status);
+//				} else {
+//					LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+////				}
+//				LOGGER.info("**********************************************************************************");
+//				tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+
+			} catch (Exception e) {
+				LOGGER.error("Exception occured while reading the image file " + e);
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				LOGGER.info("Inside catch");
+				errorMessage = e.getMessage();
+				LOGGER.error("Exception while launching movie screen: " + errorMessage);
+				CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
+			}
+		}
 	// step 1 and step 2 are same as TC-2002
 	@Test(priority=7,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
@@ -597,6 +684,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			////				}
 			//				LOGGER.info("**********************************************************************************");
 			//				tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+
 
 		} catch (Exception e) {
 			LOGGER.error("Exception occured while reading the image file " + e);
