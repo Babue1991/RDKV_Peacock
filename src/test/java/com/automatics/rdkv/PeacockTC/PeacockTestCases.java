@@ -500,6 +500,12 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			ImageCompare imgCompare =new ImageCompare();
 			status = imgCompare.compare(liveImage, nextliveImage);
 		
+			if (liveImage != nextliveImage) {
+				LOGGER.info("True");
+			}
+			else {
+				LOGGER.info("False");
+			}
 			if (status) {
 				LOGGER.info("The status of text comparision is: " + status);
 			} else {
