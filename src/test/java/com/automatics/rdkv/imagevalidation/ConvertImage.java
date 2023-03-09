@@ -39,8 +39,7 @@ public class ConvertImage {
 						red + green + blue,
 						red + green + blue);
 				result.setRGB(j, i, newColor.getRGB());
-				File outputFile = new File("/home/user/Desktop/greyimage6.jpg");
-				ImageIO.write(result, "jpg", outputFile);
+				
 			}
 			
 		}
