@@ -584,9 +584,9 @@ public class PeacockChannel extends AutomaticsTestBase {
 			GrabText grabText = new GrabText();
 			expected = grabText.crackImage(subImage);
 			
-			//TimeUnit. MINUTES. sleep(4);
+			TimeUnit. MINUTES. sleep(1);
 			
-			Thread.sleep(10000);
+			//Thread.sleep(10000);
 			
 			LOGGER.info("Click Xfinity OK button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
