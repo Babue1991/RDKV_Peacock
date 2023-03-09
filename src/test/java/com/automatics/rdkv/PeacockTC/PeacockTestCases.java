@@ -375,7 +375,7 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 				stepNum = "S1";
 				errorMessage = "Failed to navigate to Channels button";
 				LOGGER.info("*****************************************************************************************");
-				LOGGER.info("STEP 1: DESCRIPTION : This test is to verify user can navigate to the channels content");
+				LOGGER.info("STEP 1: DESCRIPTION : This test is to verify user can navigate to the channels  2002 content");
 				LOGGER.info("STEP 1: ACTION : Press down button and take screenshot");
 				LOGGER.info("STEP 1: EXPECTED : Channels option should launch successfully.");
 				LOGGER.info("*****************************************************************************************");
