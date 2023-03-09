@@ -549,8 +549,8 @@ public class PeacockChannel extends AutomaticsTestBase {
 			LOGGER.info("Click Xfinity OK button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 			
-			Thread.sleep(10000);
-			//TimeUnit. MINUTES. sleep(4);
+			//Thread.sleep(10000);
+			TimeUnit. MINUTES. sleep(4);
 			
 			LOGGER.info("Click Xfinity OK button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
@@ -571,20 +571,12 @@ public class PeacockChannel extends AutomaticsTestBase {
 
 			File outputFile = new File("/var/lib/jenkins/workspace/nextasset.jpg");
 			ImageIO.write(subImage, "jpg", outputFile);
-			
-			//BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/nextasset.jpg"));
-			
-			//ConvertImage ci = new ConvertImage();
-			//BufferedImage greyImage =ci.ConvertGrayScale(output);
-			
-			//File outputFiletwo = new File("/var/lib/jenkins/workspace/linear2.jpg");
-			//ImageIO.write(greyImage, "jpg", outputFiletwo);
 
 			LOGGER.info("Calling method to read text in image");
 			GrabText grabText = new GrabText();
 			expected = grabText.crackImage(subImage);
 			
-			TimeUnit. MINUTES. sleep(1);
+			TimeUnit. MINUTES. sleep(4);
 			
 			//Thread.sleep(10000);
 			
