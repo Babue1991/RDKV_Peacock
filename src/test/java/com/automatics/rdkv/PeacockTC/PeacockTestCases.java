@@ -412,6 +412,10 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
 			Thread.sleep(10000);
 			nu.pattern.OpenCV.loadLocally();
+			
+			LOGGER.info("Click Xfinity ok button ");
+			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			
 
 			LOGGER.info("Capture application screen live image");
 			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_CHANNELS_NEXT_OPTION);
