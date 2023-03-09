@@ -549,7 +549,8 @@ public class PeacockChannel extends AutomaticsTestBase {
 			LOGGER.info("Click Xfinity OK button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 			
-			TimeUnit. MINUTES. sleep(4);
+			Thread.sleep(10000);
+			//TimeUnit. MINUTES. sleep(4);
 			
 			LOGGER.info("Click Xfinity OK button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
@@ -560,7 +561,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 			Thread.sleep(20000);
 			
 			LOGGER.info("Capture application screen live image");
-			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_MOVIE_ASSET_TRANSITION);
+			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_MOVIE_ASSET_TRANSITION);
 
 			LOGGER.info("Reading live image");
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_MOVIE_ASSET_TRANSITION));
@@ -583,7 +584,9 @@ public class PeacockChannel extends AutomaticsTestBase {
 			GrabText grabText = new GrabText();
 			expected = grabText.crackImage(subImage);
 			
-			TimeUnit. MINUTES. sleep(4);
+			//TimeUnit. MINUTES. sleep(4);
+			
+			Thread.sleep(10000);
 			
 			LOGGER.info("Click Xfinity OK button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
