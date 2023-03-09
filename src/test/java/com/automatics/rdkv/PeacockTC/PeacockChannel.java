@@ -595,7 +595,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_MOVIE_NEXT_ASSET_TRANSITION));
 
 			LOGGER.info("Calling image cropping method");
-			subImage = CropImage.cropImage(liveImage, 1052,530,120,100);
+			subImage = CropImage.cropImage(liveImage, 98,54,400,50);
 			
 			LOGGER.info("Calling method to read text in image");
 			actual = grabText.crackImage(subImage);
