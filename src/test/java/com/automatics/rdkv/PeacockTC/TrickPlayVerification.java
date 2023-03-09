@@ -723,10 +723,7 @@ package com.automatics.rdkv.PeacockTC;
 			LOGGER.info("STEP 3: EXPECTED : Channels option should launch successfully.");
 			LOGGER.info("*****************************************************************************************");
 
-<<<<<<< HEAD
-			
-=======
->>>>>>> f83da2653e11d61d162a95e118f6e136798c6007
+
 			LOGGER.info("Linear channels which supporttrick play");		
 			CommonMethods.Trickplay();
 				
@@ -865,16 +862,13 @@ package com.automatics.rdkv.PeacockTC;
 				LOGGER.error("STEP 2: ACTUAL : " + errorMessage);
 			}
 
-<<<<<<< HEAD
+
 			LOGGER.info("**********************************************************************************");
 			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
 
-
-=======
-			
 			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
 
->>>>>>> f83da2653e11d61d162a95e118f6e136798c6007
+
 			
 		}
 		
@@ -941,10 +935,7 @@ package com.automatics.rdkv.PeacockTC;
 			LOGGER.info("Click one right button ");
 			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
 			
-<<<<<<< HEAD
-=======
 
->>>>>>> f83da2653e11d61d162a95e118f6e136798c6007
 			LOGGER.info("Click OK BUTTON ");
 					
 			LOGGER.info("Capture fast forward screen live image");
@@ -973,10 +964,7 @@ package com.automatics.rdkv.PeacockTC;
 
 			LOGGER.info("Click one right button ");
 			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
-<<<<<<< HEAD
-=======
 
->>>>>>> f83da2653e11d61d162a95e118f6e136798c6007
 			
 			LOGGER.info("Click OK BUTTON ");
 					
@@ -1183,4 +1171,4 @@ package com.automatics.rdkv.PeacockTC;
 		
 }
 
-}
+
