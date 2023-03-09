@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit;
 import javax.imageio.ImageIO;
 
 import org.testng.annotations.Test;
+
 import com.automatics.annotations.TestDetails;
 import com.automatics.constants.DataProviderConstants;
 import com.automatics.device.Dut;
@@ -21,7 +22,6 @@ import com.automatics.rdkv.constants.RemoteKeyContstants;
 import com.automatics.rdkv.imagevalidation.ConvertImage;
 import com.automatics.tap.AutomaticsTapApi;
 import com.automatics.test.AutomaticsTestBase;
-
 
 public class PeacockChannel extends AutomaticsTestBase {
 	
@@ -357,13 +357,10 @@ public class PeacockChannel extends AutomaticsTestBase {
 			LOGGER.info("Click Xfinity OK button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 			
-			Thread.sleep(10000);
+			Thread.sleep(20000);
 			
 			LOGGER.info("Click Xfinity OK button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
-			
-			LOGGER.info("Click Xfinity right button ");
-			CommonMethods.execCommandIcon(RemoteKeyContstants.RIGHT_BUTTON);
 			
 			LOGGER.info("Capture application screen live image");
 			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_LINEAR_CHANNEL_NOW);
