@@ -393,15 +393,15 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			LOGGER.info("Calling crop method");
 			subImage = CropImage.cropImage(liveImage, 200,400,100,40);
 
-			File outputFile = new File("/var/lib/jenkins/workspace/ChannelsSection.jpg");
+			File outputFile = new File("/var/lib/jenkins/workspace/channelsSection.jpg");
 			ImageIO.write(subImage, "jpg", outputFile);
 
-			BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/ChannelsSection.jpg"));
+			BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/channelsSection.jpg"));
 
 			ConvertImage ci = new ConvertImage();
 			BufferedImage greyImage =ci.ConvertGrayScale(output);
 
-			File outputFiletwo = new File("/var/lib/jenkins/workspace/ChannelsSection2.jpg");
+			File outputFiletwo = new File("/var/lib/jenkins/workspace/channelsSection2.jpg");
 			ImageIO.write(greyImage, "jpg", outputFiletwo);
 
 			LOGGER.info("Calling method to read text in image");
