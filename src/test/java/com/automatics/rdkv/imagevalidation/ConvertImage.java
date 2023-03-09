@@ -14,7 +14,7 @@ public class ConvertImage {
 		// TODO Auto-generated method stub
 		
 		ConvertImage ci =new ConvertImage();
-		BufferedImage originalImage = ImageIO.read(new File("/home/user/Desktop/image6.jpg"));
+		BufferedImage originalImage = ImageIO.read(new File("/home/user/Desktop/image3.jpg"));
 		ci.ConvertGrayScale(originalImage);
 
 	}
@@ -40,6 +40,8 @@ public class ConvertImage {
 						red + green + blue);
 				result.setRGB(j, i, newColor.getRGB());
 				
+				File outputFile = new File("/home/user/Desktop/image4.jpg");
+				ImageIO.write(result, "jpg", outputFile);
 			}
 			
 		}
