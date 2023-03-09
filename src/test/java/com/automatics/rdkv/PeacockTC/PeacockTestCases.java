@@ -355,10 +355,8 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			String testId = "PEACOCK-AAMP-TC-202";
 			String errorMessage = null;
 			String stepNum = null;
-			BufferedImage referenceImage;
 			BufferedImage liveImage;
 			BufferedImage nextliveImage;
-			BufferedImage outputImage;
 			BufferedImage subImage;
 			String actual;
 			String actualLinear;
@@ -377,7 +375,7 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 				stepNum = "S1";
 				errorMessage = "Failed to navigate to Channels button";
 				LOGGER.info("*****************************************************************************************");
-				LOGGER.info("STEP 1: DESCRIPTION : This test is to verify user can navigate to the channels content");
+				LOGGER.info("STEP 1: DESCRIPTION : This test is to verify user can navigate to the channels  2002 content");
 				LOGGER.info("STEP 1: ACTION : Press down button and take screenshot");
 				LOGGER.info("STEP 1: EXPECTED : Channels option should launch successfully.");
 				LOGGER.info("*****************************************************************************************");
@@ -401,15 +399,15 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 				LOGGER.info("Calling crop method");
 				subImage = CropImage.cropImage(liveImage, 200,400,100,40);
 				
-				File outputFile = new File("/var/lib/jenkins/workspace/linear.jpg");
+				File outputFile = new File("/var/lib/jenkins/workspace/ChannelsSection.jpg");
 				ImageIO.write(subImage, "jpg", outputFile);
 				
-				BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/linear.jpg"));
+				BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/ChannelsSection.jpg"));
 				
 				ConvertImage ci = new ConvertImage();
 				BufferedImage greyImage =ci.ConvertGrayScale(output);
 				
-				File outputFiletwo = new File("/var/lib/jenkins/workspace/linear2.jpg");
+				File outputFiletwo = new File("/var/lib/jenkins/workspace/ChannelsSection2.jpg");
 				ImageIO.write(greyImage, "jpg", outputFiletwo);
 
 				LOGGER.info("Calling method to read text in image");

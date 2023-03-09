@@ -182,8 +182,38 @@ package com.automatics.rdkv.PeacockTC;
 
 	
 		}
+		}
 		
-		
+		@Test(priority=6, dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+				BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
+		@TestDetails(testUID = "PEACOCK-AAMP-TC-1006")
+		public void testVerifySearchMenu(Dut device) throws InterruptedException {
+			
+			boolean status = false;
+			String testId = "PEACOCK-AAMP-TC-202";
+			String errorMessage = null;
+			String stepNum = null;
+			BufferedImage referenceImage;
+			BufferedImage liveImage;
+			BufferedImage nextliveImage;
+			BufferedImage outputImage;
+			BufferedImage subImage;
+			String actual;
+			String actualLinear;
+			String actualspeed;
+			String expectedspeed="x6";
+			String actualspeed12;
+			String expectedspeed12="x12";
+			String actualspeed24;
+			String expectedspeed24="x24";
+			String actualfast6;
+			String expectedfast6="x6";
+			String actualfast12;
+			String expectedfast12="x12";
+			String actualfast24;
+			String expectedfast24="x24";
+			String actualZero;
+			String expectedZero="00:00:00";
 		
 		/**
 	     * Step 4 :Perform Rewind operation at different speed and play using on screen controls
