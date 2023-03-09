@@ -522,12 +522,12 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-2002");
 	}
 
-<<<<<<< HEAD
+
 		// step 1 and step 2 are same as TC-2002
 		@Test(priority=7,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 				BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
 		@TestDetails(testUID = "PEACOCK-AAMP-TC-2003")
-		public void testVerifyChannelOption(Dut device) throws InterruptedException {
+		public void testVerifyChannelOption1(Dut device) throws InterruptedException {
 			// Variables declaration starts
 			boolean status = false;
 			String testId = "PEACOCK-AAMP-TC-203";
@@ -607,7 +607,8 @@ public class PeacockTestCases extends AutomaticsTestBase {
 				errorMessage = e.getMessage();
 				LOGGER.error("Exception while launching movie screen: " + errorMessage);
 				CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
-=======
+			}
+		}
 	// step 1 and step 2 are same as TC-2002
 	@Test(priority=7,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
@@ -683,7 +684,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			////				}
 			//				LOGGER.info("**********************************************************************************");
 			//				tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
->>>>>>> 1280b00d533eda65802d877fdacf91f663724ebb
+
 
 		} catch (Exception e) {
 			LOGGER.error("Exception occured while reading the image file " + e);
