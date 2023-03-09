@@ -493,7 +493,17 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			LOGGER.info("Calling image compare method");
 			ImageCompare imgCompare =new ImageCompare();
 			status = imgCompare.compare(liveImage, nextliveImage);
+<<<<<<< HEAD
 
+=======
+		
+			if (liveImage != nextliveImage) {
+				LOGGER.info("True");
+			}
+			else {
+				LOGGER.info("False");
+			}
+>>>>>>> 5857f6780ca3af7820b7c236d48031271e59a31d
 			if (status) {
 				LOGGER.info("The status of text comparision is: " + status);
 			} else {
