@@ -182,15 +182,17 @@ package com.automatics.rdkv.PeacockTC;
 
 	
 		}
+		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-3001");
+
 		}
 		
 		@Test(priority=6, dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 				BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
-		@TestDetails(testUID = "PEACOCK-AAMP-TC-1006")
+		@TestDetails(testUID = "PEACOCK-AAMP-TC-3002")
 		public void testVerifySearchMenu(Dut device) throws InterruptedException {
 			
 			boolean status = false;
-			String testId = "PEACOCK-AAMP-TC-202";
+			String testId = "PEACOCK-AAMP-TC-302";
 			String errorMessage = null;
 			String stepNum = null;
 			BufferedImage referenceImage;
@@ -220,7 +222,7 @@ package com.automatics.rdkv.PeacockTC;
 	     */	
 		
 		LOGGER.info("#######################################################################################");
-		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-3001");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-3002");
 		LOGGER.info("TEST DESCRIPTION:  This test is to verify Rewind operation at different speed and play using on screen controls");
 		LOGGER.info("TEST STEPS : ");
 		LOGGER.info("1. Press left button and take screenshot");

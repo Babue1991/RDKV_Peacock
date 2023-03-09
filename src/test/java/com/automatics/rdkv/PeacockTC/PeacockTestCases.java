@@ -537,11 +537,11 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			String testId = "PEACOCK-AAMP-TC-203";
 			String errorMessage = null;
 			String stepNum = null;
-			BufferedImage referenceImage;
-			BufferedImage liveImage;
-			BufferedImage outputImage;
-			BufferedImage nextliveImage;
-			BufferedImage subImage;
+//			BufferedImage referenceImage;
+//			BufferedImage liveImage;
+//			BufferedImage outputImage;
+//			BufferedImage nextliveImage;
+//			BufferedImage subImage;
 			// Variables declaration Ends
 			/**
 		     * Step 3 : Tune to all linear channels and verify
