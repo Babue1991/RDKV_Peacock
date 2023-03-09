@@ -386,7 +386,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 			GrabText grabText = new GrabText();
 			actual = grabText.crackImage(greyImage);
 			
-			LOGGER.info("Calling method to read number in image");
+			LOGGER.info("Calling method to compare text in image");
 			
 			status = CommonMethods.partialTextCompare(expected, actual);
 			

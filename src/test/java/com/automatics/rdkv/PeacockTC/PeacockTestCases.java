@@ -26,7 +26,8 @@ package com.automatics.rdkv.PeacockTC;
 	import com.automatics.rdkv.constants.ImageCaptureConstants;
 import com.automatics.rdkv.constants.IntergerCount;
 import com.automatics.rdkv.constants.RemoteKeyContstants;
-	import com.automatics.rdkv.imagevalidation.ImageCompare;
+import com.automatics.rdkv.imagevalidation.ConvertImage;
+import com.automatics.rdkv.imagevalidation.ImageCompare;
 	import com.automatics.tap.AutomaticsTapApi;
 	import com.automatics.test.AutomaticsTestBase;
 
@@ -359,9 +360,9 @@ import com.automatics.rdkv.constants.RemoteKeyContstants;
 			BufferedImage nextliveImage;
 			BufferedImage outputImage;
 			BufferedImage subImage;
-			String expectedtext ="Cheers";
-			String actualCheers;
-			String expectedCheers= "Cheers";
+			String actual;
+			String actualLinear;
+	
 			// Variables declaration Ends
 			/**
 		     * Step 1 : Go to channel option in peacock menu and press ok
@@ -400,40 +401,38 @@ import com.automatics.rdkv.constants.RemoteKeyContstants;
 				LOGGER.info("Calling crop method");
 				subImage = CropImage.cropImage(liveImage, 200,400,100,40);
 				
-				LOGGER.info("Calling read text in image method");
-				GrabText grabTextChannels=new GrabText();
-				actualCheers = grabTextChannels.crackImage(subImage);
-				status = CommonMethods.textCompare(expectedtext,actualCheers);
+				File outputFile = new File("/var/lib/jenkins/workspace/linear.jpg");
+				ImageIO.write(subImage, "jpg", outputFile);
 				
-				if(status) {
-					LOGGER.info("Click ok to navigate to linear channels");
-					CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+				BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/linear.jpg"));
+				
+				ConvertImage ci = new ConvertImage();
+				BufferedImage greyImage =ci.ConvertGrayScale(output);
+				
+				File outputFiletwo = new File("/var/lib/jenkins/workspace/linear2.jpg");
+				ImageIO.write(greyImage, "jpg", outputFiletwo);
 
-				}else {
-					LOGGER.error(" Linear Channels not found");
-				}
-
-
-				if(status) {
-					LOGGER.info("The user is application screen: " + actualCheers);
-					CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
-					LOGGER.info("Capture application screen live image");
-					CaptureLiveImage.captureIcon(ImageCaptureConstants.CHANNELS_CHEERS_LIVE);
-					
-					LOGGER.info("Reading live image");
-					liveImage = ImageIO.read(new File(ImageCaptureConstants.CHANNELS_CHEERS_LIVE));
-
-					LOGGER.info("Crop the live image");
-					subImage = CropImage.cropImage(liveImage, 60,440,150,60);
-
-					GrabText grabTextCheers=new GrabText();
-					actualCheers = grabTextCheers.crackImage(subImage);
-					status = CommonMethods.textCompare(expectedCheers, actualCheers);
-					
-			}
-			else {
-				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
-			}
+				LOGGER.info("Calling method to read text in image");
+				GrabText grabText = new GrabText();
+				actual = grabText.crackImage(greyImage);
+				
+				LOGGER.info("Click Xfinity ok button ");
+				CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+				Thread.sleep(10000);
+				nu.pattern.OpenCV.loadLocally();
+				
+				LOGGER.info("Capture application screen live image");
+				CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_CHANNELS_NEXT_OPTION);
+				
+				LOGGER.info("Reading live image");
+				liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_CHANNELS_NEXT_OPTION));
+				
+				LOGGER.info("Calling crop method");
+				subImage = CropImage.cropImage(liveImage, 50,450,180,40);
+				
+				GrabText grabTextLinear = new GrabText();
+				actualLinear = grabTextLinear.crackImage(subImage);
+				status = CommonMethods.textCompare(actualLinear, actual);
 
 			if (status) {
 

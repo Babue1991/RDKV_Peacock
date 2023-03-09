@@ -12,15 +12,16 @@ public class CropImage {
 
 	public static void main(String[] args) throws IOException {
 
-		BufferedImage liveImage = ImageIO.read(new File("/home/user/Desktop/NBC.jpg"));
+		BufferedImage liveImage = ImageIO.read(new File("/home/user/Desktop/zero.jpg"));
 		
 		try {
 			
 
-			cropedImage = cropImage(liveImage, 98,390,60,25);
+			cropedImage = cropImage(liveImage, 40,580,90,40);
 
             //600,600,60,100
 			//730,350,340,150
+			//50,450,180,40 - Channels Frasier inside
 			//Popular entertainment section  70,380,380,70
 			//Application text section : 70,25,160,60
 			//Peacock text in application screen grab 50,300,160,45
