@@ -394,7 +394,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_CHANNELS_OPTION));
 
 			LOGGER.info("Calling crop method");
-			subImage = CropImage.cropImage(liveImage, 200,400,100,40);
+			subImage = CropImage.cropImage(liveImage, 200,400,180,40);
 
 			File outputFile = new File("/var/lib/jenkins/workspace/channelsSection.jpg");
 			ImageIO.write(subImage, "jpg", outputFile);
@@ -415,6 +415,10 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
 			Thread.sleep(10000);
 			nu.pattern.OpenCV.loadLocally();
+			
+			LOGGER.info("Click Xfinity ok button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+			
 
 			LOGGER.info("Capture application screen live image");
 			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_CHANNELS_NEXT_OPTION);
@@ -489,12 +493,21 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			ConvertImage ci = new ConvertImage();
 			BufferedImage greyImagenew =ci.ConvertGrayScale(output);
 
+<<<<<<< HEAD
 			File outputFileChannel = new File("/var/lib/jenkins/workspace/ChannelsTune2.jpg");
 			ImageIO.write(greyImagenew, "jpg", outputFileChannel);
 			
 			LOGGER.info("Calling method to read text in image");
 			GrabText grabText = new GrabText();
 			actualNext = grabText.crackImage(greyImagenew);
+=======
+			LOGGER.info("Calling crop method");
+			subImage = CropImage.cropImage(liveImage, 200,400,180,40);
+			
+			
+			
+			
+>>>>>>> a18b74488eebefdda7f679159763fc24f1154daa
 			
 			LOGGER.info("Click two DOWN_BUTTON ");
 			CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.TWO);

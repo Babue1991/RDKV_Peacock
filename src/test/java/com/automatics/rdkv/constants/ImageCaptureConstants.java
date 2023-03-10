@@ -380,6 +380,12 @@ public class ImageCaptureConstants {
 
 	/********The variable used to send capture card port to channels image**/
 	public static String PEACOCK_CHANNELS_NEXT_OPTION=LIVE_IMAGE_PATH+"NextImg.jpg";
+	
+	/********The variable used to send capture card port to channels image**/
+	public static String PEACOCK_LINEAR_CHANNEL_EPISODES=LIVE_IMAGE_PATH+"episodes.jpg";
+	
+	/********The variable used to send capture card port to channels image**/
+	public static String PEACOCK_LINEAR_CHANNEL_NEXT_EPISODE=LIVE_IMAGE_PATH+"nextepisode.jpg";
 
 }
 
