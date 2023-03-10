@@ -670,7 +670,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			errorMessage = "Failed to navigate to linear channels";
 			LOGGER.info("*****************************************************************************************");
 			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify linear channel which do not support trick play");
-			LOGGER.info("STEP 1: ACTION : Press ok and take screensho");
+			LOGGER.info("STEP 1: ACTION : Press ok and take screenshot");
 			LOGGER.info("STEP 1: EXPECTED : Linear channel which do not support trick play should launch successfully");
 			LOGGER.info("*****************************************************************************************");
 
@@ -761,12 +761,12 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			errorMessage = "Failed to verify SLE events";
 			LOGGER.info("*****************************************************************************************");
 			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify SLE events are being broadcast");
-			LOGGER.info("STEP 1: ACTION : Press ok and take screensho");
-			LOGGER.info("STEP 1: EXPECTED : Linear channel which do not support trick play should launch successfully");
+			LOGGER.info("STEP 1: ACTION : Press left and come down");
+			LOGGER.info("STEP 1: EXPECTED : SLE events should be available");
 			LOGGER.info("*****************************************************************************************");
 
-			LOGGER.info("Click Xfinity down button");
-			CommonMethods.execCommand(RemoteKeyContstants.DOWN_BUTTON);
+			LOGGER.info("Click Xfinity left button");
+			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
 
 			LOGGER.info("Click Xfinity ok button ");
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
