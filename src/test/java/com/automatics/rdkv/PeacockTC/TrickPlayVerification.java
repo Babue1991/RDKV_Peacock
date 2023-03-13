@@ -307,8 +307,8 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			LOGGER.info("*****************************************************************************************");
 			
 			
-			LOGGER.info("Click one left button ");
-			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			LOGGER.info("Click Two left button ");
+			CommonMethods.execCommandRepeat2(RemoteKeyContstants.LEFT_BUTTON, IntergerCount.TWO);
 			
 			LOGGER.info("Click OK BUTTON ");
 			//CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
