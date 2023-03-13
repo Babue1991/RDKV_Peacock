@@ -811,7 +811,7 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
      */
 		
 		LOGGER.info("#######################################################################################");
-		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-3001");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-3002");
 		LOGGER.info("TEST DESCRIPTION:  This test is to verify linear channels which support trick play");
 		LOGGER.info("TEST STEPS : ");
 		LOGGER.info("1. Press down button");
@@ -848,7 +848,7 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 	     */	
 		
 		LOGGER.info("#######################################################################################");
-		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-3001");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-3002");
 		LOGGER.info("TEST DESCRIPTION:  This test is to verify Rewind operation at different speed and play using on screen controls");
 		LOGGER.info("TEST STEPS : ");
 		LOGGER.info("1. Press left button and take screenshot");
@@ -994,7 +994,7 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 	     */
 		
 		LOGGER.info("#######################################################################################");
-		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-3001");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-3002");
 		LOGGER.info("TEST DESCRIPTION:  This test is to verify fast forward operation at different speed and play using on screen controls");
 		LOGGER.info("TEST STEPS : ");
 		LOGGER.info("1. Press right and ok button ");
@@ -1112,7 +1112,7 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 	     */
 		
 		LOGGER.info("#######################################################################################");
-		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-3001");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-3002");
 		LOGGER.info("TEST DESCRIPTION:  This test is to verify Pause/play using on screen controls");
 		LOGGER.info("TEST STEPS : ");
 		LOGGER.info("1. Press right and ok button ");
@@ -1215,7 +1215,7 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 	     */
 		
 		LOGGER.info("#######################################################################################");
-		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-3001");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-3002");
 		LOGGER.info("TEST DESCRIPTION: This test is to verify Rewind operation until control has reached at the start position of the content ");
 		LOGGER.info("TEST STEPS : ");
 		LOGGER.info("1. Press left and ok button ");
