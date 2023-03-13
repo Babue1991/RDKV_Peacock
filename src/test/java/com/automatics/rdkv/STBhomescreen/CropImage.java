@@ -18,7 +18,7 @@ public class CropImage {
 		try {
 			
 
-			cropedImage = cropImage(liveImage, 200,395,300,50);
+			cropedImage = cropImage(liveImage, 400,395,475,50);
 
             //600,600,60,100
 			//730,350,340,150

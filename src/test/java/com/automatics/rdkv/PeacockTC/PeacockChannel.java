@@ -920,9 +920,6 @@ public class PeacockChannel extends AutomaticsTestBase {
 			LOGGER.info("Click Xfinity Down button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
 			
-			LOGGER.info("Click Xfinity left button ");
-			CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
-			
 			Thread.sleep(2000);
 			
 			LOGGER.info("Capture application screen live image");
@@ -932,7 +929,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LINEAR_CHANNEL_NEXT_EPISODE));
 
 			LOGGER.info("Calling image cropping method");
-			subImage = CropImage.cropImage(liveImage, 210,395,425,50);
+			subImage = CropImage.cropImage(liveImage, 450,395,475,50);
 			
 			File outputFile = new File("/var/lib/jenkins/workspace/nextepisode.jpg");
 			ImageIO.write(subImage, "jpg", outputFile);
