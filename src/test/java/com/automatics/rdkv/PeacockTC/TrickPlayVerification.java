@@ -638,16 +638,19 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			LOGGER.info("STEP 6: EXPECTED : Play/Pause operation is verified");
 			LOGGER.info("*****************************************************************************************");
 			 
-			LOGGER.info("Reading reference image");
-			referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_PAUSE_REF));
-			
+						
 			LOGGER.info("Click one right button ");
 			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
 			
-			LOGGER.info("Click OK BUTTON ");
-			LOGGER.info("Capture Pause screen live image");
-			CaptureLiveImage.capture2(ImageCaptureConstants.CHANNELS_PAUSE,RemoteKeyContstants.OK_BUTTON,IntergerCount.ONE);
-			Thread.sleep(5000L);
+			LOGGER.info("Click OK button ");
+			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+	
+			LOGGER.info("Capture application screen live image");
+			CaptureLiveImage.captureIcon(ImageCaptureConstants.CHANNELS_REWIND);
+		
+			
+			LOGGER.info("Reading reference image");
+			referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_PAUSE_REF));
 			
 			LOGGER.info("Reading live image");
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.CHANNELS_PAUSE));
