@@ -503,11 +503,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 
 			LOGGER.info("Calling crop method");
 			subImage = CropImage.cropImage(liveImage, 200,400,180,40);
-			
-			
-			
-
-			
+		
 			LOGGER.info("Click two DOWN_BUTTON ");
 			CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.TWO);
 
