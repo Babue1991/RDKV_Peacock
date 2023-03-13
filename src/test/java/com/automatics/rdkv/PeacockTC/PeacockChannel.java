@@ -681,35 +681,26 @@ public class PeacockChannel extends AutomaticsTestBase {
 			LOGGER.info("Click Xfinity OK button ");
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
 
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 
 			LOGGER.info("Click Xfinity down button");
-			CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
-			
-			LOGGER.info("Click Xfinity down button");
-			CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
-			
-			LOGGER.info("Click Xfinity down button");
-			CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
-
-			LOGGER.info("Click Xfinity down button");
-			CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
-			
-			//LOGGER.info("Click Xfinity right button ");
-			//CommonMethods.execCommandIcon(RemoteKeyContstants.RIGHT_BUTTON);
+			CommonMethods.execCommandRepeat2(RemoteKeyContstants.DOWN_BUTTON,3);
 			
 			LOGGER.info("Capture application screen live image");
-			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_LINEAR_CHANNEL_EPISODES);
+			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_LINEAR_CHANNEL_EPISODES);
 
 			LOGGER.info("Reading live image");
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LINEAR_CHANNEL_EPISODES));
 
 			LOGGER.info("Calling image cropping method");
-			subImage = CropImage.cropImage(liveImage, 820,395,425,60);
+			subImage = CropImage.cropImage(liveImage, 210,395,425,50);
 			
 			LOGGER.info("Calling method to read text in image");
 			GrabText grabText = new GrabText();
 			expected = grabText.crackImage(subImage);
+			
+			LOGGER.info("Click Xfinity right button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.RIGHT_BUTTON);
 
 			LOGGER.info("Click Xfinity OK button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
