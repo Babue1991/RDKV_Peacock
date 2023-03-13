@@ -501,15 +501,14 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			GrabText grabText = new GrabText();
 			actualNext = grabText.crackImage(greyImagenew);
 
-<<<<<<< HEAD
+
 			LOGGER.info("Calling crop method");
 			subImage = CropImage.cropImage(liveImage, 40,370,130,70);
 			
-=======
+
 //			LOGGER.info("Calling crop method");
 //			subImage = CropImage.cropImage(liveImage, 40,370,130,70);
-		
->>>>>>> 56ca049c9b526139c1d172125a09aaf84b5ede59
+
 			LOGGER.info("Click two DOWN_BUTTON ");
 			CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.TWO);
 
