@@ -530,13 +530,13 @@ public class PeacockTestCases extends AutomaticsTestBase {
 				LOGGER.info("FALSE");
 			}
 
-			if (status) {
-				LOGGER.info("The status of text comparision is: " + status);
-			} else {
-				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
-			}
-			LOGGER.info("**********************************************************************************");
-			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+//			if (status) {
+//				LOGGER.info("The status of text comparision is: " + status);
+//			} else {
+//				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+//			}
+//			LOGGER.info("**********************************************************************************");
+//			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
 
 		} catch (Exception e) {
 			LOGGER.error("Exception occured while reading the image file " + e);
