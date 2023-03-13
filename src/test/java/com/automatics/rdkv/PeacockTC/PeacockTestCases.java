@@ -562,11 +562,11 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		String testId = "PEACOCK-AAMP-TC-203";
 		String errorMessage = null;
 		String stepNum = null;
-//		BufferedImage referenceImage;
-//		BufferedImage liveImage;
-//		BufferedImage outputImage;
-//		BufferedImage nextliveImage;
-//		BufferedImage subImage;
+		BufferedImage referenceImage;
+		BufferedImage liveImage;
+		BufferedImage outputImage;
+		BufferedImage nextliveImage;
+		BufferedImage subImage;
 		// Variables declaration Ends
 		/**
 		 * Step 3 : Tune to all linear channels and verify
@@ -586,49 +586,56 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			LOGGER.info("STEP 1: EXPECTED : Linear channels verified successfully.");
 			LOGGER.info("*****************************************************************************************");	
 
-			LOGGER.info("Linear channels which supporttrick play");		
-			CommonMethods.Trickplay();
+//			LOGGER.info("Linear channels which supporttrick play");		
+//			CommonMethods.Trickplay();
 
 
-			//				for(int i=0; i<=3; i++) {
-			//					//Total number of channels is 63
-			//					//as of now i have taken i=3
-			//					LOGGER.info("Click two DOWN_BUTTON ");
-			//					CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.TWO);
-			//					Thread.sleep(1000);
-			//					
-			//					LOGGER.info("Click Xfinity OK button ");
-			//					CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
-			//					Thread.sleep(20000);
-			//					
-			//					LOGGER.info("Capture application screen live image");
-			//					CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_TUNE_VERIFY);
-			//					Thread.sleep(5000L);
-			//					
-			//					LOGGER.info("Reading live image");
-			//					liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_TUNE_VERIFY));
-			//					
-			//					LOGGER.info("Capture application screen live image");
-			//					CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_NEXT_TUNE_VERIFY);
-			//					Thread.sleep(5000L);
-			//					
-			//					LOGGER.info("Reading live image");
-			//					nextliveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_NEXT_TUNE_VERIFY));
-			//					
-			//					LOGGER.info("Calling image compare method");
-			//					ImageCompare imgCompare =new ImageCompare();
-			//					status = imgCompare.compare(liveImage, nextliveImage);
-			//				}
-			//			
-			//				if (status) {
-			//					LOGGER.info("The status of image comparision is: " + status);
-			//				} else {
-			//					LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
-			////				}
-			//				LOGGER.info("**********************************************************************************");
-			//				tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+							for(int i=0; i<=3; i++) {
+								//Total number of channels is 63
+								//as of now i have taken i=3
+								LOGGER.info("Click two DOWN_BUTTON ");
+								CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.TWO);
+								Thread.sleep(1000);
+								
+								LOGGER.info("Click Xfinity three OK button ");
+								CommonMethods.execCommandRepeat(RemoteKeyContstants.OK_BUTTON, IntergerCount.THREE);
+								Thread.sleep(15000);
+								
+								LOGGER.info("Click Xfinity RIGHT button ");
+								CommonMethods.execCommand(RemoteKeyContstants.RIGHT_BUTTON);
+								
+								LOGGER.info("Reading reference image");
+								referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_TRICK_PLAY_VERIFY));
+								
+								LOGGER.info("Capture application screen live image");
+								CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_TUNE_VERIFY);
+								Thread.sleep(5000L);
+								
+								LOGGER.info("Reading live image");
+								liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_TUNE_VERIFY));
+								
+								LOGGER.info("Calling crop method");
+								subImage = CropImage.cropImage(liveImage, 490,600,260,120);
+								
+								File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
+								ImageIO.write(subImage, "jpg", outputFile);
+								
+								outputImage = ImageIO.read(new File("/var/lib/jenkins/workspace/image1.jpg"));
+								
+								LOGGER.info("Calling image compare method");
+								ImageCompare imgCompare =new ImageCompare();
+								status = imgCompare.compare2(outputImage, referenceImage);
+							}
+						
+							if (status) {
+								LOGGER.info("The status of image comparision is: " + status);
+							} else {
+								LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+						}
+							LOGGER.info("**********************************************************************************");
+							tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
 
-
+							
 		} catch (Exception e) {
 			LOGGER.error("Exception occured while reading the image file " + e);
 			// TODO Auto-generated catch block
