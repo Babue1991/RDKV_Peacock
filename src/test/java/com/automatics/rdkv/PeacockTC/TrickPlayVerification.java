@@ -521,8 +521,8 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			//x12
 			
 
-			LOGGER.info("Click right button ");
-			CommonMethods.execCommand(RemoteKeyContstants.RIGHT_BUTTON);
+			LOGGER.info("Click Two right button ");
+			CommonMethods.execCommandRepeat2(RemoteKeyContstants.RIGHT_BUTTON, IntergerCount.TWO);
 			
 			LOGGER.info("Click two OK BUTTON ");
 			CommonMethods.execCommandRepeat2(RemoteKeyContstants.OK_BUTTON, IntergerCount.TWO);	
@@ -556,8 +556,8 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			
 			//x24
 
-			LOGGER.info("Click right button ");
-			CommonMethods.execCommand(RemoteKeyContstants.RIGHT_BUTTON);
+			LOGGER.info("Click Two right button ");
+			CommonMethods.execCommandRepeat2(RemoteKeyContstants.RIGHT_BUTTON, IntergerCount.TWO);
 			
 			LOGGER.info("Click 3 OK BUTTON ");
 			CommonMethods.execCommandRepeat2(RemoteKeyContstants.OK_BUTTON, IntergerCount.THREE);	
