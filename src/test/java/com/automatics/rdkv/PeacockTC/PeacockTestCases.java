@@ -44,6 +44,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 	 * @throws InterruptedException 
 	 * 
 	 */
+	//40,370,130,70
 
 	static Process p;
 	@Test(priority=10, dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
@@ -630,11 +631,11 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		String testId = "PEACOCK-AAMP-TC-203";
 		String errorMessage = null;
 		String stepNum = null;
-		BufferedImage referenceImage;
-		BufferedImage liveImage;
-		BufferedImage outputImage;
-		BufferedImage nextliveImage;
-		BufferedImage subImage;
+//		BufferedImage referenceImage;
+//		BufferedImage liveImage;
+//		BufferedImage outputImage;
+//		BufferedImage nextliveImage;
+//		BufferedImage subImage;
 		// Variables declaration Ends
 		/**
 		 * Step 3 : Tune to all linear channels and verify

@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+
 import javax.imageio.ImageIO;
 
 public class CropImage {
@@ -12,12 +13,12 @@ public class CropImage {
 
 	public static void main(String[] args) throws IOException {
 
-		BufferedImage liveImage = ImageIO.read(new File("/home/user/Desktop/zero.jpg"));
+		BufferedImage liveImage = ImageIO.read(new File("/home/user/Desktop/ChannelsNew.jpg"));
 		
 		try {
 			
 
-			cropedImage = cropImage(liveImage, 40,580,90,40);
+			cropedImage = cropImage(liveImage, 40,370,130,70);
 
             //600,600,60,100
 			//730,350,340,150
@@ -39,6 +40,7 @@ public class CropImage {
 			//Moive Next asset 1052,530,120,100
 			//episodes 820,395,425,60
 			//next episodes 210,395,425,50
+			//40,370,130,70 Channels episode icon
 			
 			
 		} catch (Exception e) {
