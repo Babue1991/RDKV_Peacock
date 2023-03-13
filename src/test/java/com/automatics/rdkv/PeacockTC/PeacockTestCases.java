@@ -484,7 +484,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_CHANNELS_TUNE_VERIFY));
 			
 			LOGGER.info("Calling crop method");
-			subImage = CropImage.cropImage(liveImage, 200,400,100,40);
+			subImage = CropImage.cropImage(liveImage, 40,370,130,70);
 			
 			File outputFile = new File("/var/lib/jenkins/workspace/ChannelsTune.jpg");
 			ImageIO.write(subImage, "jpg", outputFile);
@@ -502,12 +502,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			actualNext = grabText.crackImage(greyImagenew);
 
 			LOGGER.info("Calling crop method");
-			subImage = CropImage.cropImage(liveImage, 200,400,180,40);
-			
-			
-			
-
-			
+			subImage = CropImage.cropImage(liveImage, 40,370,130,70);
 			
 			LOGGER.info("Click two DOWN_BUTTON ");
 			CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.TWO);
