@@ -226,10 +226,10 @@ package com.automatics.rdkv.PeacockTC;
 
 		}
 		
-		@Test(priority=6, dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+		@Test(priority=12, dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 				BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
 		@TestDetails(testUID = "PEACOCK-AAMP-TC-3002")
-		public void testVerifySearchMenu(Dut device) throws InterruptedException {
+		public void testVerify(Dut device) throws InterruptedException {
 			
 			boolean status = false;
 			String testId = "PEACOCK-AAMP-TC-302";
