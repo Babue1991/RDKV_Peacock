@@ -595,7 +595,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 								//as of now i have taken i=3
 								LOGGER.info("Click two DOWN_BUTTON ");
 								CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.TWO);
-								Thread.sleep(1000);
+								Thread.sleep(5000);
 								
 								LOGGER.info("Click Xfinity three OK button ");
 								CommonMethods.execCommandRepeat(RemoteKeyContstants.OK_BUTTON, IntergerCount.THREE);
