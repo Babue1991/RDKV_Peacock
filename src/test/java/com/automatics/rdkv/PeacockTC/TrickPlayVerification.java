@@ -457,7 +457,7 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			String actualspeed24;
 			String expectedspeed24="x24";
 			String actualfast6;
-			String expectedfast6="x6";
+			String expectedfast6="Lo";
 			String actualfast12;
 			String expectedfast12="x12";
 			String actualfast24;
@@ -493,18 +493,18 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			LOGGER.info("Capture application screen live image");
 			CaptureLiveImage.captureIcon(ImageCaptureConstants.CHANNELS_FAST_FORWARD);
 			Thread.sleep(5000L);
-			
-			
+		
 			LOGGER.info("Reading live image");
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.CHANNELS_FAST_FORWARD));
 			
-			LOGGER.info("Calling crop method");
-			subImage = CropImage.cropImage(liveImage, 730,600,60,120);
 			LOGGER.info("Click one left button ");
 			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
 			LOGGER.info("Click ok button ");
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
 			Thread.sleep(60000L);
+			
+			LOGGER.info("Calling crop method");
+			subImage = CropImage.cropImage(liveImage, 730,600,60,120);
 			
 			
 			LOGGER.info("Calling read text in image method");
@@ -533,15 +533,16 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			
 			LOGGER.info("Reading live image");
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.CHANNELS_FAST_FORWARD));
-			
-			LOGGER.info("Calling crop method");
-			subImage = CropImage.cropImage(liveImage, 730,600,60,120);
-			
 			LOGGER.info("Click one left button ");
 			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
 			LOGGER.info("Click ok button ");
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
 			Thread.sleep(60000L);
+			
+			LOGGER.info("Calling crop method");
+			subImage = CropImage.cropImage(liveImage, 730,600,60,120);
+			
+			
 			
 			LOGGER.info("Calling read text in image method");
 			GrabText grabText12 = new GrabText();
@@ -568,14 +569,15 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			
 			LOGGER.info("Reading live image");
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.CHANNELS_FAST_FORWARD));
-			
-			LOGGER.info("Calling crop method");
-			subImage = CropImage.cropImage(liveImage, 730,600,60,120); 
-			
 			LOGGER.info("Click one left button ");
 			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
 			LOGGER.info("Click ok button ");
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			
+			LOGGER.info("Calling crop method");
+			subImage = CropImage.cropImage(liveImage, 730,600,60,120); 
+			
+			
 			
 			
 			LOGGER.info("Calling read text in image method");
