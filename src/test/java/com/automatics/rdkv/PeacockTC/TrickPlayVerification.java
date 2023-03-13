@@ -606,111 +606,128 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 
 	}LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-3003");
 		}
+		@Test(priority=14, dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+				BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
+		@TestDetails(testUID = "PEACOCK-AAMP-TC-3004")
+		public void testVerifyPause(Dut device) throws InterruptedException {
+			
+			boolean status = false;
+			String testId = "PEACOCK-AAMP-TC-304";
+			String errorMessage = null;
+			String stepNum = null;
+			BufferedImage referenceImage;
+			BufferedImage liveImage;
+			BufferedImage nextliveImage;
+			BufferedImage outputImage;
+			BufferedImage subImage;
+			String actual;
+			String actualLinear;
+
+		/**
+	     * Step 6 :Perform Pause/play using on screen controls
+	     */
 		
-//
-//		/**
-//	     * Step 6 :Perform Pause/play using on screen controls
-//	     */
-//		
-//		LOGGER.info("#######################################################################################");
-//		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-3002");
-//		LOGGER.info("TEST DESCRIPTION:  This test is to verify Pause/play using on screen controls");
-//		LOGGER.info("TEST STEPS : ");
-//		LOGGER.info("1. Press right and ok button ");
-//		LOGGER.info("#######################################################################################");
-//		try {
-//			stepNum = "S6";
-//			errorMessage = "Failed to verify Pause/play operation";
-//			LOGGER.info("*****************************************************************************************");
-//			LOGGER.info("STEP 6: DESCRIPTION : This test is to verify Pause/play using on screen controls");
-//			LOGGER.info("STEP 6: ACTION : Press right button and take screenshot");
-//			LOGGER.info("STEP 6: EXPECTED : Play/Pause operation is verified");
-//			LOGGER.info("*****************************************************************************************");
-//			 
-//			LOGGER.info("Reading reference image");
-//			referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_PAUSE_REF));
-//			
-//			LOGGER.info("Click one right button ");
-//			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
-//			
-//			LOGGER.info("Click OK BUTTON ");
-//			LOGGER.info("Capture Pause screen live image");
-//			CaptureLiveImage.capture2(ImageCaptureConstants.CHANNELS_PAUSE,RemoteKeyContstants.OK_BUTTON,IntergerCount.ONE);
-//			Thread.sleep(5000L);
-//			
-//			LOGGER.info("Reading live image");
-//			liveImage = ImageIO.read(new File(ImageCaptureConstants.CHANNELS_PAUSE));
-//			
-//			LOGGER.info("Calling crop method");
-//			subImage = CropImage.cropImage(liveImage, 600,600,60,100); 
-//			
-//			File outputFile = new File("/var/lib/jenkins/workspace/image3.jpg");
-//			ImageIO.write(subImage, "jpg", outputFile);
-//			
-//			outputImage = ImageIO.read(new File("/var/lib/jenkins/workspace/image3.jpg"));
-//			
-//			ImageCompare imgCompare =new ImageCompare();
-//			LOGGER.info("Calling screen compare method");
-//			status = imgCompare.compare(referenceImage, outputImage);
-//			
-//			if (status) {
-//				
-//				LOGGER.info("The status of image comparision is: " + status + "and Pause icon verified");
-//				
-//			} else {
-//				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
-//						
-//		}
-//			//Play
-//			
-//			LOGGER.info("Click one right button ");
-//			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
-//			
-//			LOGGER.info("Click OK BUTTON ");
-//			
-//			LOGGER.info("Reading reference image");
-//			referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_PLAY_REF));
-//					
-//			LOGGER.info("Capture Pause screen live image");
-//			CaptureLiveImage.capture2(ImageCaptureConstants.CHANNELS_PLAY,RemoteKeyContstants.OK_BUTTON,IntergerCount.ONE);
-//			Thread.sleep(5000L);
-//			
-//			LOGGER.info("Reading live image");
-//			liveImage = ImageIO.read(new File(ImageCaptureConstants.CHANNELS_PLAY));
-//			
-//			LOGGER.info("Calling crop method");
-//			subImage = CropImage.cropImage(liveImage, 600,600,60,100); 
-//			
-//			File outputFileTPlay = new File("/var/lib/jenkins/workspace/image3.jpg");
-//			ImageIO.write(subImage, "jpg", outputFileTPlay);
-//			
-//			outputImage = ImageIO.read(new File("/var/lib/jenkins/workspace/image3.jpg"));
-//			
-//			ImageCompare imgComparePlay =new ImageCompare();
-//			LOGGER.info("Calling screen compare method");
-//			status = imgComparePlay.compare(referenceImage, outputImage);
-//			
-//			if (status) {
-//				
-//				LOGGER.info("The status of image comparision is: " + status + "and Play icon verified");
-//				
-//			} else {
-//				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
-//						
-//		}
-//}
-//
-//			catch (Exception e) {
-//			LOGGER.error("Exception occured while reading the image file " + e);
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//			LOGGER.info("Inside catch");
-//			errorMessage = e.getMessage();
-//			LOGGER.error("Exception while launching movie screen: " + errorMessage);
-//			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
-//
-//		}
-//
+		LOGGER.info("#######################################################################################");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-3004");
+		LOGGER.info("TEST DESCRIPTION:  This test is to verify Pause/play using on screen controls");
+		LOGGER.info("TEST STEPS : ");
+		LOGGER.info("1. Press right and ok button ");
+		LOGGER.info("#######################################################################################");
+		try {
+			stepNum = "S6";
+			errorMessage = "Failed to verify Pause/play operation";
+			LOGGER.info("*****************************************************************************************");
+			LOGGER.info("STEP 6: DESCRIPTION : This test is to verify Pause/play using on screen controls");
+			LOGGER.info("STEP 6: ACTION : Press right button and take screenshot");
+			LOGGER.info("STEP 6: EXPECTED : Play/Pause operation is verified");
+			LOGGER.info("*****************************************************************************************");
+			 
+			LOGGER.info("Reading reference image");
+			referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_PAUSE_REF));
+			
+			LOGGER.info("Click one right button ");
+			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			
+			LOGGER.info("Click OK BUTTON ");
+			LOGGER.info("Capture Pause screen live image");
+			CaptureLiveImage.capture2(ImageCaptureConstants.CHANNELS_PAUSE,RemoteKeyContstants.OK_BUTTON,IntergerCount.ONE);
+			Thread.sleep(5000L);
+			
+			LOGGER.info("Reading live image");
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.CHANNELS_PAUSE));
+			
+			LOGGER.info("Calling crop method");
+			subImage = CropImage.cropImage(liveImage, 600,600,60,100); 
+			
+			File outputFile = new File("/var/lib/jenkins/workspace/image3.jpg");
+			ImageIO.write(subImage, "jpg", outputFile);
+			
+			outputImage = ImageIO.read(new File("/var/lib/jenkins/workspace/image3.jpg"));
+			
+			ImageCompare imgCompare =new ImageCompare();
+			LOGGER.info("Calling screen compare method");
+			status = imgCompare.compare(referenceImage, outputImage);
+			
+			if (status) {
+				
+				LOGGER.info("The status of image comparision is: " + status + "and Pause icon verified");
+				
+			} else {
+				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+						
+		}
+			//Play
+			
+			LOGGER.info("Click one right button ");
+			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			
+			LOGGER.info("Click OK BUTTON ");
+			
+			LOGGER.info("Reading reference image");
+			referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_PLAY_REF));
+					
+			LOGGER.info("Capture Pause screen live image");
+			CaptureLiveImage.capture2(ImageCaptureConstants.CHANNELS_PLAY,RemoteKeyContstants.OK_BUTTON,IntergerCount.ONE);
+			Thread.sleep(5000L);
+			
+			LOGGER.info("Reading live image");
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.CHANNELS_PLAY));
+			
+			LOGGER.info("Calling crop method");
+			subImage = CropImage.cropImage(liveImage, 600,600,60,100); 
+			
+			File outputFileTPlay = new File("/var/lib/jenkins/workspace/image3.jpg");
+			ImageIO.write(subImage, "jpg", outputFileTPlay);
+			
+			outputImage = ImageIO.read(new File("/var/lib/jenkins/workspace/image3.jpg"));
+			
+			ImageCompare imgComparePlay =new ImageCompare();
+			LOGGER.info("Calling screen compare method");
+			status = imgComparePlay.compare(referenceImage, outputImage);
+			
+			if (status) {
+				
+				LOGGER.info("The status of image comparision is: " + status + "and Play icon verified");
+				
+			} else {
+				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+						
+		}
+}
+
+			catch (Exception e) {
+			LOGGER.error("Exception occured while reading the image file " + e);
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			LOGGER.info("Inside catch");
+			errorMessage = e.getMessage();
+			LOGGER.error("Exception while launching movie screen: " + errorMessage);
+			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
+
+		}
+		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-3004");
+		}
+
 //		/**
 //	     * Step 7 :Perform Rewind operation until control has reached at the start position of the content 
 //	     */
