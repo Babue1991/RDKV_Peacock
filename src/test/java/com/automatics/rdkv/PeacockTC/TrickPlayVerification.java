@@ -168,8 +168,48 @@ package com.automatics.rdkv.PeacockTC;
 			LOGGER.info("*****************************************************************************************");
 
 			
-			LOGGER.info("Linear channels which supporttrick play");		
-			CommonMethods.Trickplay();
+			LOGGER.info("Click 4 button button ");
+			CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.FOUR);
+			
+			LOGGER.info("Click Xfinity OK button ");
+			CommonMethods.execCommandRepeat2(RemoteKeyContstants.OK_BUTTON, IntergerCount.TWO);
+			Thread.sleep(10000L);
+			
+			LOGGER.info("Click Xfinity Right button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.RIGHT_BUTTON);
+			
+			LOGGER.info("Reading reference image");
+			referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_TRICK_PLAY_VERIFY));
+			
+			LOGGER.info("Capture application screen live image");
+			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_CHANNELS);
+			
+			LOGGER.info("Reading live image");
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_CHANNELS));
+			
+			LOGGER.info("Calling crop method");
+			subImage = CropImage.cropImage(liveImage, 490,600,260,120);
+			
+						
+			File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
+			ImageIO.write(subImage, "jpg", outputFile);
+			
+			outputImage = ImageIO.read(new File("/var/lib/jenkins/workspace/image1.jpg"));
+			
+			ImageCompare imgCompare =new ImageCompare();
+			LOGGER.info("Calling screen compare method");
+			status = imgCompare.compare(referenceImage, outputImage);
+			
+			if(status==true) {
+				LOGGER.info("It's supports trick play");
+			}
+				else {
+					
+				LOGGER.info("It does not supports trick play");
+				}
+			
+//			LOGGER.info("Linear channels which supporttrick play");		
+//			CommonMethods.Trickplay();
 				
 		} catch (Exception e) {
 			LOGGER.error("Exception occured while reading the image file " + e);
