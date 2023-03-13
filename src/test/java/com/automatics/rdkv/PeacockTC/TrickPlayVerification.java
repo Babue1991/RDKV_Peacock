@@ -255,7 +255,176 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-3001");
 
 		}
+		@Test(priority=12, dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+				BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
+		@TestDetails(testUID = "PEACOCK-AAMP-TC-3002")
+		public void testVerifyfast(Dut device) throws InterruptedException {
+			
+			boolean status = false;
+			String testId = "PEACOCK-AAMP-TC-302";
+			String errorMessage = null;
+			String stepNum = null;
+			BufferedImage referenceImage;
+			BufferedImage liveImage;
+			BufferedImage nextliveImage;
+			BufferedImage outputImage;
+			BufferedImage subImage;
+			String actual;
+			String actualLinear;
+			String actualspeed;
+			String expectedspeed="x6";
+			String actualspeed12;
+			String expectedspeed12="x12";
+			String actualspeed24;
+			String expectedspeed24="x24";
+			String actualfast6;
+			String expectedfast6="Lo";
+			String actualfast12;
+			String expectedfast12="x12";
+			String actualfast24;
+			String expectedfast24="x24";
+			String actualZero;
+			String expectedZero="00:00:00";
+		/**
+	     * Step 5 :Perform fast forward operation at different speed and play using on screen controls
+	     */
 		
+		LOGGER.info("#######################################################################################");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-3002");
+		LOGGER.info("TEST DESCRIPTION:  This test is to verify fast forward operation at different speed and play using on screen controls");
+		LOGGER.info("TEST STEPS : ");
+		LOGGER.info("1. Press right and ok button ");
+		LOGGER.info("#######################################################################################");
+		try {
+			stepNum = "S5";
+			errorMessage = "Failed to verify fast forward operation";
+			LOGGER.info("*****************************************************************************************");
+			LOGGER.info("STEP 4: DESCRIPTION : This test is to verify fast forward operation at different speed and play using on screen controls");
+			LOGGER.info("STEP 4: ACTION : Press right button and take screenshot");
+			LOGGER.info("STEP 4: EXPECTED : fast forward operation is verified at different speed.");
+			LOGGER.info("*****************************************************************************************");
+			
+			LOGGER.info("Click Two right button ");
+			CommonMethods.execCommandRepeat2(RemoteKeyContstants.RIGHT_BUTTON, IntergerCount.TWO);
+			
+			LOGGER.info("Click OK BUTTON ");
+			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+	
+			
+			LOGGER.info("Capture application screen live image");
+			CaptureLiveImage.captureIcon(ImageCaptureConstants.CHANNELS_FAST_FORWARD);
+			Thread.sleep(5000L);
+		
+			LOGGER.info("Reading live image");
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.CHANNELS_FAST_FORWARD));
+			
+			LOGGER.info("Click one left button ");
+			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			LOGGER.info("Click ok button ");
+			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			Thread.sleep(60000L);
+			
+			LOGGER.info("Calling crop method");
+			subImage = CropImage.cropImage(liveImage, 730,600,60,120);
+			
+			
+			LOGGER.info("Calling read text in image method");
+			GrabText grabText = new GrabText();
+			actualfast6 = grabText.crackImage(subImage);
+			status = CommonMethods.textCompare(expectedfast6, actualfast6);
+		
+			if (status) {
+				LOGGER.info("The status of text comparision is: " + status);
+			} else {
+				LOGGER.error("STEP 2: ACTUAL : " + errorMessage);
+			}
+			
+			//x12
+			
+
+			LOGGER.info("Click Two right button ");
+			CommonMethods.execCommandRepeat2(RemoteKeyContstants.RIGHT_BUTTON, IntergerCount.TWO);
+			
+			LOGGER.info("Click two OK BUTTON ");
+			CommonMethods.execCommandRepeat2(RemoteKeyContstants.OK_BUTTON, IntergerCount.TWO);	
+			
+			LOGGER.info("Capture application screen live image");
+			CaptureLiveImage.captureIcon(ImageCaptureConstants.CHANNELS_FAST_FORWARD);
+			Thread.sleep(5000L);
+			
+			LOGGER.info("Reading live image");
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.CHANNELS_FAST_FORWARD));
+			LOGGER.info("Click one left button ");
+			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			LOGGER.info("Click ok button ");
+			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			Thread.sleep(60000L);
+			
+			LOGGER.info("Calling crop method");
+			subImage = CropImage.cropImage(liveImage, 730,600,60,120);
+			
+			
+			
+			LOGGER.info("Calling read text in image method");
+			GrabText grabText12 = new GrabText();
+			actualfast12 = grabText12.crackImage(subImage);
+			status = CommonMethods.textCompare(expectedfast12, actualfast12);
+		
+			if (status) {
+				LOGGER.info("The status of text comparision is: " + status);
+			} else {
+				LOGGER.error("STEP 2: ACTUAL : " + errorMessage);
+			}
+			
+			//x24
+
+			LOGGER.info("Click Two right button ");
+			CommonMethods.execCommandRepeat2(RemoteKeyContstants.RIGHT_BUTTON, IntergerCount.TWO);
+			
+			LOGGER.info("Click 3 OK BUTTON ");
+			CommonMethods.execCommandRepeat2(RemoteKeyContstants.OK_BUTTON, IntergerCount.THREE);	
+			
+			LOGGER.info("Capture application screen live image");
+			CaptureLiveImage.captureIcon(ImageCaptureConstants.CHANNELS_FAST_FORWARD);
+			Thread.sleep(5000L);
+			
+			LOGGER.info("Reading live image");
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.CHANNELS_FAST_FORWARD));
+			LOGGER.info("Click one left button ");
+			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			LOGGER.info("Click ok button ");
+			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			
+			LOGGER.info("Calling crop method");
+			subImage = CropImage.cropImage(liveImage, 730,600,60,120); 
+			
+			
+			
+			
+			LOGGER.info("Calling read text in image method");
+			GrabText grabText24 = new GrabText();
+			actualfast24 = grabText24.crackImage(subImage);
+			status = CommonMethods.textCompare(expectedfast24, actualfast24);
+		
+			if (status) {
+				LOGGER.info("The status of text comparision is: " + status);
+			} else {
+				LOGGER.error("STEP 2: ACTUAL : " + errorMessage);
+			}
+		}
+		
+		catch (Exception e) {
+		LOGGER.error("Exception occured while reading the image file " + e);
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		LOGGER.info("Inside catch");
+		errorMessage = e.getMessage();
+		LOGGER.error("Exception while launching movie screen: " + errorMessage);
+		CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
+
+		}
+		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-3002");
+		}
 		@Test(priority=13, dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 				BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
 		@TestDetails(testUID = "PEACOCK-AAMP-TC-3003")
@@ -316,18 +485,18 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			
 			LOGGER.info("Capture application screen live image");
 			CaptureLiveImage.captureIcon(ImageCaptureConstants.CHANNELS_REWIND);
-			Thread.sleep(5000L);
 			
 			LOGGER.info("Reading live image");
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.CHANNELS_REWIND));
-			
-			LOGGER.info("Calling crop method");
-			subImage = CropImage.cropImage(liveImage, 490,600,60,120);
 			
 			LOGGER.info("Click one right button ");
 			CommonMethods.execCommand(RemoteKeyContstants.RIGHT_BUTTON);
 			LOGGER.info("Click ok button ");
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			Thread.sleep(60000L);
+			
+			LOGGER.info("Calling crop method");
+			subImage = CropImage.cropImage(liveImage, 490,600,60,120);
 			
 			
 			LOGGER.info("Calling read text in image method");
@@ -367,6 +536,7 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			CommonMethods.execCommand(RemoteKeyContstants.RIGHT_BUTTON);
 			LOGGER.info("Click ok button ");
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+//			Thread.sleep(60000L);
 			
 			LOGGER.info("Calling read text in image method");
 			GrabText grabText12 = new GrabText();
@@ -395,14 +565,16 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			
 			LOGGER.info("Reading live image");
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.CHANNELS_REWIND));
-			
-			LOGGER.info("Calling crop method");
-			subImage = CropImage.cropImage(liveImage, 490,600,60,120);
-			
 			LOGGER.info("Click one right button ");
 			CommonMethods.execCommand(RemoteKeyContstants.RIGHT_BUTTON);
 			LOGGER.info("Click ok button ");
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+//			Thread.sleep(60000L);
+			
+			
+			LOGGER.info("Calling crop method");
+			subImage = CropImage.cropImage(liveImage, 490,600,60,120);
+			
 			
 			LOGGER.info("Calling read text in image method");
 			GrabText grabText24 = new GrabText();
@@ -434,174 +606,7 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 
 	}LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-3003");
 		}
-		@Test(priority=12, dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
-				BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
-		@TestDetails(testUID = "PEACOCK-AAMP-TC-3002")
-		public void testVerifyfast(Dut device) throws InterruptedException {
-			
-			boolean status = false;
-			String testId = "PEACOCK-AAMP-TC-302";
-			String errorMessage = null;
-			String stepNum = null;
-			BufferedImage referenceImage;
-			BufferedImage liveImage;
-			BufferedImage nextliveImage;
-			BufferedImage outputImage;
-			BufferedImage subImage;
-			String actual;
-			String actualLinear;
-			String actualspeed;
-			String expectedspeed="x6";
-			String actualspeed12;
-			String expectedspeed12="x12";
-			String actualspeed24;
-			String expectedspeed24="x24";
-			String actualfast6;
-			String expectedfast6="x6";
-			String actualfast12;
-			String expectedfast12="x12";
-			String actualfast24;
-			String expectedfast24="x24";
-			String actualZero;
-			String expectedZero="00:00:00";
-		/**
-	     * Step 5 :Perform fast forward operation at different speed and play using on screen controls
-	     */
 		
-		LOGGER.info("#######################################################################################");
-		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-3002");
-		LOGGER.info("TEST DESCRIPTION:  This test is to verify fast forward operation at different speed and play using on screen controls");
-		LOGGER.info("TEST STEPS : ");
-		LOGGER.info("1. Press right and ok button ");
-		LOGGER.info("#######################################################################################");
-		try {
-			stepNum = "S5";
-			errorMessage = "Failed to verify fast forward operation";
-			LOGGER.info("*****************************************************************************************");
-			LOGGER.info("STEP 4: DESCRIPTION : This test is to verify fast forward operation at different speed and play using on screen controls");
-			LOGGER.info("STEP 4: ACTION : Press right button and take screenshot");
-			LOGGER.info("STEP 4: EXPECTED : fast forward operation is verified at different speed.");
-			LOGGER.info("*****************************************************************************************");
-			
-			LOGGER.info("Click Two right button ");
-			CommonMethods.execCommandRepeat2(RemoteKeyContstants.RIGHT_BUTTON, IntergerCount.TWO);
-			
-			LOGGER.info("Click OK BUTTON ");
-			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
-	
-			
-			LOGGER.info("Capture application screen live image");
-			CaptureLiveImage.captureIcon(ImageCaptureConstants.CHANNELS_FAST_FORWARD);
-			Thread.sleep(5000L);
-			
-			
-			LOGGER.info("Reading live image");
-			liveImage = ImageIO.read(new File(ImageCaptureConstants.CHANNELS_FAST_FORWARD));
-			
-			LOGGER.info("Calling crop method");
-			subImage = CropImage.cropImage(liveImage, 730,600,60,120);
-			LOGGER.info("Click one left button ");
-			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
-			LOGGER.info("Click ok button ");
-			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
-			Thread.sleep(60000L);
-			
-			
-			LOGGER.info("Calling read text in image method");
-			GrabText grabText = new GrabText();
-			actualfast6 = grabText.crackImage(subImage);
-			status = CommonMethods.textCompare(expectedfast6, actualfast6);
-		
-			if (status) {
-				LOGGER.info("The status of text comparision is: " + status);
-			} else {
-				LOGGER.error("STEP 2: ACTUAL : " + errorMessage);
-			}
-			
-			//x12
-			
-
-			LOGGER.info("Click Two right button ");
-			CommonMethods.execCommandRepeat2(RemoteKeyContstants.RIGHT_BUTTON, IntergerCount.TWO);
-			
-			LOGGER.info("Click two OK BUTTON ");
-			CommonMethods.execCommandRepeat2(RemoteKeyContstants.OK_BUTTON, IntergerCount.TWO);	
-			
-			LOGGER.info("Capture application screen live image");
-			CaptureLiveImage.captureIcon(ImageCaptureConstants.CHANNELS_FAST_FORWARD);
-			Thread.sleep(5000L);
-			
-			LOGGER.info("Reading live image");
-			liveImage = ImageIO.read(new File(ImageCaptureConstants.CHANNELS_FAST_FORWARD));
-			
-			LOGGER.info("Calling crop method");
-			subImage = CropImage.cropImage(liveImage, 730,600,60,120);
-			
-			LOGGER.info("Click one left button ");
-			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
-			LOGGER.info("Click ok button ");
-			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
-			Thread.sleep(60000L);
-			
-			LOGGER.info("Calling read text in image method");
-			GrabText grabText12 = new GrabText();
-			actualfast12 = grabText12.crackImage(subImage);
-			status = CommonMethods.textCompare(expectedfast12, actualfast12);
-		
-			if (status) {
-				LOGGER.info("The status of text comparision is: " + status);
-			} else {
-				LOGGER.error("STEP 2: ACTUAL : " + errorMessage);
-			}
-			
-			//x24
-
-			LOGGER.info("Click Two right button ");
-			CommonMethods.execCommandRepeat2(RemoteKeyContstants.RIGHT_BUTTON, IntergerCount.TWO);
-			
-			LOGGER.info("Click 3 OK BUTTON ");
-			CommonMethods.execCommandRepeat2(RemoteKeyContstants.OK_BUTTON, IntergerCount.THREE);	
-			
-			LOGGER.info("Capture application screen live image");
-			CaptureLiveImage.captureIcon(ImageCaptureConstants.CHANNELS_FAST_FORWARD);
-			Thread.sleep(5000L);
-			
-			LOGGER.info("Reading live image");
-			liveImage = ImageIO.read(new File(ImageCaptureConstants.CHANNELS_FAST_FORWARD));
-			
-			LOGGER.info("Calling crop method");
-			subImage = CropImage.cropImage(liveImage, 730,600,60,120); 
-			
-			LOGGER.info("Click one left button ");
-			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
-			LOGGER.info("Click ok button ");
-			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
-			
-			
-			LOGGER.info("Calling read text in image method");
-			GrabText grabText24 = new GrabText();
-			actualfast24 = grabText24.crackImage(subImage);
-			status = CommonMethods.textCompare(expectedfast24, actualfast24);
-		
-			if (status) {
-				LOGGER.info("The status of text comparision is: " + status);
-			} else {
-				LOGGER.error("STEP 2: ACTUAL : " + errorMessage);
-			}
-		}
-		
-		catch (Exception e) {
-		LOGGER.error("Exception occured while reading the image file " + e);
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-		LOGGER.info("Inside catch");
-		errorMessage = e.getMessage();
-		LOGGER.error("Exception while launching movie screen: " + errorMessage);
-		CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
-
-		}
-		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-3002");
-		}
 //
 //		/**
 //	     * Step 6 :Perform Pause/play using on screen controls

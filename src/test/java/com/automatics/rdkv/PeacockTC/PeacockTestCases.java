@@ -760,7 +760,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		BufferedImage outputImage;
 		// Variables declaration Ends
 		/**
-		 * Step 3: Go to WWE section and check for live events
+		 * Step 2: Go to WWE section and check for live events
 		 */
 		LOGGER.info("#######################################################################################");
 		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-2005");
@@ -779,6 +779,9 @@ public class PeacockTestCases extends AutomaticsTestBase {
 
 			LOGGER.info("Click Xfinity left button");
 			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			
+			LOGGER.info("Click Xfinity down button four times ");
+			CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.FOUR);
 
 			LOGGER.info("Click Xfinity ok button ");
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
