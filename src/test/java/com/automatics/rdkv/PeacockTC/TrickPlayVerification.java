@@ -504,6 +504,8 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
 			LOGGER.info("Click ok button ");
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			Thread.sleep(60000L);
+			
 			
 			LOGGER.info("Calling read text in image method");
 			GrabText grabText = new GrabText();
@@ -519,8 +521,8 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			//x12
 			
 
-			LOGGER.info("Click Two right button ");
-			CommonMethods.execCommandRepeat2(RemoteKeyContstants.RIGHT_BUTTON, IntergerCount.TWO);
+			LOGGER.info("Click right button ");
+			CommonMethods.execCommand(RemoteKeyContstants.RIGHT_BUTTON);
 			
 			LOGGER.info("Click two OK BUTTON ");
 			CommonMethods.execCommandRepeat2(RemoteKeyContstants.OK_BUTTON, IntergerCount.TWO);	
@@ -539,6 +541,7 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
 			LOGGER.info("Click ok button ");
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			Thread.sleep(60000L);
 			
 			LOGGER.info("Calling read text in image method");
 			GrabText grabText12 = new GrabText();
@@ -553,8 +556,8 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			
 			//x24
 
-			LOGGER.info("Click Two right button ");
-			CommonMethods.execCommandRepeat2(RemoteKeyContstants.RIGHT_BUTTON, IntergerCount.TWO);
+			LOGGER.info("Click right button ");
+			CommonMethods.execCommand(RemoteKeyContstants.RIGHT_BUTTON);
 			
 			LOGGER.info("Click 3 OK BUTTON ");
 			CommonMethods.execCommandRepeat2(RemoteKeyContstants.OK_BUTTON, IntergerCount.THREE);	
@@ -573,6 +576,7 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
 			LOGGER.info("Click ok button ");
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			
 			
 			LOGGER.info("Calling read text in image method");
 			GrabText grabText24 = new GrabText();
