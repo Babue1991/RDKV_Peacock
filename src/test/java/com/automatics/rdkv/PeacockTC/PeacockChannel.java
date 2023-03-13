@@ -681,13 +681,21 @@ public class PeacockChannel extends AutomaticsTestBase {
 			LOGGER.info("Click Xfinity OK button ");
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
 
-			Thread.sleep(3000);
+			Thread.sleep(5000);
 
 			LOGGER.info("Click Xfinity down button");
-			CommonMethods.execCommandRepeat2(RemoteKeyContstants.DOWN_BUTTON,3);
+			CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
+			
+			LOGGER.info("Click Xfinity down button");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
+			
+			LOGGER.info("Click Xfinity down button");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
+			
+			Thread.sleep(2000);
 			
 			LOGGER.info("Capture application screen live image");
-			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_LINEAR_CHANNEL_EPISODES);
+			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_LINEAR_CHANNEL_EPISODES);
 
 			LOGGER.info("Reading live image");
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LINEAR_CHANNEL_EPISODES));
@@ -698,6 +706,18 @@ public class PeacockChannel extends AutomaticsTestBase {
 			LOGGER.info("Calling method to read text in image");
 			GrabText grabText = new GrabText();
 			expected = grabText.crackImage(subImage);
+			
+			LOGGER.info("Click Xfinity down button");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
+			
+			LOGGER.info("Click Xfinity down button");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
+			
+			LOGGER.info("Click Xfinity down button");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
+			
+			LOGGER.info("Click Xfinity down button");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
 			
 			LOGGER.info("Click Xfinity right button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.RIGHT_BUTTON);
