@@ -386,20 +386,16 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			
 			LOGGER.info("Capture application screen live image");
 			CaptureLiveImage.captureIcon(ImageCaptureConstants.CHANNELS_FAST_FORWARD);
-			Thread.sleep(5000L);
-			
-			LOGGER.info("Reading live image");
-			liveImage = ImageIO.read(new File(ImageCaptureConstants.CHANNELS_FAST_FORWARD));
 			LOGGER.info("Click one left button ");
 			CommonMethods.execCommand1(RemoteKeyContstants.LEFT_BUTTON);
 			LOGGER.info("Click ok button ");
 			CommonMethods.execCommand1(RemoteKeyContstants.OK_BUTTON);
 			
+			LOGGER.info("Reading live image");
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.CHANNELS_FAST_FORWARD));
+			
 			LOGGER.info("Calling crop method");
 			subImage = CropImage.cropImage(liveImage, 730,600,60,120); 
-			
-			
-			
 			
 			LOGGER.info("Calling read text in image method");
 			GrabText grabText24 = new GrabText();
