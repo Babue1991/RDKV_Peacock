@@ -693,7 +693,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 			CommonMethods.execCommand(RemoteKeyContstants.DOWN_BUTTON);
 			
 			LOGGER.info("Capture application screen live image");
-			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_LINEAR_CHANNEL_EPISODES);
+			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_LINEAR_CHANNEL_EPISODES);
 
 			LOGGER.info("Reading live image");
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LINEAR_CHANNEL_EPISODES));
