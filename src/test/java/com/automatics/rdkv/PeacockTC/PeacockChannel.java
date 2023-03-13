@@ -866,13 +866,13 @@ public class PeacockChannel extends AutomaticsTestBase {
 			LOGGER.info("Click Xfinity down button");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
 			
-			Thread.sleep(3000);
+			Thread.sleep(2000);
 			
 			LOGGER.info("Capture application screen live image");
-			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_LINEAR_CHANNEL_EPISODES);
+			CaptureLiveImage.captureIcon(ImageCaptureConstants.PLCHANNEL_EPISODES);
 
 			LOGGER.info("Reading live image");
-			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LINEAR_CHANNEL_EPISODES));
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.PLCHANNEL_EPISODES));
 
 			LOGGER.info("Calling image cropping method");
 			subImage = CropImage.cropImage(liveImage, 820,395,425,60);
