@@ -695,8 +695,8 @@ public class PeacockChannel extends AutomaticsTestBase {
 			LOGGER.info("Click Xfinity down button");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
 			
-			LOGGER.info("Click Xfinity right button ");
-			CommonMethods.execCommandIcon(RemoteKeyContstants.RIGHT_BUTTON);
+			//LOGGER.info("Click Xfinity right button ");
+			//CommonMethods.execCommandIcon(RemoteKeyContstants.RIGHT_BUTTON);
 			
 			LOGGER.info("Capture application screen live image");
 			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_LINEAR_CHANNEL_EPISODES);
