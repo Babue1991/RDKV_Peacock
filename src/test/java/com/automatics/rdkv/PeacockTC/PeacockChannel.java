@@ -707,6 +707,8 @@ public class PeacockChannel extends AutomaticsTestBase {
 			GrabText grabText = new GrabText();
 			expected = grabText.crackImage(subImage);
 			
+			Thread.sleep(5000);
+			
 			LOGGER.info("Click Xfinity down button");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
 			
