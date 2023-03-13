@@ -487,6 +487,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			
 			
 			
+			
 			LOGGER.info("Click two DOWN_BUTTON ");
 			CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.TWO);
 
