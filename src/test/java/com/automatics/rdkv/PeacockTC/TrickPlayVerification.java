@@ -258,11 +258,11 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 		
 		@Test(priority=13, dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 				BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
-		@TestDetails(testUID = "PEACOCK-AAMP-TC-3002")
+		@TestDetails(testUID = "PEACOCK-AAMP-TC-3003")
 		public void testVerify(Dut device) throws InterruptedException {
 			
 			boolean status = false;
-			String testId = "PEACOCK-AAMP-TC-302";
+			String testId = "PEACOCK-AAMP-TC-303";
 			String errorMessage = null;
 			String stepNum = null;
 			BufferedImage referenceImage;
@@ -292,7 +292,7 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 	     */	
 		
 		LOGGER.info("#######################################################################################");
-		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-3002");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-3003");
 		LOGGER.info("TEST DESCRIPTION:  This test is to verify Rewind operation at different speed and play using on screen controls");
 		LOGGER.info("TEST STEPS : ");
 		LOGGER.info("1. Press left button and take screenshot");
@@ -432,15 +432,15 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 		LOGGER.error("Exception while launching movie screen: " + errorMessage);
 		CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 
-	}
+	}LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-3003");
 		}
 		@Test(priority=12, dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 				BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
-		@TestDetails(testUID = "PEACOCK-AAMP-TC-3003")
+		@TestDetails(testUID = "PEACOCK-AAMP-TC-3002")
 		public void testVerifyfast(Dut device) throws InterruptedException {
 			
 			boolean status = false;
-			String testId = "PEACOCK-AAMP-TC-303";
+			String testId = "PEACOCK-AAMP-TC-302";
 			String errorMessage = null;
 			String stepNum = null;
 			BufferedImage referenceImage;
@@ -469,7 +469,7 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 	     */
 		
 		LOGGER.info("#######################################################################################");
-		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-3003");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-3002");
 		LOGGER.info("TEST DESCRIPTION:  This test is to verify fast forward operation at different speed and play using on screen controls");
 		LOGGER.info("TEST STEPS : ");
 		LOGGER.info("1. Press right and ok button ");
@@ -596,6 +596,7 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 		CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 
 		}
+		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-3002");
 		}
 //
 //		/**
