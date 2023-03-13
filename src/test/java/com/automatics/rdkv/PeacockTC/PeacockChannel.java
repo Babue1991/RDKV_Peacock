@@ -691,9 +691,6 @@ public class PeacockChannel extends AutomaticsTestBase {
 			
 			LOGGER.info("Click Xfinity down button");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
-
-			LOGGER.info("Click Xfinity down button");
-			CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
 			
 			//LOGGER.info("Click Xfinity right button ");
 			//CommonMethods.execCommandIcon(RemoteKeyContstants.RIGHT_BUTTON);
@@ -705,11 +702,14 @@ public class PeacockChannel extends AutomaticsTestBase {
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LINEAR_CHANNEL_EPISODES));
 
 			LOGGER.info("Calling image cropping method");
-			subImage = CropImage.cropImage(liveImage, 820,395,425,60);
+			subImage = CropImage.cropImage(liveImage, 210,395,425,50);
 			
 			LOGGER.info("Calling method to read text in image");
 			GrabText grabText = new GrabText();
 			expected = grabText.crackImage(subImage);
+			
+			LOGGER.info("Click Xfinity right button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.RIGHT_BUTTON);
 
 			LOGGER.info("Click Xfinity OK button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
