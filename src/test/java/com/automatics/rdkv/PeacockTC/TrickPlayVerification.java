@@ -26,7 +26,8 @@ package com.automatics.rdkv.PeacockTC;
 	import com.automatics.rdkv.constants.ImageCaptureConstants;
 	import com.automatics.rdkv.constants.IntergerCount;
 	import com.automatics.rdkv.constants.RemoteKeyContstants;
-	import com.automatics.rdkv.imagevalidation.ImageCompare;
+import com.automatics.rdkv.imagevalidation.ConvertImage;
+import com.automatics.rdkv.imagevalidation.ImageCompare;
 	import com.automatics.tap.AutomaticsTapApi;
 	import com.automatics.test.AutomaticsTestBase;
 
@@ -80,6 +81,7 @@ package com.automatics.rdkv.PeacockTC;
 			String expectedfast24="x24";
 			String actualZero;
 			String expectedZero="00:00:00";
+			String actualLinear;
 			// Variables declaration Ends
    
 			/**
@@ -102,34 +104,64 @@ package com.automatics.rdkv.PeacockTC;
 
 				LOGGER.info("Click Xfinity left button ");
 				CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
-				
+
 				LOGGER.info("Click six DOWN_BUTTON ");
 				CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.SIX);
-						
-				LOGGER.info("Capture Channels screen live image");
-				CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_CHANNELS);
-				Thread.sleep(5000L);
-				
-				LOGGER.info("Reading live image");
-				liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_CHANNELS));
-				
-				LOGGER.info("Calling crop method");
-				subImage = CropImage.cropImage(liveImage, 90,500,100,30);
-				
-				GrabText grabText = new GrabText();
-				actual = grabText.crackImage(subImage);
-				status = CommonMethods.textCompare(expectedchannels, actual);
-				Thread.sleep(5000L);
-						
-							
+
 				LOGGER.info("Click Xfinity ok button ");
 				CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
 				nu.pattern.OpenCV.loadLocally();
-			
+
+				LOGGER.info("Capture application screen live image");
+				CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_CHANNELS_OPTION);
+
+				LOGGER.info("Reading live image");
+				liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_CHANNELS_OPTION));
+
+				LOGGER.info("Calling crop method");
+				subImage = CropImage.cropImage(liveImage, 200,400,80,40);
+
+				File outputFile = new File("/var/lib/jenkins/workspace/channelsSection.jpg");
+				ImageIO.write(subImage, "jpg", outputFile);
+
+				BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/channelsSection.jpg"));
+
+				ConvertImage ci = new ConvertImage();
+				BufferedImage greyImage =ci.ConvertGrayScale(output);
+
+				File outputFiletwo = new File("/var/lib/jenkins/workspace/channelsSection2.jpg");
+				ImageIO.write(greyImage, "jpg", outputFiletwo);
+
+				LOGGER.info("Calling method to read text in image");
+				GrabText grabText = new GrabText();
+				actual = grabText.crackImage(greyImage);
+
+				LOGGER.info("Click Xfinity ok button ");
+				CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+				Thread.sleep(10000);
+				nu.pattern.OpenCV.loadLocally();
+				
+				LOGGER.info("Click Xfinity ok button ");
+				CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+				
+
+				LOGGER.info("Capture application screen live image");
+				CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_CHANNELS_NEXT_OPTION);
+
+				LOGGER.info("Reading live image");
+				liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_CHANNELS_NEXT_OPTION));
+
+				LOGGER.info("Calling crop method");
+				subImage = CropImage.cropImage(liveImage, 50,450,180,40);
+
+				GrabText grabTextLinear = new GrabText();
+				actualLinear = grabTextLinear.crackImage(subImage);
+				status = CommonMethods.textCompare(actualLinear, actual);
+
 				if (status) {
-					LOGGER.info("The status of text comparision is: " + status);
+
 				} else {
-					LOGGER.error("STEP 2: ACTUAL : " + errorMessage);
+					LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
 				}
 				LOGGER.info("**********************************************************************************");
 				tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
@@ -140,12 +172,10 @@ package com.automatics.rdkv.PeacockTC;
 				e.printStackTrace();
 				LOGGER.info("Inside catch");
 				errorMessage = e.getMessage();
-				LOGGER.error("Exception while launching movie screen: " + errorMessage);
+				LOGGER.error("Exception while launching home screen file: " + errorMessage);
 				CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
-
+			
 			}
-			LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-3001");
-
 			
 		
 	/**
