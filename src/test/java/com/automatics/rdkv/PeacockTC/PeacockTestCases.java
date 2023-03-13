@@ -493,21 +493,19 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			ConvertImage ci = new ConvertImage();
 			BufferedImage greyImagenew =ci.ConvertGrayScale(output);
 
-<<<<<<< HEAD
 			File outputFileChannel = new File("/var/lib/jenkins/workspace/ChannelsTune2.jpg");
 			ImageIO.write(greyImagenew, "jpg", outputFileChannel);
 			
 			LOGGER.info("Calling method to read text in image");
 			GrabText grabText = new GrabText();
 			actualNext = grabText.crackImage(greyImagenew);
-=======
+
 			LOGGER.info("Calling crop method");
 			subImage = CropImage.cropImage(liveImage, 200,400,180,40);
 			
 			
 			
-			
->>>>>>> a18b74488eebefdda7f679159763fc24f1154daa
+
 			
 			LOGGER.info("Click two DOWN_BUTTON ");
 			CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.TWO);
