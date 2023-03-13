@@ -20,6 +20,7 @@ import com.automatics.rdkv.commonmethods.GrabText;
 import com.automatics.rdkv.constants.ImageCaptureConstants;
 import com.automatics.rdkv.constants.RemoteKeyContstants;
 import com.automatics.rdkv.imagevalidation.ConvertImage;
+import com.automatics.rdkv.imagevalidation.ImageCompare;
 import com.automatics.tap.AutomaticsTapApi;
 import com.automatics.test.AutomaticsTestBase;
 
@@ -931,10 +932,8 @@ public class PeacockChannel extends AutomaticsTestBase {
 		String errorMessage = null;
 		String stepNum = null;
 		BufferedImage liveImage;
-		BufferedImage subImage;
-		String expected;
-		String actual;
-
+		BufferedImage referenceImage;
+		
 		// Variables declaration Ends
 
 		LOGGER.info("#######################################################################################");
@@ -945,7 +944,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 		LOGGER.info("#######################################################################################");
 		try {
 			stepNum = "S1";
-			errorMessage = "Failed to verify trick play operations";
+			errorMessage = "Failed to verify trick play(pause) operations";
 			LOGGER.info("*****************************************************************************************");
 			LOGGER.info("STEP 1: DESCRIPTION : Test Verify Trick Play operations during Ads");
 			LOGGER.info("STEP 1: ACTION :Tune to  linear channels  which has ads");
@@ -1017,69 +1016,27 @@ public class PeacockChannel extends AutomaticsTestBase {
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 			
 			LOGGER.info("Capture application screen live image");
-			CaptureLiveImage.captureIcon(ImageCaptureConstants.PLC_ADS_TP_PAUSE);
+			CaptureLiveImage.captureIcon(ImageCaptureConstants.PLC_ADS_TP_PAUSE_REF);
 
-			LOGGER.info("Reading live image");
-			liveImage = ImageIO.read(new File(ImageCaptureConstants.PLC_ADS_TP_PAUSE));
-
-			LOGGER.info("Calling image cropping method");
-			subImage = CropImage.cropImage(liveImage, 820,395,425,60);
+			LOGGER.info("Reading first live ads screen");
+			referenceImage = ImageIO.read(new File(ImageCaptureConstants.PLC_ADS_TP_PAUSE_REF));
 			
-			LOGGER.info("Calling method to read text in image");
-			GrabText grabText = new GrabText();
-			expected = grabText.crackImage(subImage);
-
-			LOGGER.info("Click Xfinity OK button ");
-			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
-
-			Thread.sleep(20000);
-
-			LOGGER.info("Click Xfinity OK button ");
-			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
-			
-			LOGGER.info("Click Xfinity right button ");
-			CommonMethods.execCommandRepeat(RemoteKeyContstants.RIGHT_BUTTON,2);
-			
-			LOGGER.info("Click Xfinity OK button ");
-			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
-			
-			TimeUnit. MINUTES. sleep(2);
-			
-			LOGGER.info("Click Xfinity OK button ");
-			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
-			
-			LOGGER.info("Click Xfinity Down button ");
-			CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
+			Thread.sleep(5000);
 			
 			LOGGER.info("Capture application screen live image");
-			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_LINEAR_CHANNEL_NEXT_EPISODE);
+			CaptureLiveImage.captureIcon(ImageCaptureConstants.PLC_ADS_TP_PAUSE_LIVE);
 
-			LOGGER.info("Reading live image");
-			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LINEAR_CHANNEL_NEXT_EPISODE));
+			LOGGER.info("Reading second live ads screen");
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.PLC_ADS_TP_PAUSE_LIVE));
 
-			LOGGER.info("Calling image cropping method");
-			subImage = CropImage.cropImage(liveImage, 210,395,425,50);
+			LOGGER.info("Calling image compare method");
 			
-			File outputFile = new File("/var/lib/jenkins/workspace/nextepisode.jpg");
-			ImageIO.write(subImage, "jpg", outputFile);
+            ImageCompare imgCompare =new ImageCompare();
 
-			BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/nextepisode.jpg"));
-
-			ConvertImage ci = new ConvertImage();
-			BufferedImage greyImage =ci.ConvertGrayScale(output);
-
-			File outputFiletwo = new File("/var/lib/jenkins/workspace/greyepisode.jpg");
-			ImageIO.write(greyImage, "jpg", outputFiletwo);
-
-			LOGGER.info("Calling method to read text in image");
-			actual = grabText.crackImage(greyImage);
-			
-			LOGGER.info("Calling method to compare text in image");
-
-			status = CommonMethods.partialTextCompare(expected, actual);
+			status = imgCompare.compare(referenceImage, liveImage);
 
 			if (status) {
-				LOGGER.info("Channel playing with no AV issues : " + status);
+				LOGGER.info("Ads puase option verified : " + status);
 			} else {
 				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
 			}
