@@ -221,7 +221,7 @@ public class ImageCompare extends AutomaticsTestBase {
 			// Lastly print the difference percentage
 			LOGGER.info("The image match percentage value" +percentage);
 			
-			if(percentage == 0.16370873135579017) {
+			if(percentage == 1) {
 					status=true;
 			}else {
 					status=false;
