@@ -471,8 +471,8 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			LOGGER.info("Click two DOWN_BUTTON ");
 			CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.TWO);
 
-			LOGGER.info("Click Xfinity ok button ");
-			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			LOGGER.info("Click two OK_BUTTON ");
+			CommonMethods.execCommandRepeat(RemoteKeyContstants.OK_BUTTON, IntergerCount.TWO);
 			Thread.sleep(15000);
 			nu.pattern.OpenCV.loadLocally();
 
@@ -501,27 +501,14 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			GrabText grabText = new GrabText();
 			actualNext = grabText.crackImage(greyImagenew);
 
-
-
-			LOGGER.info("Calling crop method");
-			subImage = CropImage.cropImage(liveImage, 40,370,130,70);
-			
-
-//			LOGGER.info("Calling crop method");
-//			subImage = CropImage.cropImage(liveImage, 40,370,130,70);
-
-			LOGGER.info("Calling crop method");
-			subImage = CropImage.cropImage(liveImage, 40,370,130,70);
-			
-
 			LOGGER.info("Click two DOWN_BUTTON ");
 			CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.TWO);
 
-			LOGGER.info("Click Xfinity ok button ");
-			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			LOGGER.info("Click two OK_BUTTON ");
+			CommonMethods.execCommandRepeat(RemoteKeyContstants.OK_BUTTON, IntergerCount.TWO);
 			Thread.sleep(15000);
 			nu.pattern.OpenCV.loadLocally();
-
+			
 			LOGGER.info("Capture application screen live image");
 			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_CHANNELS_NEXT_TUNE_VERIFY);
 			Thread.sleep(5000L);
@@ -530,14 +517,14 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			nextliveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_CHANNELS_NEXT_TUNE_VERIFY));
 			
 			LOGGER.info("Calling crop method");
-		    subImage = CropImage.cropImage(liveImage, 200,400,100,40);
+			subImage = CropImage.cropImage(liveImage, 40,370,130,70);
 			
 			GrabText grabTextLinear = new GrabText();
 			actualchannel = grabTextLinear.crackImage(subImage);
 			status = CommonMethods.textCompare(actualchannel, actualNext);
 			
 			if (actualNext != actualchannel) {
-				LOGGER.info("CONDITION TRUE");
+				LOGGER.info("TRUE");
 			}
 			else {
 				LOGGER.info("FALSE");
