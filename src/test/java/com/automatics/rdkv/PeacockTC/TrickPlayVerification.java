@@ -319,9 +319,9 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.CHANNELS_FAST_FORWARD));
 			
 			LOGGER.info("Click one left button ");
-			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			CommonMethods.execCommand1(RemoteKeyContstants.LEFT_BUTTON);
 			LOGGER.info("Click ok button ");
-			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			CommonMethods.execCommand1(RemoteKeyContstants.OK_BUTTON);
 			Thread.sleep(60000L);
 			
 			LOGGER.info("Calling crop method");
@@ -355,9 +355,9 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			LOGGER.info("Reading live image");
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.CHANNELS_FAST_FORWARD));
 			LOGGER.info("Click one left button ");
-			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			CommonMethods.execCommand1(RemoteKeyContstants.LEFT_BUTTON);
 			LOGGER.info("Click ok button ");
-			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			CommonMethods.execCommand1(RemoteKeyContstants.OK_BUTTON);
 			Thread.sleep(60000L);
 			
 			LOGGER.info("Calling crop method");
@@ -391,9 +391,9 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			LOGGER.info("Reading live image");
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.CHANNELS_FAST_FORWARD));
 			LOGGER.info("Click one left button ");
-			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			CommonMethods.execCommand1(RemoteKeyContstants.LEFT_BUTTON);
 			LOGGER.info("Click ok button ");
-			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			CommonMethods.execCommand1(RemoteKeyContstants.OK_BUTTON);
 			
 			LOGGER.info("Calling crop method");
 			subImage = CropImage.cropImage(liveImage, 730,600,60,120); 
@@ -490,9 +490,9 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.CHANNELS_REWIND));
 			
 			LOGGER.info("Click one right button ");
-			CommonMethods.execCommand(RemoteKeyContstants.RIGHT_BUTTON);
+			CommonMethods.execCommand1(RemoteKeyContstants.RIGHT_BUTTON);
 			LOGGER.info("Click ok button ");
-			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			CommonMethods.execCommand1(RemoteKeyContstants.OK_BUTTON);
 			Thread.sleep(60000L);
 			
 			LOGGER.info("Calling crop method");
@@ -533,9 +533,9 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			subImage = CropImage.cropImage(liveImage, 490,600,60,120);
 			
 			LOGGER.info("Click one right button ");
-			CommonMethods.execCommand(RemoteKeyContstants.RIGHT_BUTTON);
+			CommonMethods.execCommand1(RemoteKeyContstants.RIGHT_BUTTON);
 			LOGGER.info("Click ok button ");
-			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			CommonMethods.execCommand1(RemoteKeyContstants.OK_BUTTON);
 //			Thread.sleep(60000L);
 			
 			LOGGER.info("Calling read text in image method");
@@ -566,9 +566,9 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			LOGGER.info("Reading live image");
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.CHANNELS_REWIND));
 			LOGGER.info("Click one right button ");
-			CommonMethods.execCommand(RemoteKeyContstants.RIGHT_BUTTON);
+			CommonMethods.execCommand1(RemoteKeyContstants.RIGHT_BUTTON);
 			LOGGER.info("Click ok button ");
-			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			CommonMethods.execCommand1(RemoteKeyContstants.OK_BUTTON);
 //			Thread.sleep(60000L);
 			
 			
