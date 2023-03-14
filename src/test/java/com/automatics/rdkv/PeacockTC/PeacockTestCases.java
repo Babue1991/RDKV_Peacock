@@ -552,7 +552,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 	// step 1 and step 2 are same as TC-2002
 	@Test(priority=7,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
-	@TestDetails(testUID = "PEACOCK-AAMP-TC-2003")
+	@TestDetails(testUID = "PEACOCK-AAMP-TC-40001")
 	public void testVerifyChannelOption(Dut device) throws InterruptedException {
 		// Variables declaration starts
 		boolean status = false;
@@ -692,7 +692,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 
 		}
-		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-2003");
+		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-40001");
 	}
 	/**
 	 * Step 1 :Launch peacock application
