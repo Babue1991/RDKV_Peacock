@@ -560,9 +560,7 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			LOGGER.info("Click one right button ");
 			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
 			
-			LOGGER.info("Click OK button ");
-			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
-			
+						
 			LOGGER.info("Reading reference image");
 			referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_PAUSE_REF));
 	
@@ -644,67 +642,83 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-3004");
 		}
 
+		
+		@Test(priority=14, dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+				BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
+		@TestDetails(testUID = "PEACOCK-AAMP-TC-3004")
+		public void testVerifyZero(Dut device) throws InterruptedException {
+			
+			boolean status = false;
+			String testId = "PEACOCK-AAMP-TC-304";
+			String errorMessage = null;
+			String stepNum = null;
+			BufferedImage referenceImage;
+			BufferedImage liveImage;
+			BufferedImage outputImage;
+			BufferedImage subImage;
+			String actualZero;
+			String expectedZero ="00:00:00";
 //		/**
 //	     * Step 7 :Perform Rewind operation until control has reached at the start position of the content 
 //	     */
-//		
-//		LOGGER.info("#######################################################################################");
-//		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-3002");
-//		LOGGER.info("TEST DESCRIPTION: This test is to verify Rewind operation until control has reached at the start position of the content ");
-//		LOGGER.info("TEST STEPS : ");
-//		LOGGER.info("1. Press left and ok button ");
-//		LOGGER.info("#######################################################################################");
-//		try {
-//			stepNum = "S7";
-//			errorMessage = "Failed to verify Rewind operation";
-//			LOGGER.info("*****************************************************************************************");
-//			LOGGER.info("STEP 6: DESCRIPTION : This test is to verify Rewind operation until control has reached at the start position of the content");
-//			LOGGER.info("STEP 6: ACTION : Press left and ok button and take screenshot");
-//			LOGGER.info("STEP 6: EXPECTED : Rewind operation is verified");
-//			LOGGER.info("*****************************************************************************************");
-//			 
-//			LOGGER.info("Reading reference image");
-//			referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_REWIND));
-//			
-//			LOGGER.info("Click two Left button ");
-//			CommonMethods.execCommandRepeat(RemoteKeyContstants.LEFT_BUTTON, IntergerCount.TWO);
-//			
-//			LOGGER.info("Click OK BUTTON ");
-//			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
-//			Thread.sleep(10000L);
-//			
-//			LOGGER.info("Capture Pause screen live image");
-//			CaptureLiveImage.capture(ImageCaptureConstants.CHANNELS_TRICK_REWIND);
-//			
-//			LOGGER.info("Reading live image");
-//			liveImage = ImageIO.read(new File(ImageCaptureConstants.CHANNELS_TRICK_REWIND));
-//			
-//			LOGGER.info("Calling crop method");
-//			subImage = CropImage.cropImage(liveImage, 40,580,90,40); 
-//			
-//			LOGGER.info("Calling read text in image method");
-//			GrabText grabTextZero = new GrabText();
-//			actualZero = grabTextZero.crackImage(subImage);
-//			status = CommonMethods.textCompare(expectedZero, actualZero);
-//			
-//			if (status) {
-//				
-//				LOGGER.info("The status of image comparision is: " + status);
-//				
-//			} else {
-//				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
-//						
-//		}
-//}
-//			catch (Exception e) {
-//			LOGGER.error("Exception occured while reading the image file " + e);
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//			LOGGER.info("Inside catch");
-//			errorMessage = e.getMessage();
-//			LOGGER.error("Exception while launching movie screen: " + errorMessage);
-//			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
-//
-//		}
-//}
+		
+		LOGGER.info("#######################################################################################");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-3002");
+		LOGGER.info("TEST DESCRIPTION: This test is to verify Rewind operation until control has reached at the start position of the content ");
+		LOGGER.info("TEST STEPS : ");
+		LOGGER.info("1. Press left and ok button ");
+		LOGGER.info("#######################################################################################");
+		try {
+			stepNum = "S7";
+			errorMessage = "Failed to verify Rewind operation";
+			LOGGER.info("*****************************************************************************************");
+			LOGGER.info("STEP 6: DESCRIPTION : This test is to verify Rewind operation until control has reached at the start position of the content");
+			LOGGER.info("STEP 6: ACTION : Press left and ok button and take screenshot");
+			LOGGER.info("STEP 6: EXPECTED : Rewind operation is verified");
+			LOGGER.info("*****************************************************************************************");
+			 
+			LOGGER.info("Reading reference image");
+			referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_REWIND));
+			
+			LOGGER.info("Click two Left button ");
+			CommonMethods.execCommandRepeat(RemoteKeyContstants.LEFT_BUTTON, IntergerCount.TWO);
+			
+			LOGGER.info("Click OK BUTTON ");
+			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			Thread.sleep(10000L);
+			
+			LOGGER.info("Capture Pause screen live image");
+			CaptureLiveImage.capture(ImageCaptureConstants.CHANNELS_TRICK_REWIND);
+			
+			LOGGER.info("Reading live image");
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.CHANNELS_TRICK_REWIND));
+			
+			LOGGER.info("Calling crop method");
+			subImage = CropImage.cropImage(liveImage, 40,580,90,40); 
+			
+			LOGGER.info("Calling read text in image method");
+			GrabText grabTextZero = new GrabText();
+			actualZero = grabTextZero.crackImage(subImage);
+			status = CommonMethods.textCompare(expectedZero, actualZero);
+			
+			if (status) {
+				
+				LOGGER.info("The status of image comparision is: " + status);
+				
+			} else {
+				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+						
+		}
+}
+			catch (Exception e) {
+			LOGGER.error("Exception occured while reading the image file " + e);
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			LOGGER.info("Inside catch");
+			errorMessage = e.getMessage();
+			LOGGER.error("Exception while launching movie screen: " + errorMessage);
+			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
+
+		}
+}
 	}
