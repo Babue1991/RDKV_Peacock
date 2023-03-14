@@ -589,8 +589,10 @@ public class PeacockTestCases extends AutomaticsTestBase {
 				//i=63
 				
 				LOGGER.info("Click two DOWN_BUTTON ");
-				CommonMethods.execCommandRepeat2(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.TWO);
-				Thread.sleep(2000);
+				CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
+				CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
+				
+				//Thread.sleep(2000);
 
 				LOGGER.info("Click Xfinity OK button ");
 				CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
