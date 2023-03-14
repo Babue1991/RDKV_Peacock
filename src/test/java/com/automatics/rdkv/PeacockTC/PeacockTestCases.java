@@ -596,7 +596,8 @@ public class PeacockTestCases extends AutomaticsTestBase {
 				Process p=Runtime.getRuntime().exec("irsend SEND_ONCE Apple Comcast_OK");
 
 				LOGGER.info("Click Xfinity OK button ");
-				CommonMethods.execCommand1(RemoteKeyContstants.OK_BUTTON);
+				CaptureLiveImage.capture2(ImageCaptureConstants.PEACOCK_TUNE_VERIFY, RemoteKeyContstants.OK_BUTTON, IntergerCount.ONE);
+			//	CommonMethods.execCommand1(RemoteKeyContstants.OK_BUTTON);
 				//CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 				Thread.sleep(15000);
 
@@ -604,8 +605,8 @@ public class PeacockTestCases extends AutomaticsTestBase {
 				CommonMethods.execCommandIcon(RemoteKeyContstants.RIGHT_BUTTON);
 				Thread.sleep(2000);
 
-				LOGGER.info("Capture application screen live image");
-				CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_TUNE_VERIFY);
+//				LOGGER.info("Capture application screen live image");
+//				CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_TUNE_VERIFY);
 				
 				LOGGER.info("Reading live image");
 				liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_TUNE_VERIFY));

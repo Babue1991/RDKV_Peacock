@@ -579,7 +579,7 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			
 			ImageCompare imgCompare =new ImageCompare();
 			LOGGER.info("Calling screen compare method");
-			status = imgCompare.compare2(referenceImage, outputImage);
+			status = imgCompare.compare2(referenceImage, subImage);
 			
 			if (status) {
 				
@@ -589,6 +589,8 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
 						
 		}
+			
+			Thread.sleep(10000);
 			//Pause
 			
 //			LOGGER.info("Click one right button ");
