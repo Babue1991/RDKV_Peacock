@@ -329,6 +329,9 @@ public class ImageCaptureConstants {
 	/********The variable used to send capture card port to channels image**/
 	public static String CHANNELS_REWIND=LIVE_IMAGE_PATH+"Rewind.jpg";
 	
+	/********The variable used to send capture card port to channels image**/
+	public static String PEACOCK_CHANNELS_NEXT_IMG=LIVE_IMAGE_PATH+"NextImg.jpg";
+	
 	/********The variable used to send capture card port to capture linear channels image**/
 	public static String REWIND_REF=REFERENCE_IMAGE_PATH+"Channels.jpg";
 

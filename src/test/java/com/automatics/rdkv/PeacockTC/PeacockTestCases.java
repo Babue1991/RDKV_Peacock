@@ -44,7 +44,6 @@ public class PeacockTestCases extends AutomaticsTestBase {
 	 * @throws InterruptedException 
 	 * 
 	 */
-	//40,370,130,70
 
 	static Process p;
 	@Test(priority=10, dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
@@ -64,7 +63,6 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		String expectedpopularapp = "Popular entertainment apps";
 		String Expectedpeacock = "Peacock";
 		String SplashText = "peacock:";
-
 		// Variables declaration Ends
 
 
@@ -358,7 +356,6 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		String actualLinear;
 		String actualchannel;
 		String actualNext;
-
 		// Variables declaration Ends
 		/**
 		 * Step 1 : Go to channel option in peacock menu and press ok
@@ -567,9 +564,11 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		BufferedImage outputImage;
 		BufferedImage nextliveImage;
 		BufferedImage subImage;
+		String actual;
+		String actualNew;
 		// Variables declaration Ends
 		/**
-		 * Step 3 : Tune to all linear channels and verify
+		 * Step 3 : Tune to all linear channels one by one till the end and verify
 		 */
 		LOGGER.info("#######################################################################################");
 		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-2003");
@@ -585,20 +584,15 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			LOGGER.info("STEP 1: ACTION : Press down button and click ok");
 			LOGGER.info("STEP 1: EXPECTED : Linear channels verified successfully.");
 			LOGGER.info("*****************************************************************************************");	
-
-			//			LOGGER.info("Linear channels which supporttrick play");		
-			//			CommonMethods.Trickplay();
-			//
-
+			
 			for(int i=0; i<=3; i++) {
-				//Total number of channels is 63
-				//as of now i have taken i=3
+				//i=63
+				
 				LOGGER.info("Click two DOWN_BUTTON ");
 				CommonMethods.execCommandRepeat2(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.TWO);
 				Thread.sleep(2000);
 
-				LOGGER.info("Click Xfinity three OK button ");
-
+				LOGGER.info("Click Xfinity OK button ");
 				CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 				Thread.sleep(15000);
 
@@ -606,26 +600,51 @@ public class PeacockTestCases extends AutomaticsTestBase {
 				CommonMethods.execCommandIcon(RemoteKeyContstants.RIGHT_BUTTON);
 				Thread.sleep(2000);
 
-				LOGGER.info("Reading reference image");
-				referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_TRICK_PLAY_VERIFY));
-
 				LOGGER.info("Capture application screen live image");
 				CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_TUNE_VERIFY);
 				
 				LOGGER.info("Reading live image");
 				liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_TUNE_VERIFY));
-
+				
 				LOGGER.info("Calling crop method");
-				subImage = CropImage.cropImage(liveImage, 490,600,260,120);
-
-				File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
+				subImage = CropImage.cropImage(liveImage, 40,370,130,70);
+				
+				File outputFile = new File("/var/lib/jenkins/workspace/TuneVerify.jpg");
 				ImageIO.write(subImage, "jpg", outputFile);
 
-				outputImage = ImageIO.read(new File("/var/lib/jenkins/workspace/image1.jpg"));
+				BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/TuneVerify.jpg"));
 
-				LOGGER.info("Calling image compare method");
-				ImageCompare imgCompare = new ImageCompare();
-				status = imgCompare.compare2(outputImage, referenceImage);
+				ConvertImage ci = new ConvertImage();
+				BufferedImage greyImagenew =ci.ConvertGrayScale(output);
+
+				File outputFileChannel = new File("/var/lib/jenkins/workspace/TuneVerify2.jpg");
+				ImageIO.write(greyImagenew, "jpg", outputFileChannel);
+
+				LOGGER.info("Calling method to read text in image");
+				GrabText grabText = new GrabText();
+				actual = grabText.crackImage(greyImagenew);
+				
+				LOGGER.info("Click two DOWN_BUTTON ");
+				CommonMethods.execCommandRepeat2(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.TWO);
+
+				LOGGER.info("Click OK_BUTTON ");
+				CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+				Thread.sleep(10000);
+
+				LOGGER.info("Capture application screen live image");
+				CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_CHANNELS_NEXT_IMG);
+				Thread.sleep(5000L);
+
+				LOGGER.info("Reading live image");
+				nextliveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_CHANNELS_NEXT_IMG));
+
+				LOGGER.info("Calling crop method");
+				subImage = CropImage.cropImage(liveImage, 40,370,130,70);
+
+				GrabText grabTextLinear = new GrabText();
+				actualNew = grabTextLinear.crackImage(subImage);
+				status = CommonMethods.textCompare(actualNew, actual);
+				
 			}
 
 			if (status) {
