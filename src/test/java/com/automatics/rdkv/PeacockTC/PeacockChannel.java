@@ -669,7 +669,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 
 			//Thread.sleep(10000);
-			TimeUnit. MINUTES. sleep(4);
+			TimeUnit. MINUTES. sleep(1);
 
 			LOGGER.info("Click Xfinity OK button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
@@ -695,7 +695,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 			GrabText grabText = new GrabText();
 			expected = grabText.crackImage(subImage);
 
-			TimeUnit. MINUTES. sleep(4);
+			TimeUnit. MINUTES. sleep(1);
 
 			//Thread.sleep(10000);
 

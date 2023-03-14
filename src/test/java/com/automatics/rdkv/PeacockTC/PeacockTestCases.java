@@ -586,9 +586,6 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			LOGGER.info("STEP 1: EXPECTED : Linear channels verified successfully.");
 			LOGGER.info("*****************************************************************************************");	
 
-			//			LOGGER.info("Linear channels which supporttrick play");		
-			//			CommonMethods.Trickplay();
-			//
 
 			for(int i=0; i<=3; i++) {
 				//Total number of channels is 63
