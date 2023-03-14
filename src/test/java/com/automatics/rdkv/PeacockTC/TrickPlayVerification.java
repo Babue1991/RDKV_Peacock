@@ -572,10 +572,10 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			LOGGER.info("Calling crop method");
 			subImage = CropImage.cropImage(liveImage, 620,640,40,40); 
 			
-			File outputFile = new File("/var/lib/jenkins/workspace/image3.jpg");
+			File outputFile = new File("/var/lib/jenkins/workspace/image4.jpg");
 			ImageIO.write(subImage, "jpg", outputFile);
 			
-			outputImage = ImageIO.read(new File("/var/lib/jenkins/workspace/image3.jpg"));
+			outputImage = ImageIO.read(new File("/var/lib/jenkins/workspace/image4.jpg"));
 			
 			ImageCompare imgCompare =new ImageCompare();
 			LOGGER.info("Calling screen compare method");
@@ -591,8 +591,8 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 		}
 			//Pause
 			
-			LOGGER.info("Click one right button ");
-			CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
+//			LOGGER.info("Click one right button ");
+//			CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
 			
 			LOGGER.info("Click OK BUTTON ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
