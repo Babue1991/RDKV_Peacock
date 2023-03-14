@@ -430,17 +430,17 @@ public class CommonMethods extends AutomaticsTestBase{
 		LOGGER.info("Click Xfinity Right button ");
 		CommonMethods.execCommandIcon(RemoteKeyContstants.RIGHT_BUTTON);
 		
-		LOGGER.info("Reading reference image");
-		referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_TRICK_PLAY_VERIFY));
-		
 		LOGGER.info("Capture application screen live image");
 		CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_CHANNELS);
 		
 		LOGGER.info("Reading live image");
 		liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_CHANNELS));
 		
+		LOGGER.info("Reading reference image");
+		referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_TRICK_PLAY_VERIFY));
+		
 		LOGGER.info("Calling crop method");
-		subImage = CropImage.cropImage(liveImage, 490,600,260,120);
+		subImage = CropImage.cropImage(liveImage, 540,640,200,40);
 		
 					
 		File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
@@ -450,7 +450,7 @@ public class CommonMethods extends AutomaticsTestBase{
 		
 		ImageCompare imgCompare =new ImageCompare();
 		LOGGER.info("Calling screen compare method");
-		status = imgCompare.compare2(referenceImage, outputImage);
+		status = imgCompare.compare(referenceImage, outputImage);
 		
 		
 
