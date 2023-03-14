@@ -592,7 +592,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			
 			p = Runtime.getRuntime().exec("irsend SEND_ONCE Apple Comcast_Down");
 			p = Runtime.getRuntime().exec("irsend SEND_ONCE Apple Comcast_OK");
-			Thread.sleep(5000L);
+			Thread.sleep(20000L);
 //			LOGGER.info("Calling method to navigate to linear channel ");
 //			CommonMethods.navigateToChannelFour();
 //			
