@@ -557,7 +557,7 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			LOGGER.info("*****************************************************************************************");
 			 
 						
-			LOGGER.info("Click one right button ");
+			LOGGER.info("Click one left button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
 	
 			LOGGER.info("Capture application screen live image");
