@@ -540,7 +540,7 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 		/**
 	     * Step 6 :Perform Pause/play using on screen controls
 	     */
-		
+		//Play
 		LOGGER.info("#######################################################################################");
 		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-3004");
 		LOGGER.info("TEST DESCRIPTION:  This test is to verify Pause/play using on screen controls");
@@ -558,11 +558,7 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			 
 						
 			LOGGER.info("Click one right button ");
-			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
-			
-			LOGGER.info("Click one ok button ");
-			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
-						
+			CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
 	
 			LOGGER.info("Capture application screen live image");
 			CaptureLiveImage.captureIcon(ImageCaptureConstants.CHANNELS_PAUSE);
@@ -593,13 +589,13 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
 						
 		}
-			//Play
+			//Pause
 			
 			LOGGER.info("Click one right button ");
-			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
 			
 			LOGGER.info("Click OK BUTTON ");
-			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 					
 			LOGGER.info("Capture application screen live image");
 			CaptureLiveImage.captureIcon(ImageCaptureConstants.CHANNELS_PLAY);
