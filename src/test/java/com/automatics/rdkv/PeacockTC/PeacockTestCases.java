@@ -584,7 +584,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			LOGGER.info("STEP 1: ACTION : Press down button and click ok");
 			LOGGER.info("STEP 1: EXPECTED : Linear channels verified successfully.");
 			LOGGER.info("*****************************************************************************************");	
-			
+			Process p;
 			LOGGER.info("My code start");
 			p = Runtime.getRuntime().exec("irsend SEND_ONCE Apple Comcast_Down");
 			LOGGER.info("My code end");
@@ -604,7 +604,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			
 			for(int i=0; i<=3; i++) {
 				//i=63
-				Process p;
+				
 				LOGGER.info("Click Xfinity down button ");
 				//irsend SEND_ONCE Apple Comcast_Down
 				
