@@ -584,7 +584,15 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			LOGGER.info("STEP 1: ACTION : Press down button and click ok");
 			LOGGER.info("STEP 1: EXPECTED : Linear channels verified successfully.");
 			LOGGER.info("*****************************************************************************************");	
-
+			
+			LOGGER.info("My code start");
+			p = Runtime.getRuntime().exec("irsend SEND_ONCE Apple Comcast_Down");
+			LOGGER.info("My code end");
+			
+			
+			p = Runtime.getRuntime().exec("irsend SEND_ONCE Apple Comcast_Down");
+			p = Runtime.getRuntime().exec("irsend SEND_ONCE Apple Comcast_OK");
+			Thread.sleep(5000L);
 //			LOGGER.info("Calling method to navigate to linear channel ");
 //			CommonMethods.navigateToChannelFour();
 //			
@@ -599,10 +607,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 				Process p;
 				LOGGER.info("Click Xfinity down button ");
 				//irsend SEND_ONCE Apple Comcast_Down
-				p = Runtime.getRuntime().exec("irsend SEND_ONCE Apple Comcast_Down");
-				p = Runtime.getRuntime().exec("irsend SEND_ONCE Apple Comcast_Down");
-				p = Runtime.getRuntime().exec("irsend SEND_ONCE Apple Comcast_OK");
-				Thread.sleep(5000L);
+				
 				CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
 				CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
 				
