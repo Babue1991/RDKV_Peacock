@@ -416,10 +416,10 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
 			Thread.sleep(10000);
 			nu.pattern.OpenCV.loadLocally();
-			
+
 			LOGGER.info("Click Xfinity ok button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
-			
+
 
 			LOGGER.info("Capture application screen live image");
 			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_CHANNELS_NEXT_OPTION);
@@ -482,21 +482,21 @@ public class PeacockTestCases extends AutomaticsTestBase {
 
 			LOGGER.info("Reading live image");
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_CHANNELS_TUNE_VERIFY));
-			
+
 			LOGGER.info("Calling crop method");
 			subImage = CropImage.cropImage(liveImage, 40,370,130,70);
-			
+
 			File outputFile = new File("/var/lib/jenkins/workspace/ChannelsTune.jpg");
 			ImageIO.write(subImage, "jpg", outputFile);
-			
+
 			BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/ChannelsTune.jpg"));
-			
+
 			ConvertImage ci = new ConvertImage();
 			BufferedImage greyImagenew =ci.ConvertGrayScale(output);
 
 			File outputFileChannel = new File("/var/lib/jenkins/workspace/ChannelsTune2.jpg");
 			ImageIO.write(greyImagenew, "jpg", outputFileChannel);
-			
+
 			LOGGER.info("Calling method to read text in image");
 			GrabText grabText = new GrabText();
 			actualNext = grabText.crackImage(greyImagenew);
@@ -508,21 +508,21 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			CommonMethods.execCommandRepeat(RemoteKeyContstants.OK_BUTTON, IntergerCount.TWO);
 			Thread.sleep(15000);
 			nu.pattern.OpenCV.loadLocally();
-			
+
 			LOGGER.info("Capture application screen live image");
 			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_CHANNELS_NEXT_TUNE_VERIFY);
 			Thread.sleep(5000L);
 
 			LOGGER.info("Reading live image");
 			nextliveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_CHANNELS_NEXT_TUNE_VERIFY));
-			
+
 			LOGGER.info("Calling crop method");
 			subImage = CropImage.cropImage(liveImage, 40,370,130,70);
-			
+
 			GrabText grabTextLinear = new GrabText();
 			actualchannel = grabTextLinear.crackImage(subImage);
 			status = CommonMethods.textCompare(actualchannel, actualNext);
-			
+
 			if (actualNext != actualchannel) {
 				LOGGER.info("TRUE");
 			}
@@ -530,13 +530,13 @@ public class PeacockTestCases extends AutomaticsTestBase {
 				LOGGER.info("FALSE");
 			}
 
-//			if (status) {
-//				LOGGER.info("The status of text comparision is: " + status);
-//			} else {
-//				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
-//			}
-//			LOGGER.info("**********************************************************************************");
-//			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+			//			if (status) {
+			//				LOGGER.info("The status of text comparision is: " + status);
+			//			} else {
+			//				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+			//			}
+			//			LOGGER.info("**********************************************************************************");
+			//			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
 
 		} catch (Exception e) {
 			LOGGER.error("Exception occured while reading the image file " + e);
@@ -586,56 +586,57 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			LOGGER.info("STEP 1: EXPECTED : Linear channels verified successfully.");
 			LOGGER.info("*****************************************************************************************");	
 
-//			LOGGER.info("Linear channels which supporttrick play");		
-//			CommonMethods.Trickplay();
-//
+			//			LOGGER.info("Linear channels which supporttrick play");		
+			//			CommonMethods.Trickplay();
+			//
 
-						for(int i=0; i<=3; i++) {
-								//Total number of channels is 63
-								//as of now i have taken i=3
-								LOGGER.info("Click two DOWN_BUTTON ");
-								CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.TWO);
-								Thread.sleep(2000);
-								
-								LOGGER.info("Click Xfinity three OK button ");
-								//CommonMethods.execCommandRepeat(RemoteKeyContstants.OK_BUTTON, IntergerCount.THREE);
-								CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
-								Thread.sleep(15000);
-								
-								LOGGER.info("Click Xfinity RIGHT button ");
-								CommonMethods.execCommand(RemoteKeyContstants.RIGHT_BUTTON);
-								
-							LOGGER.info("Reading reference image");
-								referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_TRICK_PLAY_VERIFY));
-								
-								LOGGER.info("Capture application screen live image");
-								CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_TUNE_VERIFY);
-							Thread.sleep(5000L);							
-							LOGGER.info("Reading live image");
-							liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_TUNE_VERIFY));
-							
-							LOGGER.info("Calling crop method");
-							subImage = CropImage.cropImage(liveImage, 490,600,260,120);
-							
-							File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
-								ImageIO.write(subImage, "jpg", outputFile);
-								
-								outputImage = ImageIO.read(new File("/var/lib/jenkins/workspace/image1.jpg"));
-								
-								LOGGER.info("Calling image compare method");
-								ImageCompare imgCompare =new ImageCompare();
-							status = imgCompare.compare2(outputImage, referenceImage);
-						}
-						
-							if (status) {
-								LOGGER.info("The status of image comparision is: " + status);
-							} else {
-								LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
-						}
-							LOGGER.info("**********************************************************************************");
-							tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+			for(int i=0; i<=3; i++) {
+				//Total number of channels is 63
+				//as of now i have taken i=3
+				LOGGER.info("Click two DOWN_BUTTON ");
+				CommonMethods.execCommandRepeat2(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.TWO);
+				Thread.sleep(2000);
 
-							
+				LOGGER.info("Click Xfinity three OK button ");
+
+				CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+				Thread.sleep(15000);
+
+				LOGGER.info("Click Xfinity RIGHT button ");
+				CommonMethods.execCommandIcon(RemoteKeyContstants.RIGHT_BUTTON);
+				Thread.sleep(2000);
+
+				LOGGER.info("Reading reference image");
+				referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_TRICK_PLAY_VERIFY));
+
+				LOGGER.info("Capture application screen live image");
+				CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_TUNE_VERIFY);
+				
+				LOGGER.info("Reading live image");
+				liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_TUNE_VERIFY));
+
+				LOGGER.info("Calling crop method");
+				subImage = CropImage.cropImage(liveImage, 490,600,260,120);
+
+				File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
+				ImageIO.write(subImage, "jpg", outputFile);
+
+				outputImage = ImageIO.read(new File("/var/lib/jenkins/workspace/image1.jpg"));
+
+				LOGGER.info("Calling image compare method");
+				ImageCompare imgCompare = new ImageCompare();
+				status = imgCompare.compare2(outputImage, referenceImage);
+			}
+
+			if (status) {
+				LOGGER.info("The status of image comparision is: " + status);
+			} else {
+				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+			}
+			LOGGER.info("**********************************************************************************");
+			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+
+
 		} catch (Exception e) {
 			LOGGER.error("Exception occured while reading the image file " + e);
 			// TODO Auto-generated catch block
@@ -779,7 +780,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 
 			LOGGER.info("Click Xfinity left button");
 			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
-			
+
 			LOGGER.info("Click Xfinity down button four times ");
 			CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.FOUR);
 
@@ -836,10 +837,10 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		}
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-2005");
 	}
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
 }
