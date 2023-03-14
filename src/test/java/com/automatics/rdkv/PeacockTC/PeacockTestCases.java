@@ -592,7 +592,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 				CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
 				CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
 				
-				//Thread.sleep(2000);
+				Thread.sleep(2000);
 
 				LOGGER.info("Click Xfinity OK button ");
 				CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
