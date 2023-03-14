@@ -579,7 +579,7 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			
 			ImageCompare imgCompare =new ImageCompare();
 			LOGGER.info("Calling screen compare method");
-			status = imgCompare.compare(referenceImage, outputImage);
+			status = imgCompare.compare2(referenceImage, outputImage);
 			
 			if (status) {
 				
