@@ -270,12 +270,10 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			//x12
 			
 
-			LOGGER.info("Click Two right button ");
-			CommonMethods.execCommandRepeat2(RemoteKeyContstants.RIGHT_BUTTON, IntergerCount.TWO);
+			LOGGER.info("Click Two FORWARD BUTTON ");
+			CommonMethods.execCommandRepeat2(RemoteKeyContstants.FORWARD_BUTTON, IntergerCount.TWO);
 			
-			LOGGER.info("Click two OK BUTTON ");
-			CommonMethods.execCommandRepeat2(RemoteKeyContstants.OK_BUTTON, IntergerCount.TWO);	
-			
+						
 			LOGGER.info("Capture application screen live image");
 			CaptureLiveImage.captureIcon(ImageCaptureConstants.CHANNELS_FAST_FORWARD);
 			Thread.sleep(5000L);
@@ -306,11 +304,9 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			
 			//x24
 
-			LOGGER.info("Click Two right button ");
-			CommonMethods.execCommandRepeat2(RemoteKeyContstants.RIGHT_BUTTON, IntergerCount.TWO);
-			
-			LOGGER.info("Click 3 OK BUTTON ");
-			CommonMethods.execCommandRepeat2(RemoteKeyContstants.OK_BUTTON, IntergerCount.THREE);	
+			LOGGER.info("Click Three Forward button ");
+			CommonMethods.execCommandRepeat2(RemoteKeyContstants.FORWARD_BUTTON, IntergerCount.THREE);
+				
 			
 			LOGGER.info("Capture application screen live image");
 			CaptureLiveImage.captureIcon(ImageCaptureConstants.CHANNELS_FAST_FORWARD);
@@ -388,14 +384,11 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			LOGGER.info("STEP 4: EXPECTED : Rewind operation is verified at different speed.");
 			LOGGER.info("*****************************************************************************************");
 			
+
+			LOGGER.info("Click Backward BUTTON ");
+			CommonMethods.execCommand(RemoteKeyContstants.BACKWARD_BUTTON);
 			
-			LOGGER.info("Click Two left button ");
-			CommonMethods.execCommandRepeat2(RemoteKeyContstants.LEFT_BUTTON, IntergerCount.TWO);
-			
-			LOGGER.info("Click OK BUTTON ");
-			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
-	
-			
+		
 			LOGGER.info("Capture application screen live image");
 			CaptureLiveImage.captureIcon(ImageCaptureConstants.CHANNELS_REWIND);
 			
@@ -428,11 +421,8 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			
 			//x12
 			
-			LOGGER.info("Click Two left button ");
-			CommonMethods.execCommandRepeat2(RemoteKeyContstants.LEFT_BUTTON, IntergerCount.TWO);
-			
-			LOGGER.info("Click Two OK button ");
-			CommonMethods.execCommandRepeat2(RemoteKeyContstants.OK_BUTTON, IntergerCount.TWO);
+			LOGGER.info("Click Two BACKWARD BUTTON ");
+			CommonMethods.execCommandRepeat2(RemoteKeyContstants.BACKWARD_BUTTON, IntergerCount.TWO);
 	
 			
 			LOGGER.info("Capture application screen live image");
@@ -465,12 +455,8 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			//x24
 
 			
-			LOGGER.info("Click Two left button ");
-			CommonMethods.execCommandRepeat2(RemoteKeyContstants.LEFT_BUTTON, IntergerCount.TWO);
-			
-			LOGGER.info("Click Three OK button ");
-			CommonMethods.execCommandRepeat2(RemoteKeyContstants.OK_BUTTON, IntergerCount.THREE);
-	
+			LOGGER.info("Click Two BACKWARD BUTTON ");
+			CommonMethods.execCommandRepeat2(RemoteKeyContstants.BACKWARD_BUTTON, IntergerCount.THREE);
 			
 			LOGGER.info("Capture application screen live image");
 			CaptureLiveImage.captureIcon(ImageCaptureConstants.CHANNELS_REWIND);
