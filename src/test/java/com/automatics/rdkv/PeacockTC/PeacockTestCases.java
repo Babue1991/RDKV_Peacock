@@ -498,7 +498,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			GrabText grabText = new GrabText();
 			actualNext = grabText.crackImage(greyImagenew);
 
-			LOGGER.info("Click two DOWN_BUTTON ");
+			LOGGER.info("Click two DOWN_BUTTON 12345 ");
 			CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.TWO);
 
 			LOGGER.info("Click two OK_BUTTON ");
@@ -643,7 +643,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 				GrabText grabText = new GrabText();
 				actual = grabText.crackImage(greyImagenew);
 				
-				LOGGER.info("Click two DOWN_BUTTON ");
+				LOGGER.info("Click two DOWN_BUTTON 2003");
 				CommonMethods.execCommandRepeat2(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.TWO);
 
 				LOGGER.info("Click OK_BUTTON ");
