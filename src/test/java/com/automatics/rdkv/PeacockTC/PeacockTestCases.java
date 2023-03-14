@@ -584,7 +584,12 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			LOGGER.info("STEP 1: ACTION : Press down button and click ok");
 			LOGGER.info("STEP 1: EXPECTED : Linear channels verified successfully.");
 			LOGGER.info("*****************************************************************************************");	
+<<<<<<< HEAD
 			
+=======
+
+
+>>>>>>> 54242f4abc3001e8e3f0e6b730224586e164b01f
 			for(int i=0; i<=3; i++) {
 				//i=63
 				
