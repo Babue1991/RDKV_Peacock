@@ -61,26 +61,9 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			String testId = "PEACOCK-AAMP-TC-301";
 			String errorMessage = null;
 			String stepNum = null;
-			BufferedImage referenceImage;
 			BufferedImage liveImage;
 			BufferedImage subImage;
-			BufferedImage outputImage;
 			String actual;
-			String expectedchannels="cicd";
-			String actualspeed;
-			String expectedspeed="x6";
-			String actualspeed12;
-			String expectedspeed12="x12";
-			String actualspeed24;
-			String expectedspeed24="x24";
-			String actualfast6;
-			String expectedfast6="x6";
-			String actualfast12;
-			String expectedfast12="x12";
-			String actualfast24;
-			String expectedfast24="x24";
-			String actualZero;
-			String expectedZero="00:00:00";
 			String actualLinear;
 			// Variables declaration Ends
    
@@ -197,46 +180,6 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			LOGGER.info("STEP 3: EXPECTED : Channels option should launch successfully.");
 			LOGGER.info("*****************************************************************************************");
 
-//			
-//			LOGGER.info("Click 4 button button ");
-//			CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.FOUR);
-//			
-//			LOGGER.info("Click Xfinity OK button ");
-//			CommonMethods.execCommandRepeat2(RemoteKeyContstants.OK_BUTTON, IntergerCount.TWO);
-//			Thread.sleep(10000L);
-//			
-//			LOGGER.info("Click Xfinity Right button ");
-//			CommonMethods.execCommandIcon(RemoteKeyContstants.RIGHT_BUTTON);
-//			
-//			LOGGER.info("Reading reference image");
-//			referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_TRICK_PLAY_VERIFY));
-//			
-//			LOGGER.info("Capture application screen live image");
-//			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_CHANNELS);
-//			
-//			LOGGER.info("Reading live image");
-//			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_CHANNELS));
-//			
-//			LOGGER.info("Calling crop method");
-//			subImage = CropImage.cropImage(liveImage, 490,600,260,120);
-//			
-//						
-//			File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
-//			ImageIO.write(subImage, "jpg", outputFile);
-//			
-//			outputImage = ImageIO.read(new File("/var/lib/jenkins/workspace/image1.jpg"));
-//			
-//			ImageCompare imgCompare =new ImageCompare();
-//			LOGGER.info("Calling screen compare method");
-//			status = imgCompare.compare(referenceImage, outputImage);
-//			
-//			if(status==true) {
-//				LOGGER.info("It's supports trick play");
-//			}
-//				else {
-//					
-//				LOGGER.info("It does not supports trick play");
-//				}
 			
 			LOGGER.info("Linear channels which supporttrick play");		
 			CommonMethods.Trickplay();
@@ -264,27 +207,15 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			String testId = "PEACOCK-AAMP-TC-302";
 			String errorMessage = null;
 			String stepNum = null;
-			BufferedImage referenceImage;
-			BufferedImage liveImage;
-			BufferedImage nextliveImage;
-			BufferedImage outputImage;
+			BufferedImage liveImage;;
 			BufferedImage subImage;
-			String actual;
-			String actualLinear;
-			String actualspeed;
-			String expectedspeed="x6";
-			String actualspeed12;
-			String expectedspeed12="x12";
-			String actualspeed24;
-			String expectedspeed24="x24";
 			String actualfast6;
 			String expectedfast6="Lo";
 			String actualfast12;
 			String expectedfast12="x12";
 			String actualfast24;
 			String expectedfast24="x24";
-			String actualZero;
-			String expectedZero="00:00:00";
+
 		/**
 	     * Step 5 :Perform fast forward operation at different speed and play using on screen controls
 	     */
@@ -421,6 +352,8 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 		}
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-3002");
 		}
+		
+		
 		@Test(priority=13, dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 				BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
 		@TestDetails(testUID = "PEACOCK-AAMP-TC-3003")
@@ -430,27 +363,14 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			String testId = "PEACOCK-AAMP-TC-303";
 			String errorMessage = null;
 			String stepNum = null;
-			BufferedImage referenceImage;
 			BufferedImage liveImage;
-			BufferedImage nextliveImage;
-			BufferedImage outputImage;
 			BufferedImage subImage;
-			String actual;
-			String actualLinear;
 			String actualspeed;
 			String expectedspeed="x6";
 			String actualspeed12;
 			String expectedspeed12="x12";
 			String actualspeed24;
 			String expectedspeed24="x24";
-			String actualfast6;
-			String expectedfast6="x6";
-			String actualfast12;
-			String expectedfast12="x12";
-			String actualfast24;
-			String expectedfast24="x24";
-			String actualZero;
-			String expectedZero="00:00:00";
 		
 		/**
 	     * Step 4 :Perform Rewind operation at different speed and play using on screen controls
@@ -585,11 +505,8 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 
 			LOGGER.info("**********************************************************************************");
 			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
-
-
 			
 		}
-		
 		
 		catch (Exception e) {
 		LOGGER.error("Exception occured while reading the image file " + e);
@@ -600,8 +517,11 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 		LOGGER.error("Exception while launching movie screen: " + errorMessage);
 		CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 
-	}LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-3003");
+	}
+		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-3003");
 		}
+		
+		
 		@Test(priority=14, dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 				BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
 		@TestDetails(testUID = "PEACOCK-AAMP-TC-3004")
@@ -613,11 +533,9 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			String stepNum = null;
 			BufferedImage referenceImage;
 			BufferedImage liveImage;
-			BufferedImage nextliveImage;
 			BufferedImage outputImage;
 			BufferedImage subImage;
-			String actual;
-			String actualLinear;
+		
 
 		/**
 	     * Step 6 :Perform Pause/play using on screen controls

@@ -34,7 +34,7 @@ public class GrabText {
 		try {
 			text = instance.doOCR(filePath);
 			result = text.trim();
-	//		LOGGER.info("The grabbed text from image is: " +result);
+	      //LOGGER.info("The grabbed text from image is: " +result);
 			System.out.println("The grabbed text from image is: " +result);
 			return result;
 		} catch (TesseractException e) {
