@@ -599,9 +599,9 @@ public class PeacockTestCases extends AutomaticsTestBase {
 				Process p;
 				LOGGER.info("Click Xfinity down button ");
 				//irsend SEND_ONCE Apple Comcast_Down
-				p = Runtime.getRuntime().exec("SEND_ONCE Apple Comcast_Down");
-				p = Runtime.getRuntime().exec("SEND_ONCE Apple Comcast_Down");
-				p = Runtime.getRuntime().exec("SEND_ONCE Apple Comcast_OK");
+				p = Runtime.getRuntime().exec("irsend SEND_ONCE Apple Comcast_Down");
+				p = Runtime.getRuntime().exec("irsend SEND_ONCE Apple Comcast_Down");
+				p = Runtime.getRuntime().exec("irsend SEND_ONCE Apple Comcast_OK");
 				Thread.sleep(5000L);
 				CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
 				CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
