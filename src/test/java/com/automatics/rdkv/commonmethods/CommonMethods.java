@@ -466,4 +466,77 @@ public class CommonMethods extends AutomaticsTestBase{
 		
 	}
 	}
+	
+	public static void navigateToChannelFour() throws InterruptedException {
+		LOGGER.info("Click Xfinity button ");
+		CommonMethods.execCommand(RemoteKeyContstants.XFINITY_BUTTON);
+
+		Thread.sleep(3000);
+
+		LOGGER.info("Click Xfinity OK button ");
+		CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+
+		Thread.sleep(3000);
+
+		LOGGER.info("Click Xfinity down button ");
+		CommonMethods.execCommand(RemoteKeyContstants.DOWN_BUTTON);
+
+		Thread.sleep(2000);
+
+		LOGGER.info("Click Xfinity OK button ");
+		CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+
+		Thread.sleep(30000);
+
+		LOGGER.info("Click Xfinity left button ");
+		CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
+
+		LOGGER.info("Click Xfinity down button 6 times ");
+		CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON,6);
+
+		LOGGER.info("Click Xfinity OK button ");
+		CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+
+		Thread.sleep(5000);
+
+		LOGGER.info("Click Xfinity down button");
+		CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
+		
+		LOGGER.info("Click Xfinity down button");
+		CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
+		
+		LOGGER.info("Click Xfinity down button");
+		CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
+		
+	}
+	public static void navigateToLinearChannel() throws InterruptedException {
+		LOGGER.info("Click Xfinity button ");
+		CommonMethods.execCommand(RemoteKeyContstants.XFINITY_BUTTON);
+
+		Thread.sleep(3000);
+
+		LOGGER.info("Click Xfinity OK button ");
+		CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+
+		Thread.sleep(3000);
+
+		LOGGER.info("Click Xfinity down button ");
+		CommonMethods.execCommand(RemoteKeyContstants.DOWN_BUTTON);
+
+		Thread.sleep(2000);
+
+		LOGGER.info("Click Xfinity OK button ");
+		CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+
+		Thread.sleep(30000);
+
+		LOGGER.info("Click Xfinity left button ");
+		CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
+
+		LOGGER.info("Click Xfinity down button 6 times ");
+		CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON,6);
+
+		LOGGER.info("Click Xfinity OK button ");
+		CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+	}
 }

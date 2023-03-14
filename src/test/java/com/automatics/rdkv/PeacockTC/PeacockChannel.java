@@ -68,7 +68,17 @@ public class PeacockChannel extends AutomaticsTestBase {
 			LOGGER.info("STEP 1: ACTION :Enable subtitle and then verify text");
 			LOGGER.info("STEP 1: EXPECTED : Subtitle should displayed");
 			LOGGER.info("*****************************************************************************************");
+			
+			LOGGER.info("Calling method to navigate to linear channel ");
+			CommonMethods.navigateToChannelFour();
+			
+			Thread.sleep(2000);
+			
+			LOGGER.info("Click Xfinity OK button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 
+			Thread.sleep(20000);
+			
 			LOGGER.info("Calling disable subtitle to make sure the subtitle is off ");
 			CommonMethods.disableChannelSubtitle();
 
@@ -125,6 +135,16 @@ public class PeacockChannel extends AutomaticsTestBase {
 			LOGGER.info("STEP 1: EXPECTED : Subtitle should displayed");
 			LOGGER.info("*****************************************************************************************");
 
+			LOGGER.info("Calling method to navigate to linear channel ");
+			CommonMethods.navigateToChannelFour();
+			
+			Thread.sleep(2000);
+			
+			LOGGER.info("Click Xfinity OK button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+
+			Thread.sleep(20000);
+			
 			LOGGER.info("Calling disable subtitle to make sure the subtitle is off ");
 			CommonMethods.disableChannelSubtitle();
 
@@ -216,6 +236,17 @@ public class PeacockChannel extends AutomaticsTestBase {
 			LOGGER.info("STEP 1: EXPECTED : Ads should be displayed");
 			LOGGER.info("*****************************************************************************************");
 
+
+			LOGGER.info("Calling method to navigate to linear channel ");
+			CommonMethods.navigateToChannelFour();
+			
+			Thread.sleep(2000);
+			
+			LOGGER.info("Click Xfinity OK button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+
+			Thread.sleep(20000);
+			
 			LOGGER.info("Click Xfinity OK button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 
@@ -292,6 +323,119 @@ public class PeacockChannel extends AutomaticsTestBase {
 	}
 	@Test(priority=4,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
+	@TestDetails(testUID = "PEACOCK-AAMP-TC-4012")
+	public void testVerifyContentToAds(Dut device) throws InterruptedException {
+		// Variables declaration starts
+		boolean status = false;
+		String testId = "PEACOCK-AAMP-TC-012";
+		String errorMessage = null;
+		String stepNum = null;
+		BufferedImage liveImage;
+		BufferedImage subImage;
+		// Variables declaration Ends
+
+		LOGGER.info("#######################################################################################");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-4012");
+		LOGGER.info("TEST DESCRIPTION:  This test is to verify ads screen");
+		LOGGER.info("TEST STEPS : ");
+		LOGGER.info("1. Fastforward play and then check for ads");
+		LOGGER.info("#######################################################################################");
+		try {
+			stepNum = "S1";
+			errorMessage = "Failed to verify ads";
+			LOGGER.info("*****************************************************************************************");
+			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify ads screen");
+			LOGGER.info("STEP 1: ACTION : Press fast forward button and play button");
+			LOGGER.info("STEP 1: EXPECTED : Ads should be displayed");
+			LOGGER.info("*****************************************************************************************");
+
+
+			LOGGER.info("Calling method to navigate to linear channel ");
+			CommonMethods.navigateToChannelFour();
+			
+			Thread.sleep(2000);
+			
+			LOGGER.info("Click Xfinity OK button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+
+			Thread.sleep(20000);
+			
+			LOGGER.info("Click Xfinity OK button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+
+			LOGGER.info("Click Xfinity right button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.RIGHT_BUTTON);
+
+			LOGGER.info("Click Xfinity OK button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+
+			LOGGER.info("Click Xfinity OK button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+
+			Thread.sleep(10000);
+
+			LOGGER.info("Click Xfinity left button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
+
+			LOGGER.info("Click Xfinity OK button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+
+			Thread.sleep(3000);
+
+			LOGGER.info("Click Xfinity OK button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+
+
+			LOGGER.info("Capture application screen live image");
+			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_CHANNEL_ADS_TIMER);
+
+			LOGGER.info("Reading live image");
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_CHANNEL_ADS_TIMER));
+
+			LOGGER.info("Calling image cropping method");
+			subImage = CropImage.cropImage(liveImage, 68,638,35,35);
+
+			File outputFile = new File("/var/lib/jenkins/workspace/timerimage.jpg");
+			ImageIO.write(subImage, "jpg", outputFile);
+
+			BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/timerimage.jpg"));
+
+			ConvertImage ci = new ConvertImage();
+			BufferedImage greyImage =ci.ConvertGrayScale(output);
+
+			File outputFiletwo = new File("/var/lib/jenkins/workspace/timerimage2.jpg");
+			ImageIO.write(greyImage, "jpg", outputFiletwo);
+
+			LOGGER.info("Calling method to read text in image");
+			GrabText grabText = new GrabText();
+			String actual = grabText.crackImage(greyImage);
+
+			LOGGER.info("Calling method to read number in image");
+			status = CommonMethods.checkNumber(actual);
+
+			if (status) {
+				LOGGER.info("Timer number is : " + status);
+			} else {
+				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+			}
+			LOGGER.info("**********************************************************************************");
+			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+
+		} catch (Exception e) {
+			LOGGER.error("Exception occured while reading the image file " + e);
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			LOGGER.info("Inside catch");
+			errorMessage = e.getMessage();
+			LOGGER.error("Exception while verifying subtitle text: " + errorMessage);
+			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
+
+		}
+		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-4012");
+
+	}
+	@Test(priority=5,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
 	@TestDetails(testUID = "PEACOCK-AAMP-TC-4013")
 	public void testVerifyLongTermStability(Dut device) throws InterruptedException {
 		// Variables declaration starts
@@ -321,34 +465,8 @@ public class PeacockChannel extends AutomaticsTestBase {
 			LOGGER.info("STEP 1: EXPECTED : Peacock Linear channel should continue to play without any AV issue for about 2 mins");
 			LOGGER.info("*****************************************************************************************");
 
-			LOGGER.info("Click Xfinity button ");
-			CommonMethods.execCommand(RemoteKeyContstants.XFINITY_BUTTON);
-
-			Thread.sleep(3000);
-
-			LOGGER.info("Click Xfinity OK button ");
-			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
-
-			Thread.sleep(3000);
-
-			LOGGER.info("Click Xfinity down button ");
-			CommonMethods.execCommand(RemoteKeyContstants.DOWN_BUTTON);
-
-			Thread.sleep(2000);
-
-			LOGGER.info("Click Xfinity OK button ");
-			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
-
-			Thread.sleep(30000);
-
-			LOGGER.info("Click Xfinity left button ");
-			CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
-
-			LOGGER.info("Click Xfinity down button 6 times ");
-			CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON,6);
-
-			LOGGER.info("Click Xfinity OK button ");
-			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			LOGGER.info("Calling method to navigate to linear channels ");
+			CommonMethods.navigateToLinearChannel();
 
 			Thread.sleep(3000);
 
@@ -477,7 +595,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-4013");
 
 	}
-	@Test(priority=5,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+	@Test(priority=6,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
 	@TestDetails(testUID = "PEACOCK-AAMP-TC-4027")
 	public void testVerifyMovieAssetTransition(Dut device) throws InterruptedException {
@@ -621,7 +739,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-4027");
 
 	}
-	@Test(priority=6,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+	@Test(priority=7,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
 	@TestDetails(testUID = "PEACOCK-AAMP-TC-4026")
 	public void testVerifyPreviousEpisodeContents(Dut device) throws InterruptedException {
@@ -652,45 +770,8 @@ public class PeacockChannel extends AutomaticsTestBase {
 			LOGGER.info("STEP 1: EXPECTED : Peacock Linear channel should continue to play without any AV issues");
 			LOGGER.info("*****************************************************************************************");
 
-			LOGGER.info("Click Xfinity button ");
-			CommonMethods.execCommand(RemoteKeyContstants.XFINITY_BUTTON);
-
-			Thread.sleep(3000);
-
-			LOGGER.info("Click Xfinity OK button ");
-			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
-
-			Thread.sleep(3000);
-
-			LOGGER.info("Click Xfinity down button ");
-			CommonMethods.execCommand(RemoteKeyContstants.DOWN_BUTTON);
-
-			Thread.sleep(2000);
-
-			LOGGER.info("Click Xfinity OK button ");
-			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
-
-			Thread.sleep(30000);
-
-			LOGGER.info("Click Xfinity left button ");
-			CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
-
-			LOGGER.info("Click Xfinity down button 6 times ");
-			CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON,6);
-
-			LOGGER.info("Click Xfinity OK button ");
-			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
-
-			Thread.sleep(5000);
-
-			LOGGER.info("Click Xfinity down button");
-			CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
-			
-			LOGGER.info("Click Xfinity down button");
-			CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
-			
-			LOGGER.info("Click Xfinity down button");
-			CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
+			LOGGER.info("Calling method to navigate to linear channels");
+			CommonMethods.navigateToChannelFour();
 			
 			Thread.sleep(3000);
 			
@@ -795,7 +876,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 
 	}
 	
-	@Test(priority=7,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+	@Test(priority=8,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
 	@TestDetails(testUID = "PEACOCK-AAMP-TC-4028")
 	public void testVerifyMultiEpisodeContents(Dut device) throws InterruptedException {
@@ -826,45 +907,8 @@ public class PeacockChannel extends AutomaticsTestBase {
 			LOGGER.info("STEP 1: EXPECTED : Peacock Linear channel should continue to play without any AV issues");
 			LOGGER.info("*****************************************************************************************");
 
-			LOGGER.info("Click Xfinity button ");
-			CommonMethods.execCommand(RemoteKeyContstants.XFINITY_BUTTON);
-
-			Thread.sleep(3000);
-
-			LOGGER.info("Click Xfinity OK button ");
-			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
-
-			Thread.sleep(3000);
-
-			LOGGER.info("Click Xfinity down button ");
-			CommonMethods.execCommand(RemoteKeyContstants.DOWN_BUTTON);
-
-			Thread.sleep(2000);
-
-			LOGGER.info("Click Xfinity OK button ");
-			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
-
-			Thread.sleep(30000);
-
-			LOGGER.info("Click Xfinity left button ");
-			CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
-
-			LOGGER.info("Click Xfinity down button 6 times ");
-			CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON,6);
-
-			LOGGER.info("Click Xfinity OK button ");
-			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
-
-			Thread.sleep(5000);
-
-			LOGGER.info("Click Xfinity down button");
-			CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
-			
-			LOGGER.info("Click Xfinity down button");
-			CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
-			
-			LOGGER.info("Click Xfinity down button");
-			CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
+			LOGGER.info("Calling method to navigate to linear channels");
+			CommonMethods.navigateToChannelFour();
 			
 			Thread.sleep(2000);
 			
@@ -971,7 +1015,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-4028");
 
 	}
-	@Test(priority=8,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+	@Test(priority=9,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
 	@TestDetails(testUID = "PEACOCK-AAMP-TC-4024")
 	public void testVerifyTrickPlayAds(Dut device) throws InterruptedException {
@@ -999,53 +1043,16 @@ public class PeacockChannel extends AutomaticsTestBase {
 			LOGGER.info("STEP 1: ACTION :Tune to  linear channels  which has ads");
 			LOGGER.info("STEP 1: EXPECTED : FFWD/RWD functionalities should not work when Ad is in progress");
 			LOGGER.info("*****************************************************************************************");
-
-			LOGGER.info("Click Xfinity button ");
-			CommonMethods.execCommand(RemoteKeyContstants.XFINITY_BUTTON);
-
-			Thread.sleep(3000);
-
-			LOGGER.info("Click Xfinity OK button ");
-			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
-
-			Thread.sleep(3000);
-
-			LOGGER.info("Click Xfinity down button ");
-			CommonMethods.execCommand(RemoteKeyContstants.DOWN_BUTTON);
-
-			Thread.sleep(2000);
-
-			LOGGER.info("Click Xfinity OK button ");
-			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
-
-			Thread.sleep(30000);
-
-			LOGGER.info("Click Xfinity left button ");
-			CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
-
-			LOGGER.info("Click Xfinity down button 6 times ");
-			CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON,6);
-
-			LOGGER.info("Click Xfinity OK button ");
-			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
-
-			Thread.sleep(5000);
-
-			LOGGER.info("Click Xfinity down button");
-			CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
-			
-			LOGGER.info("Click Xfinity down button");
-			CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
-			
-			LOGGER.info("Click Xfinity down button");
-			CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
+            
+			LOGGER.info("Calling method to navigate to linear channels");
+			CommonMethods.navigateToChannelFour();
 			
 			Thread.sleep(2000);
 			
 			LOGGER.info("Click Xfinity OK button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 			
-			Thread.sleep(10000);
+			Thread.sleep(20000);
 			
 			LOGGER.info("Click Xfinity OK button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
@@ -1059,7 +1066,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 			LOGGER.info("Click Xfinity OK button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 
-			Thread.sleep(10000);
+			Thread.sleep(15000);
 
 			LOGGER.info("Click Xfinity left button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
@@ -1072,8 +1079,10 @@ public class PeacockChannel extends AutomaticsTestBase {
 			LOGGER.info("Click Xfinity OK button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 			
+			Thread.sleep(3000);
+			
 			LOGGER.info("Capture application screen live image");
-			CaptureLiveImage.captureIcon(ImageCaptureConstants.PLC_ADS_TP_PAUSE_REF);
+			CaptureLiveImage.capture(ImageCaptureConstants.PLC_ADS_TP_PAUSE_REF);
 
 			LOGGER.info("Reading first live ads screen");
 			referenceImage = ImageIO.read(new File(ImageCaptureConstants.PLC_ADS_TP_PAUSE_REF));
@@ -1114,5 +1123,6 @@ public class PeacockChannel extends AutomaticsTestBase {
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-4024");
 
 	}
+	
 	
 }
