@@ -598,7 +598,8 @@ public class PeacockTestCases extends AutomaticsTestBase {
 								Thread.sleep(5000);
 								
 								LOGGER.info("Click Xfinity three OK button ");
-								CommonMethods.execCommandRepeat(RemoteKeyContstants.OK_BUTTON, IntergerCount.THREE);
+								//CommonMethods.execCommandRepeat(RemoteKeyContstants.OK_BUTTON, IntergerCount.THREE);
+								CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 								Thread.sleep(15000);
 								
 								LOGGER.info("Click Xfinity RIGHT button ");
