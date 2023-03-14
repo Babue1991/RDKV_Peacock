@@ -593,6 +593,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			//	CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
 				
 				//Thread.sleep(2000);
+				Process p=Runtime.getRuntime().exec("irsend SEND_ONCE Apple Comcast_OK");
 
 				LOGGER.info("Click Xfinity OK button ");
 				CommonMethods.execCommand1(RemoteKeyContstants.OK_BUTTON);
