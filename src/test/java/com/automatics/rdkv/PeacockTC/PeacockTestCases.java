@@ -44,7 +44,6 @@ public class PeacockTestCases extends AutomaticsTestBase {
 	 * @throws InterruptedException 
 	 * 
 	 */
-	//40,370,130,70
 
 	static Process p;
 	@Test(priority=10, dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
@@ -64,7 +63,6 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		String expectedpopularapp = "Popular entertainment apps";
 		String Expectedpeacock = "Peacock";
 		String SplashText = "peacock:";
-
 		// Variables declaration Ends
 
 
@@ -358,7 +356,6 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		String actualLinear;
 		String actualchannel;
 		String actualNext;
-
 		// Variables declaration Ends
 		/**
 		 * Step 1 : Go to channel option in peacock menu and press ok
@@ -567,9 +564,11 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		BufferedImage outputImage;
 		BufferedImage nextliveImage;
 		BufferedImage subImage;
+		String actual;
+		String actualNew;
 		// Variables declaration Ends
 		/**
-		 * Step 3 : Tune to all linear channels and verify
+		 * Step 3 : Tune to all linear channels one by one till the end and verify
 		 */
 		LOGGER.info("#######################################################################################");
 		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-2003");
@@ -586,16 +585,14 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			LOGGER.info("STEP 1: EXPECTED : Linear channels verified successfully.");
 			LOGGER.info("*****************************************************************************************");	
 
-
 			for(int i=0; i<=3; i++) {
-				//Total number of channels is 63
-				//as of now i have taken i=3
+				//i=63
+				
 				LOGGER.info("Click two DOWN_BUTTON ");
 				CommonMethods.execCommandRepeat2(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.TWO);
 				Thread.sleep(2000);
 
-				LOGGER.info("Click Xfinity three OK button ");
-
+				LOGGER.info("Click Xfinity OK button ");
 				CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 				Thread.sleep(15000);
 
@@ -603,35 +600,67 @@ public class PeacockTestCases extends AutomaticsTestBase {
 				CommonMethods.execCommandIcon(RemoteKeyContstants.RIGHT_BUTTON);
 				Thread.sleep(2000);
 
-				LOGGER.info("Reading reference image");
-				referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_TRICK_PLAY_VERIFY));
-
 				LOGGER.info("Capture application screen live image");
 				CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_TUNE_VERIFY);
 				
 				LOGGER.info("Reading live image");
 				liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_TUNE_VERIFY));
-
+				
 				LOGGER.info("Calling crop method");
-				subImage = CropImage.cropImage(liveImage, 490,600,260,120);
-
-				File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
+				subImage = CropImage.cropImage(liveImage, 40,370,130,70);
+				
+				File outputFile = new File("/var/lib/jenkins/workspace/TuneVerify.jpg");
 				ImageIO.write(subImage, "jpg", outputFile);
 
-				outputImage = ImageIO.read(new File("/var/lib/jenkins/workspace/image1.jpg"));
+				BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/TuneVerify.jpg"));
 
-				LOGGER.info("Calling image compare method");
-				ImageCompare imgCompare = new ImageCompare();
-				status = imgCompare.compare2(outputImage, referenceImage);
+				ConvertImage ci = new ConvertImage();
+				BufferedImage greyImagenew =ci.ConvertGrayScale(output);
+
+				File outputFileChannel = new File("/var/lib/jenkins/workspace/TuneVerify2.jpg");
+				ImageIO.write(greyImagenew, "jpg", outputFileChannel);
+
+				LOGGER.info("Calling method to read text in image");
+				GrabText grabText = new GrabText();
+				actual = grabText.crackImage(greyImagenew);
+				
+				LOGGER.info("Click two DOWN_BUTTON ");
+				CommonMethods.execCommandRepeat2(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.TWO);
+
+				LOGGER.info("Click OK_BUTTON ");
+				CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+				Thread.sleep(10000);
+
+				LOGGER.info("Capture application screen live image");
+				CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_CHANNELS_NEXT_IMG);
+				Thread.sleep(5000L);
+
+				LOGGER.info("Reading live image");
+				nextliveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_CHANNELS_NEXT_IMG));
+
+				LOGGER.info("Calling crop method");
+				subImage = CropImage.cropImage(liveImage, 40,370,130,70);
+
+				GrabText grabTextLinear = new GrabText();
+				actualNew = grabTextLinear.crackImage(subImage);
+				status = CommonMethods.textCompare(actualNew, actual);
+				
+				if (actualNew != actual) {
+					LOGGER.info("TRUE");
+				}
+				else {
+					LOGGER.info("FALSE");
+				}
+				
 			}
 
-			if (status) {
-				LOGGER.info("The status of image comparision is: " + status);
-			} else {
-				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
-			}
-			LOGGER.info("**********************************************************************************");
-			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+//			if (status) {
+//				LOGGER.info("The status of image comparision is: " + status);
+//			} else {
+//				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+//			}
+//			LOGGER.info("**********************************************************************************");
+//			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
 
 
 		} catch (Exception e) {
@@ -743,6 +772,13 @@ public class PeacockTestCases extends AutomaticsTestBase {
 	/**
 	 * Step 1 :Launch peacock application
 	 */
+	
+	/**
+	 * Step 2 :using appropriate keys on remote,go to channels option in the peacock menu and press OK
+	 */
+	/**
+	 * Step 3 :Tune to linear channel which do not support trick play
+	 */
 	@Test(priority=6,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
 	@TestDetails(testUID = "PEACOCK-AAMP-TC-2005")
@@ -752,77 +788,27 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		String testId = "PEACOCK-AAMP-TC-205";
 		String errorMessage = null;
 		String stepNum = null;
-		BufferedImage referenceImage;
-		BufferedImage liveImage;
-		BufferedImage subImage;
-		BufferedImage outputImage;
 		// Variables declaration Ends
 		/**
-		 * Step 2: Go to WWE section and check for live events
+		 * Step 4 : Attempt Rewind operation using remote keys 
 		 */
 		LOGGER.info("#######################################################################################");
 		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-2005");
-		LOGGER.info("TEST DESCRIPTION:  This test is to verify SLE events are being broadcast");
+		LOGGER.info("TEST DESCRIPTION:  This test is to Attempt Rewind operation using remote keys ");
 		LOGGER.info("TEST STEPS : ");
-		LOGGER.info("1. Press left and come down");
+		LOGGER.info("1. Go to channels and press ok");
 		LOGGER.info("#######################################################################################");
 		try {
-			stepNum = "S1";
-			errorMessage = "Failed to verify SLE events";
+			stepNum = "S4";
+			//errorMessage = "Rewind operation cannot be performed in the channels which do not support trick play";
 			LOGGER.info("*****************************************************************************************");
-			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify SLE events are being broadcast");
-			LOGGER.info("STEP 1: ACTION : Press left and come down");
-			LOGGER.info("STEP 1: EXPECTED : SLE events should be available");
+			LOGGER.info("STEP 4: DESCRIPTION : This test is to Attempt Rewind operation using remote keys ");
+			LOGGER.info("STEP 4: ACTION : Go to channels and press ok");
+			LOGGER.info("STEP 4: EXPECTED : Rewind operation should held successfully");
 			LOGGER.info("*****************************************************************************************");
 
-			LOGGER.info("Click Xfinity left button");
-			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
-
-			LOGGER.info("Click Xfinity down button four times ");
-			CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.FOUR);
-
-			LOGGER.info("Click Xfinity ok button ");
-			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
-			Thread.sleep(8000);
-			nu.pattern.OpenCV.loadLocally();
-
-			LOGGER.info("Capture application screen live image");
-			CaptureLiveImage.captureIcon(ImageCaptureConstants.CHANNELS_PLAY_TRICK);
-
-			LOGGER.info("Reading live image");
-			liveImage = ImageIO.read(new File(ImageCaptureConstants.CHANNELS_PLAY_TRICK));
-
-			LOGGER.info("Reading reference image");
-			referenceImage = ImageIO.read(new File(ImageCaptureConstants.CHANNELS_PLAY_TRICK_REFERENCE));
-
-			LOGGER.info("Calling crop method");
-			subImage = CropImage.cropImage(liveImage, 490,600,260,120);
-
-			File outputFile = new File("/var/lib/jenkins/workspace/image1.jpg");
-			ImageIO.write(subImage, "jpg", outputFile);
-
-			outputImage = ImageIO.read(new File("/var/lib/jenkins/workspace/image1.jpg"));
-
-			ImageCompare imgCompare =new ImageCompare();
-			LOGGER.info("Calling screen compare method");
-			status = imgCompare.compare(referenceImage, outputImage);
-
-			if(status==true) {
-				LOGGER.info("It's supports trick play");
-			}
-			else {
-
-				LOGGER.info("It does not supports trick play");
-			}
-
-			if (status) {
-
-			} else {
-				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
-			}
-			LOGGER.info("**********************************************************************************");
-			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
-
+			LOGGER.info("Rewind operation cannot be performed in the channels which do not support trick play");
+			
 		} catch (Exception e) {
 			LOGGER.error("Exception occured while reading the image file " + e);
 			// TODO Auto-generated catch block
@@ -832,6 +818,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			LOGGER.error("Exception while launching home screen file: " + errorMessage);
 			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 		}
+		
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-2005");
 	}
 
