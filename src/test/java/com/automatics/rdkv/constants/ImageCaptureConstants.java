@@ -349,7 +349,11 @@ public class ImageCaptureConstants {
 	
 
 	/********The variable used to send capture card port to capture linear channels image**/
+<<<<<<< HEAD
 	public static String PEACOCK_PAUSE_REF=REFERENCE_IMAGE_PATH+"Trickplayref.jpg";
+=======
+	public static String PEACOCK_PAUSE_REF=REFERENCE_IMAGE_PATH+"Play_icon.jpg";
+>>>>>>> 6374d42efdf01cdc499103353a7e218ec6c44f9f
 	
 	/********The variable used to send capture card port to capture linear channels image**/
 	public static String PEACOCK_PLAY_REF=REFERENCE_IMAGE_PATH+"PlaytrickRef.jpg";

@@ -681,9 +681,9 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			stepNum = "S1";
 			errorMessage = "Failed to navigate to linear channels";
 			LOGGER.info("*****************************************************************************************");
-			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify linear channel which do not support trick play");
-			LOGGER.info("STEP 1: ACTION : Press ok and take screenshot");
-			LOGGER.info("STEP 1: EXPECTED : Linear channel which do not support trick play should launch successfully");
+			LOGGER.info("STEP 3: DESCRIPTION : This test is to verify linear channel which do not support trick play");
+			LOGGER.info("STEP 3: ACTION : Press ok and take screenshot");
+			LOGGER.info("STEP 3: EXPECTED : Linear channel which do not support trick play should launch successfully");
 			LOGGER.info("*****************************************************************************************");
 
 			LOGGER.info("Click Xfinity down button");
