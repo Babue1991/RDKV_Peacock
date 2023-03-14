@@ -68,7 +68,17 @@ public class PeacockChannel extends AutomaticsTestBase {
 			LOGGER.info("STEP 1: ACTION :Enable subtitle and then verify text");
 			LOGGER.info("STEP 1: EXPECTED : Subtitle should displayed");
 			LOGGER.info("*****************************************************************************************");
+			
+			LOGGER.info("Calling method to navigate to linear channel ");
+			CommonMethods.navigateToChannelFour();
+			
+			Thread.sleep(2000);
+			
+			LOGGER.info("Click Xfinity OK button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 
+			Thread.sleep(20000);
+			
 			LOGGER.info("Calling disable subtitle to make sure the subtitle is off ");
 			CommonMethods.disableChannelSubtitle();
 
@@ -125,6 +135,16 @@ public class PeacockChannel extends AutomaticsTestBase {
 			LOGGER.info("STEP 1: EXPECTED : Subtitle should displayed");
 			LOGGER.info("*****************************************************************************************");
 
+			LOGGER.info("Calling method to navigate to linear channel ");
+			CommonMethods.navigateToChannelFour();
+			
+			Thread.sleep(2000);
+			
+			LOGGER.info("Click Xfinity OK button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+
+			Thread.sleep(20000);
+			
 			LOGGER.info("Calling disable subtitle to make sure the subtitle is off ");
 			CommonMethods.disableChannelSubtitle();
 
@@ -216,6 +236,17 @@ public class PeacockChannel extends AutomaticsTestBase {
 			LOGGER.info("STEP 1: EXPECTED : Ads should be displayed");
 			LOGGER.info("*****************************************************************************************");
 
+
+			LOGGER.info("Calling method to navigate to linear channel ");
+			CommonMethods.navigateToChannelFour();
+			
+			Thread.sleep(2000);
+			
+			LOGGER.info("Click Xfinity OK button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+
+			Thread.sleep(20000);
+			
 			LOGGER.info("Click Xfinity OK button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 
