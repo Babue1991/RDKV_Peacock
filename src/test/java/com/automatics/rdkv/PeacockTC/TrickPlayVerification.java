@@ -560,15 +560,18 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			LOGGER.info("Click one right button ");
 			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
 			
+			LOGGER.info("Click one ok button ");
+			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
 						
-			LOGGER.info("Reading reference image");
-			referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_PAUSE_REF));
 	
 			LOGGER.info("Capture application screen live image");
 			CaptureLiveImage.captureIcon(ImageCaptureConstants.CHANNELS_PAUSE);
 			
 			LOGGER.info("Reading live image");
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.CHANNELS_PAUSE));
+			
+			LOGGER.info("Reading reference image");
+			referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_PAUSE_REF));
 			
 			LOGGER.info("Calling crop method");
 			subImage = CropImage.cropImage(liveImage, 620,640,40,40); 
@@ -596,16 +599,16 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
 			
 			LOGGER.info("Click OK BUTTON ");
-			
-			LOGGER.info("Reading reference image");
-			referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_PLAY_REF));
+			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
 					
-			LOGGER.info("Capture Pause screen live image");
-			CaptureLiveImage.capture2(ImageCaptureConstants.CHANNELS_PLAY,RemoteKeyContstants.OK_BUTTON,IntergerCount.ONE);
-			Thread.sleep(5000L);
+			LOGGER.info("Capture application screen live image");
+			CaptureLiveImage.captureIcon(ImageCaptureConstants.CHANNELS_PLAY);
 			
 			LOGGER.info("Reading live image");
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.CHANNELS_PLAY));
+			
+			LOGGER.info("Reading reference image");
+			referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_PLAY_REF));
 			
 			LOGGER.info("Calling crop method");
 			subImage = CropImage.cropImage(liveImage, 620,640,40,40); 
@@ -645,11 +648,11 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 		
 		@Test(priority=14, dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 				BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
-		@TestDetails(testUID = "PEACOCK-AAMP-TC-3004")
+		@TestDetails(testUID = "PEACOCK-AAMP-TC-3005")
 		public void testVerifyZero(Dut device) throws InterruptedException {
 			
 			boolean status = false;
-			String testId = "PEACOCK-AAMP-TC-304";
+			String testId = "PEACOCK-AAMP-TC-305";
 			String errorMessage = null;
 			String stepNum = null;
 			BufferedImage referenceImage;
@@ -663,7 +666,7 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 //	     */
 		
 		LOGGER.info("#######################################################################################");
-		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-3002");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-3005");
 		LOGGER.info("TEST DESCRIPTION: This test is to verify Rewind operation until control has reached at the start position of the content ");
 		LOGGER.info("TEST STEPS : ");
 		LOGGER.info("1. Press left and ok button ");
