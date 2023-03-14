@@ -644,13 +644,12 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			
 			LOGGER.info("Click OK button ");
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
-	
-			LOGGER.info("Capture application screen live image");
-			CaptureLiveImage.captureIcon(ImageCaptureConstants.CHANNELS_REWIND);
-		
 			
 			LOGGER.info("Reading reference image");
 			referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_PAUSE_REF));
+	
+			LOGGER.info("Capture application screen live image");
+			CaptureLiveImage.captureIcon(ImageCaptureConstants.CHANNELS_PAUSE);
 			
 			LOGGER.info("Reading live image");
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.CHANNELS_PAUSE));
