@@ -679,8 +679,6 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			LOGGER.info("STEP 6: ACTION : Press left and ok button and take screenshot");
 			LOGGER.info("STEP 6: EXPECTED : Rewind operation is verified");
 			LOGGER.info("*****************************************************************************************");
-			 
-			
 			
 			LOGGER.info("Click two Left button ");
 			CommonMethods.execCommandRepeat(RemoteKeyContstants.LEFT_BUTTON, IntergerCount.TWO);
