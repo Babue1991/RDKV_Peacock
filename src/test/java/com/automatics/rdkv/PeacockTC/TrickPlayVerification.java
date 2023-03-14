@@ -573,7 +573,7 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.CHANNELS_PAUSE));
 			
 			LOGGER.info("Calling crop method");
-			subImage = CropImage.cropImage(liveImage, 600,600,60,100); 
+			subImage = CropImage.cropImage(liveImage, 600,600,40,100); 
 			
 			File outputFile = new File("/var/lib/jenkins/workspace/image3.jpg");
 			ImageIO.write(subImage, "jpg", outputFile);
@@ -610,7 +610,7 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.CHANNELS_PLAY));
 			
 			LOGGER.info("Calling crop method");
-			subImage = CropImage.cropImage(liveImage, 600,600,60,100); 
+			subImage = CropImage.cropImage(liveImage, 600,600,40,100); 
 			
 			File outputFileTPlay = new File("/var/lib/jenkins/workspace/image3.jpg");
 			ImageIO.write(subImage, "jpg", outputFileTPlay);
