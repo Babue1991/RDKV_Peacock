@@ -585,27 +585,34 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			LOGGER.info("STEP 1: EXPECTED : Linear channels verified successfully.");
 			LOGGER.info("*****************************************************************************************");	
 
-			LOGGER.info("Calling method to navigate to linear channel ");
-			CommonMethods.navigateToChannelFour();
-			
-			Thread.sleep(2000);
-			
-			LOGGER.info("Click Xfinity OK button ");
-			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
-			
+//			LOGGER.info("Calling method to navigate to linear channel ");
+//			CommonMethods.navigateToChannelFour();
+//			
+//			Thread.sleep(2000);
+//			
+//			LOGGER.info("Click Xfinity OK button ");
+//			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+//			
 			
 			for(int i=0; i<=3; i++) {
 				//i=63
 				
-	
+				LOGGER.info("Click Xfinity down button ");
+				CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
+				CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
 				
-
 				LOGGER.info("Click Xfinity RIGHT button ");
 				CommonMethods.execCommandIcon(RemoteKeyContstants.RIGHT_BUTTON);
 				Thread.sleep(2000);
+				
+				LOGGER.info("Click Xfinity 0k button ");
+				CaptureLiveImage.capture2(ImageCaptureConstants.PEACOCK_TUNE_VERIFY, RemoteKeyContstants.OK_BUTTON, IntergerCount.ONE);
+				Thread.sleep(15000);
 
-				LOGGER.info("Capture application screen live image");
-				CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_TUNE_VERIFY);
+				
+
+//				LOGGER.info("Capture application screen live image");
+//				CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_TUNE_VERIFY);
 				
 				LOGGER.info("Reading live image");
 				liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_TUNE_VERIFY));
