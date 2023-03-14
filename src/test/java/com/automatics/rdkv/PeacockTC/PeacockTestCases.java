@@ -601,12 +601,12 @@ public class PeacockTestCases extends AutomaticsTestBase {
 				CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
 				CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
 				
-				LOGGER.info("Click Xfinity RIGHT button ");
-				CommonMethods.execCommandIcon(RemoteKeyContstants.RIGHT_BUTTON);
+				LOGGER.info("Click Xfinity 0k button ");
+				CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 				Thread.sleep(2000);
 				
 				LOGGER.info("Click Xfinity 0k button ");
-				CaptureLiveImage.capture2(ImageCaptureConstants.PEACOCK_TUNE_VERIFY, RemoteKeyContstants.OK_BUTTON, IntergerCount.ONE);
+				CaptureLiveImage.capture2(ImageCaptureConstants.PEACOCK_TUNE_VERIFY, RemoteKeyContstants.RIGHT_BUTTON, IntergerCount.ONE);
 				Thread.sleep(15000);
 
 //				LOGGER.info("Capture application screen live image");

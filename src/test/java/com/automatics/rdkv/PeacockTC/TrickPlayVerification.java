@@ -660,8 +660,7 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			BufferedImage liveImage;
 			BufferedImage outputImage;
 			BufferedImage subImage;
-			String actualZero;
-			String expectedZero ="00:00:00";
+			
 //		/**
 //	     * Step 7 :Perform Rewind operation until control has reached at the start position of the content 
 //	     */
@@ -681,8 +680,7 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			LOGGER.info("STEP 6: EXPECTED : Rewind operation is verified");
 			LOGGER.info("*****************************************************************************************");
 			 
-			LOGGER.info("Reading reference image");
-			referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_REWIND));
+			
 			
 			LOGGER.info("Click two Left button ");
 			CommonMethods.execCommandRepeat(RemoteKeyContstants.LEFT_BUTTON, IntergerCount.TWO);
@@ -691,19 +689,27 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
 			Thread.sleep(10000L);
 			
+			
 			LOGGER.info("Capture Pause screen live image");
-			CaptureLiveImage.capture(ImageCaptureConstants.CHANNELS_TRICK_REWIND);
+			CaptureLiveImage.captureIcon(ImageCaptureConstants.CHANNELS_TRICK_REWIND);
 			
 			LOGGER.info("Reading live image");
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.CHANNELS_TRICK_REWIND));
 			
+			LOGGER.info("Reading reference image");
+			referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_REWIND_REF));
+			
 			LOGGER.info("Calling crop method");
 			subImage = CropImage.cropImage(liveImage, 40,580,90,40); 
 			
-			LOGGER.info("Calling read text in image method");
-			GrabText grabTextZero = new GrabText();
-			actualZero = grabTextZero.crackImage(subImage);
-			status = CommonMethods.textCompare(expectedZero, actualZero);
+			File outputFileTPlay = new File("/var/lib/jenkins/workspace/image5.jpg");
+			ImageIO.write(subImage, "jpg", outputFileTPlay);
+			
+			outputImage = ImageIO.read(new File("/var/lib/jenkins/workspace/image5.jpg"));
+			
+			ImageCompare imgComparePlay =new ImageCompare();
+			LOGGER.info("Calling screen compare method");
+			status = imgComparePlay.compare(referenceImage, outputImage);
 			
 			if (status) {
 				
