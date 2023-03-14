@@ -662,7 +662,7 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			LOGGER.info("*****************************************************************************************");
 			 
 			LOGGER.info("Reading reference image");
-			referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_REWIND));
+			referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_REWIND_REF));
 			
 			LOGGER.info("Click two Left button ");
 			CommonMethods.execCommandRepeat(RemoteKeyContstants.LEFT_BUTTON, IntergerCount.TWO);
