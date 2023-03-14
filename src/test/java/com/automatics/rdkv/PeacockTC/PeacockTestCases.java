@@ -609,8 +609,6 @@ public class PeacockTestCases extends AutomaticsTestBase {
 				CaptureLiveImage.capture2(ImageCaptureConstants.PEACOCK_TUNE_VERIFY, RemoteKeyContstants.OK_BUTTON, IntergerCount.ONE);
 				Thread.sleep(15000);
 
-				
-
 //				LOGGER.info("Capture application screen live image");
 //				CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_TUNE_VERIFY);
 				
@@ -833,9 +831,82 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-2005");
 	}
 
+	@Test(priority=6,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
+	@TestDetails(testUID = "PEACOCK-AAMP-TC-2006")
+	public void testSLEChannels(Dut device) throws InterruptedException {
+		// Variables declaration starts
+		boolean status = false;
+		String testId = "PEACOCK-AAMP-TC-206";
+		String errorMessage = null;
+		String stepNum = null;
+		// Variables declaration Ends
+
+		/**
+		 * Step 1: Launch peacock app
+		 */
+		/**
+		 * Step 2: Go to search and type S
+		 */
+		
+		LOGGER.info("#######################################################################################");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-2006");
+		LOGGER.info("TEST DESCRIPTION:  This test is to verify SLE events are being broadcast");
+		LOGGER.info("TEST STEPS : ");
+		LOGGER.info("1. Go to search iceon and press ok");
+		LOGGER.info("#######################################################################################");
+		try {
+			stepNum = "S1";
+			errorMessage = "Failed to navigate to SLE events";
+			LOGGER.info("*****************************************************************************************");
+			LOGGER.info("STEP 3: DESCRIPTION : This test is to verify SLE events are being broadcast");
+			LOGGER.info("STEP 3: ACTION : Go to search iceon and press ok");
+			LOGGER.info("STEP 3: EXPECTED : SLE events are being broadcast successfully ");
+			LOGGER.info("*****************************************************************************************");
+
+			LOGGER.info("Click Xfinity left button");
+			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+
+			LOGGER.info("Click Xfinity up button");
+			CommonMethods.execCommand(RemoteKeyContstants.UP_BUTTON);
+			
+			LOGGER.info("Click Xfinity ok button ");
+			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			Thread.sleep(8000);
+			nu.pattern.OpenCV.loadLocally();
+			
+			LOGGER.info("Click one Xfinity right button");
+			CommonMethods.execCommand(RemoteKeyContstants.RIGHT_BUTTON);
+			
+			LOGGER.info("Click one Xfinity down button");
+			CommonMethods.execCommand(RemoteKeyContstants.DOWN_BUTTON);
+			
+			LOGGER.info("Click Xfinity ok button ");
+			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			
+			
+			
 
 
+			if (status) {
 
+			} else {
+				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+			}
+			LOGGER.info("**********************************************************************************");
+			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+
+		} catch (Exception e) {
+			LOGGER.error("Exception occured while reading the image file " + e);
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			LOGGER.info("Inside catch");
+			errorMessage = e.getMessage();
+			LOGGER.error("Exception while launching home screen file: " + errorMessage);
+			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
+		}
+		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-2004");
+	}
 
 
 }

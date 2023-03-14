@@ -598,6 +598,9 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 			
 			LOGGER.info("Click OK BUTTON ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+			
+			LOGGER.info("Click OK BUTTON ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 					
 			LOGGER.info("Capture application screen live image");
 			CaptureLiveImage.captureIcon(ImageCaptureConstants.CHANNELS_PLAY);
