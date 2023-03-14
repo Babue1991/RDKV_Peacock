@@ -16,8 +16,8 @@ public class GrabText {
 		//String path="/home/user/Downloads/SearchbarHighlight(1).jpg";
 		GrabText grabText = new GrabText();
 		BufferedImage	liveImage = ImageIO.read(new File("/home/user/Desktop/image4.jpg"));
-		System.out.println(grabText.crackImage(liveImage));
-		//System.out.println(grabText.crackNumber(liveImage));
+		//System.out.println(grabText.crackImage(liveImage));
+		System.out.println(grabText.crackNumber(liveImage));
 	}
 
 	public String crackImage(BufferedImage filePath) {

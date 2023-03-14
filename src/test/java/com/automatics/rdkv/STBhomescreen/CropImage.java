@@ -13,12 +13,12 @@ public class CropImage {
 
 	public static void main(String[] args) throws IOException {
 
-		BufferedImage liveImage = ImageIO.read(new File("/home/user/Desktop/Playtrick.jpg"));
+		BufferedImage liveImage = ImageIO.read(new File("/home/user/Desktop/SLE7.jpg"));
 		
 		try {
 			
 
-			cropedImage = cropImage(liveImage, 620,600,40,100);
+			cropedImage = cropImage(liveImage, 1080,620,70,50);
 
             //600,600,60,100
 			//730,350,340,150
@@ -41,6 +41,7 @@ public class CropImage {
 			//episodes 820,395,425,60
 			//next episodes 210,395,425,50
 			//40,370,130,70 Channels episode icon
+			//SLE 00:00:00 - 1080,620,70,50
 			
 			
 		} catch (Exception e) {
