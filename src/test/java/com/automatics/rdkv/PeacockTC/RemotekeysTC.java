@@ -737,10 +737,8 @@ package com.automatics.rdkv.PeacockTC;
 				LOGGER.info("STEP 6: EXPECTED :Playback should work as expected without any AV issues");
 				LOGGER.info("*****************************************************************************************");
 			
-			LOGGER.info("Calling method to launch peacock app");
-			CommonMethods.launchPeacockApp();
 			
-			LOGGER.info("Calling method to navigate to SLE events ");
+			LOGGER.info("Calling method to launch peacock app and navigate to SLE events ");
 			CommonMethods.navigateToSLE();
 			
 			TimeUnit. MINUTES. sleep(1);
@@ -752,7 +750,7 @@ package com.automatics.rdkv.PeacockTC;
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.SLE_FIRST_LIVE));
 			
 			
-			TimeUnit. MINUTES. sleep(3);
+			TimeUnit. MINUTES. sleep(2);
 			
 			
 			LOGGER.info("Capture Pause screen live image");
@@ -784,10 +782,67 @@ package com.automatics.rdkv.PeacockTC;
 			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 
 		}
-		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-3014");	
+		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-3015");	
 	}
-	
-}		
+		
+		
+		
+		@Test(priority=15, dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+				BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
+		@TestDetails(testUID = "PEACOCK-AAMP-TC-3016")
+		public void testVerifySLEtrick(Dut device) throws InterruptedException {
+			
+			boolean status = false;
+			String testId = "PEACOCK-AAMP-TC-316";
+			String errorMessage = null;
+			String stepNum = null;
+			BufferedImage liveImage;
+			BufferedImage liveImage2;
+			
+			LOGGER.info("#######################################################################################");
+			LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-3016");
+			LOGGER.info("TEST DESCRIPTION: This test is to Verify Trick play functionalities like Pause/Play, FFWD, RWD on Peacock SLE using remote commands");
+			LOGGER.info("TEST STEPS : ");
+			LOGGER.info("1.Tune to SLE assets available ");
+			LOGGER.info("#######################################################################################");
+			try {
+				stepNum = "S7";
+				errorMessage = "Failed to verify playback stability";
+				LOGGER.info("*****************************************************************************************");
+				LOGGER.info("STEP 6: DESCRIPTION : This test is to Verify Trick play functionalities like Pause/Play, FFWD, RWD on Peacock SLE using remote commands");
+				LOGGER.info("STEP 6: ACTION : Tune to SLE assets availablet");
+				LOGGER.info("STEP 6: EXPECTED :content should start playing from the live point without any AV issue");
+				
+				LOGGER.info("Calling method to launch peacock app and navigate to SLE events ");
+				CommonMethods.navigateToSLE();
+				
+				
+				
+				
+				
+				if (status) {
+					
+					LOGGER.info("Channel playing with no AV issues: " + status);
+					
+				} else {
+					LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+							
+			}
+	}
+				catch (Exception e) {
+				LOGGER.error("Exception occured while reading the image file " + e);
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				LOGGER.info("Inside catch");
+				errorMessage = e.getMessage();
+				LOGGER.error("Exception while launching movie screen: " + errorMessage);
+				CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
+
+			}
+			LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-3016");	
+		}
+}
+		
 	
 			
 			
