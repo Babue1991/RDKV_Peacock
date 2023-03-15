@@ -1152,7 +1152,8 @@ public class PeacockChannel extends AutomaticsTestBase {
 			LOGGER.info("Calling method to navigate to linear channel ");
 			CommonMethods.navigateToSLE();
 			
-			Thread.sleep(10000);
+			//Thread.sleep(10000);
+			TimeUnit. MINUTES. sleep(2);
 			
 			LOGGER.info("Calling disable subtitle to make sure the subtitle is off ");
 			CommonMethods.disableChannelSubtitle();

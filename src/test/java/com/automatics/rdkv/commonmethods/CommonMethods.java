@@ -5,6 +5,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.concurrent.TimeUnit;
 
 import javax.imageio.ImageIO;
 import com.automatics.rdkv.STBhomescreen.CropImage;
@@ -333,6 +334,53 @@ public class CommonMethods extends AutomaticsTestBase{
 		CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 		
 		Thread.sleep(5000L);
+	}
+    
+ public static void disableSLEAssetSubtitle() throws InterruptedException {
+		
+	    LOGGER.info("Click Xfinity OK button ");
+		CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+		
+		TimeUnit. MINUTES. sleep(1);
+		
+		LOGGER.info("Click Xfinity Down button ");
+		CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
+	    
+	    LOGGER.info("Click Xfinity up button ");
+	    CommonMethods.execCommandIcon(RemoteKeyContstants.UP_BUTTON);
+		
+		LOGGER.info("Click Xfinity left button ");
+		CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
+		
+		LOGGER.info("Click Xfinity OK button ");
+		CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+		
+		LOGGER.info("Click Xfinity left button ");
+		CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
+		
+		LOGGER.info("Click Xfinity OK button ");
+		CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+		
+		Thread.sleep(5000L);
+	}
+    public static void enableSLEAssetSubtitle() throws InterruptedException {
+		
+    	LOGGER.info("Click Xfinity Down button ");
+		CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
+	    
+	    LOGGER.info("Click Xfinity up button ");
+	    CommonMethods.execCommandIcon(RemoteKeyContstants.UP_BUTTON);
+		
+		LOGGER.info("Click Xfinity left button ");
+		CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
+		
+		LOGGER.info("Click Xfinity OK button ");
+		CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+		
+		LOGGER.info("Click Xfinity OK button ");
+		CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+		
+	    Thread.sleep(10000L);
 	}
     
     public static void enableChannelSubtitle() throws InterruptedException {
