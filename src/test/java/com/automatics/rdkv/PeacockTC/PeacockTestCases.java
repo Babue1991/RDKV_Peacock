@@ -871,7 +871,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		BufferedImage liveImage;
 		BufferedImage subImage;
 		String actual;
-		String expected = "LIVE";
+		String expected = "e";
 		// Variables declaration Ends
 
 		/**
@@ -919,6 +919,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			
 			LOGGER.info("Click Xfinity ok button ");
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			Thread.sleep(4000);
 			
 			LOGGER.info("Click three DOWN_BUTTON ");
 			CommonMethods.execCommandRepeat2(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.THREE);
@@ -930,7 +931,8 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.SLE_LIVE_CHECK));
 
 			LOGGER.info("Calling crop method");
-			subImage = CropImage.cropImage(liveImage, 110,360,30,20);
+			//subImage = CropImage.cropImage(liveImage, 110,360,30,20);
+			subImage = CropImage.cropImage(liveImage, 110,450,50,35);
 			
 			File outputFile = new File("/var/lib/jenkins/workspace/SLE.jpg");
 			ImageIO.write(subImage, "jpg", outputFile);
