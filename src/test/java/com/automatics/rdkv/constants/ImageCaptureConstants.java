@@ -412,10 +412,16 @@ public class ImageCaptureConstants {
 	public static String PEACOCK_SLE=LIVE_IMAGE_PATH+"SLE.jpg";
 	
 	/********The variable used to send capture card port to channels image**/
+	public static String SLE_ADS_REF=LIVE_IMAGE_PATH+"SLEAds.jpg";
+	
+	/********The variable used to send capture card port to channels image**/
+	public static String SLE_ADS_NEXT_IMG=LIVE_IMAGE_PATH+"SLEAdsNext.jpg";
+
 	public static String SLE_2_LIVE=LIVE_IMAGE_PATH+"SLEsecondl2.jpg";
 	
 	/********The variable used to send capture card port to channels image**/
 	public static String SLE_FIRST_LIVE=LIVE_IMAGE_PATH+"SLEFirstl1.jpg";
+
 	
 }
 

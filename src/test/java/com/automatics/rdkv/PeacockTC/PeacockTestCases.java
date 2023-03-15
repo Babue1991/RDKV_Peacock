@@ -871,7 +871,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		BufferedImage liveImage;
 		BufferedImage subImage;
 		String actual;
-		String expected = "TH";
+		String expected = "Th";
 		// Variables declaration Ends
 
 		/**
@@ -969,8 +969,127 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			LOGGER.error("Exception while launching home screen file: " + errorMessage);
 			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 		}
-		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-2004");
+		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-2006");
 	}
+	@Test(priority=7,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
+	@TestDetails(testUID = "PEACOCK-AAMP-TC-2007")
+	public void testLiveEvents(Dut device) throws InterruptedException {
+		// Variables declaration starts
+		boolean status = false;
+		String testId = "PEACOCK-AAMP-TC-207";
+		String errorMessage = null;
+		String stepNum = null;
+		BufferedImage liveImage;
+		BufferedImage subImage;
+		BufferedImage referenceImage;
+		
+		// Variables declaration Ends
+		
+		/**
+		 * Step 1 : Launch peacock app 
+		 */
+		
+//		LOGGER.info("Method to Launch peacock app");
+//		CommonMethods.launchPeacockApp();
+		
+		/**
+		 * Step 2: Go to sports/wwe and check if any SLE events are being broadcast
+		 */
+		
+//		LOGGER.info("Click Xfinity left button");
+//		CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+//
+//		LOGGER.info("Click three DOWN_BUTTON ");
+//		CommonMethods.execCommandRepeat2(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.THREE);
+//		
+//		LOGGER.info("Click Xfinity ok button ");
+//		CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+//		Thread.sleep(3000);
 
+		LOGGER.info("#######################################################################################");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-2007");
+		LOGGER.info("TEST DESCRIPTION: Test to Verify Ads in SLE content");
+		LOGGER.info("TEST STEPS : ");
+		LOGGER.info("1. Tune to SLE content");
+		LOGGER.info("#######################################################################################");
+		try {
+			stepNum = "S3";
+			errorMessage = "Failed to verify Ads in SLE content";
+			LOGGER.info("*****************************************************************************************");
+			LOGGER.info("STEP 3: DESCRIPTION : Test to Verify Ads in SLE content");
+			LOGGER.info("STEP 3: ACTION :Tune to SLE content");
+			LOGGER.info("STEP 3: EXPECTED : Ad break should come up");
+			LOGGER.info("*****************************************************************************************");
+	
+		/**
+		 * Step 3: Tune to SLE assests available  
+		 */
+		LOGGER.info("Click Xfinity left button");
+		CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+		
+		LOGGER.info("Click four UP_BUTTON ");
+		CommonMethods.execCommandRepeat2(RemoteKeyContstants.UP_BUTTON, IntergerCount.FOUR);
+		
+		LOGGER.info("Click Xfinity ok button ");
+		CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+		Thread.sleep(3000);
+		
+		LOGGER.info("Click one Xfinity right button");
+		CommonMethods.execCommand(RemoteKeyContstants.RIGHT_BUTTON);
+		
+		LOGGER.info("Click one Xfinity down button");
+		CommonMethods.execCommand(RemoteKeyContstants.DOWN_BUTTON);
+		
+		LOGGER.info("Click Xfinity ok button ");
+		CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+		Thread.sleep(4000);
+		
+		LOGGER.info("Click three DOWN_BUTTON ");
+		CommonMethods.execCommandRepeat2(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.THREE);
+		
+		LOGGER.info("Click Xfinity ok button ");
+		CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+		Thread.sleep(15000);
+		
+		LOGGER.info("Capture SLE screen live image");
+		CaptureLiveImage.capture(ImageCaptureConstants.SLE_ADS_REF);
 
+		LOGGER.info("Reading first live ads screen");
+		referenceImage = ImageIO.read(new File(ImageCaptureConstants.SLE_ADS_REF));
+		Thread.sleep(5000);
+		
+		LOGGER.info("Capture SLE screen live image");
+		CaptureLiveImage.captureIcon(ImageCaptureConstants.SLE_ADS_NEXT_IMG);
+
+		LOGGER.info("Reading second live ads screen");
+		liveImage = ImageIO.read(new File(ImageCaptureConstants.SLE_ADS_NEXT_IMG));
+
+		LOGGER.info("Calling image compare method");
+		ImageCompare imgCompare =new ImageCompare();
+		status = imgCompare.compare(referenceImage, liveImage);
+	
+		if (status) {
+			LOGGER.info("Ads puase option verified : " + status);
+		} else {
+			LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+		}
+		LOGGER.info("**********************************************************************************");
+		tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+
+	} catch (Exception e) {
+		LOGGER.error("Exception occured while reading the image file " + e);
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		LOGGER.info("Inside catch");
+		errorMessage = e.getMessage();
+		LOGGER.error("Exception while verifying linear channel: " + errorMessage);
+		CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
+	}
+	
+	LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-2007");
 }
+
+				
+}
+
