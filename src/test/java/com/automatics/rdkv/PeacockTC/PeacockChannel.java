@@ -445,7 +445,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 		String stepNum = null;
 		BufferedImage liveImage;
 		BufferedImage subImage;
-		String expected = "NOW";
+		String expected = "NoW";
 		String actual;
 
 		// Variables declaration Ends
@@ -1121,6 +1121,72 @@ public class PeacockChannel extends AutomaticsTestBase {
 		}
 		
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-4024");
+
+	}
+	@Test(priority=1,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
+	@TestDetails(testUID = "PEACOCK-AAMP-TC-4022")
+	public void testVerifySubtitleSLEAsset(Dut device) throws InterruptedException {
+		// Variables declaration starts
+		boolean status = false;
+		String testId = "PEACOCK-AAMP-TC-022";
+		String errorMessage = null;
+		String stepNum = null;
+		// Variables declaration Ends
+
+		LOGGER.info("#######################################################################################");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-4022");
+		LOGGER.info("TEST DESCRIPTION: This test is to verify subtile text for SLE asset");
+		LOGGER.info("TEST STEPS : ");
+		LOGGER.info("1. Enable subtitle and then verify text");
+		LOGGER.info("#######################################################################################");
+		try {
+			stepNum = "S1";
+			errorMessage = "Failed to verify subtitle text";
+			LOGGER.info("*****************************************************************************************");
+			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify subtile text for SLE asset");
+			LOGGER.info("STEP 1: ACTION :Enable subtitle and then verify text");
+			LOGGER.info("STEP 1: EXPECTED : Subtitle should displayed");
+			LOGGER.info("*****************************************************************************************");
+			
+			LOGGER.info("Calling method to navigate to linear channel ");
+			CommonMethods.navigateToChannelFour();
+			
+			Thread.sleep(2000);
+			
+			LOGGER.info("Click Xfinity OK button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+
+			Thread.sleep(20000);
+			
+			LOGGER.info("Calling disable subtitle to make sure the subtitle is off ");
+			CommonMethods.disableChannelSubtitle();
+
+			LOGGER.info("Calling enable subtitle method ");
+			CommonMethods.enableChannelSubtitle();
+
+			LOGGER.info("Calling method to check subtitle");
+			status = CommonMethods.checkSubtitle();
+
+			if (status) {
+				LOGGER.info("Subtitle text is shown and status is : " + status);
+			} else {
+				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+			}
+			LOGGER.info("**********************************************************************************");
+			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+
+		} catch (Exception e) {
+			LOGGER.error("Exception occured while reading the image file " + e);
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			LOGGER.info("Inside catch");
+			errorMessage = e.getMessage();
+			LOGGER.error("Exception while verifying subtitle text: " + errorMessage);
+			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
+
+		}
+		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-4008");
 
 	}
 	
