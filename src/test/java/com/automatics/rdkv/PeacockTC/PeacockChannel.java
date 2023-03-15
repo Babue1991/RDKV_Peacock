@@ -1123,7 +1123,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-4024");
 
 	}
-	@Test(priority=1,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+	@Test(priority=10,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
 	@TestDetails(testUID = "PEACOCK-AAMP-TC-4022")
 	public void testVerifySubtitleSLEAsset(Dut device) throws InterruptedException {
@@ -1150,14 +1150,9 @@ public class PeacockChannel extends AutomaticsTestBase {
 			LOGGER.info("*****************************************************************************************");
 			
 			LOGGER.info("Calling method to navigate to linear channel ");
-			CommonMethods.navigateToChannelFour();
+			CommonMethods.navigateToSLE();
 			
-			Thread.sleep(2000);
-			
-			LOGGER.info("Click Xfinity OK button ");
-			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
-
-			Thread.sleep(20000);
+			Thread.sleep(10000);
 			
 			LOGGER.info("Calling disable subtitle to make sure the subtitle is off ");
 			CommonMethods.disableChannelSubtitle();
@@ -1186,7 +1181,68 @@ public class PeacockChannel extends AutomaticsTestBase {
 			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 
 		}
-		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-4008");
+		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-4022");
+
+	}
+	@Test(priority=11,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
+	@TestDetails(testUID = "PEACOCK-AAMP-TC-4019")
+	public void testVerifyLiveEdgeSLEAsset(Dut device) throws InterruptedException {
+		// Variables declaration starts
+		boolean status = false;
+		String testId = "PEACOCK-AAMP-TC-019";
+		String errorMessage = null;
+		String stepNum = null;
+		// Variables declaration Ends
+
+		LOGGER.info("#######################################################################################");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-4019");
+		LOGGER.info("TEST DESCRIPTION: This test is to Seek to Live Edge verification on Peacock SLE asset");
+		LOGGER.info("TEST STEPS : ");
+		LOGGER.info("1. Perform Rewind operation at until Live edge indicator is off");
+		LOGGER.info("#######################################################################################");
+		try {
+			stepNum = "S1";
+			errorMessage = "Failed to verify Go Live icon";
+			LOGGER.info("*****************************************************************************************");
+			LOGGER.info("STEP 1: DESCRIPTION : This test is to Seek to Live Edge verification on Peacock SLE asset");
+			LOGGER.info("STEP 1: ACTION : Perform Rewind operation at until Live edge indicator is off");
+			LOGGER.info("STEP 1: EXPECTED : Go Live icon should be enabled");
+			LOGGER.info("*****************************************************************************************");
+			
+			LOGGER.info("Calling method to navigate to linear channel ");
+			CommonMethods.navigateToSLE();
+			
+			TimeUnit. MINUTES. sleep(5);
+			
+			LOGGER.info("Calling disable subtitle to make sure the subtitle is off ");
+			CommonMethods.disableChannelSubtitle();
+
+			LOGGER.info("Calling enable subtitle method ");
+			CommonMethods.enableChannelSubtitle();
+
+			LOGGER.info("Calling method to check subtitle");
+			status = CommonMethods.checkSubtitle();
+
+			if (status) {
+				LOGGER.info("Subtitle text is shown and status is : " + status);
+			} else {
+				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+			}
+			LOGGER.info("**********************************************************************************");
+			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+
+		} catch (Exception e) {
+			LOGGER.error("Exception occured while reading the image file " + e);
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			LOGGER.info("Inside catch");
+			errorMessage = e.getMessage();
+			LOGGER.error("Exception while verifying subtitle text: " + errorMessage);
+			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
+
+		}
+		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-4022");
 
 	}
 	
