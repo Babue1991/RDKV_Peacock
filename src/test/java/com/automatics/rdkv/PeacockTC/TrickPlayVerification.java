@@ -26,8 +26,8 @@ package com.automatics.rdkv.PeacockTC;
 	import com.automatics.rdkv.constants.ImageCaptureConstants;
 	import com.automatics.rdkv.constants.IntergerCount;
 	import com.automatics.rdkv.constants.RemoteKeyContstants;
-import com.automatics.rdkv.imagevalidation.ConvertImage;
-import com.automatics.rdkv.imagevalidation.ImageCompare;
+	import com.automatics.rdkv.imagevalidation.ConvertImage;
+	import com.automatics.rdkv.imagevalidation.ImageCompare;
 	import com.automatics.tap.AutomaticsTapApi;
 	import com.automatics.test.AutomaticsTestBase;
 

@@ -868,13 +868,21 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		String testId = "PEACOCK-AAMP-TC-206";
 		String errorMessage = null;
 		String stepNum = null;
+		BufferedImage liveImage;
+		BufferedImage subImage;
+		String actual;
+		String expected = "LIVE";
 		// Variables declaration Ends
 
 		/**
 		 * Step 1: Launch peacock app
 		 */
+		
+		LOGGER.info("Method to Launch peacock app");
+		CommonMethods.launchPeacockApp();
+		
 		/**
-		 * Step 2: Go to search and type S
+		 * Step 2: Go to search and type S for live channel
 		 */
 		
 		LOGGER.info("#######################################################################################");
@@ -915,8 +923,33 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			LOGGER.info("Click three DOWN_BUTTON ");
 			CommonMethods.execCommandRepeat2(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.THREE);
 			
+			LOGGER.info("Capture application screen live image");
+			CaptureLiveImage.captureIcon(ImageCaptureConstants.SLE_LIVE_CHECK);
 
+			LOGGER.info("Reading live image");
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.SLE_LIVE_CHECK));
 
+			LOGGER.info("Calling crop method");
+			subImage = CropImage.cropImage(liveImage, 110,360,30,20);
+			
+			File outputFile = new File("/var/lib/jenkins/workspace/SLE.jpg");
+			ImageIO.write(subImage, "jpg", outputFile);
+
+			BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/SLE.jpg"));
+
+			ConvertImage ci = new ConvertImage();
+			BufferedImage greyImage =ci.ConvertGrayScale(output);
+
+			File outputFileSLE = new File("/var/lib/jenkins/workspace/TuneVerify2.jpg");
+			ImageIO.write(greyImage , "jpg", outputFileSLE);
+
+			LOGGER.info("Calling method to read text in image");
+			GrabText grabText = new GrabText();
+			actual = grabText.crackImage(greyImage);
+			
+			LOGGER.info("Calling method to compare text in image");
+			status = CommonMethods.partialTextCompare(expected, actual);
+			
 			if (status) {
 
 			} else {
