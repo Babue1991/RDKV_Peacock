@@ -336,9 +336,8 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		}
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-2001");
 	}
-	/**
-	 * Step 1 :Launch peacock application
-	 */
+	
+	
 	@Test(priority=1,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
 	@TestDetails(testUID = "PEACOCK-AAMP-TC-2002")
@@ -357,8 +356,15 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		String actualchannel;
 		String actualNext;
 		// Variables declaration Ends
+		
 		/**
-		 * Step 1 : Go to channel option in peacock menu and press ok
+		 * Step 1 :Launch peacock application
+		 */
+		
+		LOGGER.info("Method to Launch peacock app");
+		CommonMethods.launchPeacockApp();
+		/**
+		 * Step 2 : Go to channel option in peacock menu and press ok
 		 */
 		LOGGER.info("#######################################################################################");
 		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-2002");
@@ -367,12 +373,12 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		LOGGER.info("1. Press left button and go down");
 		LOGGER.info("#######################################################################################");
 		try {
-			stepNum = "S1";
+			stepNum = "S2";
 			errorMessage = "Failed to navigate to Channels button";
 			LOGGER.info("*****************************************************************************************");
-			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify user can navigate to the channels  2002 content");
-			LOGGER.info("STEP 1: ACTION : Press down button and take screenshot");
-			LOGGER.info("STEP 1: EXPECTED : Channels option should launch successfully.");
+			LOGGER.info("STEP 2: DESCRIPTION : This test is to verify user can navigate to the channels  2002 content");
+			LOGGER.info("STEP 2: ACTION : Press down button and take screenshot");
+			LOGGER.info("STEP 2: EXPECTED : Channels option should launch successfully.");
 			LOGGER.info("*****************************************************************************************");
 
 			LOGGER.info("Click Xfinity left button ");
