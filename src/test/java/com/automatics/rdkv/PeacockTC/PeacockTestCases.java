@@ -990,8 +990,8 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		 * Step 1 : Launch peacock app 
 		 */
 		
-		LOGGER.info("Method to Launch peacock app");
-		CommonMethods.launchPeacockApp();
+//		LOGGER.info("Method to Launch peacock app");
+//		CommonMethods.launchPeacockApp();
 		
 		/**
 		 * Step 2: Go to sports/wwe and check if any SLE events are being broadcast
