@@ -431,7 +431,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_CHANNELS_NEXT_OPTION));
 
 			LOGGER.info("Calling crop method");
-			subImage = CropImage.cropImage(liveImage, 50,450,180,40);
+			subImage = CropImage.cropImage(liveImage, 50,450,110,40);
 
 			GrabText grabTextLinear = new GrabText();
 			actualLinear = grabTextLinear.crackImage(subImage);
@@ -455,7 +455,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 		}
 		/**
-		 * Step 2 : Tune to couple of other linear channels randomly
+		 * Step 3 : Tune to couple of other linear channels randomly
 		 */
 		LOGGER.info("#######################################################################################");
 		LOGGER.info("TEST DESCRIPTION:  This test is to Tune to couple of other linear channels randomly and verify");
@@ -463,12 +463,12 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		LOGGER.info("1. Press up button and verify");
 		LOGGER.info("#######################################################################################");
 		try {
-			stepNum = "S2";
+			stepNum = "S3";
 			errorMessage = "Failed to tune other linear channel";
 			LOGGER.info("*****************************************************************************************");
-			LOGGER.info("STEP 2: DESCRIPTION : This test is to Tune to couple of other linear channels randomly and verify");
-			LOGGER.info("STEP 2: ACTION : Press up button and verify");
-			LOGGER.info("STEP 2: EXPECTED : Linear Channels option verified successfully.");
+			LOGGER.info("STEP 3: DESCRIPTION : This test is to Tune to couple of other linear channels randomly and verify");
+			LOGGER.info("STEP 3: ACTION : Press up button and verify");
+			LOGGER.info("STEP 3: EXPECTED : Linear Channels option verified successfully.");
 			LOGGER.info("*****************************************************************************************");
 
 			LOGGER.info("Click two DOWN_BUTTON ");
@@ -504,7 +504,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			GrabText grabText = new GrabText();
 			actualNext = grabText.crackImage(greyImagenew);
 
-			LOGGER.info("Click two DOWN_BUTTON 12345 ");
+			LOGGER.info("Click two DOWN_BUTTON ");
 			CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.TWO);
 
 			LOGGER.info("Click two OK_BUTTON ");
@@ -533,14 +533,6 @@ public class PeacockTestCases extends AutomaticsTestBase {
 				LOGGER.info("FALSE");
 			}
 
-			//			if (status) {
-			//				LOGGER.info("The status of text comparision is: " + status);
-			//			} else {
-			//				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
-			//			}
-			//			LOGGER.info("**********************************************************************************");
-			//			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
-
 		} catch (Exception e) {
 			LOGGER.error("Exception occured while reading the image file " + e);
 			// TODO Auto-generated catch block
@@ -554,8 +546,6 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-2002");
 	}
 
-
-	// step 1 and step 2 are same as TC-2002
 	@Test(priority=7,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
 	@TestDetails(testUID = "PEACOCK-AAMP-TC-40001")
@@ -573,6 +563,20 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		String actual;
 		String actualNew;
 		// Variables declaration Ends
+		
+		/**
+		 * Step 1 :Launch peacock application
+		 */
+		
+		LOGGER.info("Method to Launch peacock app");
+		CommonMethods.launchPeacockApp();
+		
+		/**
+		 * Step 2 :Go to channels and press ok
+		 */
+		LOGGER.info("Method to Launch peacock app");
+		CommonMethods.tuneChannels();
+		
 		/**
 		 * Step 3 : Tune to all linear channels one by one till the end and verify
 		 */
@@ -586,9 +590,9 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			stepNum = "S3";
 			errorMessage = "Failed to verify linear channels";
 			LOGGER.info("*****************************************************************************************");
-			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify all the linear channels");
-			LOGGER.info("STEP 1: ACTION : Press down button and click ok");
-			LOGGER.info("STEP 1: EXPECTED : Linear channels verified successfully.");
+			LOGGER.info("STEP 3: DESCRIPTION : This test is to verify all the linear channels");
+			LOGGER.info("STEP 3: ACTION : Press down button and click ok");
+			LOGGER.info("STEP 3: EXPECTED : Linear channels verified successfully.");
 			LOGGER.info("*****************************************************************************************");	
 			Process p;
 			LOGGER.info("My code start");
@@ -700,12 +704,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		}
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-40001");
 	}
-	/**
-	 * Step 1 :Launch peacock application
-	 */
-	/**
-	 * Step 2 :Go to channels option in peacock menu and press ok
-	 */
+	
 	@Test(priority=6,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
 	@TestDetails(testUID = "PEACOCK-AAMP-TC-2004")
@@ -720,6 +719,19 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		BufferedImage subImage;
 		BufferedImage outputImage;
 		// Variables declaration Ends
+		
+		/**
+		 * Step 1 :Launch peacock application
+		 */
+		LOGGER.info("Method to Launch peacock app");
+		CommonMethods.launchPeacockApp();
+		
+		/**
+		 * Step 2 :Go to channels option in peacock menu and press ok
+		 */
+		LOGGER.info("Method to Launch peacock app");
+		CommonMethods.tuneChannels();
+		
 		/**
 		 * Step 3: Tune to linear channel which do not support trick play
 		 */

@@ -485,6 +485,21 @@ public class CommonMethods extends AutomaticsTestBase{
 		
 	}
 	
+	public static void tuneChannels() throws InterruptedException {
+
+		LOGGER.info("Click Xfinity LEFT button ");
+		CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+		Thread.sleep(2000);
+		
+		LOGGER.info("Click six DOWN_BUTTON ");
+		CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.SIX);
+
+		LOGGER.info("Click Xfinity OK button ");
+		CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+		Thread.sleep(30000);
+		
+	}
+	
 	public static void Trickplay() throws InterruptedException, IOException {
 		int i=4;
 		for(i=1;i<=4;i++) {
