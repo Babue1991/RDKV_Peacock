@@ -40,7 +40,7 @@ public class ConvertImage {
 						red + green + blue);
 				result.setRGB(j, i, newColor.getRGB());
 				
-				 // File outputFile = new File("/home/user/Desktop/image4.jpg");
+				  //File outputFile = new File("/home/user/Desktop/image4.jpg");
 				 // ImageIO.write(result, "jpg", outputFile);
 			}
 			

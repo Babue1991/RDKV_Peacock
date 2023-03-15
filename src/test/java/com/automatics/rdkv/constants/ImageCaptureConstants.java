@@ -408,6 +408,9 @@ public class ImageCaptureConstants {
 	/********The variable used to send capture card port to channels image**/
 	public static String PLCHANNEL_EPISODES=LIVE_IMAGE_PATH+"multiepisode.jpg";
 	
+	/********The variable used to send capture card port to channels image**/
+	public static String PEACOCK_SLE=LIVE_IMAGE_PATH+"SLE.jpg";
+	
 }
 
 
