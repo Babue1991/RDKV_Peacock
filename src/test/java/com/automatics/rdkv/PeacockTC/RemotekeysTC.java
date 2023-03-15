@@ -2,7 +2,8 @@ package com.automatics.rdkv.PeacockTC;
 
 	import java.awt.image.BufferedImage;
 	import java.io.File;
-
+	import java.util.concurrent.TimeUnit;
+	
 	import javax.imageio.ImageIO;
 
 	import org.opencv.core.Core;
@@ -26,8 +27,8 @@ package com.automatics.rdkv.PeacockTC;
 	import com.automatics.rdkv.constants.ImageCaptureConstants;
 	import com.automatics.rdkv.constants.IntergerCount;
 	import com.automatics.rdkv.constants.RemoteKeyContstants;
-import com.automatics.rdkv.imagevalidation.ConvertImage;
-import com.automatics.rdkv.imagevalidation.ImageCompare;
+	import com.automatics.rdkv.imagevalidation.ConvertImage;
+	import com.automatics.rdkv.imagevalidation.ImageCompare;
 	import com.automatics.tap.AutomaticsTapApi;
 	import com.automatics.test.AutomaticsTestBase;
 
@@ -705,7 +706,8 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 
 		}
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-3014");
-}
+		}
+	
 		
 
 		@Test(priority=15, dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
@@ -714,14 +716,83 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 		public void testVerifySLE(Dut device) throws InterruptedException {
 			
 			boolean status = false;
-			String testId = "PEACOCK-AAMP-TC-3015";
+			String testId = "PEACOCK-AAMP-TC-315";
 			String errorMessage = null;
 			String stepNum = null;
+			BufferedImage liveImage;
+			BufferedImage liveImage2;
+			
+			LOGGER.info("#######################################################################################");
+			LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-3015");
+			LOGGER.info("TEST DESCRIPTION: This test is to verify playback stability of Peacock SLE asset");
+			LOGGER.info("TEST STEPS : ");
+			LOGGER.info("1.Tune to SLE assets available ");
+			LOGGER.info("#######################################################################################");
+			try {
+				stepNum = "S7";
+				errorMessage = "Failed to verify playback stability";
+				LOGGER.info("*****************************************************************************************");
+				LOGGER.info("STEP 6: DESCRIPTION : This test is to verify playback stability of Peacock SLE asset");
+				LOGGER.info("STEP 6: ACTION : Tune to SLE assets availablet");
+				LOGGER.info("STEP 6: EXPECTED :Playback should work as expected without any AV issues");
+				LOGGER.info("*****************************************************************************************");
 			
 			LOGGER.info("Calling method to launch peacock app");
 			CommonMethods.launchPeacockApp();
 			
 			LOGGER.info("Calling method to navigate to SLE events ");
 			CommonMethods.navigateToSLE();
-		}	
+			
+			TimeUnit. MINUTES. sleep(1);
+			
+			LOGGER.info("Capture Pause screen live image");
+			CaptureLiveImage.capture(ImageCaptureConstants.SLE_FIRST_LIVE);
+			
+			LOGGER.info("Reading live image");
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.SLE_FIRST_LIVE));
+			
+			
+			TimeUnit. MINUTES. sleep(3);
+			
+			
+			LOGGER.info("Capture Pause screen live image");
+			CaptureLiveImage.capture(ImageCaptureConstants.SLE_2_LIVE);
+			
+			LOGGER.info("Reading live image");
+			liveImage2 = ImageIO.read(new File(ImageCaptureConstants.SLE_2_LIVE));
+			
+			LOGGER.info("Calling image compare method");
+			ImageCompare imgCompare =new ImageCompare();
+			status = imgCompare.compare(liveImage, liveImage2);
+			
+			if (status) {
+				
+				LOGGER.info("Channel playing with no AV issues: " + status);
+				
+			} else {
+				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+						
+		}
+}
+			catch (Exception e) {
+			LOGGER.error("Exception occured while reading the image file " + e);
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			LOGGER.info("Inside catch");
+			errorMessage = e.getMessage();
+			LOGGER.error("Exception while launching movie screen: " + errorMessage);
+			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
+
+		}
+		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-3014");	
 	}
+	
+}		
+	
+			
+			
+			
+			
+			
+			
+	
