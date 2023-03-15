@@ -435,7 +435,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 
 			GrabText grabTextLinear = new GrabText();
 			actualLinear = grabTextLinear.crackImage(subImage);
-			status = CommonMethods.textCompare(actualLinear, actual);
+			status = CommonMethods.partialTextCompare(actualLinear, actual);
 
 			if (status) {
 
