@@ -706,4 +706,22 @@ import com.automatics.rdkv.imagevalidation.ImageCompare;
 		}
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-3014");
 }
+		
+
+		@Test(priority=15, dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+				BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
+		@TestDetails(testUID = "PEACOCK-AAMP-TC-3015")
+		public void testVerifySLE(Dut device) throws InterruptedException {
+			
+			boolean status = false;
+			String testId = "PEACOCK-AAMP-TC-3015";
+			String errorMessage = null;
+			String stepNum = null;
+			
+			LOGGER.info("Calling method to launch peacock app");
+			CommonMethods.launchPeacockApp();
+			
+			LOGGER.info("Calling method to navigate to SLE events ");
+			CommonMethods.navigateToSLE();
+		}	
 	}

@@ -868,6 +868,8 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		String testId = "PEACOCK-AAMP-TC-206";
 		String errorMessage = null;
 		String stepNum = null;
+		BufferedImage liveImage;
+		BufferedImage subImage;
 		// Variables declaration Ends
 
 		/**
@@ -915,7 +917,18 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			LOGGER.info("Click three DOWN_BUTTON ");
 			CommonMethods.execCommandRepeat2(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.THREE);
 			
+			LOGGER.info("Capture application screen live image");
+			CaptureLiveImage.captureIcon(ImageCaptureConstants.SLE_LIVE_CHECK);
 
+			LOGGER.info("Reading live image");
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.SLE_LIVE_CHECK));
+
+			LOGGER.info("Calling crop method");
+			subImage = CropImage.cropImage(liveImage, 490,600,260,120);
+			
+			
+			
+			
 
 			if (status) {
 
