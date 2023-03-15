@@ -1014,12 +1014,12 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		LOGGER.info("1. Tune to SLE content");
 		LOGGER.info("#######################################################################################");
 		try {
-			stepNum = "S1";
+			stepNum = "S3";
 			errorMessage = "Failed to verify Ads in SLE content";
 			LOGGER.info("*****************************************************************************************");
-			LOGGER.info("STEP 1: DESCRIPTION : Test to Verify Ads in SLE content");
-			LOGGER.info("STEP 1: ACTION :Tune to SLE content");
-			LOGGER.info("STEP 1: EXPECTED : Ad break should come up");
+			LOGGER.info("STEP 3: DESCRIPTION : Test to Verify Ads in SLE content");
+			LOGGER.info("STEP 3: ACTION :Tune to SLE content");
+			LOGGER.info("STEP 3: EXPECTED : Ad break should come up");
 			LOGGER.info("*****************************************************************************************");
 	
 		/**
