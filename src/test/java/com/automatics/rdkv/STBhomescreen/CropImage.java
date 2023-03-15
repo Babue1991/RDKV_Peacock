@@ -18,7 +18,7 @@ public class CropImage {
 		try {
 			
 
-			cropedImage = cropImage(liveImage, 95,575,80,38);
+			cropedImage = cropImage(liveImage, 598,65,45,20);
 
             //600,600,60,100
 			//730,350,340,150
@@ -43,6 +43,7 @@ public class CropImage {
 			//40,370,130,70 Channels episode icon
 			//SLE 00:00:00 - 1080,620,70,50
 			//Go live 95,575,80,38
+			//live 598,65,45,20
 			
 			
 		} catch (Exception e) {
