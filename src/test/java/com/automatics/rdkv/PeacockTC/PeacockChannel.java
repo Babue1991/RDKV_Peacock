@@ -1193,6 +1193,10 @@ public class PeacockChannel extends AutomaticsTestBase {
 		String testId = "PEACOCK-AAMP-TC-019";
 		String errorMessage = null;
 		String stepNum = null;
+		BufferedImage liveImage;
+		BufferedImage subImage;
+		String actual;
+		String expected = "GoLive";
 		// Variables declaration Ends
 
 		LOGGER.info("#######################################################################################");
@@ -1215,17 +1219,38 @@ public class PeacockChannel extends AutomaticsTestBase {
 			
 			TimeUnit. MINUTES. sleep(5);
 			
-			LOGGER.info("Calling disable subtitle to make sure the subtitle is off ");
-			CommonMethods.disableChannelSubtitle();
+			LOGGER.info("Calling rewind method ");
+			//CommonMethods.disableChannelSubtitle();
 
-			LOGGER.info("Calling enable subtitle method ");
-			CommonMethods.enableChannelSubtitle();
+			LOGGER.info("Capture application screen live image");
+			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_SLE);
 
-			LOGGER.info("Calling method to check subtitle");
-			status = CommonMethods.checkSubtitle();
+			LOGGER.info("Reading live image");
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_SLE));
 
+			LOGGER.info("Calling image cropping method");
+			subImage = CropImage.cropImage(liveImage,  95,575,80,38);
+			
+			File outputFile = new File("/var/lib/jenkins/workspace/golive.jpg");
+			ImageIO.write(subImage, "jpg", outputFile);
+
+			BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/golive.jpg"));
+
+			ConvertImage ci = new ConvertImage();
+			BufferedImage greyImage =ci.ConvertGrayScale(output);
+
+			File outputFiletwo = new File("/var/lib/jenkins/workspace/greygolive.jpg");
+			ImageIO.write(greyImage, "jpg", outputFiletwo);
+
+			LOGGER.info("Calling method to read text in image");
+			GrabText grabText = new GrabText();
+			actual = grabText.crackImage(greyImage);
+			
+			LOGGER.info("Calling method to compare text in image");
+
+			status = CommonMethods.partialTextCompare(expected, actual);
 			if (status) {
-				LOGGER.info("Subtitle text is shown and status is : " + status);
+				LOGGER.info("Go Live icon is shown and status is : " + status);
 			} else {
 				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
 			}
@@ -1234,15 +1259,14 @@ public class PeacockChannel extends AutomaticsTestBase {
 
 		} catch (Exception e) {
 			LOGGER.error("Exception occured while reading the image file " + e);
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			LOGGER.info("Inside catch");
 			errorMessage = e.getMessage();
-			LOGGER.error("Exception while verifying subtitle text: " + errorMessage);
+			LOGGER.error("Exception while verifying go live text: " + errorMessage);
 			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 
 		}
-		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-4022");
+		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-4019");
 
 	}
 	
