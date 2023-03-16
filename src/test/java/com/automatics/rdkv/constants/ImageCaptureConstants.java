@@ -441,10 +441,17 @@ public class ImageCaptureConstants {
 	public static String SLE_LIVE_SPORTS=LIVE_IMAGE_PATH+"SLESports.jpg";
 	
 	/********The variable used to send capture card port to channels image**/
-	public static String PEACOCK_LIVE_REWIND=LIVE_IMAGE_PATH+"RewindLive";
+	public static String PEACOCK_LIVE_REWIND=LIVE_IMAGE_PATH+"RewindLive.jpg";
 	
 	/********The variable used to send capture card port to channels image**/
 	public static String PEACOCK_LIVE_REFERENCE_REWIND=REFERENCE_IMAGE_PATH+"WWE_BackForward.jpg";
+	
+	/********The variable used to send capture card port to channels image**/
+	public static String PEACOCK_LIVE_FORWARD=LIVE_IMAGE_PATH+"ForwardLive.jpg";
+	
+	/********The variable used to send capture card port to channels image**/
+	public static String PEACOCK_LIVE_REFERENCE_FORWARD=REFERENCE_IMAGE_PATH+"WWE_Fastforword.jpg";
+	
 	
 }
 
