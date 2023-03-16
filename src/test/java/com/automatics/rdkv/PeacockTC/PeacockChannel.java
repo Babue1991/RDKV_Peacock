@@ -1218,7 +1218,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 			LOGGER.info("Calling method to navigate to linear channel ");
 			CommonMethods.navigateToSLE();
 			
-			TimeUnit. MINUTES. sleep(5);
+			TimeUnit. MINUTES. sleep(2);
 			
 			LOGGER.info("Calling rewind method ");
 			//CommonMethods.disableChannelSubtitle();
