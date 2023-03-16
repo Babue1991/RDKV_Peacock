@@ -852,8 +852,9 @@ package com.automatics.rdkv.PeacockTC;
 		String testId = "PEACOCK-AAMP-TC-317";
 		String errorMessage = null;
 		String stepNum = null;
-		Mat liveImage;
-		Mat referenceImage;
+		BufferedImage referenceImage;
+		BufferedImage liveImage;
+		BufferedImage subImage;
 		// Variables declaration Ends
 
 		LOGGER.info("#######################################################################################");
@@ -885,23 +886,25 @@ package com.automatics.rdkv.PeacockTC;
 			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_LIVE_PLAY);
 			
 			LOGGER.info("Reading live image");
-			liveImage=Imgcodecs.imread(ImageCaptureConstants.PEACOCK_LIVE_PLAY);
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LIVE_PLAY));
 			
 			LOGGER.info("Reading reference image");
-			referenceImage=Imgcodecs.imread(ImageCaptureConstants.PEACOCK_LIVE_REFERENCE_PLAY_ICON);
+			referenceImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LIVE_REFERENCE_PLAY_ICON));
 			
-//			LOGGER.info("Calling image cropping method");
-//			subImage = CropImage.cropImage(liveImage, 54,637,25,26);
+			LOGGER.info("Calling image cropping method");
+			subImage = CropImage.cropImage(liveImage, 54,637,25,26);
 			
-//			
-//			File outputFile = new File("/var/lib/jenkins/workspace/playicon.jpg");
-//			ImageIO.write(subImage, "jpg", outputFile);
-//			
-//			BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/playicon.jpg"));
 			
-			LOGGER.info("Calling template match method");
-			ImageCompare imgCompare = new ImageCompare();
-			status =imgCompare.templateMatch(referenceImage, liveImage);
+			File outputFile = new File("/var/lib/jenkins/workspace/playicon.jpg");
+			ImageIO.write(subImage, "jpg", outputFile);
+			
+			BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/playicon.jpg"));
+			
+			LOGGER.info("Calling image compare method");
+			
+            ImageCompare imgCompare =new ImageCompare();
+
+			status = imgCompare.compare(referenceImage, output);
 			
 			if (status) {
 				
@@ -922,25 +925,25 @@ package com.automatics.rdkv.PeacockTC;
 			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_LIVE_PAUSE_CONTENT);
 			
 			LOGGER.info("Reading live image");
-			liveImage = Imgcodecs.imread(ImageCaptureConstants.PEACOCK_LIVE_PAUSE_CONTENT);
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LIVE_PAUSE_CONTENT));
 			
 			LOGGER.info("Reading reference image");
-			referenceImage = Imgcodecs.imread(ImageCaptureConstants.PEACOCK_LIVE_REFERENCE_PAUSE_ICON);
+			referenceImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LIVE_REFERENCE_PAUSE_ICON));
 			
-//			LOGGER.info("Calling image cropping method");
-//			subImage = CropImage.cropImage(liveImage, 54,637,25,26);
-//
-//			
-//			File outputFile1 = new File("/var/lib/jenkins/workspace/pauseicon.jpg");
-//			ImageIO.write(subImage, "jpg", outputFile1);
-//			
-//			BufferedImage output11 = ImageIO.read(new File("/var/lib/jenkins/workspace/pauseicon.jpg"));
-//			
-//			
+			LOGGER.info("Calling image cropping method");
+			subImage = CropImage.cropImage(liveImage, 54,637,25,26);
+
 			
-			LOGGER.info("Calling template match method");
-			ImageCompare imgCompare1 = new ImageCompare();
-			status =imgCompare1.templateMatch(referenceImage, liveImage);
+			File outputFile1 = new File("/var/lib/jenkins/workspace/pauseicon.jpg");
+			ImageIO.write(subImage, "jpg", outputFile1);
+			
+			BufferedImage output1 = ImageIO.read(new File("/var/lib/jenkins/workspace/pauseicon.jpg"));
+			
+			LOGGER.info("Calling image compare method");
+			
+            ImageCompare imgCompare1 =new ImageCompare();
+
+			status = imgCompare1.compare(referenceImage, output1);
 			
 			
 			if (status) {
@@ -966,6 +969,84 @@ package com.automatics.rdkv.PeacockTC;
 		}
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-3017");
 
+	}
+	
+
+	@Test(priority=15,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
+	@TestDetails(testUID = "PEACOCK-AAMP-TC-3018")
+	public void testVerifyBackForward(Dut device) throws InterruptedException {
+		// Variables declaration starts
+		boolean status = false;
+		String testId = "PEACOCK-AAMP-TC-318";
+		String errorMessage = null;
+		String stepNum = null;
+		Mat liveImage;
+		Mat referenceImage;
+		// Variables declaration Ends
+
+		LOGGER.info("#######################################################################################");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-3018");
+		LOGGER.info("TEST DESCRIPTION:This test is to Perform Rewind operation at differrent speeds & play using remote keys");
+		LOGGER.info("TEST STEPS : ");
+		LOGGER.info("1. Click on left and check Rewind icon is dispalyed");
+		LOGGER.info("#######################################################################################");
+		try {
+			stepNum = "S1";
+			errorMessage = "Failed to validate Rewind";
+			LOGGER.info("*****************************************************************************************");
+			LOGGER.info("STEP 1: DESCRIPTION : This test is to Perform Rewind operation at differrent speeds & play using remote keys");
+			LOGGER.info("STEP 1: ACTION : Press left button and take screenshot");
+			LOGGER.info("STEP 1: EXPECTED :Rewind operation at different speeds should be successfull.");
+			LOGGER.info("*****************************************************************************************");
+			
+			LOGGER.info("Calling method to launch peacock app and navigate to SLE events ");
+			CommonMethods.navigateToSLE();
+			
+			TimeUnit. MINUTES. sleep(1);
+			
+			LOGGER.info("Click Backward BUTTON ");
+			CommonMethods.execCommand(RemoteKeyContstants.BACKWARD_BUTTON);
+			
+            nu.pattern.OpenCV.loadLocally();
+			
+			LOGGER.info("Capture application screen live image");
+			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_LIVE_REWIND);
+			
+            LOGGER.info("Reading live image");
+			liveImage=Imgcodecs.imread(ImageCaptureConstants.PEACOCK_LIVE_REWIND);
+			
+			LOGGER.info("Reading reference image");	
+			referenceImage=Imgcodecs.imread(ImageCaptureConstants.PEACOCK_LIVE_REFERENCE_REWIND);
+			
+			LOGGER.info("Calling template match method");
+			ImageCompare imgCompare = new ImageCompare();
+			status =imgCompare.templateMatch(referenceImage, liveImage);
+
+			LOGGER.info("Click Xfinity OK button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+			
+			
+      
+			if (status) {
+				LOGGER.info("The status of template match is: " + status);
+			} else {
+				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+			}
+			LOGGER.info("**********************************************************************************");
+			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+
+		} catch (Exception e) {
+			LOGGER.error("Exception occured while reading the image file " + e);
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			LOGGER.info("Inside catch");
+			errorMessage = e.getMessage();
+			LOGGER.error("Exception while launching home screen file: " + errorMessage);
+			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
+
+		}
+		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-3018");
 	}
 }
 			
