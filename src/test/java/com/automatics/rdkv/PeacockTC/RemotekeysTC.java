@@ -854,8 +854,6 @@ package com.automatics.rdkv.PeacockTC;
 		String stepNum = null;
 		BufferedImage referenceImage;
 		BufferedImage liveImage;
-		BufferedImage livePauseImage;
-		BufferedImage livePauseNextImage;
 		BufferedImage subImage;
 		// Variables declaration Ends
 
@@ -873,19 +871,19 @@ package com.automatics.rdkv.PeacockTC;
 			LOGGER.info("STEP 1: ACTION : Press left button and click ok button");
 			LOGGER.info("STEP 1: EXPECTED : Live should pause playing.");
 			LOGGER.info("*****************************************************************************************");
+			
+			LOGGER.info("Calling method to launch peacock app and navigate to SLE events ");
+			CommonMethods.navigateToSLE();
             
-			LOGGER.info("Click Xfinity left button ");
-			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			LOGGER.info("Click Xfinity UP button ");
+			CommonMethods.execCommand(RemoteKeyContstants.UP_BUTTON);
 			
-			nu.pattern.OpenCV.loadLocally();
-			LOGGER.info("Click Xfinity ok button ");
-			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
-			
+						
 			LOGGER.info("Capture application screen live image");
-			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_LIVE_PAUSE);
+			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_LIVE_PLAY);
 			
 			LOGGER.info("Reading live image");
-			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LIVE_PAUSE));
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LIVE_PLAY));
 			
 			LOGGER.info("Reading reference image");
 			referenceImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LIVE_REFERENCE_PLAY_ICON));
@@ -914,25 +912,40 @@ package com.automatics.rdkv.PeacockTC;
 			}
 			
 			Thread.sleep(3000L);
-			LOGGER.info("Click Xfinity left button ");
-			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
-			Thread.sleep(2000L);
+			LOGGER.info("Click Xfinity UP button ");
+			CommonMethods.execCommand(RemoteKeyContstants.UP_BUTTON);
+			
+			LOGGER.info("Click Xfinity OK button ");
+			CommonMethods.execCommand(RemoteKeyContstants.UP_BUTTON);
+			
 			
 			LOGGER.info("Capture application screen live image");
-			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_LIVE_PAUSE_CONTENT);
+			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_LIVE_PAUSE_CONTENT);
 			
-			LOGGER.info("Reading next live image");
-			livePauseImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LIVE_PAUSE_CONTENT));
+			LOGGER.info("Reading live image");
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LIVE_PAUSE_CONTENT));
 			
-			LOGGER.info("Capture after 5seconds application screen live image");
-			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_LIVE_PAUSE_NEXT);
+			LOGGER.info("Reading reference image");
+			referenceImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LIVE_REFERENCE_PAUSE_ICON));
 			
-			LOGGER.info("Reading next live image");
-			livePauseNextImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LIVE_PAUSE_NEXT));
+			LOGGER.info("Calling image cropping method");
+			subImage = CropImage.cropImage(liveImage, 54,637,25,26);
 			
-	        LOGGER.info("Calling image compare method");
+			LOGGER.info("Calling image cropping method");
+			subImage = CropImage.cropImage(liveImage, 54,637,25,26);
+			
+			
+			File outputFile1 = new File("/var/lib/jenkins/workspace/pauseicon.jpg");
+			ImageIO.write(subImage, "jpg", outputFile1);
+			
+			BufferedImage output1 = ImageIO.read(new File("/var/lib/jenkins/workspace/pauseicon.jpg"));
+			
+			LOGGER.info("Calling image compare method");
+			
+            ImageCompare imgCompare1 =new ImageCompare();
 
-			status = imgCompare.compare(livePauseImage, livePauseNextImage);
+			status = imgCompare1.compare(referenceImage, output1);
+			
 			
 			if (status) {
 				
@@ -955,7 +968,7 @@ package com.automatics.rdkv.PeacockTC;
 			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 
 		}
-		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-1016");
+		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-3017");
 
 	}
 }
