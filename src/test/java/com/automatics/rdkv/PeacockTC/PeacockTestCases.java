@@ -433,7 +433,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_CHANNELS_NEXT_OPTION));
 
 			LOGGER.info("Calling crop method");
-			subImage = CropImage.cropImage(liveImage, 50,450,110,40);
+			subImage = CropImage.cropImage(liveImage, 50,450,115,40);
 
 			GrabText grabTextLinear = new GrabText();
 			actualLinear = grabTextLinear.crackImage(subImage);
@@ -1198,7 +1198,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			LOGGER.info("STEP 4: EXPECTED : SLE is playing at the livepoint successfully ");
 			LOGGER.info("*****************************************************************************************");
 
-			TimeUnit. MINUTES. sleep(5);
+			TimeUnit. MINUTES. sleep(2);
 			LOGGER.info("Capture application screen live image");
 			CaptureLiveImage.captureIcon(ImageCaptureConstants.SLE_LIVE_IMG);
 
