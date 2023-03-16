@@ -474,11 +474,15 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			LOGGER.info("*****************************************************************************************");
 
 			LOGGER.info("Click two DOWN_BUTTON ");
-			CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.TWO);
+//			CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.TWO);
+			CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
+			CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
 
 			LOGGER.info("Click two OK_BUTTON ");
-			CommonMethods.execCommandRepeat(RemoteKeyContstants.OK_BUTTON, IntergerCount.TWO);
-			Thread.sleep(15000);
+			//CommonMethods.execCommandRepeat(RemoteKeyContstants.OK_BUTTON, IntergerCount.TWO);
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+			Thread.sleep(10000);
 			nu.pattern.OpenCV.loadLocally();
 
 			LOGGER.info("Capture application screen live image");
@@ -507,10 +511,12 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			actualNext = grabText.crackImage(greyImagenew);
 
 			LOGGER.info("Click two DOWN_BUTTON ");
-			CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.TWO);
+			CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
+			CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
 
 			LOGGER.info("Click two OK_BUTTON ");
-			CommonMethods.execCommandRepeat(RemoteKeyContstants.OK_BUTTON, IntergerCount.TWO);
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 			Thread.sleep(15000);
 			nu.pattern.OpenCV.loadLocally();
 
