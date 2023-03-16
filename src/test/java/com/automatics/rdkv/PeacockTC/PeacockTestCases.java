@@ -923,8 +923,8 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
 			Thread.sleep(4000);
 			
-			LOGGER.info("Click three DOWN_BUTTON ");
-			CommonMethods.execCommandRepeat2(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.THREE);
+//			LOGGER.info("Click three DOWN_BUTTON ");
+//			CommonMethods.execCommandRepeat2(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.THREE);
 			
 			LOGGER.info("Capture application screen live image");
 			CaptureLiveImage.captureIcon(ImageCaptureConstants.SLE_LIVE_CHECK);
