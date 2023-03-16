@@ -2,6 +2,8 @@ package com.automatics.rdkv.PeacockTC;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.util.concurrent.TimeUnit;
+
 import javax.imageio.ImageIO;
 import org.opencv.core.Mat;
 import org.opencv.imgcodecs.Imgcodecs;
@@ -1050,7 +1052,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		
 		LOGGER.info("Click Xfinity ok button ");
 		CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
-		Thread.sleep(15000);
+		Thread.sleep(10000);
 		
 		LOGGER.info("Capture SLE screen live image");
 		CaptureLiveImage.capture(ImageCaptureConstants.SLE_ADS_REF);
@@ -1089,7 +1091,99 @@ public class PeacockTestCases extends AutomaticsTestBase {
 	
 	LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-2007");
 }
+	@Test(priority=6,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
+	@TestDetails(testUID = "PEACOCK-AAMP-TC-2008")
+	public void testSLEChannel(Dut device) throws InterruptedException {
+		// Variables declaration starts
+		boolean status = false;
+		String testId = "PEACOCK-AAMP-TC-208";
+		String errorMessage = null;
+		String stepNum = null;
+		BufferedImage liveImage;
+		BufferedImage subImage;
+		String actual;
+		String expected = "GoLive";
+		// Variables declaration Ends
 
+		/**
+		 * Step 1: Launch peacock app 
+		 */
+		/**
+		 * Step 2: go to sports and check for SLE
+		 */
+		/**
+		 * Step 3: Navigate to SLE 
+		 */
+		LOGGER.info("Method to Launch peacock app");
+		CommonMethods.navigateToSLE();
+		/**
+		 * Step 4: Wait for Ad break to come up 
+		 */
+
+		LOGGER.info("#######################################################################################");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-2008");
+		LOGGER.info("TEST DESCRIPTION:  This test is to check whether SLE is playing at the livepoint");
+		LOGGER.info("TEST STEPS : ");
+		LOGGER.info("1. Go to SLE and click ok");
+		LOGGER.info("#######################################################################################");
+		try {
+			stepNum = "S1";
+			errorMessage = "Failed to check whether SLE is playing at the livepoint";
+			LOGGER.info("*****************************************************************************************");
+			LOGGER.info("STEP 3: DESCRIPTION : This test is to check whether SLE is playing at the livepoint");
+			LOGGER.info("STEP 3: ACTION : Go to SLE and click ok");
+			LOGGER.info("STEP 3: EXPECTED : SLE is playing at the livepoint successfully ");
+			LOGGER.info("*****************************************************************************************");
+
+			TimeUnit. MINUTES. sleep(5);
+			LOGGER.info("Capture application screen live image");
+			CaptureLiveImage.captureIcon(ImageCaptureConstants.SLE_LIVE_IMG);
+
+			LOGGER.info("Reading live image");
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.SLE_LIVE_IMG));
+
+			LOGGER.info("Calling image cropping method");
+			subImage = CropImage.cropImage(liveImage,  95,575,80,38);
+			
+			File outputFile = new File("/var/lib/jenkins/workspace/SLEgoLive.jpg");
+			ImageIO.write(subImage, "jpg", outputFile);
+
+			BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/SLEgoLive.jpg"));
+
+			ConvertImage ci = new ConvertImage();
+			BufferedImage greyImage =ci.ConvertGrayScale(output);
+
+			File outputFiletwo = new File("/var/lib/jenkins/workspace/SLEgoLive1.jpg");
+			ImageIO.write(greyImage, "jpg", outputFiletwo);
+
+			LOGGER.info("Calling method to read text in image");
+			GrabText grabText = new GrabText();
+			actual = grabText.crackImage(greyImage);
+			
+			LOGGER.info("Calling method to compare text in image");
+
+			status = CommonMethods.partialTextCompare(expected, actual);
+			
+			if (status) {
+
+			} else {
+				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+			}
+			LOGGER.info("**********************************************************************************");
+			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+
+		} catch (Exception e) {
+			LOGGER.error("Exception occured while reading the image file " + e);
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			LOGGER.info("Inside catch");
+			errorMessage = e.getMessage();
+			LOGGER.error("Exception while launching home screen file: " + errorMessage);
+			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
+		}
+		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-2008");
+	}
 				
 }
 
