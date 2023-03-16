@@ -1155,7 +1155,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 	
 	LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-2007");
 }
-	@Test(priority=6,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+	@Test(priority=8,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
 	@TestDetails(testUID = "PEACOCK-AAMP-TC-2008")
 	public void testSLEChannel(Dut device) throws InterruptedException {
