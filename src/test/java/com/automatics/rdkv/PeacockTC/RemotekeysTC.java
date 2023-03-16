@@ -919,9 +919,8 @@ package com.automatics.rdkv.PeacockTC;
 			CommonMethods.execCommand(RemoteKeyContstants.UP_BUTTON);
 			
 			LOGGER.info("Click Xfinity OK button ");
-			CommonMethods.execCommand(RemoteKeyContstants.UP_BUTTON);
-			
-			
+			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+				
 			LOGGER.info("Capture application screen live image");
 			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_LIVE_PAUSE_CONTENT);
 			
@@ -930,9 +929,6 @@ package com.automatics.rdkv.PeacockTC;
 			
 			LOGGER.info("Reading reference image");
 			referenceImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LIVE_REFERENCE_PAUSE_ICON));
-			
-			LOGGER.info("Calling image cropping method");
-			subImage = CropImage.cropImage(liveImage, 54,637,25,26);
 			
 			LOGGER.info("Calling image cropping method");
 			subImage = CropImage.cropImage(liveImage, 54,637,25,26);
