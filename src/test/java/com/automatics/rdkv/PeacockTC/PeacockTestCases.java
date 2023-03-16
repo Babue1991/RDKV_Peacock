@@ -873,7 +873,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		BufferedImage liveImage;
 		BufferedImage subImage;
 		String actual;
-		String expected = "Th";
+		String expected = "Started";
 		// Variables declaration Ends
 
 		/**
