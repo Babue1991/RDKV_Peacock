@@ -1140,21 +1140,6 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
 		}
 		
-//		LOGGER.info("Capture SLE screen live image");
-//		CaptureLiveImage.captureIcon(ImageCaptureConstants.SLE_ADS_NEXT_IMG);
-//
-//		LOGGER.info("Reading second live ads screen");
-//		liveImage = ImageIO.read(new File(ImageCaptureConstants.SLE_ADS_NEXT_IMG));
-//
-//		LOGGER.info("Calling image compare method");
-//		ImageCompare imgCompare =new ImageCompare();
-//		status = imgCompare.compare(referenceImage, liveImage);
-//	
-//		if (status) {
-//			LOGGER.info("Ads puase option verified : " + status);
-//		} else {
-//			LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
-//		}
 		LOGGER.info("**********************************************************************************");
 		tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
 
