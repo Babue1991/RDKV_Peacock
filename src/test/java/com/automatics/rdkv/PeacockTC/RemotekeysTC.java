@@ -874,6 +874,9 @@ package com.automatics.rdkv.PeacockTC;
 			
 			LOGGER.info("Calling method to launch peacock app and navigate to SLE events ");
 			CommonMethods.navigateToSLE();
+			
+			TimeUnit. MINUTES. sleep(1);
+			
             
 			LOGGER.info("Click Xfinity UP button ");
 			CommonMethods.execCommand(RemoteKeyContstants.UP_BUTTON);
@@ -911,7 +914,7 @@ package com.automatics.rdkv.PeacockTC;
 				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
 			}
 			
-			Thread.sleep(3000L);
+			Thread.sleep(20000L);
 			LOGGER.info("Click Xfinity UP button ");
 			CommonMethods.execCommand(RemoteKeyContstants.UP_BUTTON);
 			
