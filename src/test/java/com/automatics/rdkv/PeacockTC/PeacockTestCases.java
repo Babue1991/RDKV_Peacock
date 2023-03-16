@@ -1140,21 +1140,6 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
 		}
 		
-//		LOGGER.info("Capture SLE screen live image");
-//		CaptureLiveImage.captureIcon(ImageCaptureConstants.SLE_ADS_NEXT_IMG);
-//
-//		LOGGER.info("Reading second live ads screen");
-//		liveImage = ImageIO.read(new File(ImageCaptureConstants.SLE_ADS_NEXT_IMG));
-//
-//		LOGGER.info("Calling image compare method");
-//		ImageCompare imgCompare =new ImageCompare();
-//		status = imgCompare.compare(referenceImage, liveImage);
-//	
-//		if (status) {
-//			LOGGER.info("Ads puase option verified : " + status);
-//		} else {
-//			LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
-//		}
 		LOGGER.info("**********************************************************************************");
 		tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
 
@@ -1170,7 +1155,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 	
 	LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-2007");
 }
-	@Test(priority=6,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+	@Test(priority=8,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
 	@TestDetails(testUID = "PEACOCK-AAMP-TC-2008")
 	public void testSLEChannel(Dut device) throws InterruptedException {
