@@ -981,7 +981,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		BufferedImage liveImage;
 		BufferedImage subImage;
 		BufferedImage referenceImage;
-		String actual;
+		String actualtime;
 		String expected = "ume";
 		
 		// Variables declaration Ends
@@ -1104,30 +1104,57 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		
 		LOGGER.info("Click Xfinity ok button ");
 		CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
-		Thread.sleep(10000);
-		
-		LOGGER.info("Capture SLE screen live image");
-		CaptureLiveImage.capture(ImageCaptureConstants.SLE_ADS_REF);
-
-		LOGGER.info("Reading first live ads screen");
-		referenceImage = ImageIO.read(new File(ImageCaptureConstants.SLE_ADS_REF));
 		Thread.sleep(5000);
 		
 		LOGGER.info("Capture SLE screen live image");
-		CaptureLiveImage.captureIcon(ImageCaptureConstants.SLE_ADS_NEXT_IMG);
+		CaptureLiveImage.captureIcon(ImageCaptureConstants.SLE_ADS_REF);
 
-		LOGGER.info("Reading second live ads screen");
-		liveImage = ImageIO.read(new File(ImageCaptureConstants.SLE_ADS_NEXT_IMG));
+		LOGGER.info("Reading first live ads screen");
+		liveImage = ImageIO.read(new File(ImageCaptureConstants.SLE_ADS_REF));
+		Thread.sleep(5000);
+		
+		LOGGER.info("Calling image cropping method");
+		subImage = CropImage.cropImage(liveImage, 68,638,35,35);
 
-		LOGGER.info("Calling image compare method");
-		ImageCompare imgCompare =new ImageCompare();
-		status = imgCompare.compare(referenceImage, liveImage);
-	
+		File outputFile = new File("/var/lib/jenkins/workspace/timeimage.jpg");
+		ImageIO.write(subImage, "jpg", outputFile);
+
+		BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/timeimage.jpg"));
+
+		ConvertImage ci = new ConvertImage();
+		BufferedImage greyImage =ci.ConvertGrayScale(output);
+
+		File outputFiletwo = new File("/var/lib/jenkins/workspace/timeimage2.jpg");
+		ImageIO.write(greyImage, "jpg", outputFiletwo);
+
+		LOGGER.info("Calling method to read text in image");
+		GrabText grabText = new GrabText();
+		actualtime = grabText.crackImage(greyImage);
+
+		LOGGER.info("Calling method to read number in image");
+		status = CommonMethods.checkNumber(actualtime);
+
 		if (status) {
-			LOGGER.info("Ads puase option verified : " + status);
+			LOGGER.info("Timer number is : " + status);
 		} else {
 			LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
 		}
+		
+//		LOGGER.info("Capture SLE screen live image");
+//		CaptureLiveImage.captureIcon(ImageCaptureConstants.SLE_ADS_NEXT_IMG);
+//
+//		LOGGER.info("Reading second live ads screen");
+//		liveImage = ImageIO.read(new File(ImageCaptureConstants.SLE_ADS_NEXT_IMG));
+//
+//		LOGGER.info("Calling image compare method");
+//		ImageCompare imgCompare =new ImageCompare();
+//		status = imgCompare.compare(referenceImage, liveImage);
+//	
+//		if (status) {
+//			LOGGER.info("Ads puase option verified : " + status);
+//		} else {
+//			LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+//		}
 		LOGGER.info("**********************************************************************************");
 		tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
 
