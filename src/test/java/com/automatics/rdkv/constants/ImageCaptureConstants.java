@@ -437,6 +437,8 @@ public class ImageCaptureConstants {
 	/********The variable used to send capture card port to channels image**/
 	public static String PEACOCK_LIVE_REFERENCE_PAUSE_ICON=REFERENCE_IMAGE_PATH+"pauselive.jpg";
 	
+	/********The variable used to send capture card port to channels image**/
+	public static String SLE_LIVE_SPORTS=LIVE_IMAGE_PATH+"SLESports.jpg";
 	
 }
 

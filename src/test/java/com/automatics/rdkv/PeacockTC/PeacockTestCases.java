@@ -891,7 +891,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-2006");
 		LOGGER.info("TEST DESCRIPTION:  This test is to verify SLE events are being broadcast");
 		LOGGER.info("TEST STEPS : ");
-		LOGGER.info("1. Go to search iceon and press ok");
+		LOGGER.info("1. Go to search icon and press ok");
 		LOGGER.info("#######################################################################################");
 		try {
 			stepNum = "S1";
@@ -981,6 +981,8 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		BufferedImage liveImage;
 		BufferedImage subImage;
 		BufferedImage referenceImage;
+		String actual;
+		String expected = "ume";
 		
 		// Variables declaration Ends
 		
@@ -988,87 +990,60 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		 * Step 1 : Launch peacock app 
 		 */
 		
-//		LOGGER.info("Method to Launch peacock app");
-//		CommonMethods.launchPeacockApp();
+		LOGGER.info("Method to Launch peacock app");
+		CommonMethods.launchPeacockApp();
 		
 		/**
 		 * Step 2: Go to sports/wwe and check if any SLE events are being broadcast
 		 */
-		
-//		LOGGER.info("Click Xfinity left button");
-//		CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
-//
-//		LOGGER.info("Click three DOWN_BUTTON ");
-//		CommonMethods.execCommandRepeat2(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.THREE);
-//		
-//		LOGGER.info("Click Xfinity ok button ");
-//		CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
-//		Thread.sleep(3000);
-
 		LOGGER.info("#######################################################################################");
 		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-2007");
-		LOGGER.info("TEST DESCRIPTION: Test to Verify Ads in SLE content");
+		LOGGER.info("TEST DESCRIPTION:  This test is to check SLE events are being broadcast in sports channel");
 		LOGGER.info("TEST STEPS : ");
-		LOGGER.info("1. Tune to SLE content");
+		LOGGER.info("1. Click left and press ok");
 		LOGGER.info("#######################################################################################");
 		try {
-			stepNum = "S3";
-			errorMessage = "Failed to verify Ads in SLE content";
+			stepNum = "S2";
+			errorMessage = "No SLE is being broadcast in sports channel";
 			LOGGER.info("*****************************************************************************************");
-			LOGGER.info("STEP 3: DESCRIPTION : Test to Verify Ads in SLE content");
-			LOGGER.info("STEP 3: ACTION :Tune to SLE content");
-			LOGGER.info("STEP 3: EXPECTED : Ad break should come up");
+			LOGGER.info("STEP 2: DESCRIPTION : This test is to check SLE events are being broadcast in sports channel");
+			LOGGER.info("STEP 2: ACTION : Click left and press ok");
+			LOGGER.info("STEP 2: EXPECTED : SLE events are being broadcast successfully ");
 			LOGGER.info("*****************************************************************************************");
-	
-		/**
-		 * Step 3: Tune to SLE assests available  
-		 */
+		
 		LOGGER.info("Click Xfinity left button");
 		CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
-		
-		LOGGER.info("Click four UP_BUTTON ");
-		CommonMethods.execCommandRepeat2(RemoteKeyContstants.UP_BUTTON, IntergerCount.FOUR);
-		
-		LOGGER.info("Click Xfinity ok button ");
-		CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
-		Thread.sleep(3000);
-		
-		LOGGER.info("Click one Xfinity right button");
-		CommonMethods.execCommand(RemoteKeyContstants.RIGHT_BUTTON);
-		
-		LOGGER.info("Click one Xfinity down button");
-		CommonMethods.execCommand(RemoteKeyContstants.DOWN_BUTTON);
-		
-		LOGGER.info("Click Xfinity ok button ");
-		CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
-		Thread.sleep(4000);
-		
+
 		LOGGER.info("Click three DOWN_BUTTON ");
 		CommonMethods.execCommandRepeat2(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.THREE);
 		
 		LOGGER.info("Click Xfinity ok button ");
 		CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
-		Thread.sleep(10000);
+		Thread.sleep(3000);
 		
-		LOGGER.info("Capture SLE screen live image");
-		CaptureLiveImage.capture(ImageCaptureConstants.SLE_ADS_REF);
+		LOGGER.info("Capture application screen live image");
+		CaptureLiveImage.captureIcon(ImageCaptureConstants.SLE_LIVE_SPORTS);
 
-		LOGGER.info("Reading first live ads screen");
-		referenceImage = ImageIO.read(new File(ImageCaptureConstants.SLE_ADS_REF));
-		Thread.sleep(5000);
+		LOGGER.info("Reading live image");
+		liveImage = ImageIO.read(new File(ImageCaptureConstants.SLE_LIVE_SPORTS));
+
+		LOGGER.info("Calling crop method");
+		subImage = CropImage.cropImage(liveImage, 100,680,50,30);
 		
-		LOGGER.info("Capture SLE screen live image");
-		CaptureLiveImage.captureIcon(ImageCaptureConstants.SLE_ADS_NEXT_IMG);
+		File outputFile = new File("/var/lib/jenkins/workspace/SLESports.jpg");
+		ImageIO.write(subImage, "jpg", outputFile);
 
-		LOGGER.info("Reading second live ads screen");
-		liveImage = ImageIO.read(new File(ImageCaptureConstants.SLE_ADS_NEXT_IMG));
-
-		LOGGER.info("Calling image compare method");
-		ImageCompare imgCompare =new ImageCompare();
-		status = imgCompare.compare(referenceImage, liveImage);
-	
+		BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/SLESports.jpg"));
+		
+		LOGGER.info("Calling method to read text in image");
+		GrabText grabText = new GrabText();
+		actual = grabText.crackImage(output);
+		
+		LOGGER.info("Calling method to compare text in image");
+		status = CommonMethods.partialTextCompare(expected, actual);
+		
 		if (status) {
-			LOGGER.info("Ads puase option verified : " + status);
+
 		} else {
 			LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
 		}
@@ -1081,9 +1056,89 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		e.printStackTrace();
 		LOGGER.info("Inside catch");
 		errorMessage = e.getMessage();
-		LOGGER.error("Exception while verifying linear channel: " + errorMessage);
+		LOGGER.error("Exception while launching home screen file: " + errorMessage);
 		CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 	}
+
+//		LOGGER.info("#######################################################################################");
+//		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-2007");
+//		LOGGER.info("TEST DESCRIPTION: Test to Verify Ads in SLE content");
+//		LOGGER.info("TEST STEPS : ");
+//		LOGGER.info("1. Tune to SLE content");
+//		LOGGER.info("#######################################################################################");
+//		try {
+//			stepNum = "S3";
+//			errorMessage = "Failed to verify Ads in SLE content";
+//			LOGGER.info("*****************************************************************************************");
+//			LOGGER.info("STEP 3: DESCRIPTION : Test to Verify Ads in SLE content");
+//			LOGGER.info("STEP 3: ACTION :Tune to SLE content");
+//			LOGGER.info("STEP 3: EXPECTED : Ad break should come up");
+//			LOGGER.info("*****************************************************************************************");
+//	
+//		/**
+//		 * Step 3: Tune to SLE assests available  
+//		 */
+//		LOGGER.info("Click Xfinity left button");
+//		CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+//		
+//		LOGGER.info("Click four UP_BUTTON ");
+//		CommonMethods.execCommandRepeat2(RemoteKeyContstants.UP_BUTTON, IntergerCount.FOUR);
+//		
+//		LOGGER.info("Click Xfinity ok button ");
+//		CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+//		Thread.sleep(3000);
+//		
+//		LOGGER.info("Click one Xfinity right button");
+//		CommonMethods.execCommand(RemoteKeyContstants.RIGHT_BUTTON);
+//		
+//		LOGGER.info("Click one Xfinity down button");
+//		CommonMethods.execCommand(RemoteKeyContstants.DOWN_BUTTON);
+//		
+//		LOGGER.info("Click Xfinity ok button ");
+//		CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+//		Thread.sleep(4000);
+//		
+//		LOGGER.info("Click three DOWN_BUTTON ");
+//		CommonMethods.execCommandRepeat2(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.THREE);
+//		
+//		LOGGER.info("Click Xfinity ok button ");
+//		CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+//		Thread.sleep(10000);
+//		
+//		LOGGER.info("Capture SLE screen live image");
+//		CaptureLiveImage.capture(ImageCaptureConstants.SLE_ADS_REF);
+//
+//		LOGGER.info("Reading first live ads screen");
+//		referenceImage = ImageIO.read(new File(ImageCaptureConstants.SLE_ADS_REF));
+//		Thread.sleep(5000);
+//		
+//		LOGGER.info("Capture SLE screen live image");
+//		CaptureLiveImage.captureIcon(ImageCaptureConstants.SLE_ADS_NEXT_IMG);
+//
+//		LOGGER.info("Reading second live ads screen");
+//		liveImage = ImageIO.read(new File(ImageCaptureConstants.SLE_ADS_NEXT_IMG));
+//
+//		LOGGER.info("Calling image compare method");
+//		ImageCompare imgCompare =new ImageCompare();
+//		status = imgCompare.compare(referenceImage, liveImage);
+//	
+//		if (status) {
+//			LOGGER.info("Ads puase option verified : " + status);
+//		} else {
+//			LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+//		}
+//		LOGGER.info("**********************************************************************************");
+//		tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+//
+//	} catch (Exception e) {
+//		LOGGER.error("Exception occured while reading the image file " + e);
+//		// TODO Auto-generated catch block
+//		e.printStackTrace();
+//		LOGGER.info("Inside catch");
+//		errorMessage = e.getMessage();
+//		LOGGER.error("Exception while verifying linear channel: " + errorMessage);
+//		CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
+//	}
 	
 	LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-2007");
 }
