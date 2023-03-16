@@ -841,9 +841,124 @@ package com.automatics.rdkv.PeacockTC;
 			}
 			LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-3016");	
 		}
-}
+
 		
-	
+	@Test(priority=10,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
+	@TestDetails(testUID = "PEACOCK-AAMP-TC-3017")
+	public void testVerifyMoviePause(Dut device) throws InterruptedException {
+		// Variables declaration starts
+		boolean status = false;
+		String testId = "PEACOCK-AAMP-TC-317";
+		String errorMessage = null;
+		String stepNum = null;
+		BufferedImage referenceImage;
+		BufferedImage liveImage;
+		BufferedImage livePauseImage;
+		BufferedImage livePauseNextImage;
+		BufferedImage subImage;
+		// Variables declaration Ends
+
+		LOGGER.info("#######################################################################################");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-3017");
+		LOGGER.info("TEST DESCRIPTION:  This test is to verify Perform Pause using remote keys");
+		LOGGER.info("TEST STEPS : ");
+		LOGGER.info("1. Click on Pause icon");
+		LOGGER.info("#######################################################################################");
+		try {
+			stepNum = "S1";
+			errorMessage = "Failed to pause Movies";
+			LOGGER.info("*****************************************************************************************");
+			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify Perform Pause using remote keys");
+			LOGGER.info("STEP 1: ACTION : Press left button and click ok button");
+			LOGGER.info("STEP 1: EXPECTED : Live should pause playing.");
+			LOGGER.info("*****************************************************************************************");
+            
+			LOGGER.info("Click Xfinity left button ");
+			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			
+			nu.pattern.OpenCV.loadLocally();
+			LOGGER.info("Click Xfinity ok button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+			
+			LOGGER.info("Capture application screen live image");
+			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_LIVE_PAUSE);
+			
+			LOGGER.info("Reading live image");
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LIVE_PAUSE));
+			
+			LOGGER.info("Reading reference image");
+			referenceImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LIVE_REFERENCE_PLAY_ICON));
+			
+			LOGGER.info("Calling image cropping method");
+			subImage = CropImage.cropImage(liveImage, 54,637,25,26);
+			
+			
+			File outputFile = new File("/var/lib/jenkins/workspace/playicon.jpg");
+			ImageIO.write(subImage, "jpg", outputFile);
+			
+			BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/playicon.jpg"));
+			
+			LOGGER.info("Calling image compare method");
+			
+            ImageCompare imgCompare =new ImageCompare();
+
+			status = imgCompare.compare(referenceImage, output);
+			
+			if (status) {
+				
+				LOGGER.info("The status of image comparision is: " + status + "and Play icon verified");
+				
+			} else {
+				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+			}
+			
+			Thread.sleep(3000L);
+			LOGGER.info("Click Xfinity left button ");
+			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			Thread.sleep(2000L);
+			
+			LOGGER.info("Capture application screen live image");
+			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_LIVE_PAUSE_CONTENT);
+			
+			LOGGER.info("Reading next live image");
+			livePauseImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LIVE_PAUSE_CONTENT));
+			
+			LOGGER.info("Capture after 5seconds application screen live image");
+			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_LIVE_PAUSE_NEXT);
+			
+			LOGGER.info("Reading next live image");
+			livePauseNextImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LIVE_PAUSE_NEXT));
+			
+	        LOGGER.info("Calling image compare method");
+
+			status = imgCompare.compare(livePauseImage, livePauseNextImage);
+			
+			if (status) {
+				
+				LOGGER.info("The status of image comparision is: " + status + "and Pause verified");
+				
+			} else {
+				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+			}
+			
+			LOGGER.info("**********************************************************************************");
+			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+
+		} catch (Exception e) {
+			LOGGER.error("Exception occured while reading the image file " + e);
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			LOGGER.info("Inside catch");
+			errorMessage = e.getMessage();
+			LOGGER.error("Exception while pausing movie: " + errorMessage);
+			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
+
+		}
+		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-1016");
+
+	}
+}
 			
 			
 			
