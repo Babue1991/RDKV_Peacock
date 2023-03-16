@@ -916,7 +916,7 @@ package com.automatics.rdkv.PeacockTC;
 			CommonMethods.execCommand(RemoteKeyContstants.UP_BUTTON);
 			
 			LOGGER.info("Click Xfinity OK button ");
-			CommonMethods.execCommand(RemoteKeyContstants.UP_BUTTON);
+			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
 			
 			
 			LOGGER.info("Capture application screen live image");
@@ -930,10 +930,7 @@ package com.automatics.rdkv.PeacockTC;
 			
 			LOGGER.info("Calling image cropping method");
 			subImage = CropImage.cropImage(liveImage, 54,637,25,26);
-			
-			LOGGER.info("Calling image cropping method");
-			subImage = CropImage.cropImage(liveImage, 54,637,25,26);
-			
+		
 			
 			File outputFile1 = new File("/var/lib/jenkins/workspace/pauseicon.jpg");
 			ImageIO.write(subImage, "jpg", outputFile1);
