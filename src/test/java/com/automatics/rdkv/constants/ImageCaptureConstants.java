@@ -435,7 +435,7 @@ public class ImageCaptureConstants {
 	public static String PEACOCK_LIVE_PAUSE_CONTENT=LIVE_IMAGE_PATH+"LivepauseContent.jpg";
 	
 	/********The variable used to send capture card port to channels image**/
-	public static String PEACOCK_LIVE_PAUSE_NEXT=LIVE_IMAGE_PATH+"Livepausenext.jpg";
+	public static String PEACOCK_LIVE_REFERENCE_PAUSE_ICON=REFERENCE_IMAGE_PATH+"PausePP.jpg";
 	
 	
 }
