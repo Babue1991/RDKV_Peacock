@@ -852,9 +852,8 @@ package com.automatics.rdkv.PeacockTC;
 		String testId = "PEACOCK-AAMP-TC-317";
 		String errorMessage = null;
 		String stepNum = null;
-		BufferedImage referenceImage;
-		BufferedImage liveImage;
-		BufferedImage subImage;
+		Mat liveImage;
+		Mat referenceImage;
 		// Variables declaration Ends
 
 		LOGGER.info("#######################################################################################");
@@ -886,25 +885,23 @@ package com.automatics.rdkv.PeacockTC;
 			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_LIVE_PLAY);
 			
 			LOGGER.info("Reading live image");
-			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LIVE_PLAY));
+			liveImage=Imgcodecs.imread(ImageCaptureConstants.PEACOCK_LIVE_PLAY);
 			
 			LOGGER.info("Reading reference image");
-			referenceImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LIVE_REFERENCE_PLAY_ICON));
+			referenceImage=Imgcodecs.imread(ImageCaptureConstants.PEACOCK_LIVE_REFERENCE_PLAY_ICON);
 			
-			LOGGER.info("Calling image cropping method");
-			subImage = CropImage.cropImage(liveImage, 54,637,25,26);
+//			LOGGER.info("Calling image cropping method");
+//			subImage = CropImage.cropImage(liveImage, 54,637,25,26);
 			
+//			
+//			File outputFile = new File("/var/lib/jenkins/workspace/playicon.jpg");
+//			ImageIO.write(subImage, "jpg", outputFile);
+//			
+//			BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/playicon.jpg"));
 			
-			File outputFile = new File("/var/lib/jenkins/workspace/playicon.jpg");
-			ImageIO.write(subImage, "jpg", outputFile);
-			
-			BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/playicon.jpg"));
-			
-			LOGGER.info("Calling image compare method");
-			
-            ImageCompare imgCompare =new ImageCompare();
-
-			status = imgCompare.compare(referenceImage, output);
+			LOGGER.info("Calling template match method");
+			ImageCompare imgCompare = new ImageCompare();
+			status =imgCompare.templateMatch(referenceImage, liveImage);
 			
 			if (status) {
 				
@@ -925,25 +922,25 @@ package com.automatics.rdkv.PeacockTC;
 			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_LIVE_PAUSE_CONTENT);
 			
 			LOGGER.info("Reading live image");
-			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LIVE_PAUSE_CONTENT));
+			liveImage = Imgcodecs.imread(ImageCaptureConstants.PEACOCK_LIVE_PAUSE_CONTENT);
 			
 			LOGGER.info("Reading reference image");
-			referenceImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_LIVE_REFERENCE_PAUSE_ICON));
+			referenceImage = Imgcodecs.imread(ImageCaptureConstants.PEACOCK_LIVE_REFERENCE_PAUSE_ICON);
 			
-			LOGGER.info("Calling image cropping method");
-			subImage = CropImage.cropImage(liveImage, 54,637,25,26);
-
+//			LOGGER.info("Calling image cropping method");
+//			subImage = CropImage.cropImage(liveImage, 54,637,25,26);
+//
+//			
+//			File outputFile1 = new File("/var/lib/jenkins/workspace/pauseicon.jpg");
+//			ImageIO.write(subImage, "jpg", outputFile1);
+//			
+//			BufferedImage output11 = ImageIO.read(new File("/var/lib/jenkins/workspace/pauseicon.jpg"));
+//			
+//			
 			
-			File outputFile1 = new File("/var/lib/jenkins/workspace/pauseicon.jpg");
-			ImageIO.write(subImage, "jpg", outputFile1);
-			
-			BufferedImage output1 = ImageIO.read(new File("/var/lib/jenkins/workspace/pauseicon.jpg"));
-			
-			LOGGER.info("Calling image compare method");
-			
-            ImageCompare imgCompare1 =new ImageCompare();
-
-			status = imgCompare1.compare(referenceImage, output1);
+			LOGGER.info("Calling template match method");
+			ImageCompare imgCompare1 = new ImageCompare();
+			status =imgCompare1.templateMatch(referenceImage, liveImage);
 			
 			
 			if (status) {
