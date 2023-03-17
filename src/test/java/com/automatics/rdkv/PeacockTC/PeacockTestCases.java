@@ -482,11 +482,11 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			//CommonMethods.execCommandRepeat(RemoteKeyContstants.OK_BUTTON, IntergerCount.TWO);
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
-			Thread.sleep(10000);
+			Thread.sleep(15000);
 			nu.pattern.OpenCV.loadLocally();
 			
 			LOGGER.info("Click Xfinity left button ");
-			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
 			
 			LOGGER.info("Capture application screen live image");
 			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_CHANNELS_TUNE_VERIFY);
@@ -524,7 +524,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			nu.pattern.OpenCV.loadLocally();
 			
 			LOGGER.info("Click Xfinity left button ");
-			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+			CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
 
 			LOGGER.info("Capture application screen live image");
 			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_CHANNELS_NEXT_TUNE_VERIFY);
