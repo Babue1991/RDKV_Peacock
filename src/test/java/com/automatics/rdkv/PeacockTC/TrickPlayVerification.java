@@ -89,8 +89,15 @@ package com.automatics.rdkv.PeacockTC;
 				LOGGER.info("Calling method to launch peacock app");
 				CommonMethods.launchPeacockApp();
 			
-				LOGGER.info("Calling method to tune to the channels");
-				CommonMethods.tuneChannels();	
+				LOGGER.info("Click Xfinity left button ");
+				CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+
+				LOGGER.info("Click six DOWN_BUTTON ");
+				CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.SIX);
+
+				LOGGER.info("Click Xfinity ok button ");
+				CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+				nu.pattern.OpenCV.loadLocally();
 
 				LOGGER.info("Capture application screen live image");
 				CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_CHANNELS_OPTION);
@@ -132,7 +139,7 @@ package com.automatics.rdkv.PeacockTC;
 				liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_CHANNELS_NEXT_OPTION));
 
 				LOGGER.info("Calling crop method");
-				subImage = CropImage.cropImage(liveImage, 50,450,180,40);
+				subImage = CropImage.cropImage(liveImage, 50,450,115,40);
 
 				GrabText grabTextLinear = new GrabText();
 				actualLinear = grabTextLinear.crackImage(subImage);
