@@ -574,7 +574,7 @@ package com.automatics.rdkv.PeacockTC;
 			referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_PAUSE_REF));
 			
 			LOGGER.info("Calling crop method");
-			subImage = CropImage.cropImage(liveImage, 620,640,40,40); 
+			subImage = CropImage.cropImage(liveImage, 630,640,25,40); 
 			
 			File outputFile = new File("/var/lib/jenkins/workspace/image4.jpg");
 			ImageIO.write(subImage, "jpg", outputFile);
@@ -616,7 +616,7 @@ package com.automatics.rdkv.PeacockTC;
 			referenceImage =ImageIO.read(new File(ImageCaptureConstants.PEACOCK_PLAY_REF));
 			
 			LOGGER.info("Calling crop method");
-			subImage = CropImage.cropImage(liveImage, 620,640,40,40); 
+			subImage = CropImage.cropImage(liveImage, 630,640,25,40); 
 			
 			File outputFileTPlay = new File("/var/lib/jenkins/workspace/image3.jpg");
 			ImageIO.write(subImage, "jpg", outputFileTPlay);
