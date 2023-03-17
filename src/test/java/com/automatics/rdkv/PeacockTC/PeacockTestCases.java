@@ -772,7 +772,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 
 			ImageCompare imgCompare =new ImageCompare();
 			LOGGER.info("Calling screen compare method");
-			status = imgCompare.compare2(referenceImage, outputImage);
+			status = imgCompare.compare(referenceImage, outputImage);
 
 			if(status==true) {
 				LOGGER.info("It supports trick play");
