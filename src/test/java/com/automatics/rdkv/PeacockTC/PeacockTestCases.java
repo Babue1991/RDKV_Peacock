@@ -474,19 +474,20 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			LOGGER.info("*****************************************************************************************");
 
 			LOGGER.info("Click two DOWN_BUTTON ");
-//			CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.TWO);
 			CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
 			CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
 
 			LOGGER.info("Click two OK_BUTTON ");
-			//CommonMethods.execCommandRepeat(RemoteKeyContstants.OK_BUTTON, IntergerCount.TWO);
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
-			Thread.sleep(10000);
+			Thread.sleep(15000);
 			nu.pattern.OpenCV.loadLocally();
-
+			
+			LOGGER.info("Click Xfinity left button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
+			
 			LOGGER.info("Capture application screen live image");
-			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_CHANNELS_TUNE_VERIFY);
+			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_CHANNELS_TUNE_VERIFY);
 			Thread.sleep(5000L);
 
 			LOGGER.info("Reading live image");
@@ -519,9 +520,12 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 			Thread.sleep(15000);
 			nu.pattern.OpenCV.loadLocally();
+			
+			LOGGER.info("Click Xfinity left button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
 
 			LOGGER.info("Capture application screen live image");
-			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_CHANNELS_NEXT_TUNE_VERIFY);
+			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_CHANNELS_NEXT_TUNE_VERIFY);
 			Thread.sleep(5000L);
 
 			LOGGER.info("Reading live image");
@@ -602,43 +606,26 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			LOGGER.info("STEP 3: ACTION : Press down button and click ok");
 			LOGGER.info("STEP 3: EXPECTED : Linear channels verified successfully.");
 			LOGGER.info("*****************************************************************************************");	
-			Process p;
-			LOGGER.info("My code start");
-			p = Runtime.getRuntime().exec("irsend SEND_ONCE Apple Comcast_Down");
-			LOGGER.info("My code end");
-			
-			
-			p = Runtime.getRuntime().exec("irsend SEND_ONCE Apple Comcast_Down");
-			p = Runtime.getRuntime().exec("irsend SEND_ONCE Apple Comcast_OK");
-			Thread.sleep(20000L);
-//			LOGGER.info("Calling method to navigate to linear channel ");
-//			CommonMethods.navigateToChannelFour();
-//			
-//			Thread.sleep(2000);
-//			
-//			LOGGER.info("Click Xfinity OK button ");
-//			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
-//			
 			
 			for(int i=0; i<=3; i++) {
 				//i=63
 				
 				LOGGER.info("Click Xfinity down button ");
-				//irsend SEND_ONCE Apple Comcast_Down
-				
 				CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
 				CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
 				
 				LOGGER.info("Click Xfinity 0k button ");
 				CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
-				Thread.sleep(2000);
-				
-				LOGGER.info("Click Xfinity 0k button ");
-				CaptureLiveImage.capture2(ImageCaptureConstants.PEACOCK_TUNE_VERIFY, RemoteKeyContstants.RIGHT_BUTTON, IntergerCount.ONE);
+				CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 				Thread.sleep(15000);
-
-//				LOGGER.info("Capture application screen live image");
-//				CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_TUNE_VERIFY);
+				nu.pattern.OpenCV.loadLocally();
+				
+				LOGGER.info("Click Xfinity left button ");
+				CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
+				
+				LOGGER.info("Capture application screen live image");
+				CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_TUNE_VERIFY);
+				Thread.sleep(5000L);
 				
 				LOGGER.info("Reading live image");
 				liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_TUNE_VERIFY));
@@ -662,14 +649,20 @@ public class PeacockTestCases extends AutomaticsTestBase {
 				actual = grabText.crackImage(greyImagenew);
 				
 				LOGGER.info("Click two DOWN_BUTTON 2003");
-				CommonMethods.execCommandRepeat2(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.TWO);
+				CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
+				CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
 
 				LOGGER.info("Click OK_BUTTON ");
 				CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
-				Thread.sleep(10000);
+				CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+				Thread.sleep(15000);
+				nu.pattern.OpenCV.loadLocally();
+				
+				LOGGER.info("Click Xfinity left button ");
+				CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
 
 				LOGGER.info("Capture application screen live image");
-				CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_CHANNELS_NEXT_IMG);
+				CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_CHANNELS_NEXT_IMG);
 				Thread.sleep(5000L);
 
 				LOGGER.info("Reading live image");
@@ -690,15 +683,6 @@ public class PeacockTestCases extends AutomaticsTestBase {
 				}
 				
 			}
-
-//			if (status) {
-//				LOGGER.info("The status of image comparision is: " + status);
-//			} else {
-//				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
-//			}
-//			LOGGER.info("**********************************************************************************");
-//			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
-
 
 		} catch (Exception e) {
 			LOGGER.error("Exception occured while reading the image file " + e);
@@ -750,7 +734,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		LOGGER.info("1. Press ok and take screenshot");
 		LOGGER.info("#######################################################################################");
 		try {
-			stepNum = "S1";
+			stepNum = "S3";
 			errorMessage = "Failed to navigate to linear channels";
 			LOGGER.info("*****************************************************************************************");
 			LOGGER.info("STEP 3: DESCRIPTION : This test is to verify linear channel which do not support trick play");
@@ -788,7 +772,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			status = imgCompare.compare(referenceImage, outputImage);
 
 			if(status==true) {
-				LOGGER.info("It's supports trick play");
+				LOGGER.info("It supports trick play");
 			}
 			else {
 
