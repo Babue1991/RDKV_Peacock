@@ -532,7 +532,7 @@ public class CommonMethods extends AutomaticsTestBase{
 		
 		ImageCompare imgCompare =new ImageCompare();
 		LOGGER.info("Calling screen compare method");
-		status = imgCompare.compare(referenceImage, outputImage);
+		status = imgCompare.compare2(referenceImage, outputImage);
 		Thread.sleep(10000);
 		
 		if(status==true) {
