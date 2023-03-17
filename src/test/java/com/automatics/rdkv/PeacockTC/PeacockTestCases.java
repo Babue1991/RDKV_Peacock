@@ -721,7 +721,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		/**
 		 * Step 2 :Go to channels option in peacock menu and press ok
 		 */
-		LOGGER.info("Method to Launch peacock app");
+		LOGGER.info("Tune to channels method");
 		CommonMethods.tuneChannels();
 		
 		/**
@@ -743,12 +743,15 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			LOGGER.info("*****************************************************************************************");
 
 			LOGGER.info("Click Xfinity down button");
-			CommonMethods.execCommand(RemoteKeyContstants.DOWN_BUTTON);
-
+			CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
+			
 			LOGGER.info("Click Xfinity ok button ");
-			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 			Thread.sleep(8000);
 			nu.pattern.OpenCV.loadLocally();
+			
+			LOGGER.info("Click Xfinity ok button");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 
 			LOGGER.info("Capture application screen live image");
 			CaptureLiveImage.captureIcon(ImageCaptureConstants.CHANNELS_PLAY_TRICK);
