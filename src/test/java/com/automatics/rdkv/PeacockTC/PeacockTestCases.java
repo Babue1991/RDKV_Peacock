@@ -560,7 +560,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 
 	@Test(priority=7,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
-	@TestDetails(testUID = "PEACOCK-AAMP-TC-40001")
+	@TestDetails(testUID = "PEACOCK-AAMP-TC-2003")
 	public void testVerifyChannelOption(Dut device) throws InterruptedException {
 		// Variables declaration starts
 		boolean status = false;
@@ -715,15 +715,15 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		/**
 		 * Step 1 :Launch peacock application
 		 */
-//		LOGGER.info("Method to Launch peacock app");
-//		CommonMethods.launchPeacockApp();
-//		
-//		/**
-//		 * Step 2 :Go to channels option in peacock menu and press ok
-//		 */
-//		LOGGER.info("Tune to channels method");
-//		CommonMethods.tuneChannels();
-//		
+		LOGGER.info("Method to Launch peacock app");
+		CommonMethods.launchPeacockApp();
+		
+		/**
+		 * Step 2 :Go to channels option in peacock menu and press ok
+		 */
+		LOGGER.info("Tune to channels method");
+		CommonMethods.tuneChannels();
+		
 		/**
 		 * Step 3: Tune to linear channel which do not support trick play
 		 */
@@ -801,16 +801,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		}
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-2004");
 	}
-	/**
-	 * Step 1 :Launch peacock application
-	 */
 	
-	/**
-	 * Step 2 :using appropriate keys on remote,go to channels option in the peacock menu and press OK
-	 */
-	/**
-	 * Step 3 :Tune to linear channel which do not support trick play
-	 */
 	@Test(priority=6,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
 	@TestDetails(testUID = "PEACOCK-AAMP-TC-2005")
@@ -821,6 +812,22 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		String errorMessage = null;
 		String stepNum = null;
 		// Variables declaration Ends
+		
+		/**
+		 * Step 1 :Launch peacock application
+		 */
+		LOGGER.info("Method to Launch peacock app");
+		CommonMethods.launchPeacockApp();
+		/**
+		 * Step 2 :using appropriate keys on remote,go to channels option in the peacock menu and press OK
+		 */
+		
+		LOGGER.info("Tune to channels method");
+		CommonMethods.tuneChannels();
+		/**
+		 * Step 3 :Tune to linear channel which do not support trick play
+		 */
+		
 		/**
 		 * Step 4 : Attempt Rewind operation using remote keys 
 		 */
@@ -976,7 +983,6 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		BufferedImage referenceImage;
 		String actualtime;
 		String expected = "ume";
-		
 		// Variables declaration Ends
 		
 		/**
