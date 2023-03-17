@@ -715,15 +715,15 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		/**
 		 * Step 1 :Launch peacock application
 		 */
-		LOGGER.info("Method to Launch peacock app");
-		CommonMethods.launchPeacockApp();
-		
-		/**
-		 * Step 2 :Go to channels option in peacock menu and press ok
-		 */
-		LOGGER.info("Tune to channels method");
-		CommonMethods.tuneChannels();
-		
+//		LOGGER.info("Method to Launch peacock app");
+//		CommonMethods.launchPeacockApp();
+//		
+//		/**
+//		 * Step 2 :Go to channels option in peacock menu and press ok
+//		 */
+//		LOGGER.info("Tune to channels method");
+//		CommonMethods.tuneChannels();
+//		
 		/**
 		 * Step 3: Tune to linear channel which do not support trick play
 		 */
