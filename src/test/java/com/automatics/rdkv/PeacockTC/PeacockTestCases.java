@@ -527,7 +527,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
 
 			LOGGER.info("Capture application screen live image");
-			CaptureLiveImage.capture(ImageCaptureConstants.PEACOCK_CHANNELS_NEXT_TUNE_VERIFY);
+			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_CHANNELS_NEXT_TUNE_VERIFY);
 			Thread.sleep(5000L);
 
 			LOGGER.info("Reading live image");
