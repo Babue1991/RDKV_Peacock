@@ -1120,6 +1120,96 @@ package com.automatics.rdkv.PeacockTC;
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-3019");
 
 	}
+	
+	@Test(priority=11,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
+	@TestDetails(testUID = "PEACOCK-AAMP-TC-3020")
+	public void testVerifyLiveEdgeSLEAsset(Dut device) throws InterruptedException {
+		// Variables declaration starts
+		boolean status = false;
+		String testId = "PEACOCK-AAMP-TC-320";
+		String errorMessage = null;
+		String stepNum = null;
+		BufferedImage liveImage;
+		BufferedImage subImage;
+		String actual;
+		String expected = "GoLive";
+		// Variables declaration Ends
+
+		LOGGER.info("#######################################################################################");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-3020");
+		LOGGER.info("TEST DESCRIPTION: This test is to Perform RWD operation until control has reached the start position of the content");
+		LOGGER.info("TEST STEPS : ");
+		LOGGER.info("1. Perform RWD operation until control has reached the start position");
+		LOGGER.info("#######################################################################################");
+		try {
+			stepNum = "S1";
+			errorMessage = "Failed to verify RWD operation";
+			LOGGER.info("*****************************************************************************************");
+			LOGGER.info("STEP 1: DESCRIPTION : This test is to Perform RWD operation until control has reached the start position of the content");
+			LOGGER.info("STEP 1: ACTION : Perform RWD operation until control has reached the start position");
+			LOGGER.info("STEP 1: EXPECTED :content should start playing from the start  without any AV issue");
+			LOGGER.info("*****************************************************************************************");
+			
+			LOGGER.info("Calling method to navigate to linear channel ");
+			CommonMethods.navigateToSLE();
+			
+			TimeUnit. MINUTES. sleep(2);
+			
+			LOGGER.info("Click Backward BUTTON ");
+			CommonMethods.execCommand(RemoteKeyContstants.BACKWARD_BUTTON);
+			
+			CommonMethods.execCommand(RemoteKeyContstants.BACKWARD_BUTTON);
+			
+			CommonMethods.execCommand(RemoteKeyContstants.BACKWARD_BUTTON);
+
+			LOGGER.info("Capture application screen live image");
+			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_SLE);
+
+			LOGGER.info("Reading live image");
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_SLE));
+
+			LOGGER.info("Calling image cropping method");
+			subImage = CropImage.cropImage(liveImage,  95,575,80,38);
+			
+			File outputFile = new File("/var/lib/jenkins/workspace/golive.jpg");
+			ImageIO.write(subImage, "jpg", outputFile);
+
+			BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/golive.jpg"));
+
+			ConvertImage ci = new ConvertImage();
+			BufferedImage greyImage =ci.ConvertGrayScale(output);
+
+			File outputFiletwo = new File("/var/lib/jenkins/workspace/greygolive.jpg");
+			ImageIO.write(greyImage, "jpg", outputFiletwo);
+
+			LOGGER.info("Calling method to read text in image");
+			GrabText grabText = new GrabText();
+			actual = grabText.crackImage(greyImage);
+			
+			LOGGER.info("Calling method to compare text in image");
+
+			status = CommonMethods.partialTextCompare(expected, actual);
+			if (status) {
+				LOGGER.info("Go Live icon is shown and status is : " + status);
+			} else {
+				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+			}
+			LOGGER.info("**********************************************************************************");
+			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+
+		} catch (Exception e) {
+			LOGGER.error("Exception occured while reading the image file " + e);
+			e.printStackTrace();
+			LOGGER.info("Inside catch");
+			errorMessage = e.getMessage();
+			LOGGER.error("Exception while verifying go live text: " + errorMessage);
+			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
+
+		}
+		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-3020");
+
+	}
 }
 			
 			

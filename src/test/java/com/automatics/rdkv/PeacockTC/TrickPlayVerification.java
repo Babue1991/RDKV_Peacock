@@ -84,7 +84,11 @@ package com.automatics.rdkv.PeacockTC;
 				LOGGER.info("STEP 2: ACTION : Press down button and take screenshot");
 				LOGGER.info("STEP 2: EXPECTED : Channels option should launch successfully.");
 				LOGGER.info("*****************************************************************************************");
-
+				
+				
+				LOGGER.info("Calling method to launch peacock app");
+				CommonMethods.launchPeacockApp();
+				
 				LOGGER.info("Click Xfinity left button ");
 				CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
 
