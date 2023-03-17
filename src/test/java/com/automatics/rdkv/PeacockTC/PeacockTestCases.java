@@ -735,7 +735,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		LOGGER.info("#######################################################################################");
 		try {
 			stepNum = "S3";
-			errorMessage = "Failed to navigate to linear channels";
+			errorMessage = "channel do not support trick play";
 			LOGGER.info("*****************************************************************************************");
 			LOGGER.info("STEP 3: DESCRIPTION : This test is to verify linear channel which do not support trick play");
 			LOGGER.info("STEP 3: ACTION : Press ok and take screenshot");
@@ -772,7 +772,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 
 			ImageCompare imgCompare =new ImageCompare();
 			LOGGER.info("Calling screen compare method");
-			status = imgCompare.compare(referenceImage, outputImage);
+			status = imgCompare.compare2(referenceImage, outputImage);
 
 			if(status==true) {
 				LOGGER.info("It supports trick play");
