@@ -140,20 +140,9 @@ package com.automatics.rdkv.PeacockTC;
 
 				LOGGER.info("Calling crop method");
 				subImage = CropImage.cropImage(liveImage, 50,450,115,40);
-				
-				File outputFilenext = new File("/var/lib/jenkins/workspace/channelsSectionnext.jpg");
-				ImageIO.write(subImage, "jpg", outputFilenext);
-
-				BufferedImage output1 = ImageIO.read(new File("/var/lib/jenkins/workspace/channelsSectionnext.jpg"));
-
-				ConvertImage ci1 = new ConvertImage();
-				BufferedImage greyImage1 =ci1.ConvertGrayScale(output1);
-
-				File outputFile3 = new File("/var/lib/jenkins/workspace/channelsSection3.jpg");
-				ImageIO.write(greyImage1, "jpg", outputFile3);
 
 				GrabText grabTextLinear = new GrabText();
-				actualLinear = grabTextLinear.crackImage(greyImage1);
+				actualLinear = grabTextLinear.crackImage(subImage);
 				status = CommonMethods.partialTextCompare(actualLinear, actual);
 
 				if (status) {
@@ -594,7 +583,7 @@ package com.automatics.rdkv.PeacockTC;
 			
 			ImageCompare imgCompare =new ImageCompare();
 			LOGGER.info("Calling screen compare method");
-			status = imgCompare.compare2(referenceImage, subImage);
+			status = imgCompare.compare2(referenceImage, outputImage);
 			
 			if (status) {
 				
