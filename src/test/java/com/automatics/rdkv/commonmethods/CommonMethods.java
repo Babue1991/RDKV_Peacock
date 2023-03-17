@@ -533,9 +533,8 @@ public class CommonMethods extends AutomaticsTestBase{
 		ImageCompare imgCompare =new ImageCompare();
 		LOGGER.info("Calling screen compare method");
 		status = imgCompare.compare(referenceImage, outputImage);
+		Thread.sleep(10000);
 		
-		
-
 		if(status==true) {
 			LOGGER.info("It's supports trick play");
 		}
