@@ -1171,23 +1171,23 @@ package com.automatics.rdkv.PeacockTC;
 			CommonMethods.execCommandIcon(RemoteKeyContstants.UP_BUTTON);
 
 			LOGGER.info("Capture application screen live image");
-			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_SLE);
+			CaptureLiveImage.captureIcon(ImageCaptureConstants.SLE_START);
 
 			LOGGER.info("Reading live image");
-			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_SLE));
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.SLE_START));
 
 			LOGGER.info("Calling image cropping method");
-			subImage = CropImage.cropImage(liveImage,  95,575,80,38);
+			subImage = CropImage.cropImage(liveImage,  95,580,70,30);
 			
-			File outputFile = new File("/var/lib/jenkins/workspace/golive.jpg");
+			File outputFile = new File("/var/lib/jenkins/workspace/SLEgolive.jpg");
 			ImageIO.write(subImage, "jpg", outputFile);
 
-			BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/golive.jpg"));
+			BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/SLEgolive.jpg"));
 
 			ConvertImage ci = new ConvertImage();
 			BufferedImage greyImage =ci.ConvertGrayScale(output);
 
-			File outputFiletwo = new File("/var/lib/jenkins/workspace/greygolive.jpg");
+			File outputFiletwo = new File("/var/lib/jenkins/workspace/SLEgreygolive.jpg");
 			ImageIO.write(greyImage, "jpg", outputFiletwo);
 
 			LOGGER.info("Calling method to read text in image");
@@ -1215,6 +1215,103 @@ package com.automatics.rdkv.PeacockTC;
 
 		}
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-3020");
+
+	}
+	
+	@Test(priority=11,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
+			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
+	@TestDetails(testUID = "PEACOCK-AAMP-TC-3021")
+	public void testVerifyFWRD(Dut device) throws InterruptedException {
+		// Variables declaration starts
+		boolean status = false;
+		String testId = "PEACOCK-AAMP-TC-321";
+		String errorMessage = null;
+		String stepNum = null;
+		BufferedImage liveImage;
+		BufferedImage subImage;
+		String actual;
+		String expected = "GoLive";
+		// Variables declaration Ends
+
+		LOGGER.info("#######################################################################################");
+		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-3021");
+		LOGGER.info("TEST DESCRIPTION: This test is to Perform FFWD operation until control has reached the Live point of the SLE");
+		LOGGER.info("TEST STEPS : ");
+		LOGGER.info("1. Perform FFWD operation until control has reached the Live point of the SLE");
+		LOGGER.info("#######################################################################################");
+		try {
+			stepNum = "S1";
+			errorMessage = "Failed to verify FFWD operation";
+			LOGGER.info("*****************************************************************************************");
+			LOGGER.info("STEP 1: DESCRIPTION : This test is to Perform FFWD operation until control has reached the Live point of the SLE");
+			LOGGER.info("STEP 1: ACTION : Perform FFWD operation until control has reached the Live point of the SLE");
+			LOGGER.info("STEP 1: EXPECTED :content should start playing from the live point without any AV issue");
+			LOGGER.info("*****************************************************************************************");
+			
+			LOGGER.info("Calling method to navigate to linear channel ");
+			CommonMethods.navigateToSLE();
+			
+			TimeUnit. MINUTES. sleep(1);
+		
+			LOGGER.info("Click Forward BUTTON ");
+			CommonMethods.execCommand(RemoteKeyContstants.FORWARD_BUTTON);
+			
+			CommonMethods.execCommand(RemoteKeyContstants.FORWARD_BUTTON);
+			
+			CommonMethods.execCommand(RemoteKeyContstants.FORWARD_BUTTON);
+			
+			TimeUnit. MINUTES. sleep(1);
+			
+			LOGGER.info("Click UP BUTTON ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.UP_BUTTON);
+			
+			//CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
+
+			LOGGER.info("Capture application screen live image");
+			CaptureLiveImage.captureIcon(ImageCaptureConstants.SLE_FFWD);
+
+			LOGGER.info("Reading live image");
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.SLE_FFWD));
+
+			LOGGER.info("Calling image cropping method");
+			subImage = CropImage.cropImage(liveImage,  95,580,70,30);
+			
+			File outputFile = new File("/var/lib/jenkins/workspace/SLEgolive.jpg");
+			ImageIO.write(subImage, "jpg", outputFile);
+
+			BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/SLEgolive.jpg"));
+
+			ConvertImage ci = new ConvertImage();
+			BufferedImage greyImage =ci.ConvertGrayScale(output);
+
+			File outputFiletwo = new File("/var/lib/jenkins/workspace/SLEgreygolive.jpg");
+			ImageIO.write(greyImage, "jpg", outputFiletwo);
+
+			LOGGER.info("Calling method to read text in image");
+			GrabText grabText = new GrabText();
+			actual = grabText.crackImage(greyImage);
+			
+			LOGGER.info("Calling method to compare text in image");
+
+			status = CommonMethods.partialTextCompare(expected, actual);
+			if (status) {
+				LOGGER.info("Go Live icon is shown and status is : " + status);
+			} else {
+				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+			}
+			LOGGER.info("**********************************************************************************");
+			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+
+		} catch (Exception e) {
+			LOGGER.error("Exception occured while reading the image file " + e);
+			e.printStackTrace();
+			LOGGER.info("Inside catch");
+			errorMessage = e.getMessage();
+			LOGGER.error("Exception while verifying go live text: " + errorMessage);
+			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
+
+		}
+		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-3021");
 
 	}
 }
