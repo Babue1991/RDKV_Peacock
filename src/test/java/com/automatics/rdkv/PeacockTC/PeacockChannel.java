@@ -1152,7 +1152,6 @@ public class PeacockChannel extends AutomaticsTestBase {
 			LOGGER.info("Calling method to navigate to linear channel ");
 			CommonMethods.navigateToSLE();
 			
-			//Thread.sleep(10000);
 			TimeUnit. MINUTES. sleep(2);
 			
 			LOGGER.info("Calling disable subtitle to make sure the subtitle is off ");
@@ -1221,7 +1220,18 @@ public class PeacockChannel extends AutomaticsTestBase {
 			TimeUnit. MINUTES. sleep(2);
 			
 			LOGGER.info("Calling rewind method ");
-			//CommonMethods.disableChannelSubtitle();
+			CommonMethods.rewindSLE();
+			
+			TimeUnit. MINUTES. sleep(1);
+			
+			
+			LOGGER.info("Click Xfinity up button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.UP_BUTTON);
+			
+			Thread.sleep(2000L);
+			
+			LOGGER.info("Click Xfinity up button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.UP_BUTTON);
 
 			LOGGER.info("Capture application screen live image");
 			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_SLE);
@@ -1242,10 +1252,12 @@ public class PeacockChannel extends AutomaticsTestBase {
 
 			File outputFiletwo = new File("/var/lib/jenkins/workspace/greygolive.jpg");
 			ImageIO.write(greyImage, "jpg", outputFiletwo);
+			
+			BufferedImage greyImageOutput = ImageIO.read(new File("/var/lib/jenkins/workspace/greygolive.jpg"));
 
 			LOGGER.info("Calling method to read text in image");
 			GrabText grabText = new GrabText();
-			actual = grabText.crackImage(greyImage);
+			actual = grabText.crackImage(greyImageOutput);
 			
 			LOGGER.info("Calling method to compare text in image");
 
