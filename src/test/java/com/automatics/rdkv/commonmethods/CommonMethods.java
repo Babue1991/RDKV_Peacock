@@ -656,8 +656,12 @@ public class CommonMethods extends AutomaticsTestBase{
 		LOGGER.info("Click Xfinity right button ");
 		CommonMethods.execCommandIcon(RemoteKeyContstants.RIGHT_BUTTON);
 		
+		Thread.sleep(2000);
+		
 		LOGGER.info("Click Xfinity down button ");
 		CommonMethods.execCommand(RemoteKeyContstants.DOWN_BUTTON);
+		
+		Thread.sleep(2000);
 
 		LOGGER.info("Click Xfinity OK button ");
 		CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
