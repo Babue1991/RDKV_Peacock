@@ -187,8 +187,8 @@ public class CommonMethods extends AutomaticsTestBase{
 			status =false;
 		}
 		return status;
-
 	}
+		
 	public static boolean checkText(String text) {
 
 		LOGGER.info("The text is: "+text);
@@ -717,5 +717,17 @@ public class CommonMethods extends AutomaticsTestBase{
 		
 		LOGGER.info("Click Xfinity OK button ");
 		CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+	}
+	
+	public static boolean checkGOLive(String text) {
+		LOGGER.info("The text is: "+text);
+		if (text.matches("Go Live")) {
+			LOGGER.error("Go Live present");
+		status =false;	
+		}else {
+			LOGGER.error("Go Live is not present: "+text);
+			status =true;
+		}
+		return status;
 	}
 }

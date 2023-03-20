@@ -1230,6 +1230,8 @@ package com.automatics.rdkv.PeacockTC;
 		BufferedImage liveImage;
 		BufferedImage subImage;
 		String actual;
+		String expected="Go Live";
+		
 		// Variables declaration Ends
 
 		LOGGER.info("#######################################################################################");
@@ -1246,11 +1248,6 @@ package com.automatics.rdkv.PeacockTC;
 			LOGGER.info("STEP 1: ACTION : Perform FFWD operation until control has reached the Live point of the SLE");
 			LOGGER.info("STEP 1: EXPECTED :content should start playing from the live point without any AV issue");
 			LOGGER.info("*****************************************************************************************");
-			
-//			LOGGER.info("Calling method to navigate to linear channel ");
-//			CommonMethods.navigateToSLE();
-//			
-//			TimeUnit. MINUTES. sleep(1);
 		
 			LOGGER.info("Click Forward BUTTON ");
 			CommonMethods.execCommand(RemoteKeyContstants.FORWARD_BUTTON);
@@ -1262,6 +1259,8 @@ package com.automatics.rdkv.PeacockTC;
 			TimeUnit. MINUTES. sleep(1);
 			
 			LOGGER.info("Click UP BUTTON ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.UP_BUTTON);
+			
 			CommonMethods.execCommandIcon(RemoteKeyContstants.UP_BUTTON);
 			
 			//CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
@@ -1292,16 +1291,7 @@ package com.automatics.rdkv.PeacockTC;
 			
 			LOGGER.info("Calling method to compare text in image");
 
-			status = CommonMethods.checkEmptyText(actual);
-			
-////			if(status == true) {
-////				LOGGER.info("The status of Subtile text verification is: " + status);
-////				LOGGER.info("Click Xfinity OK button ");
-////				CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
-////				break;
-////			}else {
-//				LOGGER.info("The status of Subtile text verification is: " + status);
-//			}
+			status = CommonMethods.checkGOLive(actual);
 			if (status) {
 				LOGGER.info("Go Live icon is not present and status is : " + status);
 			} else {
