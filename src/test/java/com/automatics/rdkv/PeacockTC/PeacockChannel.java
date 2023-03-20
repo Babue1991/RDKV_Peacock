@@ -1232,6 +1232,8 @@ public class PeacockChannel extends AutomaticsTestBase {
 			
 			LOGGER.info("Click Xfinity up button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.UP_BUTTON);
+			
+			Thread.sleep(2000L);
 
 			LOGGER.info("Capture application screen live image");
 			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_SLE);
@@ -1240,7 +1242,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_SLE));
 
 			LOGGER.info("Calling image cropping method");
-			subImage = CropImage.cropImage(liveImage,  95,575,80,38);
+			subImage = CropImage.cropImage(liveImage,  95,575,75,38);
 			
 			File outputFile = new File("/var/lib/jenkins/workspace/golive.jpg");
 			ImageIO.write(subImage, "jpg", outputFile);
