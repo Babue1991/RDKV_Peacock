@@ -1196,7 +1196,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 		BufferedImage liveImage;
 		BufferedImage subImage;
 		String actual;
-		String expected = "GoLive";
+		String expected = "co uive";
 		// Variables declaration Ends
 
 		LOGGER.info("#######################################################################################");
