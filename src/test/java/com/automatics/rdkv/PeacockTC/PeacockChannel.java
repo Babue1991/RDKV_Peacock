@@ -293,11 +293,11 @@ public class PeacockChannel extends AutomaticsTestBase {
 			File outputFiletwo = new File("/var/lib/jenkins/workspace/timerimage2.jpg");
 			ImageIO.write(greyImage, "jpg", outputFiletwo);
 
-			LOGGER.info("Calling method to read text in image");
+			LOGGER.info("Calling method to read number in image");
 			GrabText grabText = new GrabText();
 			String actual = grabText.crackNumber(greyImage);
 
-			LOGGER.info("Calling method to read number in image");
+			LOGGER.info("Calling method to check number in image");
 			status = CommonMethods.checkNumber(actual);
 
 			if (status) {

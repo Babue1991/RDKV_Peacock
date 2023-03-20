@@ -205,7 +205,7 @@ public class CommonMethods extends AutomaticsTestBase{
 	}
 	
 	public static boolean checkNumber(String text) {
-		LOGGER.info("The text is: "+text);
+		LOGGER.info("The number is: "+text);
 		if (text.matches("[0-9]+")) {
 			LOGGER.error("String has number ");
 		status =true;	
