@@ -267,7 +267,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 			LOGGER.info("Click Xfinity OK button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 
-			Thread.sleep(3000);
+			Thread.sleep(5000);
 
 			LOGGER.info("Click Xfinity OK button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
@@ -470,8 +470,10 @@ public class PeacockChannel extends AutomaticsTestBase {
 
 			Thread.sleep(3000);
 
-			//LOGGER.info("Click Xfinity down button ");
-			//CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
+			LOGGER.info("Click Xfinity down button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
+			
+			Thread.sleep(2000);
 
 			LOGGER.info("Click Xfinity OK button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
