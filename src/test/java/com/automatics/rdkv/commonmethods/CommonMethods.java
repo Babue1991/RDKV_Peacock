@@ -207,11 +207,8 @@ public class CommonMethods extends AutomaticsTestBase{
 	public static boolean checkNumber(String text) {
 		LOGGER.info("The number is: "+text);
 		
-		 char[] chars = text.toCharArray();
-	      StringBuilder sb = new StringBuilder();
-	      for(char c : chars){
-	         if(Character.isDigit(c)){
-	            sb.append(c);
+	         if(isNumeric(text)){
+	          
 	            LOGGER.info("String has number ");
 	    		status =true;	
 	         }
@@ -219,8 +216,26 @@ public class CommonMethods extends AutomaticsTestBase{
 			LOGGER.error("Number not present: "+text);
 			status =false;
 		}
-		}
+		
 		return status;
+	}
+	public static boolean isNumeric(String string) {
+	    int intValue;
+			
+	    System.out.println(String.format("Parsing string: \"%s\"", string));
+			
+	    if(string == null || string.equals("")) {
+	        System.out.println("String cannot be parsed, it is null or empty.");
+	        return false;
+	    }
+	    
+	    try {
+	        intValue = Integer.parseInt(string);
+	        return true;
+	    } catch (NumberFormatException e) {
+	        System.out.println("Input String cannot be parsed to Integer.");
+	    }
+	    return false;
 	}
 	public static boolean checkEmptyText(String text) {
 
