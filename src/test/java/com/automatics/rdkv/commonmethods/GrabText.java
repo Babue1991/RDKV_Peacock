@@ -45,10 +45,9 @@ public class GrabText {
 	
 	public String crackNumber(BufferedImage imageFile) throws Exception {
 		
-	    //final File imageFile = new File("imageWith Digits.jpg");
 	    ITesseract instance = new Tesseract();
 	    instance.setDatapath(LanguageConstants.TRAIN_DATA_PATH);
-	    instance.setLanguage("eng");
+	    instance.setLanguage("snum");
 	    instance.setTessVariable("tessedit_char_whitelist", "0123456789");
 	    String result = instance.doOCR(imageFile);
 	    System.out.println(result);
