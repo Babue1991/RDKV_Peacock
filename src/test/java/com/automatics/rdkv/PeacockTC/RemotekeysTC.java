@@ -1196,7 +1196,7 @@ package com.automatics.rdkv.PeacockTC;
 			
 			LOGGER.info("Calling method to compare text in image");
 
-			status = CommonMethods.checkGOLive(actual);
+			status = CommonMethods.partialTextCompare(expected, actual);
 			if (status) {
 				LOGGER.info("Go Live icon is shown and status is : " + status);
 			} else {
@@ -1291,7 +1291,7 @@ package com.automatics.rdkv.PeacockTC;
 			
 			LOGGER.info("Calling method to compare text in image");
 
-			status = CommonMethods.partialTextCompare2(expected, actual);
+			status = CommonMethods.checkGOLive(actual);
 			if (status) {
 				LOGGER.info("Go Live icon is not present and status is : " + status);
 			} else {
