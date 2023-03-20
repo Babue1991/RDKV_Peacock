@@ -1293,18 +1293,13 @@ public class PeacockChannel extends AutomaticsTestBase {
 			
 			TimeUnit. MINUTES. sleep(2);
 			
-			LOGGER.info("Calling rewind method ");
-			CommonMethods.rewindSLE();
-			
-			TimeUnit. MINUTES. sleep(1);
-			
 			LOGGER.info("Click Xfinity up button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.UP_BUTTON);
 			
 			Thread.sleep(2000L);
 			
-			LOGGER.info("Click Xfinity up button ");
-			CommonMethods.execCommandIcon(RemoteKeyContstants.UP_BUTTON);
+			LOGGER.info("Click Xfinity ok button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 			
 			Thread.sleep(2000L);
 
