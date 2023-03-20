@@ -175,6 +175,20 @@ public class CommonMethods extends AutomaticsTestBase{
 		return status;
 
 	}
+	
+	public static boolean DifftextCompare(String exepected, String actual) {
+
+		LOGGER.info("The values are: "+exepected+" and "+actual);
+		if(exepected.equals(actual)) {
+			LOGGER.info("Both the text is not matching "+actual);
+			status =false;
+		}else {
+			LOGGER.error("The actual string not returns exepected value: "+actual);
+			status =true;
+		}
+		return status;
+
+	}
 	public static boolean partialTextCompare(String exepected, String actual) {
 
 		LOGGER.info("The values are: "+exepected+" and "+actual);

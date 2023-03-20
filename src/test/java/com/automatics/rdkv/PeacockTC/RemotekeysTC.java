@@ -1293,7 +1293,7 @@ package com.automatics.rdkv.PeacockTC;
 			
 			LOGGER.info("Calling method to compare text in image");
 
-			status = CommonMethods.textCompare(expected,actual);
+			status = CommonMethods.DifftextCompare(expected,actual);
 			
 ////			if(status == true) {
 ////				LOGGER.info("The status of Subtile text verification is: " + status);
