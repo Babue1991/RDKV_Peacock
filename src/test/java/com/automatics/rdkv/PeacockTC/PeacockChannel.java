@@ -1156,10 +1156,10 @@ public class PeacockChannel extends AutomaticsTestBase {
 			TimeUnit. MINUTES. sleep(2);
 			
 			LOGGER.info("Calling disable subtitle to make sure the subtitle is off ");
-			CommonMethods.disableChannelSubtitle();
+			CommonMethods.disableSLEAssetSubtitle();
 
 			LOGGER.info("Calling enable subtitle method ");
-			CommonMethods.enableChannelSubtitle();
+			CommonMethods.enableSLEAssetSubtitle();
 
 			LOGGER.info("Calling method to check subtitle");
 			status = CommonMethods.checkSubtitle();
