@@ -1230,7 +1230,7 @@ package com.automatics.rdkv.PeacockTC;
 		BufferedImage liveImage;
 		BufferedImage subImage;
 		String actual;
-		String expected = null;
+		String expected="Go Live";
 		// Variables declaration Ends
 
 		LOGGER.info("#######################################################################################");
@@ -1293,7 +1293,7 @@ package com.automatics.rdkv.PeacockTC;
 			
 			LOGGER.info("Calling method to compare text in image");
 
-			status = CommonMethods.partialTextCompare(expected, actual);
+			status = CommonMethods.textCompare(expected,actual);
 			
 ////			if(status == true) {
 ////				LOGGER.info("The status of Subtile text verification is: " + status);
