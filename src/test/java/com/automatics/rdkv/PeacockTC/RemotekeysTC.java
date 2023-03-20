@@ -1247,10 +1247,10 @@ package com.automatics.rdkv.PeacockTC;
 			LOGGER.info("STEP 1: EXPECTED :content should start playing from the live point without any AV issue");
 			LOGGER.info("*****************************************************************************************");
 			
-			LOGGER.info("Calling method to navigate to linear channel ");
-			CommonMethods.navigateToSLE();
-			
-			TimeUnit. MINUTES. sleep(1);
+//			LOGGER.info("Calling method to navigate to linear channel ");
+//			CommonMethods.navigateToSLE();
+//			
+//			TimeUnit. MINUTES. sleep(1);
 		
 			LOGGER.info("Click Forward BUTTON ");
 			CommonMethods.execCommand(RemoteKeyContstants.FORWARD_BUTTON);
