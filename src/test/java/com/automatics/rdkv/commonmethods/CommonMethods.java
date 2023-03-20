@@ -701,4 +701,20 @@ public class CommonMethods extends AutomaticsTestBase{
 		CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 		
 	}
+	
+	public static void rewindSLE() throws InterruptedException {
+		
+		LOGGER.info("Click Xfinity left button ");
+		CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
+		
+		Thread.sleep(10000);
+		
+		LOGGER.info("Click Xfinity OK button ");
+		CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+		
+		Thread.sleep(2000);
+		
+		LOGGER.info("Click Xfinity OK button ");
+		CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+	}
 }
