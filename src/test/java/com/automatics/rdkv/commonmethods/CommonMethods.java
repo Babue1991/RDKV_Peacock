@@ -206,12 +206,19 @@ public class CommonMethods extends AutomaticsTestBase{
 	
 	public static boolean checkNumber(String text) {
 		LOGGER.info("The number is: "+text);
-		if (text.matches("[0-9]+")) {
-			LOGGER.error("String has number ");
-		status =true;	
-		}else {
+		
+		 char[] chars = text.toCharArray();
+	      StringBuilder sb = new StringBuilder();
+	      for(char c : chars){
+	         if(Character.isDigit(c)){
+	            sb.append(c);
+	            LOGGER.info("String has number ");
+	    		status =true;	
+	         }
+		else {
 			LOGGER.error("Number not present: "+text);
 			status =false;
+		}
 		}
 		return status;
 	}
