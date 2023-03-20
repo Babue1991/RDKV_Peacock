@@ -1133,7 +1133,7 @@ package com.automatics.rdkv.PeacockTC;
 		BufferedImage liveImage;
 		BufferedImage subImage;
 		String actual;
-		String expected = "GoLive";
+		String expected = "Go Live";
 		// Variables declaration Ends
 
 		LOGGER.info("#######################################################################################");
@@ -1230,7 +1230,7 @@ package com.automatics.rdkv.PeacockTC;
 		BufferedImage liveImage;
 		BufferedImage subImage;
 		String actual;
-		String expected = "GoLive";
+		String expected = "Go Live";
 		// Variables declaration Ends
 
 		LOGGER.info("#######################################################################################");
