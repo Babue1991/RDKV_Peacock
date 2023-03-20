@@ -13,12 +13,12 @@ public class CropImage {
 
 	public static void main(String[] args) throws IOException {
 
-		BufferedImage liveImage = ImageIO.read(new File("/var/lib/jenkins/workspace/RDKV_Peacock/src/test/java/com/automatics/rdkv/liveimage/ChannelsTune.jpg"));
+		BufferedImage liveImage = ImageIO.read(new File("/home/user/Desktop/Pausetrick.jpg"));
 		
 		try {
 			
 
-			cropedImage = cropImage(liveImage, 40,370,130,70);
+			cropedImage = cropImage(liveImage, 630,650,20,30);
 
             //600,600,60,100
 			//730,350,340,150
