@@ -1252,10 +1252,12 @@ public class PeacockChannel extends AutomaticsTestBase {
 
 			File outputFiletwo = new File("/var/lib/jenkins/workspace/greygolive.jpg");
 			ImageIO.write(greyImage, "jpg", outputFiletwo);
+			
+			BufferedImage greyImageOutput = ImageIO.read(new File("/var/lib/jenkins/workspace/greygolive.jpg"));
 
 			LOGGER.info("Calling method to read text in image");
 			GrabText grabText = new GrabText();
-			actual = grabText.crackImage(greyImage);
+			actual = grabText.crackImage(greyImageOutput);
 			
 			LOGGER.info("Calling method to compare text in image");
 
