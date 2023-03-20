@@ -187,6 +187,18 @@ public class CommonMethods extends AutomaticsTestBase{
 			status =false;
 		}
 		return status;
+	}
+		public static boolean partialTextCompare2(String exepected, String actual) {
+
+			LOGGER.info("The values are: "+exepected+" and "+actual);
+			if(actual.contains(exepected)) {
+				LOGGER.info(" Both the text is matching"+exepected);
+				status =false;
+			}else {
+				LOGGER.error("Both the text is not matching: "+actual);
+				status =true;
+			}
+			return status;
 
 	}
 	public static boolean checkText(String text) {

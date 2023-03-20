@@ -1230,6 +1230,8 @@ package com.automatics.rdkv.PeacockTC;
 		BufferedImage liveImage;
 		BufferedImage subImage;
 		String actual;
+		String expected="Go Live";
+		
 		// Variables declaration Ends
 
 		LOGGER.info("#######################################################################################");
@@ -1289,7 +1291,7 @@ package com.automatics.rdkv.PeacockTC;
 			
 			LOGGER.info("Calling method to compare text in image");
 
-			status = CommonMethods.checkEmptyText(actual);
+			status = CommonMethods.partialTextCompare2(expected, actual);
 			if (status) {
 				LOGGER.info("Go Live icon is not present and status is : " + status);
 			} else {
