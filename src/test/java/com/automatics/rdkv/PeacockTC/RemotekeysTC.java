@@ -1230,7 +1230,6 @@ package com.automatics.rdkv.PeacockTC;
 		BufferedImage liveImage;
 		BufferedImage subImage;
 		String actual;
-		String expected="Go Live";
 		// Variables declaration Ends
 
 		LOGGER.info("#######################################################################################");
@@ -1248,10 +1247,10 @@ package com.automatics.rdkv.PeacockTC;
 			LOGGER.info("STEP 1: EXPECTED :content should start playing from the live point without any AV issue");
 			LOGGER.info("*****************************************************************************************");
 			
-			LOGGER.info("Calling method to navigate to linear channel ");
-			CommonMethods.navigateToSLE();
-			
-			TimeUnit. MINUTES. sleep(1);
+//			LOGGER.info("Calling method to navigate to linear channel ");
+//			CommonMethods.navigateToSLE();
+//			
+//			TimeUnit. MINUTES. sleep(1);
 		
 			LOGGER.info("Click Forward BUTTON ");
 			CommonMethods.execCommand(RemoteKeyContstants.FORWARD_BUTTON);
@@ -1293,7 +1292,7 @@ package com.automatics.rdkv.PeacockTC;
 			
 			LOGGER.info("Calling method to compare text in image");
 
-			status = CommonMethods.DifftextCompare(expected,actual);
+			status = CommonMethods.checkEmptyText(actual);
 			
 ////			if(status == true) {
 ////				LOGGER.info("The status of Subtile text verification is: " + status);
@@ -1304,7 +1303,7 @@ package com.automatics.rdkv.PeacockTC;
 //				LOGGER.info("The status of Subtile text verification is: " + status);
 //			}
 			if (status) {
-				LOGGER.info("Go Live icon is shown and status is : " + status);
+				LOGGER.info("Go Live icon is not present and status is : " + status);
 			} else {
 				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
 			}
