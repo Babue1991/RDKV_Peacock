@@ -1230,7 +1230,6 @@ package com.automatics.rdkv.PeacockTC;
 		BufferedImage liveImage;
 		BufferedImage subImage;
 		String actual;
-		String expected="Go Live";
 		// Variables declaration Ends
 
 		LOGGER.info("#######################################################################################");
@@ -1293,7 +1292,7 @@ package com.automatics.rdkv.PeacockTC;
 			
 			LOGGER.info("Calling method to compare text in image");
 
-			status = CommonMethods.DifftextCompare(expected,actual);
+			status = CommonMethods.checkEmptyText(actual);
 			
 ////			if(status == true) {
 ////				LOGGER.info("The status of Subtile text verification is: " + status);
@@ -1304,7 +1303,7 @@ package com.automatics.rdkv.PeacockTC;
 //				LOGGER.info("The status of Subtile text verification is: " + status);
 //			}
 			if (status) {
-				LOGGER.info("Go Live icon is shown and status is : " + status);
+				LOGGER.info("Go Live icon is not present and status is : " + status);
 			} else {
 				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
 			}
