@@ -1197,6 +1197,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 		BufferedImage subImage;
 		String actual;
 		String expected = "co uive";
+		String expectedLive = "Live";
 		// Variables declaration Ends
 
 		LOGGER.info("#######################################################################################");
@@ -1278,6 +1279,78 @@ public class PeacockChannel extends AutomaticsTestBase {
 			LOGGER.info("Inside catch");
 			errorMessage = e.getMessage();
 			LOGGER.error("Exception while verifying go live text: " + errorMessage);
+			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
+
+		}
+		try {
+			stepNum = "S2";
+			errorMessage = "Failed to verify Live icon";
+			LOGGER.info("*****************************************************************************************");
+			LOGGER.info("STEP 1: DESCRIPTION : This test is to Seek to Live Edge verification on Peacock SLE asset");
+			LOGGER.info("STEP 1: ACTION : Seek to Live edge position by pressing on the Go Live icon near subtitles");
+			LOGGER.info("STEP 1: EXPECTED :Live icon near title should be enabled");
+			LOGGER.info("*****************************************************************************************");
+			
+			TimeUnit. MINUTES. sleep(2);
+			
+			LOGGER.info("Calling rewind method ");
+			CommonMethods.rewindSLE();
+			
+			TimeUnit. MINUTES. sleep(1);
+			
+			LOGGER.info("Click Xfinity up button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.UP_BUTTON);
+			
+			Thread.sleep(2000L);
+			
+			LOGGER.info("Click Xfinity up button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.UP_BUTTON);
+			
+			Thread.sleep(2000L);
+
+			LOGGER.info("Capture application screen live image");
+			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_SLE_LIVE);
+
+			LOGGER.info("Reading live image");
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_SLE_LIVE));
+
+			LOGGER.info("Calling image cropping method");
+			subImage = CropImage.cropImage(liveImage,  598,65,45,20);
+			
+			File outputFile = new File("/var/lib/jenkins/workspace/slelive.jpg");
+			ImageIO.write(subImage, "jpg", outputFile);
+
+			BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/slelive.jpg"));
+
+			ConvertImage ci = new ConvertImage();
+			BufferedImage greyImage =ci.ConvertGrayScale(output);
+
+			File outputFiletwo = new File("/var/lib/jenkins/workspace/greylive.jpg");
+			ImageIO.write(greyImage, "jpg", outputFiletwo);
+			
+			BufferedImage greyImageOutput = ImageIO.read(new File("/var/lib/jenkins/workspace/greylive.jpg"));
+
+			LOGGER.info("Calling method to read text in image");
+			GrabText grabText = new GrabText();
+			actual = grabText.crackImage(greyImageOutput);
+			
+			LOGGER.info("Calling method to compare text in image");
+
+			status = CommonMethods.partialTextCompare(expectedLive, actual);
+			if (status) {
+				LOGGER.info("Live icon is shown and status is : " + status);
+			} else {
+				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+			}
+			LOGGER.info("**********************************************************************************");
+			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+
+		} catch (Exception e) {
+			LOGGER.error("Exception occured while reading the image file " + e);
+			e.printStackTrace();
+			LOGGER.info("Inside catch");
+			errorMessage = e.getMessage();
+			LOGGER.error("Exception while verifying live text: " + errorMessage);
 			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 
 		}
