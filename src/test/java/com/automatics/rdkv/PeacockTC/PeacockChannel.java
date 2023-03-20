@@ -1242,7 +1242,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_SLE));
 
 			LOGGER.info("Calling image cropping method");
-			subImage = CropImage.cropImage(liveImage,  95,575,75,38);
+			subImage = CropImage.cropImage(liveImage,  98,575,70,38);
 			
 			File outputFile = new File("/var/lib/jenkins/workspace/golive.jpg");
 			ImageIO.write(subImage, "jpg", outputFile);
