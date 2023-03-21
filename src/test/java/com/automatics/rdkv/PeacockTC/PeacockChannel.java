@@ -300,7 +300,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 			status = CommonMethods.checkNumber(actual);
 
 			if (status) {
-				LOGGER.info("Timer number is : " + status);
+				LOGGER.info("Timer has number : " + status);
 			} else {
 				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
 			}
@@ -313,7 +313,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 			e.printStackTrace();
 			LOGGER.info("Inside catch");
 			errorMessage = e.getMessage();
-			LOGGER.error("Exception while verifying subtitle text: " + errorMessage);
+			LOGGER.error("Exception while verifying ads: " + errorMessage);
 			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 
 		}
@@ -413,7 +413,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 			status = CommonMethods.checkNumber(actual);
 
 			if (status) {
-				LOGGER.info("Timer number is : " + status);
+				LOGGER.info("Timer has number: " + status);
 			} else {
 				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
 			}
@@ -426,7 +426,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 			e.printStackTrace();
 			LOGGER.info("Inside catch");
 			errorMessage = e.getMessage();
-			LOGGER.error("Exception while verifying subtitle text: " + errorMessage);
+			LOGGER.error("Exception while verifying ads: " + errorMessage);
 			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 
 		}
