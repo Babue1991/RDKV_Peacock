@@ -267,11 +267,10 @@ public class PeacockChannel extends AutomaticsTestBase {
 			LOGGER.info("Click Xfinity OK button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 
-			Thread.sleep(3000);
+			Thread.sleep(5000);
 
 			LOGGER.info("Click Xfinity OK button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
-
 
 			LOGGER.info("Capture application screen live image");
 			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_CHANNEL_ADS_TIMER);
@@ -293,15 +292,15 @@ public class PeacockChannel extends AutomaticsTestBase {
 			File outputFiletwo = new File("/var/lib/jenkins/workspace/timerimage2.jpg");
 			ImageIO.write(greyImage, "jpg", outputFiletwo);
 
-			LOGGER.info("Calling method to read text in image");
-			GrabText grabText = new GrabText();
-			String actual = grabText.crackImage(greyImage);
-
 			LOGGER.info("Calling method to read number in image");
+			GrabText grabText = new GrabText();
+			String actual = grabText.crackNumber(greyImage);
+
+			LOGGER.info("Calling method to check number in image");
 			status = CommonMethods.checkNumber(actual);
 
 			if (status) {
-				LOGGER.info("Timer number is : " + status);
+				LOGGER.info("Timer has number : " + status);
 			} else {
 				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
 			}
@@ -314,7 +313,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 			e.printStackTrace();
 			LOGGER.info("Inside catch");
 			errorMessage = e.getMessage();
-			LOGGER.error("Exception while verifying subtitle text: " + errorMessage);
+			LOGGER.error("Exception while verifying ads: " + errorMessage);
 			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 
 		}
@@ -408,13 +407,13 @@ public class PeacockChannel extends AutomaticsTestBase {
 
 			LOGGER.info("Calling method to read text in image");
 			GrabText grabText = new GrabText();
-			String actual = grabText.crackImage(greyImage);
+			String actual = grabText.crackNumber(greyImage);
 
 			LOGGER.info("Calling method to read number in image");
 			status = CommonMethods.checkNumber(actual);
 
 			if (status) {
-				LOGGER.info("Timer number is : " + status);
+				LOGGER.info("Timer has number: " + status);
 			} else {
 				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
 			}
@@ -427,7 +426,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 			e.printStackTrace();
 			LOGGER.info("Inside catch");
 			errorMessage = e.getMessage();
-			LOGGER.error("Exception while verifying subtitle text: " + errorMessage);
+			LOGGER.error("Exception while verifying ads: " + errorMessage);
 			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 
 		}
@@ -470,8 +469,10 @@ public class PeacockChannel extends AutomaticsTestBase {
 
 			Thread.sleep(3000);
 
-			//LOGGER.info("Click Xfinity down button ");
-			//CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
+			LOGGER.info("Click Xfinity down button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
+			
+			Thread.sleep(2000);
 
 			LOGGER.info("Click Xfinity OK button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
@@ -1263,8 +1264,8 @@ public class PeacockChannel extends AutomaticsTestBase {
 			actual = grabText.crackImage(greyImageOutput);
 
 			LOGGER.info("Calling method to compare text in image");
-
 			status = CommonMethods.partialTextCompare(expected, actual);
+			
 			if (status) {
 				LOGGER.info("Go Live icon is shown and status is : " + status);
 			} else {
@@ -1330,8 +1331,8 @@ public class PeacockChannel extends AutomaticsTestBase {
 			actual = grabText.crackImage(greyImageOutput);
 
 			LOGGER.info("Calling method to compare text in image");
-
 			status = CommonMethods.partialTextCompare(expectedLive, actual);
+			
 			if (status) {
 				LOGGER.info("Live icon is shown and status is : " + status);
 			} else {

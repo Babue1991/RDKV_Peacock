@@ -24,17 +24,17 @@ public class GrabText {
 		String text;
 		String result;
 		ITesseract instance = new Tesseract();
-		 // instance.setDatapath(LanguageConstants.TRAIN_DATA_PATH);
-		 // instance.setLanguage(LanguageConstants.ENGLISH_LANGUAGE);
+		// instance.setDatapath(LanguageConstants.TRAIN_DATA_PATH);
+		// instance.setLanguage(LanguageConstants.ENGLISH_LANGUAGE);
 
-		    instance.setDatapath(LanguageConstants.TRAIN_DATA_PATH);
-		    instance.setLanguage("eng");
-		
-		
+		instance.setDatapath(LanguageConstants.TRAIN_DATA_PATH);
+		instance.setLanguage("eng");
+
+
 		try {
 			text = instance.doOCR(filePath);
 			result = text.trim();
-	      //LOGGER.info("The grabbed text from image is: " +result);
+			//LOGGER.info("The grabbed text from image is: " +result);
 			System.out.println("The grabbed text from image is: " +result);
 			return result;
 		} catch (TesseractException e) {
@@ -42,31 +42,31 @@ public class GrabText {
 			return "Error while reading image";
 		}
 	}
-	
+
 	public String crackNumber(BufferedImage imageFile) throws Exception {
-		
-	    //final File imageFile = new File("imageWith Digits.jpg");
-	    ITesseract instance = new Tesseract();
-	    instance.setDatapath(LanguageConstants.TRAIN_DATA_PATH);
-	    instance.setLanguage("eng");
-	    instance.setTessVariable("tessedit_char_whitelist", "0123456789");
-	    String result = instance.doOCR(imageFile);
-	    System.out.println(result);
+
+		ITesseract instance = new Tesseract();
+		instance.setDatapath(LanguageConstants.TRAIN_DATA_PATH);
+		instance.setLanguage("snum");
+		instance.setTessVariable("tessedit_char_whitelist", "0123456789");
+		String number = instance.doOCR(imageFile);
+		String result = number.trim();
+		System.out.println(result);
 		return result;
 	}
 
 	public boolean checkSpecialChar(String actual) {
-		
-		
+
+
 		Pattern p = Pattern.compile("[^a-z0-9 ]", Pattern.CASE_INSENSITIVE);
 		Matcher m = p.matcher(actual);
 		boolean b = m.find();
 
 		if (b)
-		   System.out.println("There is a special character in my string");
+			System.out.println("There is a special character in my string");
 		else
-		   System.out.println("There is a no special character in my string");
-		
+			System.out.println("There is a no special character in my string");
+
 		return b;
 	}
 

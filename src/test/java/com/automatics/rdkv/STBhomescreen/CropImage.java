@@ -8,19 +8,19 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class CropImage {
-	
+
 	static BufferedImage cropedImage = null;
 
 	public static void main(String[] args) throws IOException {
 
 		BufferedImage liveImage = ImageIO.read(new File("/home/user/Desktop/greygolive.jpg"));
-		
+
 		try {
-			
+
 
 			cropedImage = cropImage(liveImage, 98,575,67,35);
 
-            //600,600,60,100
+			//600,600,60,100
 			//730,350,340,150
 			//50,450,180,40 - Channels Frasier inside
 			//Popular entertainment section  70,380,380,70
@@ -44,33 +44,33 @@ public class CropImage {
 			//SLE 00:00:00 - 1080,620,70,50
 			//Go live 95,575,80,38
 			//live 598,65,45,20
-			
-			
+
+
 		} catch (Exception e) {
-			
+
 			e.printStackTrace();
 		}
-		
+
 		File outputFile = new File("/home/user/Desktop/image3.jpg");
 		ImageIO.write(cropedImage, "jpg", outputFile);
 	}
 
-	   /**  
-     * @param args
-     * 
-     * liveImage
-     *        The original image used for cropping.
-     *        
-     * StartX and StartY 
-     * 		- These 2 params values are start point of cropping image.
-     * 
-     *   endX and endY 
-     *   		- End point of the the image to be cropped.
-     */
-	
+	/**  
+	 * @param args
+	 * 
+	 * liveImage
+	 *        The original image used for cropping.
+	 *        
+	 * StartX and StartY 
+	 * 		- These 2 params values are start point of cropping image.
+	 * 
+	 *   endX and endY 
+	 *   		- End point of the the image to be cropped.
+	 */
+
 	public static BufferedImage subImage(BufferedImage liveImage, int startX, int startY, int endX, int endY ) {
-	      BufferedImage image=liveImage.getSubimage(70,380,380,70);
-	      return image;
+		BufferedImage image=liveImage.getSubimage(70,380,380,70);
+		return image;
 	}
 	public static BufferedImage cropImage(BufferedImage liveImage, int startX, int startY, int endX, int endY ) {
 		//fill in the corners of the desired crop location here
