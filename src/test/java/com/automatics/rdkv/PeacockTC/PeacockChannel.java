@@ -56,7 +56,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 
 		LOGGER.info("#######################################################################################");
 		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-4008");
-		LOGGER.info("TEST DESCRIPTION:  This test is to verify subtile text");
+		LOGGER.info("TEST DESCRIPTION:  This test is to verify subtitle text in Linear channels");
 		LOGGER.info("TEST STEPS : ");
 		LOGGER.info("1. Enable subtitle and then verify text");
 		LOGGER.info("#######################################################################################");
@@ -64,7 +64,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 			stepNum = "S1";
 			errorMessage = "Failed to verify subtitle text";
 			LOGGER.info("*****************************************************************************************");
-			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify subtile text");
+			LOGGER.info("STEP 1: DESCRIPTION :This test is to verify subtile text in Linear channels");
 			LOGGER.info("STEP 1: ACTION :Enable subtitle and then verify text");
 			LOGGER.info("STEP 1: EXPECTED : Subtitle should displayed");
 			LOGGER.info("*****************************************************************************************");
@@ -1297,6 +1297,11 @@ public class PeacockChannel extends AutomaticsTestBase {
 			LOGGER.info("Click Xfinity up button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.UP_BUTTON);
 
+			Thread.sleep(2000L);
+
+			LOGGER.info("Click Xfinity up button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.UP_BUTTON);
+			
 			Thread.sleep(2000L);
 
 			LOGGER.info("Click Xfinity ok button ");
