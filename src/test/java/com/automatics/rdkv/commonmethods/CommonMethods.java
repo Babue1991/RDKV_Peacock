@@ -744,10 +744,10 @@ public class CommonMethods extends AutomaticsTestBase{
 	public static boolean checkGOLive(String text) {
 		LOGGER.info("The text is: "+text);
 		if (text.matches("Go Live")) {
-			LOGGER.error("Go Live present");
+			LOGGER.info("Go Live present");
 			status =false;	
 		}else {
-			LOGGER.error("Go Live is not present");
+			LOGGER.info("Go Live is not present");
 			status =true;
 		}
 		return status;
