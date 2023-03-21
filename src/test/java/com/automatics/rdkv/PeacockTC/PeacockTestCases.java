@@ -338,8 +338,8 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		}
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-2001");
 	}
-	
-	
+
+
 	@Test(priority=1,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
 	@TestDetails(testUID = "PEACOCK-AAMP-TC-2002")
@@ -358,11 +358,11 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		String actualchannel;
 		String actualNext;
 		// Variables declaration Ends
-		
+
 		/**
 		 * Step 1 :Launch peacock application
 		 */
-		
+
 		LOGGER.info("Method to Launch peacock app");
 		CommonMethods.launchPeacockApp();
 		/**
@@ -482,10 +482,10 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 			Thread.sleep(15000);
 			nu.pattern.OpenCV.loadLocally();
-			
+
 			LOGGER.info("Click Xfinity left button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
-			
+
 			LOGGER.info("Capture application screen live image");
 			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_CHANNELS_TUNE_VERIFY);
 			Thread.sleep(5000L);
@@ -520,7 +520,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 			Thread.sleep(15000);
 			nu.pattern.OpenCV.loadLocally();
-			
+
 			LOGGER.info("Click Xfinity left button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
 
@@ -575,20 +575,20 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		String actual;
 		String actualNew;
 		// Variables declaration Ends
-		
+
 		/**
 		 * Step 1 :Launch peacock application
 		 */
-		
+
 		LOGGER.info("Method to Launch peacock app");
 		CommonMethods.launchPeacockApp();
-		
+
 		/**
 		 * Step 2 :Go to channels and press ok
 		 */
 		LOGGER.info("Method to Launch peacock app");
 		CommonMethods.tuneChannels();
-		
+
 		/**
 		 * Step 3 : Tune to all linear channels one by one till the end and verify
 		 */
@@ -606,33 +606,33 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			LOGGER.info("STEP 3: ACTION : Press down button and click ok");
 			LOGGER.info("STEP 3: EXPECTED : Linear channels verified successfully.");
 			LOGGER.info("*****************************************************************************************");	
-			
+
 			for(int i=0; i<=3; i++) {
 				//i=63
-				
+
 				LOGGER.info("Click Xfinity down button ");
 				CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
 				CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
-				
+
 				LOGGER.info("Click Xfinity 0k button ");
 				CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 				CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 				Thread.sleep(15000);
 				nu.pattern.OpenCV.loadLocally();
-				
+
 				LOGGER.info("Click Xfinity left button ");
 				CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
-				
+
 				LOGGER.info("Capture application screen live image");
 				CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_TUNE_VERIFY);
 				Thread.sleep(5000L);
-				
+
 				LOGGER.info("Reading live image");
 				liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_TUNE_VERIFY));
-				
+
 				LOGGER.info("Calling crop method");
 				subImage = CropImage.cropImage(liveImage, 40,370,130,70);
-				
+
 				File outputFile = new File("/var/lib/jenkins/workspace/TuneVerify.jpg");
 				ImageIO.write(subImage, "jpg", outputFile);
 
@@ -647,7 +647,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 				LOGGER.info("Calling method to read text in image");
 				GrabText grabText = new GrabText();
 				actual = grabText.crackImage(greyImagenew);
-				
+
 				LOGGER.info("Click two DOWN_BUTTON 2003");
 				CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
 				CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
@@ -657,7 +657,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 				CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 				Thread.sleep(15000);
 				nu.pattern.OpenCV.loadLocally();
-				
+
 				LOGGER.info("Click Xfinity left button ");
 				CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
 
@@ -674,14 +674,14 @@ public class PeacockTestCases extends AutomaticsTestBase {
 				GrabText grabTextLinear = new GrabText();
 				actualNew = grabTextLinear.crackImage(subImage);
 				status = CommonMethods.textCompare(actualNew, actual);
-				
+
 				if (actualNew != actual) {
 					LOGGER.info("TRUE");
 				}
 				else {
 					LOGGER.info("FALSE");
 				}
-				
+
 			}
 
 		} catch (Exception e) {
@@ -696,7 +696,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		}
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-40001");
 	}
-	
+
 	@Test(priority=6,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
 	@TestDetails(testUID = "PEACOCK-AAMP-TC-2004")
@@ -711,19 +711,19 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		BufferedImage subImage;
 		BufferedImage outputImage;
 		// Variables declaration Ends
-		
+
 		/**
 		 * Step 1 :Launch peacock application
 		 */
 		LOGGER.info("Method to Launch peacock app");
 		CommonMethods.launchPeacockApp();
-		
+
 		/**
 		 * Step 2 :Go to channels option in peacock menu and press ok
 		 */
 		LOGGER.info("Tune to channels method");
 		CommonMethods.tuneChannels();
-		
+
 		/**
 		 * Step 3: Tune to linear channel which do not support trick play
 		 */
@@ -744,12 +744,12 @@ public class PeacockTestCases extends AutomaticsTestBase {
 
 			LOGGER.info("Click Xfinity down button");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
-			
+
 			LOGGER.info("Click Xfinity ok button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 			Thread.sleep(8000);
 			nu.pattern.OpenCV.loadLocally();
-			
+
 			LOGGER.info("Click Xfinity ok button");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 
@@ -801,7 +801,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		}
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-2004");
 	}
-	
+
 	@Test(priority=6,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
 	@TestDetails(testUID = "PEACOCK-AAMP-TC-2005")
@@ -812,7 +812,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		String errorMessage = null;
 		String stepNum = null;
 		// Variables declaration Ends
-		
+
 		/**
 		 * Step 1 :Launch peacock application
 		 */
@@ -821,13 +821,13 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		/**
 		 * Step 2 :using appropriate keys on remote,go to channels option in the peacock menu and press OK
 		 */
-		
+
 		LOGGER.info("Tune to channels method");
 		CommonMethods.tuneChannels();
 		/**
 		 * Step 3 :Tune to linear channel which do not support trick play
 		 */
-		
+
 		/**
 		 * Step 4 : Attempt Rewind operation using remote keys 
 		 */
@@ -847,7 +847,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			LOGGER.info("*****************************************************************************************");
 
 			LOGGER.info("Rewind operation cannot be performed in the channels which do not support trick play");
-			
+
 		} catch (Exception e) {
 			LOGGER.error("Exception occured while reading the image file " + e);
 			// TODO Auto-generated catch block
@@ -857,7 +857,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			LOGGER.error("Exception while launching home screen file: " + errorMessage);
 			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 		}
-		
+
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-2005");
 	}
 
@@ -879,14 +879,14 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		/**
 		 * Step 1: Launch peacock app
 		 */
-		
+
 		LOGGER.info("Method to Launch peacock app");
 		CommonMethods.launchPeacockApp();
-		
+
 		/**
 		 * Step 2: Go to search and type S for live channel
 		 */
-		
+
 		LOGGER.info("#######################################################################################");
 		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-2006");
 		LOGGER.info("TEST DESCRIPTION:  This test is to verify SLE events are being broadcast");
@@ -907,22 +907,22 @@ public class PeacockTestCases extends AutomaticsTestBase {
 
 			LOGGER.info("Click Xfinity up button");
 			CommonMethods.execCommand(RemoteKeyContstants.UP_BUTTON);
-			
+
 			LOGGER.info("Click Xfinity ok button ");
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
 			Thread.sleep(8000);
 			nu.pattern.OpenCV.loadLocally();
-			
+
 			LOGGER.info("Click one Xfinity right button");
 			CommonMethods.execCommand(RemoteKeyContstants.RIGHT_BUTTON);
-			
+
 			LOGGER.info("Click one Xfinity down button");
 			CommonMethods.execCommand(RemoteKeyContstants.DOWN_BUTTON);
-			
+
 			LOGGER.info("Click Xfinity ok button ");
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
 			Thread.sleep(4000);
-			
+
 			LOGGER.info("Capture application screen live image");
 			CaptureLiveImage.captureIcon(ImageCaptureConstants.SLE_LIVE_CHECK);
 
@@ -931,7 +931,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 
 			LOGGER.info("Calling crop method");
 			subImage = CropImage.cropImage(liveImage, 110,450,50,35);
-			
+
 			File outputFile = new File("/var/lib/jenkins/workspace/SLE.jpg");
 			ImageIO.write(subImage, "jpg", outputFile);
 
@@ -946,10 +946,10 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			LOGGER.info("Calling method to read text in image");
 			GrabText grabText = new GrabText();
 			actual = grabText.crackImage(greyImage);
-			
+
 			LOGGER.info("Calling method to compare text in image");
 			status = CommonMethods.partialTextCompare(expected, actual);
-			
+
 			if (status) {
 
 			} else {
@@ -984,80 +984,80 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		String actualtime;
 		String expected = "ume";
 		// Variables declaration Ends
-		
+
 		/**
 		 * Step 1 : Launch peacock app 
 		 */
-		
+
 		LOGGER.info("Method to Launch peacock app");
 		CommonMethods.launchPeacockApp();
-		
-//		/**
-//		 * Step 2: Go to sports/wwe and check if any SLE events are being broadcast
-//		 */
-//		LOGGER.info("#######################################################################################");
-//		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-2007");
-//		LOGGER.info("TEST DESCRIPTION:  This test is to check SLE events are being broadcast in sports channel");
-//		LOGGER.info("TEST STEPS : ");
-//		LOGGER.info("1. Click left and press ok");
-//		LOGGER.info("#######################################################################################");
-//		try {
-//			stepNum = "S2";
-//			errorMessage = "No SLE is being broadcast in sports channel";
-//			LOGGER.info("*****************************************************************************************");
-//			LOGGER.info("STEP 2: DESCRIPTION : This test is to check SLE events are being broadcast in sports channel");
-//			LOGGER.info("STEP 2: ACTION : Click left and press ok");
-//			LOGGER.info("STEP 2: EXPECTED : SLE events are being broadcast successfully ");
-//			LOGGER.info("*****************************************************************************************");
-//		
-//		LOGGER.info("Click Xfinity left button");
-//		CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
-//
-//		LOGGER.info("Click three DOWN_BUTTON ");
-//		CommonMethods.execCommandRepeat2(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.THREE);
-//		
-//		LOGGER.info("Click Xfinity ok button ");
-//		CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
-//		Thread.sleep(3000);
-//		
-//		LOGGER.info("Capture application screen live image");
-//		CaptureLiveImage.captureIcon(ImageCaptureConstants.SLE_LIVE_SPORTS);
-//
-//		LOGGER.info("Reading live image");
-//		liveImage = ImageIO.read(new File(ImageCaptureConstants.SLE_LIVE_SPORTS));
-//
-//		LOGGER.info("Calling crop method");
-//		subImage = CropImage.cropImage(liveImage, 100,680,50,30);
-//		
-//		File outputFile = new File("/var/lib/jenkins/workspace/SLESports.jpg");
-//		ImageIO.write(subImage, "jpg", outputFile);
-//
-//		BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/SLESports.jpg"));
-//		
-//		LOGGER.info("Calling method to read text in image");
-//		GrabText grabText = new GrabText();
-//		actual = grabText.crackImage(output);
-//		
-//		LOGGER.info("Calling method to compare text in image");
-//		status = CommonMethods.partialTextCompare(expected, actual);
-//		
-//		if (status) {
-//
-//		} else {
-//			LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
-//		}
-//		LOGGER.info("**********************************************************************************");
-//		tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
-//
-//	} catch (Exception e) {
-//		LOGGER.error("Exception occured while reading the image file " + e);
-//		// TODO Auto-generated catch block
-//		e.printStackTrace();
-//		LOGGER.info("Inside catch");
-//		errorMessage = e.getMessage();
-//		LOGGER.error("Exception while launching home screen file: " + errorMessage);
-//		CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
-//	}
+
+		//		/**
+		//		 * Step 2: Go to sports/wwe and check if any SLE events are being broadcast
+		//		 */
+		//		LOGGER.info("#######################################################################################");
+		//		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-2007");
+		//		LOGGER.info("TEST DESCRIPTION:  This test is to check SLE events are being broadcast in sports channel");
+		//		LOGGER.info("TEST STEPS : ");
+		//		LOGGER.info("1. Click left and press ok");
+		//		LOGGER.info("#######################################################################################");
+		//		try {
+		//			stepNum = "S2";
+		//			errorMessage = "No SLE is being broadcast in sports channel";
+		//			LOGGER.info("*****************************************************************************************");
+		//			LOGGER.info("STEP 2: DESCRIPTION : This test is to check SLE events are being broadcast in sports channel");
+		//			LOGGER.info("STEP 2: ACTION : Click left and press ok");
+		//			LOGGER.info("STEP 2: EXPECTED : SLE events are being broadcast successfully ");
+		//			LOGGER.info("*****************************************************************************************");
+		//		
+		//		LOGGER.info("Click Xfinity left button");
+		//		CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
+		//
+		//		LOGGER.info("Click three DOWN_BUTTON ");
+		//		CommonMethods.execCommandRepeat2(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.THREE);
+		//		
+		//		LOGGER.info("Click Xfinity ok button ");
+		//		CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+		//		Thread.sleep(3000);
+		//		
+		//		LOGGER.info("Capture application screen live image");
+		//		CaptureLiveImage.captureIcon(ImageCaptureConstants.SLE_LIVE_SPORTS);
+		//
+		//		LOGGER.info("Reading live image");
+		//		liveImage = ImageIO.read(new File(ImageCaptureConstants.SLE_LIVE_SPORTS));
+		//
+		//		LOGGER.info("Calling crop method");
+		//		subImage = CropImage.cropImage(liveImage, 100,680,50,30);
+		//		
+		//		File outputFile = new File("/var/lib/jenkins/workspace/SLESports.jpg");
+		//		ImageIO.write(subImage, "jpg", outputFile);
+		//
+		//		BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/SLESports.jpg"));
+		//		
+		//		LOGGER.info("Calling method to read text in image");
+		//		GrabText grabText = new GrabText();
+		//		actual = grabText.crackImage(output);
+		//		
+		//		LOGGER.info("Calling method to compare text in image");
+		//		status = CommonMethods.partialTextCompare(expected, actual);
+		//		
+		//		if (status) {
+		//
+		//		} else {
+		//			LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+		//		}
+		//		LOGGER.info("**********************************************************************************");
+		//		tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+		//
+		//	} catch (Exception e) {
+		//		LOGGER.error("Exception occured while reading the image file " + e);
+		//		// TODO Auto-generated catch block
+		//		e.printStackTrace();
+		//		LOGGER.info("Inside catch");
+		//		errorMessage = e.getMessage();
+		//		LOGGER.error("Exception while launching home screen file: " + errorMessage);
+		//		CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
+		//	}
 		/**
 		 * Step 3: Tune to SLE assests available  
 		 */
@@ -1076,84 +1076,84 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			LOGGER.info("STEP 3: ACTION :Tune to SLE content");
 			LOGGER.info("STEP 3: EXPECTED : Ad break should come up");
 			LOGGER.info("*****************************************************************************************");
-	
-		
-		LOGGER.info("Click Xfinity left button");
-		CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
-		
-		LOGGER.info("Click one UP_BUTTON ");
-		CommonMethods.execCommandRepeat2(RemoteKeyContstants.UP_BUTTON, IntergerCount.ONE);
-		
-		LOGGER.info("Click Xfinity ok button ");
-		CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
-		Thread.sleep(3000);
-		
-		LOGGER.info("Click one Xfinity right button");
-		CommonMethods.execCommand(RemoteKeyContstants.RIGHT_BUTTON);
-		
-		LOGGER.info("Click one Xfinity down button");
-		CommonMethods.execCommand(RemoteKeyContstants.DOWN_BUTTON);
-		
-		LOGGER.info("Click Xfinity ok button ");
-		CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
-		Thread.sleep(4000);
-		
-		LOGGER.info("Click three DOWN_BUTTON ");
-		CommonMethods.execCommandRepeat2(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.THREE);
-		
-		LOGGER.info("Click Xfinity ok button ");
-		CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
-		Thread.sleep(5000);
-		
-		LOGGER.info("Capture SLE screen live image");
-		CaptureLiveImage.captureIcon(ImageCaptureConstants.SLE_ADS_REF);
 
-		LOGGER.info("Reading first live ads screen");
-		liveImage = ImageIO.read(new File(ImageCaptureConstants.SLE_ADS_REF));
-		Thread.sleep(5000);
-		
-		LOGGER.info("Calling image cropping method");
-		subImage = CropImage.cropImage(liveImage, 68,638,35,35);
 
-		File outputFile = new File("/var/lib/jenkins/workspace/timeimage.jpg");
-		ImageIO.write(subImage, "jpg", outputFile);
+			LOGGER.info("Click Xfinity left button");
+			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
 
-		BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/timeimage.jpg"));
+			LOGGER.info("Click one UP_BUTTON ");
+			CommonMethods.execCommandRepeat2(RemoteKeyContstants.UP_BUTTON, IntergerCount.ONE);
 
-		ConvertImage ci = new ConvertImage();
-		BufferedImage greyImage =ci.ConvertGrayScale(output);
+			LOGGER.info("Click Xfinity ok button ");
+			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			Thread.sleep(3000);
 
-		File outputFiletwo = new File("/var/lib/jenkins/workspace/timeimage2.jpg");
-		ImageIO.write(greyImage, "jpg", outputFiletwo);
+			LOGGER.info("Click one Xfinity right button");
+			CommonMethods.execCommand(RemoteKeyContstants.RIGHT_BUTTON);
 
-		LOGGER.info("Calling method to read text in image");
-		GrabText grabText = new GrabText();
-		actualtime = grabText.crackImage(greyImage);
+			LOGGER.info("Click one Xfinity down button");
+			CommonMethods.execCommand(RemoteKeyContstants.DOWN_BUTTON);
 
-		LOGGER.info("Calling method to read number in image");
-		status = CommonMethods.checkNumber(actualtime);
+			LOGGER.info("Click Xfinity ok button ");
+			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			Thread.sleep(4000);
 
-		if (status) {
-			LOGGER.info("Timer number is : " + status);
-		} else {
-			LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+			LOGGER.info("Click three DOWN_BUTTON ");
+			CommonMethods.execCommandRepeat2(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.THREE);
+
+			LOGGER.info("Click Xfinity ok button ");
+			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
+			Thread.sleep(5000);
+
+			LOGGER.info("Capture SLE screen live image");
+			CaptureLiveImage.captureIcon(ImageCaptureConstants.SLE_ADS_REF);
+
+			LOGGER.info("Reading first live ads screen");
+			liveImage = ImageIO.read(new File(ImageCaptureConstants.SLE_ADS_REF));
+			Thread.sleep(5000);
+
+			LOGGER.info("Calling image cropping method");
+			subImage = CropImage.cropImage(liveImage, 68,638,35,35);
+
+			File outputFile = new File("/var/lib/jenkins/workspace/timeimage.jpg");
+			ImageIO.write(subImage, "jpg", outputFile);
+
+			BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/timeimage.jpg"));
+
+			ConvertImage ci = new ConvertImage();
+			BufferedImage greyImage =ci.ConvertGrayScale(output);
+
+			File outputFiletwo = new File("/var/lib/jenkins/workspace/timeimage2.jpg");
+			ImageIO.write(greyImage, "jpg", outputFiletwo);
+
+			LOGGER.info("Calling method to read text in image");
+			GrabText grabText = new GrabText();
+			actualtime = grabText.crackImage(greyImage);
+
+			LOGGER.info("Calling method to read number in image");
+			status = CommonMethods.checkNumber(actualtime);
+
+			if (status) {
+				LOGGER.info("Timer number is : " + status);
+			} else {
+				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+			}
+
+			LOGGER.info("**********************************************************************************");
+			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
+
+		} catch (Exception e) {
+			LOGGER.error("Exception occured while reading the image file " + e);
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			LOGGER.info("Inside catch");
+			errorMessage = e.getMessage();
+			LOGGER.error("Exception while verifying linear channel: " + errorMessage);
+			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 		}
-		
-		LOGGER.info("**********************************************************************************");
-		tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
 
-	} catch (Exception e) {
-		LOGGER.error("Exception occured while reading the image file " + e);
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-		LOGGER.info("Inside catch");
-		errorMessage = e.getMessage();
-		LOGGER.error("Exception while verifying linear channel: " + errorMessage);
-		CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
+		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-2007");
 	}
-	
-	LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-2007");
-}
 	@Test(priority=8,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
 	@TestDetails(testUID = "PEACOCK-AAMP-TC-2008")
@@ -1169,7 +1169,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		String expected = "GoLive";
 		// Variables declaration Ends
 
-		
+
 		/**
 		 * Step 2: go to sports and check for SLE
 		 */
@@ -1206,7 +1206,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 
 			LOGGER.info("Calling image cropping method");
 			subImage = CropImage.cropImage(liveImage,  95,575,80,38);
-			
+
 			File outputFile = new File("/var/lib/jenkins/workspace/SLEgoLive.jpg");
 			ImageIO.write(subImage, "jpg", outputFile);
 
@@ -1221,11 +1221,11 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			LOGGER.info("Calling method to read text in image");
 			GrabText grabText = new GrabText();
 			actual = grabText.crackImage(greyImage);
-			
+
 			LOGGER.info("Calling method to compare text in image");
 
 			status = CommonMethods.partialTextCompare(expected, actual);
-			
+
 			if (status) {
 
 			} else {
@@ -1245,6 +1245,6 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		}
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-2008");
 	}
-				
+
 }
 
