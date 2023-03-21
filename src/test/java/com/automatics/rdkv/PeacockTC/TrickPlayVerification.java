@@ -51,126 +51,7 @@ public class TrickPlayVerification extends AutomaticsTestBase {
 	 * 
 	 */
 
-	static Process p;
-	@Test(priority=11, dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
-			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
-	@TestDetails(testUID = "PEACOCK-AAMP-TC-3001")
-	public void testVerifyTrickPlayVerifications(Dut device) throws InterruptedException {
-		// Variables declaration starts
-		boolean status = false;
-		String testId = "PEACOCK-AAMP-TC-301";
-		String errorMessage = null;
-		String stepNum = null;
-		BufferedImage liveImage;
-		BufferedImage subImage;
-		String actual;
-		String actualLinear;
-		// Variables declaration Ends
-
-		/**
-		 * Step 2 :using appropriate keys on remote,go to channels option in the peacock menu and press OK
-		 */
-		LOGGER.info("#######################################################################################");
-		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-3001");
-		LOGGER.info("TEST DESCRIPTION:  This test is to verify user can navigate to the channels content");
-		LOGGER.info("TEST STEPS : ");
-		LOGGER.info("1. Press left button and go six down");
-
-		try {
-			stepNum = "S1";
-			errorMessage = "Failed to navigate to Channels button";
-			LOGGER.info("*****************************************************************************************");
-			LOGGER.info("STEP 2: DESCRIPTION : This test is to verify user can navigate to the channels content");
-			LOGGER.info("STEP 2: ACTION : Press down button and take screenshot");
-			LOGGER.info("STEP 2: EXPECTED : Channels option should launch successfully.");
-			LOGGER.info("*****************************************************************************************");
-
-
-			LOGGER.info("Calling method to launch peacock app");
-			CommonMethods.launchPeacockApp();
-
-			LOGGER.info("Click Xfinity left button ");
-			CommonMethods.execCommand(RemoteKeyContstants.LEFT_BUTTON);
-
-			LOGGER.info("Click six DOWN_BUTTON ");
-			CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON, IntergerCount.SIX);
-
-			LOGGER.info("Click Xfinity ok button ");
-			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
-			nu.pattern.OpenCV.loadLocally();
-
-			LOGGER.info("Capture application screen live image");
-			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_CHANNELS_OPTION);
-
-			LOGGER.info("Reading live image");
-			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_CHANNELS_OPTION));
-
-			LOGGER.info("Calling crop method");
-			subImage = CropImage.cropImage(liveImage, 200,400,80,40);
-
-			File outputFile = new File("/var/lib/jenkins/workspace/channelsSection.jpg");
-			ImageIO.write(subImage, "jpg", outputFile);
-
-			BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/channelsSection.jpg"));
-
-			ConvertImage ci = new ConvertImage();
-			BufferedImage greyImage =ci.ConvertGrayScale(output);
-
-			File outputFiletwo = new File("/var/lib/jenkins/workspace/channelsSection2.jpg");
-			ImageIO.write(greyImage, "jpg", outputFiletwo);
-
-			LOGGER.info("Calling method to read text in image");
-			GrabText grabText = new GrabText();
-			actual = grabText.crackImage(greyImage);
-
-			LOGGER.info("Click Xfinity ok button ");
-			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
-			Thread.sleep(10000);
-			nu.pattern.OpenCV.loadLocally();
-
-			LOGGER.info("Click Xfinity ok button ");
-			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
-
-
-			LOGGER.info("Capture application screen live image");
-			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_CHANNELS_NEXT_OPTION);
-
-			LOGGER.info("Reading live image");
-			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_CHANNELS_NEXT_OPTION));
-
-			LOGGER.info("Calling crop method");
-			subImage = CropImage.cropImage(liveImage, 50,450,115,40);
-
-			GrabText grabTextLinear = new GrabText();
-			actualLinear = grabTextLinear.crackImage(subImage);
-			status = CommonMethods.partialTextCompare(actualLinear, actual);
-
-			if (status) {
-
-			} else {
-				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
-			}
-			LOGGER.info("**********************************************************************************");
-			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
-
-		} catch (Exception e) {
-			LOGGER.error("Exception occured while reading the image file " + e);
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			LOGGER.info("Inside catch");
-			errorMessage = e.getMessage();
-			LOGGER.error("Exception while launching home screen file: " + errorMessage);
-			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
-
-		}
-
-
-		/**
-		 * Step 3 :Tune to linear channels which support trick play
-		 */
-
-	}
-		
+		static Process p;
 		@Test(priority=11, dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 				BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
 		@TestDetails(testUID = "PEACOCK-AAMP-TC-3001")
@@ -284,9 +165,9 @@ public class TrickPlayVerification extends AutomaticsTestBase {
 			}
 			
 		
-	/**
-     * Step 3 :Tune to linear channels which support trick play
-     */
+		/**
+	     * Step 3 :Tune to linear channels which support trick play
+	     */
 		
 
 		LOGGER.info("#######################################################################################");
@@ -771,12 +652,6 @@ public class TrickPlayVerification extends AutomaticsTestBase {
 	}
 
 
-	
-		//		/**
-		//	     * Step 7 :Perform Rewind operation until control has reached at the start position of the content 
-		//	     */
-
-		//
 		@Test(priority=14, dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 				BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
 		@TestDetails(testUID = "PEACOCK-AAMP-TC-3005")
@@ -791,9 +666,9 @@ public class TrickPlayVerification extends AutomaticsTestBase {
 			BufferedImage outputImage;
 			BufferedImage subImage;
 			
-//		/**
-//	     * Step 7 :Perform Rewind operation until control has reached at the start position of the content 
-//	     */
+			/**
+		     * Step 7 :Perform Rewind operation until control has reached at the start position of the content 
+		     */
 		
 
 		LOGGER.info("#######################################################################################");
