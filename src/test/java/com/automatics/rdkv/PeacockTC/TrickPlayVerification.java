@@ -68,11 +68,11 @@ package com.automatics.rdkv.PeacockTC;
 			// Variables declaration Ends
    
 			/**
-		     * Step 2 :using appropriate keys on remote,go to channels option in the peacock menu and press OK
+		     * Step 1 and 2 :  Launch Peacock app and using appropriate keys on remote,go to channels option in the peacock menu and press OK
 		     */
 			LOGGER.info("#######################################################################################");
 			LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-3001");
-			LOGGER.info("TEST DESCRIPTION:  This test is to verify user can navigate to the channels content");
+			LOGGER.info("TEST DESCRIPTION:  This test is to verify Using appropriate keys on remote, go to Channels option in the Peacock menu and press OK");
 			LOGGER.info("TEST STEPS : ");
 			LOGGER.info("1. Press left button and go six down");
 			
@@ -80,9 +80,9 @@ package com.automatics.rdkv.PeacockTC;
 				stepNum = "S1";
 				errorMessage = "Failed to navigate to Channels button";
 				LOGGER.info("*****************************************************************************************");
-				LOGGER.info("STEP 2: DESCRIPTION : This test is to verify user can navigate to the channels content");
-				LOGGER.info("STEP 2: ACTION : Press down button and take screenshot");
-				LOGGER.info("STEP 2: EXPECTED : Channels option should launch successfully.");
+				LOGGER.info("STEP 1: DESCRIPTION : This test is to verify Using appropriate keys on remote, go to Channels option in the Peacock menu and press OK");
+				LOGGER.info("STEP 1: ACTION : Press left button and go six down");
+				LOGGER.info("STEP 1: EXPECTED : Control should tune successfully to the first available Peacock linear channel in the channel list without any AV issues");
 				LOGGER.info("*****************************************************************************************");
 				
 				
@@ -176,12 +176,12 @@ package com.automatics.rdkv.PeacockTC;
 		LOGGER.info("1. Press down button");
 		LOGGER.info("#######################################################################################");
 		try {
-			stepNum = "S3";
+			stepNum = "S2";
 			errorMessage = "The user is not in the application screen";
 			LOGGER.info("*****************************************************************************************");
-			LOGGER.info("STEP 3: DESCRIPTION : This test is to verify linear channels which support trick play");
-			LOGGER.info("STEP 3: ACTION : Press down button and take screenshot");
-			LOGGER.info("STEP 3: EXPECTED : Channels option should launch successfully.");
+			LOGGER.info("STEP 2: DESCRIPTION : This test is to verify Tune to linear channels which support trick play");
+			LOGGER.info("STEP 2: ACTION : Press down button and take screenshot and repeat");
+			LOGGER.info("STEP 2: EXPECTED : Tune should be successful, no AV issues should be seen.");
 			LOGGER.info("*****************************************************************************************");
 
 			
@@ -231,12 +231,12 @@ package com.automatics.rdkv.PeacockTC;
 		LOGGER.info("1. Press right and ok button ");
 		LOGGER.info("#######################################################################################");
 		try {
-			stepNum = "S5";
+			stepNum = "S1";
 			errorMessage = "Failed to verify fast forward operation";
 			LOGGER.info("*****************************************************************************************");
-			LOGGER.info("STEP 4: DESCRIPTION : This test is to verify fast forward operation at different speed and play using on screen controls");
-			LOGGER.info("STEP 4: ACTION : Press right button and take screenshot");
-			LOGGER.info("STEP 4: EXPECTED : fast forward operation is verified at different speed.");
+			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify Perform Fast forward operation at differrent speed & play using on screen controls");
+			LOGGER.info("STEP 1: ACTION : Press right button and take screenshot");
+			LOGGER.info("STEP 1: EXPECTED : fast forward operation is verified at different speed.");
 			LOGGER.info("*****************************************************************************************");
 			
 			LOGGER.info("Click Two right button ");
@@ -387,12 +387,12 @@ package com.automatics.rdkv.PeacockTC;
 		LOGGER.info("1. Press left button and take screenshot");
 		LOGGER.info("#######################################################################################");
 		try {
-			stepNum = "S4";
+			stepNum = "S1";
 			errorMessage = "Failed to verify rewind operation";
 			LOGGER.info("*****************************************************************************************");
-			LOGGER.info("STEP 4: DESCRIPTION : This test is to verify Rewind operation at different speed and play using on screen controls");
-			LOGGER.info("STEP 4: ACTION : Press left button and take screenshot");
-			LOGGER.info("STEP 4: EXPECTED : Rewind operation is verified at different speed.");
+			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify Rewind operation at different speed and play using on screen controls");
+			LOGGER.info("STEP 1: ACTION : Press left button and take screenshot");
+			LOGGER.info("STEP 1: EXPECTED : Rewind operation is verified at different speed.");
 			LOGGER.info("*****************************************************************************************");
 			
 			
@@ -552,12 +552,12 @@ package com.automatics.rdkv.PeacockTC;
 		LOGGER.info("1. Press right and ok button ");
 		LOGGER.info("#######################################################################################");
 		try {
-			stepNum = "S6";
+			stepNum = "S1";
 			errorMessage = "Failed to verify Pause/play operation";
 			LOGGER.info("*****************************************************************************************");
-			LOGGER.info("STEP 6: DESCRIPTION : This test is to verify Pause/play using on screen controls");
-			LOGGER.info("STEP 6: ACTION : Press right button and take screenshot");
-			LOGGER.info("STEP 6: EXPECTED : Play/Pause operation is verified");
+			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify Pause/play using on screen controls");
+			LOGGER.info("STEP 1: ACTION : Press right button and take screenshot");
+			LOGGER.info("STEP 1: EXPECTED : Pause/Play functionality should work fine without any issues");
 			LOGGER.info("*****************************************************************************************");
 			 
 						
@@ -650,7 +650,7 @@ package com.automatics.rdkv.PeacockTC;
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-3004");
 		}
 
-		
+		//
 		@Test(priority=14, dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 				BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
 		@TestDetails(testUID = "PEACOCK-AAMP-TC-3005")
@@ -676,12 +676,12 @@ package com.automatics.rdkv.PeacockTC;
 		LOGGER.info("1. Press left and ok button ");
 		LOGGER.info("#######################################################################################");
 		try {
-			stepNum = "S7";
+			stepNum = "S1";
 			errorMessage = "Failed to verify Rewind operation";
 			LOGGER.info("*****************************************************************************************");
-			LOGGER.info("STEP 6: DESCRIPTION : This test is to verify Rewind operation until control has reached at the start position of the content");
-			LOGGER.info("STEP 6: ACTION : Press left and ok button and take screenshot");
-			LOGGER.info("STEP 6: EXPECTED : Rewind operation is verified");
+			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify Rewind operation until control has reached at the start position of the content");
+			LOGGER.info("STEP 1: ACTION : Press left and ok button and take screenshot");
+			LOGGER.info("STEP 1: EXPECTED : Rewind operation is verified");
 			LOGGER.info("*****************************************************************************************");
 			
 			LOGGER.info("Click two Left button ");

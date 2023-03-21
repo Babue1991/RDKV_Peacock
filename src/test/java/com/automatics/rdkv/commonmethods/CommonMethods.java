@@ -725,7 +725,7 @@ public class CommonMethods extends AutomaticsTestBase{
 			LOGGER.error("Go Live present");
 		status =false;	
 		}else {
-			LOGGER.error("Go Live is not present: "+text);
+			LOGGER.error("Go Live is not present");
 			status =true;
 		}
 		return status;
