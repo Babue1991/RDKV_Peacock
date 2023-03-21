@@ -55,7 +55,7 @@ public class TrickPlayVerification extends AutomaticsTestBase {
 	@Test(priority=11, dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
 	@TestDetails(testUID = "PEACOCK-AAMP-TC-3001")
-	public void testVerifyTrickPlayVerification(Dut device) throws InterruptedException {
+	public void testVerifyTrickPlayVerifications(Dut device) throws InterruptedException {
 		// Variables declaration starts
 		boolean status = false;
 		String testId = "PEACOCK-AAMP-TC-301";
@@ -169,8 +169,8 @@ public class TrickPlayVerification extends AutomaticsTestBase {
 		 * Step 3 :Tune to linear channels which support trick play
 		 */
 
-<<<<<<< HEAD
-		static Process p;
+	}
+		
 		@Test(priority=11, dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 				BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
 		@TestDetails(testUID = "PEACOCK-AAMP-TC-3001")
@@ -288,8 +288,7 @@ public class TrickPlayVerification extends AutomaticsTestBase {
      * Step 3 :Tune to linear channels which support trick play
      */
 		
-=======
->>>>>>> 1094df4908b369ab751231819cb7abf96989e270
+
 		LOGGER.info("#######################################################################################");
 		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-3001");
 		LOGGER.info("TEST DESCRIPTION:  This test is to verify linear channels which support trick play");
@@ -772,25 +771,11 @@ public class TrickPlayVerification extends AutomaticsTestBase {
 	}
 
 
-	@Test(priority=14, dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
-			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
-	@TestDetails(testUID = "PEACOCK-AAMP-TC-3005")
-	public void testVerifyZero(Dut device) throws InterruptedException {
-
-		boolean status = false;
-		String testId = "PEACOCK-AAMP-TC-305";
-		String errorMessage = null;
-		String stepNum = null;
-		BufferedImage referenceImage;
-		BufferedImage liveImage;
-		BufferedImage outputImage;
-		BufferedImage subImage;
-
+	
 		//		/**
 		//	     * Step 7 :Perform Rewind operation until control has reached at the start position of the content 
 		//	     */
 
-<<<<<<< HEAD
 		//
 		@Test(priority=14, dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 				BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
@@ -810,8 +795,7 @@ public class TrickPlayVerification extends AutomaticsTestBase {
 //	     * Step 7 :Perform Rewind operation until control has reached at the start position of the content 
 //	     */
 		
-=======
->>>>>>> 1094df4908b369ab751231819cb7abf96989e270
+
 		LOGGER.info("#######################################################################################");
 		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-3005");
 		LOGGER.info("TEST DESCRIPTION: This test is to verify Rewind operation until control has reached at the start position of the content ");

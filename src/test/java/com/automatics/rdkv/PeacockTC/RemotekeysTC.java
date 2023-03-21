@@ -56,7 +56,7 @@ public class RemotekeysTC extends AutomaticsTestBase {
 	@Test(priority=11, dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
 	@TestDetails(testUID = "PEACOCK-AAMP-TC-3010")
-	public void testVerifyTrickPlayVerification(Dut device) throws InterruptedException {
+	public void testVerifyTrickPlayVerification1(Dut device) throws InterruptedException {
 		// Variables declaration starts
 		boolean status = false;
 		String testId = "PEACOCK-AAMP-TC-310";
@@ -166,8 +166,8 @@ public class RemotekeysTC extends AutomaticsTestBase {
 		 * Step 3 :Tune to linear channels which support trick play
 		 */
 
-<<<<<<< HEAD
-		static Process p;
+
+	}
 		@Test(priority=11, dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 				BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
 		@TestDetails(testUID = "PEACOCK-AAMP-TC-3010")
@@ -284,8 +284,7 @@ public class RemotekeysTC extends AutomaticsTestBase {
      * Step 3 :Tune to linear channels which support trick play
      */
 		
-=======
->>>>>>> 1094df4908b369ab751231819cb7abf96989e270
+
 		LOGGER.info("#######################################################################################");
 		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-3010");
 		LOGGER.info("TEST DESCRIPTION:  This test is to verify linear channels which support trick play");
@@ -826,42 +825,13 @@ public class RemotekeysTC extends AutomaticsTestBase {
 
 		}
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-3014");
-<<<<<<< HEAD
+
 		}
 	
 		
 
-		@Test(priority=15, dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
-				BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
-		@TestDetails(testUID = "PEACOCK-AAMP-TC-3015")
-		public void testVerifySLE(Dut device) throws InterruptedException {
-			
-			boolean status = false;
-			String testId = "PEACOCK-AAMP-TC-315";
-			String errorMessage = null;
-			String stepNum = null;
-			BufferedImage liveImage;
-			BufferedImage liveImage2;
-			
-			LOGGER.info("#######################################################################################");
-			LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-3015");
-			LOGGER.info("TEST DESCRIPTION: This test is to verify playback stability of Peacock SLE asset");
-			LOGGER.info("TEST STEPS : ");
-			LOGGER.info("1.Tune to SLE assets available ");
-			LOGGER.info("#######################################################################################");
-			try {
-				stepNum = "S1";
-				errorMessage = "Failed to verify playback stability";
-				LOGGER.info("*****************************************************************************************");
-				LOGGER.info("STEP 1: DESCRIPTION : This test is to verify playback stability of Peacock SLE asset");
-				LOGGER.info("STEP 1: ACTION : Tune to SLE assets availablet");
-				LOGGER.info("STEP 1: EXPECTED :Playback should work as expected without any AV issues");
-				LOGGER.info("*****************************************************************************************");
-			
-			
-=======
-	}
-
+	
+	
 
 
 	@Test(priority=15, dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
@@ -892,7 +862,6 @@ public class RemotekeysTC extends AutomaticsTestBase {
 			LOGGER.info("*****************************************************************************************");
 
 
->>>>>>> 1094df4908b369ab751231819cb7abf96989e270
 			LOGGER.info("Calling method to launch peacock app and navigate to SLE events ");
 			CommonMethods.navigateToSLE();
 
@@ -939,7 +908,7 @@ public class RemotekeysTC extends AutomaticsTestBase {
 		}
 		LOGGER.info("ENDING TEST CASE: TC-RDKV-STB-3015");	
 	}
-<<<<<<< HEAD
+
 		
 		
 		
@@ -993,14 +962,13 @@ public class RemotekeysTC extends AutomaticsTestBase {
 				errorMessage = e.getMessage();
 				LOGGER.error("Exception while launching movie screen: " + errorMessage);
 				CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
-=======
+				}
 
-
-
+		}
 	@Test(priority=15, dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
 	@TestDetails(testUID = "PEACOCK-AAMP-TC-3016")
-	public void testVerifySLEtrick(Dut device) throws InterruptedException {
+	public void testVerifySLEtrick1(Dut device) throws InterruptedException {
 
 		boolean status = false;
 		String testId = "PEACOCK-AAMP-TC-316";
@@ -1036,7 +1004,7 @@ public class RemotekeysTC extends AutomaticsTestBase {
 
 			} else {
 				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
->>>>>>> 1094df4908b369ab751231819cb7abf96989e270
+
 
 			}
 		}
