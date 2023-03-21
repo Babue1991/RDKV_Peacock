@@ -49,7 +49,8 @@ public class GrabText {
 	    instance.setDatapath(LanguageConstants.TRAIN_DATA_PATH);
 	    instance.setLanguage("snum");
 	    instance.setTessVariable("tessedit_char_whitelist", "0123456789");
-	    String result = instance.doOCR(imageFile);
+	    String number = instance.doOCR(imageFile);
+	    String result = number.trim();
 	    System.out.println(result);
 		return result;
 	}
