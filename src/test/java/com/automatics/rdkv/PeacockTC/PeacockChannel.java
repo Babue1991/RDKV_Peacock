@@ -1264,8 +1264,8 @@ public class PeacockChannel extends AutomaticsTestBase {
 			actual = grabText.crackImage(greyImageOutput);
 
 			LOGGER.info("Calling method to compare text in image");
-
 			status = CommonMethods.partialTextCompare(expected, actual);
+			
 			if (status) {
 				LOGGER.info("Go Live icon is shown and status is : " + status);
 			} else {
@@ -1331,8 +1331,8 @@ public class PeacockChannel extends AutomaticsTestBase {
 			actual = grabText.crackImage(greyImageOutput);
 
 			LOGGER.info("Calling method to compare text in image");
-
 			status = CommonMethods.partialTextCompare(expectedLive, actual);
+			
 			if (status) {
 				LOGGER.info("Live icon is shown and status is : " + status);
 			} else {
