@@ -142,7 +142,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		try {
 			stepNum = "S2";
 			errorMessage = "Failed to load Application screen";
-			expected="BMdeucis";
+			expected="BMdCucis";
 			LOGGER.info("*****************************************************************************************");
 			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify user can launch application screen using remote keys");
 			LOGGER.info("STEP 1: ACTION : Take screen shot of the live screen and compare it with reference image");
@@ -329,7 +329,6 @@ public class PeacockTestCases extends AutomaticsTestBase {
 
 		} catch (Exception e) {
 			LOGGER.error("Exception occured while reading the image file " + e);
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			LOGGER.info("Inside catch");
 			errorMessage = e.getMessage();
