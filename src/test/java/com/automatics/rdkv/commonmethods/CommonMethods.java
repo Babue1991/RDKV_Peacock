@@ -630,6 +630,15 @@ public class CommonMethods extends AutomaticsTestBase{
 
 		LOGGER.info("Click Xfinity down button");
 		CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
+		
+		LOGGER.info("Click Xfinity down button");
+		CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
+
+		LOGGER.info("Click Xfinity down button");
+		CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
+
+		LOGGER.info("Click Xfinity down button");
+		CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
 
 	}
 	public static void navigateToLinearChannel() throws InterruptedException {
