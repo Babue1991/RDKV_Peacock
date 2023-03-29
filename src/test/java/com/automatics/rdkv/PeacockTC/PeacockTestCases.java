@@ -142,7 +142,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		try {
 			stepNum = "S2";
 			errorMessage = "Failed to load Application screen";
-			expected="BMdEucis";
+			expected="BMdeucis";
 			LOGGER.info("*****************************************************************************************");
 			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify user can launch application screen using remote keys");
 			LOGGER.info("STEP 1: ACTION : Take screen shot of the live screen and compare it with reference image");
