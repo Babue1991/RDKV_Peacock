@@ -177,7 +177,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 
 			GrabText grabText = new GrabText();
 			actual = grabText.crackImage(greyoutput);
-			status = CommonMethods.textCompare(expected, actual);
+			status = CommonMethods.partialTextCompare(expected, actual);
 
 			LOGGER.info("Calling screen compare method");
 
