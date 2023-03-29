@@ -70,7 +70,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 			LOGGER.info("*****************************************************************************************");
 
 			LOGGER.info("Calling method to navigate to linear channel ");
-			CommonMethods.navigateToChannelFour();
+			CommonMethods.navigateToChannelSeven();
 
 			Thread.sleep(2000);
 
