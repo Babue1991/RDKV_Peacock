@@ -171,10 +171,12 @@ public class PeacockTestCases extends AutomaticsTestBase {
 
 			File outputFiletwo = new File("/var/lib/jenkins/workspace/greyapp.jpg");
 			ImageIO.write(greyImage, "jpg", outputFiletwo);
+			
+			BufferedImage greyoutput = ImageIO.read(new File("/var/lib/jenkins/workspace/greyapp.jpg"));
 
 
 			GrabText grabText = new GrabText();
-			actual = grabText.crackImage(greyImage);
+			actual = grabText.crackImage(greyoutput);
 			status = CommonMethods.textCompare(expected, actual);
 
 			LOGGER.info("Calling screen compare method");
