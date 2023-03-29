@@ -160,9 +160,21 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.XFINITY_APPLICATION_SCREEN));
 			LOGGER.info("Crop the live image");
 			subImage = CropImage.cropImage(liveImage, 70,25,160,60);
+			
+			File outputFile = new File("/var/lib/jenkins/workspace/applications.jpg");
+			ImageIO.write(subImage, "jpg", outputFile);
+
+			BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/applications.jpg"));
+
+			ConvertImage ci = new ConvertImage();
+			BufferedImage greyImage =ci.ConvertGrayScale(output);
+
+			File outputFiletwo = new File("/var/lib/jenkins/workspace/greyapp.jpg");
+			ImageIO.write(greyImage, "jpg", outputFiletwo);
+
 
 			GrabText grabText = new GrabText();
-			actual = grabText.crackImage(subImage);
+			actual = grabText.crackImage(greyImage);
 			status = CommonMethods.textCompare(expected, actual);
 
 			LOGGER.info("Calling screen compare method");
