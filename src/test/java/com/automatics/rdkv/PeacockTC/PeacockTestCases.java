@@ -142,7 +142,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		try {
 			stepNum = "S2";
 			errorMessage = "Failed to load Application screen";
-			expected="BMdeucis";
+			expected="Featured";
 			LOGGER.info("*****************************************************************************************");
 			LOGGER.info("STEP 1: DESCRIPTION : This test is to verify user can launch application screen using remote keys");
 			LOGGER.info("STEP 1: ACTION : Take screen shot of the live screen and compare it with reference image");
@@ -159,7 +159,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			LOGGER.info("Reading live image");
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.XFINITY_APPLICATION_SCREEN));
 			LOGGER.info("Crop the live image");
-			subImage = CropImage.cropImage(liveImage, 70,25,160,60);
+			subImage = CropImage.cropImage(liveImage, 70,105,130,40);
 			
 			File outputFile = new File("/var/lib/jenkins/workspace/applications.jpg");
 			ImageIO.write(subImage, "jpg", outputFile);
