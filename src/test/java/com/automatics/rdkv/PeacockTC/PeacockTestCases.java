@@ -343,7 +343,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 	@Test(priority=1,dataProvider = DataProviderConstants.PARALLEL_DATA_PROVIDER, dataProviderClass = AutomaticsTapApi.class, alwaysRun = true, enabled = true, groups = {
 			BroadBandTestGroup.NEW_FEATURE, BroadBandTestGroup.WEBPA, "AppLaunch"  })
 	@TestDetails(testUID = "PEACOCK-AAMP-TC-2002")
-	public void testVerifyMoviesOption(Dut device) throws InterruptedException {
+	public void testVerifyChannelsOption(Dut device) throws InterruptedException {
 		// Variables declaration starts
 		boolean status = false;
 		String testId = "PEACOCK-AAMP-TC-002";
@@ -352,11 +352,10 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		BufferedImage liveImage;
 		BufferedImage nextliveImage;
 		BufferedImage subImage;
-		BufferedImage subImagenext;
 		String actual;
 		String actualLinear;
-		String actualchannel;
-		String actualNext;
+		String channel2;
+		String channel1;
 		// Variables declaration Ends
 
 		/**
@@ -366,7 +365,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 		LOGGER.info("Method to Launch peacock app");
 		CommonMethods.launchPeacockApp();
 		/**
-		 * Step 2 : Go to channel option in peacock menu and press ok
+		 * Step 2 : Go to channel option in peacock menu
 		 */
 		LOGGER.info("#######################################################################################");
 		LOGGER.info("STARTING TEST CASE: PEACOCK-AAMP-TC-2002");
@@ -378,7 +377,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			stepNum = "S2";
 			errorMessage = "Failed to navigate to Channels button";
 			LOGGER.info("*****************************************************************************************");
-			LOGGER.info("STEP 2: DESCRIPTION : This test is to verify user can navigate to the channels  2002 content");
+			LOGGER.info("STEP 2: DESCRIPTION : This test is to verify user can navigate to the channels content");
 			LOGGER.info("STEP 2: ACTION : Press down button and take screenshot");
 			LOGGER.info("STEP 2: EXPECTED : Channels option should launch successfully.");
 			LOGGER.info("*****************************************************************************************");
@@ -393,7 +392,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
 			nu.pattern.OpenCV.loadLocally();
 
-			LOGGER.info("Capture application screen live image");
+			LOGGER.info("Capture channels screen live image");
 			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_CHANNELS_OPTION);
 
 			LOGGER.info("Reading live image");
@@ -425,7 +424,6 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			LOGGER.info("Click Xfinity ok button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 
-
 			LOGGER.info("Capture application screen live image");
 			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_CHANNELS_NEXT_OPTION);
 
@@ -437,6 +435,8 @@ public class PeacockTestCases extends AutomaticsTestBase {
 
 			GrabText grabTextLinear = new GrabText();
 			actualLinear = grabTextLinear.crackImage(subImage);
+			
+			LOGGER.info("Calling method to compare text in image");
 			status = CommonMethods.partialTextCompare(actualLinear, actual);
 
 			if (status) {
@@ -449,11 +449,10 @@ public class PeacockTestCases extends AutomaticsTestBase {
 
 		} catch (Exception e) {
 			LOGGER.error("Exception occured while reading the image file " + e);
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			LOGGER.info("Inside catch");
 			errorMessage = e.getMessage();
-			LOGGER.error("Exception while launching home screen file: " + errorMessage);
+			LOGGER.error("Exception while launching channels screen file: " + errorMessage);
 			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 		}
 		/**
@@ -509,7 +508,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 
 			LOGGER.info("Calling method to read text in image");
 			GrabText grabText = new GrabText();
-			actualNext = grabText.crackImage(greyImagenew);
+			channel1 = grabText.crackImage(greyImagenew);
 
 			LOGGER.info("Click two DOWN_BUTTON ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
@@ -532,26 +531,30 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			nextliveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_CHANNELS_NEXT_TUNE_VERIFY));
 
 			LOGGER.info("Calling crop method");
-			subImage = CropImage.cropImage(liveImage, 40,370,130,70);
+			subImage = CropImage.cropImage(nextliveImage, 40,370,130,70);
 
+			LOGGER.info("Calling method to read text in image");
 			GrabText grabTextLinear = new GrabText();
-			actualchannel = grabTextLinear.crackImage(subImage);
-			status = CommonMethods.textCompare(actualchannel, actualNext);
+		    channel2 = grabTextLinear.crackImage(subImage);
+			
+			LOGGER.info("Calling method to compare text in image");
+			status = CommonMethods.textCompare(channel2, channel1);
 
-			if (actualNext != actualchannel) {
+			if (channel1 != channel2) {
 				LOGGER.info("TRUE");
+				status = true;
 			}
 			else {
 				LOGGER.info("FALSE");
+				status = false;
 			}
 
 		} catch (Exception e) {
 			LOGGER.error("Exception occured while reading the image file " + e);
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			LOGGER.info("Inside catch");
 			errorMessage = e.getMessage();
-			LOGGER.error("Exception while launching movie screen: " + errorMessage);
+			LOGGER.error("Exception while launching : " + errorMessage);
 			CommonUtils.updateTestStatusDuringException(tapEnv, device, testId, stepNum, status, errorMessage, false);
 
 		}
@@ -785,7 +788,7 @@ public class PeacockTestCases extends AutomaticsTestBase {
 			if (status) {
 
 			} else {
-				LOGGER.error("STEP 1: ACTUAL : " + errorMessage);
+				LOGGER.error("STEP 1: ACTUAL hfgfxfc: " + errorMessage);
 			}
 			LOGGER.info("**********************************************************************************");
 			tapEnv.updateExecutionStatus(device, testId, stepNum, status, errorMessage, false);
