@@ -90,10 +90,10 @@ public class CommonMethods extends AutomaticsTestBase{
 		for(int i = 1 ; i <= count; i++) {
 			try {
 
-				Thread.sleep(2000L);
+				Thread.sleep(1000L);
 				p=Runtime.getRuntime().exec(command);
 				printResults(p);
-				Thread.sleep(3000L);
+				Thread.sleep(2000L);
 				LOGGER.info("The terminal command which is executed is : "+command);
 				System.out.println();
 
