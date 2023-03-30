@@ -242,21 +242,21 @@ public class PeacockChannel extends AutomaticsTestBase {
 
 			Thread.sleep(2000);
 
-			LOGGER.info("Click Xfinity OK button ");
+			LOGGER.info("Selecting the channel");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 
 			Thread.sleep(20000);
 
-			LOGGER.info("Click Xfinity OK button ");
+			LOGGER.info("Click Ok button to see progress bar");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 
-			LOGGER.info("Click Xfinity right button ");
+			LOGGER.info("Click Xfinity right button to fastward the video ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.RIGHT_BUTTON);
 
-			LOGGER.info("Click Xfinity OK button ");
+			LOGGER.info("Multiplying the speed with 6x ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 
-			LOGGER.info("Click Xfinity OK button ");
+			LOGGER.info("Multiplying the speed with 12x ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 
 			Thread.sleep(10000);
@@ -264,7 +264,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 			LOGGER.info("Click Xfinity left button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
 
-			LOGGER.info("Click Xfinity OK button ");
+			LOGGER.info("Click Xfinity OK button to play the video");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 
 			Thread.sleep(5000);
@@ -272,27 +272,31 @@ public class PeacockChannel extends AutomaticsTestBase {
 			LOGGER.info("Click Xfinity OK button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 
-			LOGGER.info("Capture application screen live image");
+			LOGGER.info("Capturing the live image");
 			CaptureLiveImage.captureIcon(ImageCaptureConstants.PEACOCK_CHANNEL_ADS_TIMER);
 
 			LOGGER.info("Reading live image");
 			liveImage = ImageIO.read(new File(ImageCaptureConstants.PEACOCK_CHANNEL_ADS_TIMER));
 
-			LOGGER.info("Calling image cropping method");
+			LOGGER.info("Cropping the image with give hieght and width 68,638,35,35");
 			subImage = CropImage.cropImage(liveImage, 68,638,35,35);
 
+			LOGGER.info("Saving the cropped image in /var/lib/jenkins/workspace/timerimage.jpg");
 			File outputFile = new File("/var/lib/jenkins/workspace/timerimage.jpg");
 			ImageIO.write(subImage, "jpg", outputFile);
 
+			LOGGER.info("Reading the saved live image /var/lib/jenkins/workspace/timerimage.jpg");
 			BufferedImage output = ImageIO.read(new File("/var/lib/jenkins/workspace/timerimage.jpg"));
 
+			LOGGER.info("Converting the image into grey scale");
 			ConvertImage ci = new ConvertImage();
 			BufferedImage greyImage =ci.ConvertGrayScale(output);
 
+			LOGGER.info("String the converted grey scale image to /var/lib/jenkins/workspace/timerimage2.jpg");
 			File outputFiletwo = new File("/var/lib/jenkins/workspace/timerimage2.jpg");
 			ImageIO.write(greyImage, "jpg", outputFiletwo);
 
-			LOGGER.info("Calling method to read number in image");
+			LOGGER.info("Grab the advertisement duration from the grey scale image");
 			GrabText grabText = new GrabText();
 			String actual = grabText.crackNumber(greyImage);
 
