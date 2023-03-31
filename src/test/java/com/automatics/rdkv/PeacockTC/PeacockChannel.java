@@ -245,10 +245,12 @@ public class PeacockChannel extends AutomaticsTestBase {
 			LOGGER.info("Selecting the channel");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 
-			Thread.sleep(20000);
+			Thread.sleep(30000);
 
 			LOGGER.info("Click Ok button to see progress bar");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
+			
+			Thread.sleep(10000);
 
 			LOGGER.info("Click Xfinity right button to fastward the video ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.RIGHT_BUTTON);
