@@ -590,7 +590,7 @@ public class CommonMethods extends AutomaticsTestBase{
 		}
 	}
 
-	public static void navigateToChannelFour() throws InterruptedException {
+	public static void navigateToChannelSeven() throws InterruptedException {
 		LOGGER.info("Click Xfinity button ");
 		CommonMethods.execCommand(RemoteKeyContstants.XFINITY_BUTTON);
 
@@ -632,7 +632,7 @@ public class CommonMethods extends AutomaticsTestBase{
 		CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
 
 	}
-	public static void navigateToChannelSeven() throws InterruptedException {
+	public static void navigateToChannelFour() throws InterruptedException {
 		LOGGER.info("Click Xfinity button ");
 		CommonMethods.execCommand(RemoteKeyContstants.XFINITY_BUTTON);
 
