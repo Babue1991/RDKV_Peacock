@@ -590,49 +590,59 @@ public class CommonMethods extends AutomaticsTestBase{
 		}
 	}
 
-	public static void navigateToChannelSeven() throws InterruptedException {
+	public static void navigateToChannelFive() throws InterruptedException {
 		LOGGER.info("Click Xfinity button ");
 		CommonMethods.execCommand(RemoteKeyContstants.XFINITY_BUTTON);
 
 		Thread.sleep(3000);
 
-		LOGGER.info("Click Xfinity OK button ");
+		LOGGER.info("Pressing apps button icon ");
 		CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
 
 		Thread.sleep(3000);
 
-		LOGGER.info("Click Xfinity down button ");
+		LOGGER.info("Switching to popular entertainment section ");
 		CommonMethods.execCommand(RemoteKeyContstants.DOWN_BUTTON);
 
 		Thread.sleep(2000);
 
-		LOGGER.info("Click Xfinity OK button ");
+		LOGGER.info("Launching peacock application ");
 		CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 
 		Thread.sleep(30000);
 
-		LOGGER.info("Click Xfinity left button ");
+		LOGGER.info("Switching to menu screen");
 		CommonMethods.execCommandIcon(RemoteKeyContstants.LEFT_BUTTON);
 
-		LOGGER.info("Click Xfinity down button 6 times ");
+		LOGGER.info("Moving to channel section ");
 		CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON,6);
 
-		LOGGER.info("Click Xfinity OK button ");
+		LOGGER.info("Selecting channel menu");
 		CommonMethods.execCommand(RemoteKeyContstants.OK_BUTTON);
 
 		Thread.sleep(5000);
 
-		LOGGER.info("Click Xfinity down button");
+		LOGGER.info("Switching to channel 5");
+		//CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON,6);
 		CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
 
 		LOGGER.info("Click Xfinity down button");
 		CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
 
+		LOGGER.info("Click Xfinity down button");
+		CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
+		
+		LOGGER.info("Click Xfinity down button");
+		CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
+		
+		LOGGER.info("Click Xfinity down button");
+		CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
+		
 		LOGGER.info("Click Xfinity down button");
 		CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
 
 	}
-	public static void navigateToChannelFour() throws InterruptedException {
+	public static void navigateToChannelSeven() throws InterruptedException {
 		LOGGER.info("Click Xfinity button ");
 		CommonMethods.execCommand(RemoteKeyContstants.XFINITY_BUTTON);
 

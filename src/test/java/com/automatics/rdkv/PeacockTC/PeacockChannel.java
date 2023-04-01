@@ -136,7 +136,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 			LOGGER.info("*****************************************************************************************");
 
 			LOGGER.info("Calling method to navigate to linear channel ");
-			CommonMethods.navigateToChannelFour();
+			CommonMethods.navigateToChannelFive();
 
 			Thread.sleep(2000);
 
@@ -356,7 +356,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 
 
 			LOGGER.info("Calling method to navigate to linear channel ");
-			CommonMethods.navigateToChannelFour();
+			CommonMethods.navigateToChannelFive();
 
 			Thread.sleep(2000);
 
@@ -778,7 +778,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 			LOGGER.info("*****************************************************************************************");
 
 			LOGGER.info("Calling method to navigate to linear channels");
-			CommonMethods.navigateToChannelFour();
+			CommonMethods.navigateToChannelFive();
 
 			Thread.sleep(3000);
 
@@ -915,7 +915,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 			LOGGER.info("*****************************************************************************************");
 
 			LOGGER.info("Calling method to navigate to linear channels");
-			CommonMethods.navigateToChannelFour();
+			CommonMethods.navigateToChannelFive();
 
 			Thread.sleep(2000);
 
@@ -1052,7 +1052,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 			LOGGER.info("*****************************************************************************************");
 
 			LOGGER.info("Calling method to navigate to linear channels");
-			CommonMethods.navigateToChannelFour();
+			CommonMethods.navigateToChannelFive();
 
 			Thread.sleep(2000);
 
