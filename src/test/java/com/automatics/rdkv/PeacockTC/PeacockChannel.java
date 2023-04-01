@@ -238,7 +238,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 
 
 			LOGGER.info("Calling method to navigate to linear channel ");
-			CommonMethods.navigateToChannelSeven();
+			CommonMethods.navigateToChannelFive();
 
 			Thread.sleep(2000);
 
@@ -250,7 +250,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 			LOGGER.info("Click Ok button to see progress bar");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.OK_BUTTON);
 			
-			Thread.sleep(5000);
+//			Thread.sleep(5000);
 
 			LOGGER.info("Click Xfinity right button to fastward the video ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.RIGHT_BUTTON);
