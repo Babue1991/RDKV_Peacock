@@ -136,7 +136,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 			LOGGER.info("*****************************************************************************************");
 
 			LOGGER.info("Calling method to navigate to linear channel ");
-			CommonMethods.navigateToChannelFive();
+			CommonMethods.navigateToChannelSeven();
 
 			Thread.sleep(2000);
 
@@ -356,7 +356,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 
 
 			LOGGER.info("Calling method to navigate to linear channel ");
-			CommonMethods.navigateToChannelFive();
+			CommonMethods.navigateToChannelSeven();
 
 			Thread.sleep(2000);
 
@@ -475,6 +475,9 @@ public class PeacockChannel extends AutomaticsTestBase {
 
 			Thread.sleep(3000);
 
+			LOGGER.info("Click Xfinity down button ");
+			CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
+			
 			LOGGER.info("Click Xfinity down button ");
 			CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
 			
@@ -778,7 +781,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 			LOGGER.info("*****************************************************************************************");
 
 			LOGGER.info("Calling method to navigate to linear channels");
-			CommonMethods.navigateToChannelFive();
+			CommonMethods.navigateToChannelSeven();
 
 			Thread.sleep(3000);
 
@@ -915,7 +918,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 			LOGGER.info("*****************************************************************************************");
 
 			LOGGER.info("Calling method to navigate to linear channels");
-			CommonMethods.navigateToChannelFive();
+			CommonMethods.navigateToChannelSeven();
 
 			Thread.sleep(2000);
 
@@ -1052,7 +1055,7 @@ public class PeacockChannel extends AutomaticsTestBase {
 			LOGGER.info("*****************************************************************************************");
 
 			LOGGER.info("Calling method to navigate to linear channels");
-			CommonMethods.navigateToChannelFive();
+			CommonMethods.navigateToChannelSeven();
 
 			Thread.sleep(2000);
 
