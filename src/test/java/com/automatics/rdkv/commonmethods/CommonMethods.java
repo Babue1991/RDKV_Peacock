@@ -660,23 +660,23 @@ public class CommonMethods extends AutomaticsTestBase{
 		Thread.sleep(5000);
 
 		LOGGER.info("Switching to channel 5");
-		CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON,6);
-//		CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
-//
-//		LOGGER.info("Click Xfinity down button");
-//		CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
-//
-//		LOGGER.info("Click Xfinity down button");
-//		CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
-//		
-//		LOGGER.info("Click Xfinity down button");
-//		CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
-//		
-//		LOGGER.info("Click Xfinity down button");
-//		CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
-//		
-//		LOGGER.info("Click Xfinity down button");
-//		CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
+		//CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON,6);
+		CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
+
+		LOGGER.info("Click Xfinity down button");
+		CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
+
+		LOGGER.info("Click Xfinity down button");
+		CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
+		
+		LOGGER.info("Click Xfinity down button");
+		CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
+		
+		LOGGER.info("Click Xfinity down button");
+		CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
+		
+		LOGGER.info("Click Xfinity down button");
+		CommonMethods.execCommandIcon(RemoteKeyContstants.DOWN_BUTTON);
 
 	}
 	public static void navigateToChannelSeven() throws InterruptedException {
