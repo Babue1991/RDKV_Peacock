@@ -578,7 +578,7 @@ public class CommonMethods extends AutomaticsTestBase{
 			Thread.sleep(10000);
 
 			if(status==true) {
-				LOGGER.info("It's supports trick play");
+				LOGGER.info("It supports trick play");
 			}
 			else {
 
