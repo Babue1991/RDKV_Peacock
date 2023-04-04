@@ -711,7 +711,7 @@ public class CommonMethods extends AutomaticsTestBase{
 
 		Thread.sleep(5000);
 		LOGGER.info("Switching to channel 7");
-		CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON,8);
+		CommonMethods.execCommandRepeat(RemoteKeyContstants.DOWN_BUTTON,7);
 		
 		/*
 		 * LOGGER.info("Tune to channel 2");
